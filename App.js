@@ -1,7 +1,12 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import SplashScreen from 'react-native-splash-screen';
 import RootStack from './src/navigation/RootStack';
+
 const App = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return <RootStack />;
 };
 

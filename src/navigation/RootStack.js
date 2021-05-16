@@ -14,7 +14,10 @@ const RootStack = () => {
         barStyle="light-content"
         backgroundColor={'transparent'}
       />
-      <Stack.Navigator mode="modal" screenOptions={{headerShown: false}}>
+      <Stack.Navigator
+        mode="modal"
+        initialRouteName={routes.BOTTOMTABBAR}
+        screenOptions={{headerShown: false}}>
         <Stack.Screen
           name={routes.BOTTOMTABBAR}
           component={BottomTabNavigation}

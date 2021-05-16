@@ -145,7 +145,6 @@
 				37A3778ED9A960C474EF609E /* Pods-ecommerce_graduate-ecommerce_graduateTests.debug.xcconfig */,
 				E53055E41040246BEB8A37B5 /* Pods-ecommerce_graduate-ecommerce_graduateTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

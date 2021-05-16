@@ -39,7 +39,7 @@ const BottomTabNavigation = () => {
         name={routes.PROFILESCREENS}
         component={bottom.PROFILESCREENS}
         options={{
-          tabBarLabel: 'Cá nhân',
+          tabBarLabel: 'Tài khoản',
         }}
       />
     </Tab.Navigator>
