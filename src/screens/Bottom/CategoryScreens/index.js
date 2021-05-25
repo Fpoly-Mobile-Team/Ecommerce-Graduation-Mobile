@@ -1,11 +1,11 @@
-import {Block, Text} from '@components';
+import {Block, Text, Header} from '@components';
 import React from 'react';
 import {StyleSheet} from 'react-native';
 
 const CategoryScreens = () => {
   return (
-    <Block>
-      <Text>CategoryScreens</Text>
+    <Block flex>
+      <Header title="Danh Mục" />
     </Block>
   );
 };

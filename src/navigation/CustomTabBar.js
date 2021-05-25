@@ -34,6 +34,17 @@ const MyTabBar = ({state, descriptors, navigation}) => {
             : index === 3
             ? icons.notification
             : icons.profile;
+
+        const iconselect =
+          index === 0
+            ? icons.homeselect
+            : index === 1
+            ? icons.categoryselect
+            : index === 2
+            ? icons.commentselect
+            : index === 3
+            ? icons.notificationselect
+            : icons.profileselect;
         const onPress = () => {
           const event = navigation.emit({
             type: 'tabPress',
@@ -62,7 +73,10 @@ const MyTabBar = ({state, descriptors, navigation}) => {
             onPress={onPress}
             onLongPress={onLongPress}
             style={styles.btn}>
-            <Image source={icon} style={styles.iconstyle(isFocused)} />
+            <Image
+              source={isFocused ? iconselect : icon}
+              style={styles.iconstyle(isFocused)}
+            />
             <Text style={styles.textlabel(isFocused)}>{label}</Text>
           </Pressable>
         );
@@ -74,7 +88,7 @@ export default MyTabBar;
 const styles = StyleSheet.create({
   btn: {flex: 1, alignItems: 'center'},
   textlabel: isFocused => ({
-    color: isFocused ? theme.colors.orange : theme.colors.lightGray,
+    color: isFocused ? '#ff5555' : theme.colors.lightGray,
     marginTop: 5,
     fontSize: 10,
   }),
@@ -82,6 +96,6 @@ const styles = StyleSheet.create({
     width: getSize.s(20),
     height: getSize.s(20),
     resizeMode: 'contain',
-    tintColor: isFocused ? theme.colors.orange : theme.colors.lightGray,
+    tintColor: isFocused ? '#ff5555' : theme.colors.lightGray,
   }),
 });

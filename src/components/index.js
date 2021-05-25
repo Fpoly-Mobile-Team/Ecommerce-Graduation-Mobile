@@ -1,3 +1,4 @@
 import Block from './Block';
 import Text from './Text';
-export {Block, Text};
+import Header from './Header';
+export {Block, Text, Header};
