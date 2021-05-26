@@ -10,4 +10,5 @@ export const icons = {
   profileselect: require('./icons/profileselect.png'),
   commentselect: require('./icons/commentselect.png'),
   back: require('./icons/back.png'),
+  bell: require('./icons/bell.png'),
 };
