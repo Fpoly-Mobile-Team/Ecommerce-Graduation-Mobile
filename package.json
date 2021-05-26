@@ -5,6 +5,14 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
+    "pins": "npx pod-install -ios",
+    "pins-M1": "cd ios && arch -x86_64 pod install && cd ..",
+    "android-clean": "cd android && ./gradlew clean && cd ..",
+    "pod-update": "cd ios && arch -x86_64 pod repo update",
+    "android-release": "react-native run-android --variant=release",
+    "apk-release": "cd android && ./gradlew clean && ./gradlew assembleRelease && cd ..",
+    "aab-release": "cd android && ./gradlew clean && ./gradlew bundleRelease && cd ..",
+    "signingReport": "cd android && ./gradlew signingReport",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint ."
@@ -21,7 +29,10 @@
     "react-native-reanimated": "^2.1.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^3.2.0",
-    "react-native-splash-screen": "^3.2.0"
+    "react-native-splash-screen": "^3.2.0",
+    "react-redux": "^7.2.4",
+    "redux": "^4.1.0",
+    "redux-saga": "^1.1.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
