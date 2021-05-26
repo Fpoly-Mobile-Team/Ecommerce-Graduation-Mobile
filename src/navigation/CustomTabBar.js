@@ -1,12 +1,12 @@
-import React from 'react';
-import {Block} from '@components';
-import {StyleSheet, Text, Pressable, Image, Platform} from 'react-native';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {theme} from '@theme';
 import {icons} from '@assets';
+import {Block} from '@components';
+import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
-
-const MyTabBar = ({state, descriptors, navigation}) => {
+import React from 'react';
+import {Image, Platform, Pressable, StyleSheet, Text} from 'react-native';
+import {Badge} from 'react-native-elements';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+const CustomTabBar = ({state, descriptors, navigation}) => {
   const {bottom} = useSafeAreaInsets();
   return (
     <Block
@@ -73,6 +73,14 @@ const MyTabBar = ({state, descriptors, navigation}) => {
             onPress={onPress}
             onLongPress={onLongPress}
             style={styles.btn}>
+            {index === 3 && (
+              <Badge
+                status="error"
+                containerStyle={styles.containerStyle}
+                badgeStyle={styles.badgeStyle}
+                value="1"
+              />
+            )}
             <Image
               source={isFocused ? iconselect : icon}
               style={styles.iconstyle(isFocused)}
@@ -84,7 +92,7 @@ const MyTabBar = ({state, descriptors, navigation}) => {
     </Block>
   );
 };
-export default MyTabBar;
+export default CustomTabBar;
 const styles = StyleSheet.create({
   btn: {flex: 1, alignItems: 'center'},
   textlabel: isFocused => ({
@@ -98,4 +106,11 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     tintColor: isFocused ? '#ff5555' : theme.colors.lightGray,
   }),
+  containerStyle: {
+    position: 'absolute',
+    zIndex: 10,
+    top: getSize.s(-7),
+    right: getSize.s(21),
+  },
+  badgeStyle: {borderColor: '#fff', borderWidth: 1},
 });
