@@ -11,4 +11,6 @@ export const icons = {
   commentselect: require('./icons/commentselect.png'),
   back: require('./icons/back.png'),
   bell: require('./icons/bell.png'),
+  search: require('./icons/search.png'),
+  cart: require('./icons/cart.png'),
 };

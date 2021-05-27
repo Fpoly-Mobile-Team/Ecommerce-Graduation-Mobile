@@ -11,7 +11,7 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
   return (
     <Block
       row
-      backgroundColor="#fff"
+      backgroundColor={theme.colors.white}
       paddingBottom={Platform.OS === 'ios' ? bottom : 10}
       paddingTop={10}>
       {state.routes.map((route, index) => {
@@ -96,7 +96,7 @@ export default CustomTabBar;
 const styles = StyleSheet.create({
   btn: {flex: 1, alignItems: 'center'},
   textlabel: isFocused => ({
-    color: isFocused ? '#ff5555' : theme.colors.lightGray,
+    color: isFocused ? theme.colors.pink : theme.colors.lightGray,
     marginTop: 5,
     fontSize: 10,
   }),
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     width: getSize.s(20),
     height: getSize.s(20),
     resizeMode: 'contain',
-    tintColor: isFocused ? '#ff5555' : theme.colors.lightGray,
+    tintColor: isFocused ? theme.colors.pink : theme.colors.lightGray,
   }),
   containerStyle: {
     position: 'absolute',
