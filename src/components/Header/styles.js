@@ -24,4 +24,18 @@ export default StyleSheet.create({
     height: getSize.s(20),
     tintColor: theme.colors.placeholder,
   },
+  box: backgroundColorbox => ({
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: backgroundColorbox,
+    borderRadius: 5,
+    paddingHorizontal: 12,
+    height: getSize.m(40),
+  }),
+  container: (top, backgroundColor) => ({
+    paddingTop: top + 10,
+    paddingHorizontal: getSize.m(12),
+    backgroundColor: backgroundColor,
+  }),
 });

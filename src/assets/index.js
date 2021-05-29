@@ -13,4 +13,9 @@ export const icons = {
   bell: require('./icons/bell.png'),
   search: require('./icons/search.png'),
   cart: require('./icons/cart.png'),
+  bg_flash: require('./icons/bg_flash.png'),
+  giasoc: require('./icons/giasoc.png'),
+  flash: require('./icons/flash.png'),
+  homnay: require('./icons/homnay.png'),
+  next: require('./icons/next.png'),
 };
