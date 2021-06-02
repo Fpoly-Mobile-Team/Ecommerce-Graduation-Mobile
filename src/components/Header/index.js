@@ -57,13 +57,18 @@ const HeaderHome = ({scroll}) => {
     outputRange: [theme.colors.white, theme.colors.pink],
     extrapolate: 'clamp',
   });
-
+  const backgroundsmoke = scroll.interpolate({
+    inputRange: [0, HEADER_SCROLL_DISTANCE],
+    outputRange: [theme.colors.pink, theme.colors.smoke],
+    extrapolate: 'clamp',
+  });
   return (
     <Block>
       <StatusBar translucent barStyle="light-content" />
       <Animated.View
         style={{
           ...styles.container(top, backgroundColor),
+          ...styles.shadow,
         }}>
         <Block row alignCenter marginBottom={12} space="between">
           <Animated.View
@@ -89,6 +94,7 @@ const HeaderHome = ({scroll}) => {
           <Card colorimg={colorimg} />
         </Block>
       </Animated.View>
+      <Animated.View style={styles.backgroundColorsmoke(backgroundsmoke)} />
     </Block>
   );
 };
