@@ -18,4 +18,8 @@ export const icons = {
   flash: require('./icons/flash.png'),
   homnay: require('./icons/homnay.png'),
   next: require('./icons/next.png'),
+  tick: require('./icons/tick.png'),
+  menu: require('./icons/menu.png'),
+  discount: require('./icons/discount.png'),
+  hotsale: require('./icons/hotsale.png'),
 };

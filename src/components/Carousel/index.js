@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {Block} from '@components';
 import {getSize, width} from '@utils/responsive';
 import React from 'react';
-import {Image} from 'react-native';
+import {Image, Platform} from 'react-native';
 import {SwiperFlatList} from 'react-native-swiper-flatlist';
 import styles from './styles';
 
@@ -16,7 +17,7 @@ const data = [
 ];
 
 const Carousel = () => {
-  const _renderItem = ({item}) => {
+  const _renderItem = React.useCallback(({item}) => {
     return (
       <Block>
         <Image
@@ -29,7 +30,11 @@ const Carousel = () => {
         />
       </Block>
     );
-  };
+  }, []);
+
+  const keyExtractor = React.useCallback((item, index) => String(index), []);
+
+  const memoizedValue = React.useMemo(() => _renderItem, [data]);
 
   return (
     <Block marginBottom={10}>
@@ -39,8 +44,13 @@ const Carousel = () => {
         autoplayLoop
         autoplayDelay={3}
         index={3}
-        keyExtractor={index => String(index)}
-        renderItem={_renderItem}
+        keyExtractor={keyExtractor}
+        renderItem={memoizedValue}
+        updateCellsBatchingPeriod={30}
+        initialNumToRender={6}
+        disableVirtualization={false}
+        windowSize={5}
+        removeClippedSubviews={Platform.OS === 'ios' ? true : false}
         showPagination
         renderAll={true}
         showsHorizontalScrollIndicator={false}

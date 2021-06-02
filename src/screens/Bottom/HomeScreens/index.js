@@ -2,9 +2,12 @@ import {Block, Carousel, Header} from '@components';
 import {theme} from '@theme';
 import {height} from '@utils/responsive';
 import React, {useRef, useState} from 'react';
-import {Animated, Platform, RefreshControl} from 'react-native';
+import {Animated, RefreshControl} from 'react-native';
 import CategoryHighlights from './components/CategoryHighlights';
+import FeaturedCategory from './components/FeaturedCategory';
 import FlashSale from './components/FlashSale';
+import FeaturedShop from './components/FeaturedShop';
+import SellingProduct from './components/SellingProduct';
 import styles from './styles';
 
 const HomeScreens = () => {
@@ -19,7 +22,6 @@ const HomeScreens = () => {
   return (
     <Block flex backgroundColor="background">
       <Header type="Home" scroll={scrollY} />
-
       <Animated.ScrollView
         removeClippedSubviews
         scrollEventThrottle={16}
@@ -44,13 +46,13 @@ const HomeScreens = () => {
           <Carousel />
         </Block>
         <CategoryHighlights />
+        <FeaturedCategory />
+        <Block paddingHorizontal={12}>
+          <Carousel />
+        </Block>
+        <FeaturedShop />
         <FlashSale />
-        <CategoryHighlights />
-        <FlashSale />
-        <CategoryHighlights />
-        <FlashSale />
-        <CategoryHighlights />
-        <FlashSale />
+        <SellingProduct />
       </Animated.ScrollView>
     </Block>
   );

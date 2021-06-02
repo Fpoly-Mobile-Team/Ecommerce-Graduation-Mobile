@@ -5,7 +5,6 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
   imgbackground: {
     width: width - 24,
-    height: width / 2,
     marginHorizontal: getSize.m(12),
   },
   imageStyle: {borderRadius: getSize.m(10)},

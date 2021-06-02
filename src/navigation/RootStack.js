@@ -5,6 +5,7 @@ import {StatusBar} from 'react-native';
 import BottomTabNavigation from './BottomTabNavigation';
 import {navigate} from './RootNavigation';
 import {routes} from './routes';
+import {bottom} from '@screens/Bottom';
 const Stack = createStackNavigator();
 const RootStack = () => {
   return (
@@ -21,6 +22,10 @@ const RootStack = () => {
         <Stack.Screen
           name={routes.BOTTOMTABBAR}
           component={BottomTabNavigation}
+        />
+        <Stack.Screen
+          name={routes.PRODUCT_DETAILS}
+          component={bottom.PRODUCT_DETAILS}
         />
       </Stack.Navigator>
     </NavigationContainer>
