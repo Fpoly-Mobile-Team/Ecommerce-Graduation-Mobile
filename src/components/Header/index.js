@@ -80,7 +80,9 @@ const HeaderHome = ({scroll}) => {
               style={styles.iconSearch}
               resizeMode="contain"
             />
-            <Animated.Text style={{marginLeft: getSize.s(5), color: colortext}}>
+            <Animated.Text
+              allowFontScaling={false}
+              style={{marginLeft: getSize.s(5), color: colortext}}>
               Bạn tìm gì hôm nay?
             </Animated.Text>
           </Animated.View>
@@ -131,6 +133,7 @@ const Card = ({colorimg}) => {
         status="warning"
         value="1"
         containerStyle={styles.containerStyle}
+        textProps={{allowFontScaling: false}}
       />
       <Animated.Image
         source={icons.cart}

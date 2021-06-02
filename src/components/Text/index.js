@@ -67,7 +67,7 @@ const Typography = props => {
   ];
 
   return (
-    <Text style={textStyle} {...textProps}>
+    <Text allowFontScaling={false} style={textStyle} {...textProps}>
       {props.children}
     </Text>
   );

@@ -1,9 +1,9 @@
 import {icons} from '@assets';
-import {Block} from '@components';
+import {Block, Text} from '@components';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
 import React from 'react';
-import {Image, Platform, Pressable, StyleSheet, Text} from 'react-native';
+import {Image, Platform, Pressable, StyleSheet} from 'react-native';
 import {Badge} from 'react-native-elements';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 const CustomTabBar = ({state, descriptors, navigation}) => {
@@ -78,6 +78,7 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
                 status="error"
                 containerStyle={styles.containerStyle}
                 badgeStyle={styles.badgeStyle}
+                textProps={{allowFontScaling: false}}
                 value="1"
               />
             )}
