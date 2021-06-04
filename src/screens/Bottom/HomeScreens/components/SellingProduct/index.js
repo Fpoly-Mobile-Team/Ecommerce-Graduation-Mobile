@@ -1,7 +1,6 @@
 import {icons} from '@assets';
 import {Block, Text} from '@components';
 import ItemProduct from '@components/Common/ItemProduct';
-import {width} from '@utils/responsive';
 import React from 'react';
 import {Image, Pressable} from 'react-native';
 import styles from './styles';
@@ -35,8 +34,7 @@ const data = [
       'Áo thun tay lỡ nữ freesize - Áo phông form rộng dáng Unisex, mặc lớp, nhóm, cặp, couple thêu hình rau củ 6 màu',
   },
   {
-    image:
-      'https://salt.tikicdn.com/cache/280x280/ts/product/d3/f6/d5/9fd75deca506264412da501a2a429c65.jpg',
+    image: 'https://cf.shopee.vn/file/3b55a9c1fa7e303b8f8828480fd1885e',
     title:
       'Áo thun tay lỡ nữ freesize - Áo phông form rộng dáng Unisex, mặc lớp, nhóm, cặp, couple thêu hình rau củ 6 màu',
   },

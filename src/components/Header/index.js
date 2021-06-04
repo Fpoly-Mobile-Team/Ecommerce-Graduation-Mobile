@@ -62,13 +62,13 @@ const HeaderHome = ({scroll}) => {
     outputRange: [theme.colors.pink, theme.colors.smoke],
     extrapolate: 'clamp',
   });
+
   return (
     <Block>
       <StatusBar translucent barStyle="light-content" />
       <Animated.View
         style={{
           ...styles.container(top, backgroundColor),
-          ...styles.shadow,
         }}>
         <Block row alignCenter marginBottom={12} space="between">
           <Animated.View
@@ -94,6 +94,7 @@ const HeaderHome = ({scroll}) => {
           <Card colorimg={colorimg} />
         </Block>
       </Animated.View>
+
       <Animated.View style={styles.backgroundColorsmoke(backgroundsmoke)} />
     </Block>
   );
@@ -107,6 +108,7 @@ const HeaderCommon = ({canGoBack, title}) => {
     <Block
       row
       alignCenter
+      shadow
       paddingTop={top + 10}
       paddingVertical={16}
       paddingHorizontal={12}

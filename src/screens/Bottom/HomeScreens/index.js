@@ -20,7 +20,7 @@ const HomeScreens = () => {
   };
 
   return (
-    <Block flex backgroundColor="background">
+    <Block flex backgroundColor="white">
       <Header type="Home" scroll={scrollY} />
       <Animated.ScrollView
         removeClippedSubviews
@@ -46,12 +46,32 @@ const HomeScreens = () => {
           <Carousel />
         </Block>
         <CategoryHighlights />
+        <Block
+          height={10}
+          marginBottom={10}
+          backgroundColor={theme.colors.smoke}
+        />
         <FeaturedCategory />
         <Block paddingHorizontal={12}>
           <Carousel />
         </Block>
+        <Block
+          height={10}
+          marginBottom={10}
+          backgroundColor={theme.colors.smoke}
+        />
         <FeaturedShop />
+        <Block
+          height={10}
+          marginBottom={10}
+          backgroundColor={theme.colors.smoke}
+        />
         <FlashSale />
+        <Block
+          height={10}
+          marginTop={10}
+          backgroundColor={theme.colors.smoke}
+        />
         <SellingProduct />
       </Animated.ScrollView>
     </Block>

@@ -44,7 +44,12 @@ const data = [
 ];
 const FlashSale = () => {
   const _renderItem = ({item}) => (
-    <ItemProduct image={item.image} nameProduct={item.title} fashsale />
+    <ItemProduct
+      image={item.image}
+      nameProduct={item.title}
+      fashsale
+      left={-0.75}
+    />
   );
   const keyExtractor = React.useCallback((item, index) => String(index), []);
 

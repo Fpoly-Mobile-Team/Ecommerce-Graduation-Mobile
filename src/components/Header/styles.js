@@ -38,16 +38,7 @@ export default StyleSheet.create({
     paddingHorizontal: getSize.m(12),
     backgroundColor: backgroundColor,
   }),
-  shadow: {
-    shadowColor: theme.colors.smoke,
-    shadowOffset: {
-      width: 0,
-      height: 0.2,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
-    elevation: 1,
-  },
+
   backgroundColorsmoke: backgroundsmoke => ({
     backgroundColor: backgroundsmoke,
     height: getSize.m(0.5),

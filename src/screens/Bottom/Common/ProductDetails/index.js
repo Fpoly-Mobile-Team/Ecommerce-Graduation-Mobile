@@ -1,6 +1,5 @@
 import {Block, Text, Header} from '@components';
 import React from 'react';
-import {View} from 'react-native';
 
 const ProductDetails = () => {
   return (

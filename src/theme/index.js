@@ -19,6 +19,7 @@ export const theme = {
     yellow: '#FFDF00',
     dark: '#00000060',
     pink: '#ff5555',
+    pinkholder: '#ffc9c9',
   },
 
   fonts: {
