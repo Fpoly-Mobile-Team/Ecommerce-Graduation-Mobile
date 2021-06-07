@@ -1,12 +1,14 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import {bottom} from '@screens/Bottom';
 import React from 'react';
 import {StatusBar} from 'react-native';
 import BottomTabNavigation from './BottomTabNavigation';
 import {navigate} from './RootNavigation';
 import {routes} from './routes';
-import {bottom} from '@screens/Bottom';
+
 const Stack = createStackNavigator();
+
 const RootStack = () => {
   return (
     <NavigationContainer ref={navigate}>
@@ -18,7 +20,9 @@ const RootStack = () => {
       <Stack.Navigator
         mode="modal"
         initialRouteName={routes.BOTTOMTABBAR}
-        screenOptions={{headerShown: false}}>
+        screenOptions={{
+          headerShown: false,
+        }}>
         <Stack.Screen
           name={routes.BOTTOMTABBAR}
           component={BottomTabNavigation}

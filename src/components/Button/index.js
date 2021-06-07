@@ -13,7 +13,7 @@ const Button = ({title, onPress, titleStyle, style}) => {
         radius={45}
         marginVertical={20}
         style={style}
-        backgroundColor="#ff5555">
+        backgroundColor={theme.colors.pink}>
         <Text fontType="semibold" color={theme.colors.white} style={titleStyle}>
           {title}
         </Text>

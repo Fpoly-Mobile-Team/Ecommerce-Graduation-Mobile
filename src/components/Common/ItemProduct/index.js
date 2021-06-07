@@ -71,7 +71,7 @@ const ItemProduct = React.memo(
                   radius={2}
                   paddingHorizontal={2}
                   marginLeft={10}
-                  backgroundColor={theme.colors.pink}>
+                  backgroundColor={theme.colors.sell}>
                   <Text
                     center
                     size={12}

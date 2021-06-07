@@ -89,10 +89,26 @@ const FeaturedShop = () => {
 
   const memoizedValue = React.useMemo(() => _renderItem, [data]);
   return (
-    <Block marginBottom={20}>
-      <Text marginBottom={16} paddingHorizontal={12} size={16} fontType="bold">
-        Shop Nổi Bật
-      </Text>
+    <Block marginBottom={13}>
+      <Block
+        row
+        alignCenter
+        paddingHorizontal={12}
+        marginBottom={16}
+        space="between">
+        <Text size={16} fontType="bold">
+          Shop Nổi Bật
+        </Text>
+        <Pressable style={styles.stylebtn}>
+          <Text size={12}>Xem tất cả</Text>
+          <Image
+            source={icons.next}
+            style={styles.iconnext}
+            resizeMode="contain"
+          />
+        </Pressable>
+      </Block>
+
       <Block paddingLeft={9}>
         <FlatList
           horizontal
