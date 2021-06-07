@@ -4,6 +4,7 @@ import NotificationScreens from './NotificationScreens';
 import ProfileScreens from './ProfileScreens';
 import ChatScreens from './ChatScreens';
 import ProductDetails from './Common/ProductDetails';
+import CartScreens from './CartScreens';
 
 export const bottom = {
   HOMESCREENS: HomeScreens,
@@ -12,4 +13,5 @@ export const bottom = {
   PROFILESCREENS: ProfileScreens,
   CHATSCREENS: ChatScreens,
   PRODUCT_DETAILS: ProductDetails,
+  CARTSCREENS: CartScreens,
 };
