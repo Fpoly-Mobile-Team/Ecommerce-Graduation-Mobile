@@ -25,6 +25,7 @@ const HomeScreens = () => {
       <Animated.ScrollView
         removeClippedSubviews
         scrollEventThrottle={16}
+        contentInsetAdjustmentBehavior="never"
         showsVerticalScrollIndicator={false}
         onScroll={Animated.event(
           [{nativeEvent: {contentOffset: {y: scrollY}}}],

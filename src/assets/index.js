@@ -22,4 +22,7 @@ export const icons = {
   menu: require('./icons/menu.png'),
   discount: require('./icons/discount.png'),
   hotsale: require('./icons/hotsale.png'),
+  share: require('./icons/share.png'),
+  favorite: require('./icons/favorite.png'),
+  info: require('./icons/information.png'),
 };
