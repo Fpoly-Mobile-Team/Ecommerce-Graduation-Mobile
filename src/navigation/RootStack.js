@@ -17,7 +17,7 @@ const RootStack = () => {
       />
       <Stack.Navigator
         mode="modal"
-        initialRouteName={routes.BOTTOMTABBAR}
+        initialRouteName={routes.CARTSCREENS}
         screenOptions={{headerShown: false}}>
         <Stack.Screen
           name={routes.BOTTOMTABBAR}
@@ -26,6 +26,10 @@ const RootStack = () => {
         <Stack.Screen
           name={routes.PRODUCT_DETAILS}
           component={bottom.PRODUCT_DETAILS}
+        />
+        <Stack.Screen
+          name={routes.CARTSCREENS}
+          component={bottom.CARTSCREENS}
         />
       </Stack.Navigator>
     </NavigationContainer>

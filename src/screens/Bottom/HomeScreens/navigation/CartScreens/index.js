@@ -6,10 +6,10 @@ import {
   TouchableOpacity,
   TextInput,
   Text,
+  ScrollView,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './styles';
-import LisProducts from './ListProducts';
 
 const BagScreen = () => {
   const TopSearch = () => {
@@ -22,7 +22,7 @@ const BagScreen = () => {
   };
 
   return (
-    <View
+    <ScrollView
       style={{
         display: 'flex',
         flexDirection: 'column',
@@ -34,7 +34,6 @@ const BagScreen = () => {
         <Text style={styles.CartTitle}>Giỏ hàng</Text>
       </View>
       <SafeAreaView style={styles.container}>
-        <LisProducts />
         <View style={styles.Promo}>
           <TextInput
             style={styles.input}
@@ -56,7 +55,7 @@ const BagScreen = () => {
           </TouchableOpacity>
         </View>
       </SafeAreaView>
-    </View>
+    </ScrollView>
   );
 };
 
