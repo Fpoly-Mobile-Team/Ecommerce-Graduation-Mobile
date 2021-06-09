@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {icons} from '@assets';
 import {Block, Text} from '@components';
 import ItemProduct from '@components/Common/ItemProduct';
