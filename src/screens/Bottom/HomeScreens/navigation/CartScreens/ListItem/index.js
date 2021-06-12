@@ -104,8 +104,7 @@ const Item = ({item, onPress}) => {
               <PlusCircle />
             </TouchableOpacity>
           </View>
-
-          <Text style={styles.price}>{item.price} VND</Text>
+          <Text style={styles.price}>{item.price}VND</Text>
         </View>
       </View>
     </View>

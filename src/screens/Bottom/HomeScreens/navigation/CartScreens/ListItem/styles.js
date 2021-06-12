@@ -50,7 +50,6 @@ export default StyleSheet.create({
     color: 'black',
   },
   price: {
-    paddingHorizontal: 65,
     fontSize: 15,
     color: 'black',
   },
@@ -62,7 +61,7 @@ export default StyleSheet.create({
   },
   bottomItem: {
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
   touch: {
