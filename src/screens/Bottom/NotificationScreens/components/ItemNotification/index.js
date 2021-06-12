@@ -1,8 +1,8 @@
+import {Block, Text} from '@components';
+import {theme} from '@theme';
+import {getSize, width} from '@utils/responsive';
 import React from 'react';
 import {Image} from 'react-native';
-import {Block, Text} from '@components';
-import {width, getSize} from '@utils/responsive';
-import {theme} from '@theme';
 import styles from './styles';
 
 const ItemNotification = ({image, title, content, ingredients, time}) => {
@@ -18,9 +18,7 @@ const ItemNotification = ({image, title, content, ingredients, time}) => {
         />
       </Block>
       <Block width={(width - 24) * 0.8} paddingLeft={12}>
-        <Text fontType="bold" fontType="semibold">
-          {title}
-        </Text>
+        <Text fontType="bold">{title}</Text>
         <Text>{content}</Text>
         <Block row alignCenter wrap marginTop={10} marginBottom={5}>
           {ingredients.map(renderImage)}
