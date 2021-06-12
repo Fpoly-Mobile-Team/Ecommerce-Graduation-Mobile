@@ -20,6 +20,7 @@ export const theme = {
     dark: '#00000060',
     pink: '#ff5555',
     pinkholder: '#ffc9c9',
+    silver: '#C0C0C0',
   },
 
   fonts: {

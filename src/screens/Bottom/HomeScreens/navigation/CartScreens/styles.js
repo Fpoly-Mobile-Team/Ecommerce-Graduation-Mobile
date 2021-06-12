@@ -1,38 +1,25 @@
 import {StyleSheet, StatusBar} from 'react-native';
 export default StyleSheet.create({
-  mainBody: {
-    flex: 1,
-    paddingTop: 10,
+  headerContain: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: 20,
+    elevation: 2,
   },
-  TopSearch: {
-    alignSelf: 'stretch',
-    height: 60,
-    flexDirection: 'row', // row
-    alignItems: 'flex-end',
-    justifyContent: 'space-between', // center, space-around
-    paddingLeft: 10,
-    paddingRight: 10,
-  },
-  CartTitle: {
-    fontSize: 40,
-    fontStyle: 'normal',
+  middleComponent: {
+    fontSize: 18,
     fontWeight: 'bold',
-    color: 'black',
-    paddingLeft: 10,
-    paddingTop: 10,
-    fontFamily: 'Arial Hebrew',
   },
   container: {
-    flex: 1,
+    height: '30%',
   },
-
-  Amount: {
+  amount: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginVertical: 10,
     paddingHorizontal: 15,
   },
-  Promo: {
+  promo: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -41,7 +28,7 @@ export default StyleSheet.create({
   },
   input: {
     height: 40,
-    width: '90%',
+    width: '92%',
     borderWidth: 0,
     borderRadius: 10,
     backgroundColor: 'white',
@@ -49,15 +36,50 @@ export default StyleSheet.create({
   next: {
     alignItems: 'center',
   },
-  Check: {
-    fontSize: 20,
-    width: 350,
+  buttonGroup: {
+    width: '95%',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
     alignSelf: 'center',
-    textAlign: 'center',
+    paddingBottom: 20,
+  },
+  btnOutline: {
+    width: '40%',
+    fontSize: 16,
+    borderColor: 'black',
+    color: 'black',
+    borderWidth: 1.5,
+    alignSelf: 'center',
+    borderRadius: 30,
+    padding: 10,
+  },
+  btnRounded: {
+    width: '50%',
+    fontSize: 16,
+    alignSelf: 'center',
     color: 'white',
     borderRadius: 30,
     padding: 10,
-    marginVertical: 15,
-    backgroundColor: '#DB3022',
+    backgroundColor: '#FC5859',
+  },
+  textBtn: {
+    color: 'white',
+    fontSize: 16,
+    textAlign: 'center',
+    color: 'white',
+    paddingVertical: 2,
+  },
+  textOutline: {
+    color: 'black',
+    fontSize: 16,
+    textAlign: 'center',
+  },
+  check: {
+    width: '90%',
+    height: 48,
+    alignSelf: 'center',
+    borderRadius: 30,
+    padding: 10,
+    backgroundColor: '#FC5859',
   },
 });

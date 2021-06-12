@@ -1,62 +1,57 @@
-import React, {useState} from 'react';
-import {
-  View,
-  SafeAreaView,
-  FlatList,
-  TouchableOpacity,
-  TextInput,
-  Text,
-  ScrollView,
-} from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import React, {useRef, useState} from 'react';
+import {Block, HeaderTitle} from '@components';
+import {View, TouchableOpacity, TextInput, Text} from 'react-native';
+import {height} from '@utils/responsive';
+import {CircleBack} from 'svg/common';
 import styles from './styles';
+import ListCart from './ListItem';
 
-const BagScreen = () => {
-  const TopSearch = () => {
-    return (
-      <View style={styles.TopSearch}>
-        <Icon name="arrow-back-outline" size={26} />
-        <Icon name="search-outline" size={28} />
-      </View>
-    );
-  };
-
+const CartScreen = () => {
   return (
-    <ScrollView
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        flex: 1,
-        paddingTop: 20,
-      }}>
-      <TopSearch />
-      <View>
-        <Text style={styles.CartTitle}>Giỏ hàng</Text>
+    <Block flex height={height}>
+      <HeaderTitle
+        isDefault
+        containerStyle={styles.headerContain}
+        leftStyle={{
+          fontWeight: 'bold',
+          paddingHorizontal: 10,
+        }}
+        middleComponent={
+          <Text style={styles.middleComponent}>Giỏ hàng của tôi</Text>
+        }
+      />
+
+      <View style={{flex: 1, height: '100%', paddingTop: 50}}>
+        <ListCart />
       </View>
-      <SafeAreaView style={styles.container}>
-        <View style={styles.Promo}>
+      <View style={styles.container}>
+        <View style={styles.promo}>
           <TextInput
             style={styles.input}
             placeholder="Nhập mã khuyến mãi của bạn..."
           />
           <TouchableOpacity onPress={{}}>
-            <Icon name="arrow-forward-circle" size={50} style={styles.next} />
+            <CircleBack style={styles.next} />
           </TouchableOpacity>
         </View>
-        <View style={styles.Amount}>
-          <Text style={{fontSize: 18, fontWeight: 'bold'}}>Tổng tiền:</Text>
-          <Text style={{color: 'black', fontSize: 18, fontWeight: 'bold'}}>
-            124.000 VND
-          </Text>
+        <View style={styles.amount}>
+          <Text style={{fontSize: 18, color: 'gray'}}>Tổng tiền:</Text>
+          <Text style={{color: 'black', fontSize: 18}}>124.000 VND</Text>
         </View>
-        <View>
-          <TouchableOpacity>
-            <Text style={styles.Check}>Thanh toán</Text>
+        <View style={styles.buttonGroup}>
+          <TouchableOpacity style={styles.btnOutline}>
+            <Text style={styles.textOutline}>Quay lại</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btnRounded}>
+            <Text style={styles.textBtn}>Thay đổi địa chỉ</Text>
           </TouchableOpacity>
         </View>
-      </SafeAreaView>
-    </ScrollView>
+        <TouchableOpacity style={styles.check}>
+          <Text style={styles.textBtn}>THANH TOÁN</Text>
+        </TouchableOpacity>
+      </View>
+    </Block>
   );
 };
 
-export default BagScreen;
+export default CartScreen;
