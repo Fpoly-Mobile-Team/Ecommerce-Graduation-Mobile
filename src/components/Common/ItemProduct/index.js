@@ -11,7 +11,6 @@ import styles from './styles';
 const ItemProduct = React.memo(
   ({style, image, nameProduct, fashsale, left}) => {
     const navigation = useNavigation();
-
     return (
       <Pressable onPress={() => navigation.navigate(routes.PRODUCT_DETAILS)}>
         <Block
