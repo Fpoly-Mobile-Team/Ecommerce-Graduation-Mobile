@@ -61,7 +61,7 @@ const FeaturedCategory = () => {
   };
 
   return (
-    <Block marginHorizontal={12}>
+    <Block paddingHorizontal={12}>
       <Block row alignCenter marginBottom={16} space="between">
         <Text size={16} fontType="bold">
           Danh Mục Nổi Bật
@@ -81,6 +81,7 @@ const FeaturedCategory = () => {
         wrap
         shadow
         alignCenter
+        justifyCenter
         radius={10}
         marginBottom={10}
         paddingVertical={16}
