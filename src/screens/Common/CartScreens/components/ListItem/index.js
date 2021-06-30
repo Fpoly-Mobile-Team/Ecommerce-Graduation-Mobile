@@ -62,7 +62,6 @@ const DATA = [
 const renderItem = ({item, index}) => {
   return (
     <ItemProductCart
-      index={index}
       title={item.title}
       price={item.price}
       amount={item.amount}

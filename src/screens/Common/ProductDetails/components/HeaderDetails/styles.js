@@ -23,7 +23,7 @@ export default StyleSheet.create({
     paddingVertical: 16,
     backgroundColor: backgroundColor,
   }),
-  iconcard: {marginHorizontal: getSize.m(10)},
+  iconcart: {marginHorizontal: getSize.m(10)},
   styleBoxicon: backgroundColor => ({
     alignItems: 'center',
     justifyContent: 'center',
