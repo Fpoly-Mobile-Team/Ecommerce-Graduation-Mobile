@@ -1,9 +1,9 @@
-import {getSize, width} from '@utils/responsive';
+import {getSize} from '@utils/responsive';
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   btn: {
-    width: (width - 24.5) / 5,
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },

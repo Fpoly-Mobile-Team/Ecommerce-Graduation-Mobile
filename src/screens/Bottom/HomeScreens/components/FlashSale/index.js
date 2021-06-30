@@ -50,6 +50,7 @@ const FlashSale = () => {
       nameProduct={item.title}
       fashsale
       left={-0.75}
+      style={styles.styleitem}
     />
   );
 
