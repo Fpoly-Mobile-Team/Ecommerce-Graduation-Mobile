@@ -1,6 +1,6 @@
 import {icons} from '@assets';
 import {Block, Text} from '@components';
-import ItemProduct from '@components/Common/ItemProduct';
+import ItemProduct from '@components/Common/ItemList/ItemProduct';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
 import React from 'react';
@@ -50,6 +50,7 @@ const FlashSale = () => {
       nameProduct={item.title}
       fashsale
       left={-0.75}
+      style={styles.styleitem}
     />
   );
 

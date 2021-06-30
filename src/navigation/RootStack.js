@@ -1,6 +1,6 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {bottom} from '@screens/Bottom';
+import {common} from '@screens/Common';
 import React from 'react';
 import {StatusBar} from 'react-native';
 import BottomTabNavigation from './BottomTabNavigation';
@@ -15,7 +15,7 @@ const RootStack = () => {
       <StatusBar
         translucent
         barStyle="light-content"
-        backgroundColor={'transparent'}
+        backgroundColor="transparent"
       />
       <Stack.Navigator
         mode="modal"
@@ -29,7 +29,11 @@ const RootStack = () => {
         />
         <Stack.Screen
           name={routes.PRODUCT_DETAILS}
-          component={bottom.PRODUCT_DETAILS}
+          component={common.PRODUCT_DETAILS}
+        />
+        <Stack.Screen
+          name={routes.CARTSCREENS}
+          component={common.CARTSCREENS}
         />
       </Stack.Navigator>
     </NavigationContainer>

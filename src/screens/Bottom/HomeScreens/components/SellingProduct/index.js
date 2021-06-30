@@ -1,7 +1,6 @@
-/* eslint-disable prettier/prettier */
 import {icons} from '@assets';
 import {Block, Text} from '@components';
-import ItemProduct from '@components/Common/ItemProduct';
+import ItemProduct from '@components/Common/ItemList/ItemProduct';
 import React from 'react';
 import {Image, Pressable} from 'react-native';
 import styles from './styles';
@@ -77,7 +76,7 @@ const SellingProduct = () => {
   const _renderItem = (item, index) => (
     <ItemProduct
       key={index}
-      style={styles.box}
+      style={{...styles.box(index)}}
       image={item.image}
       nameProduct={item.title}
     />

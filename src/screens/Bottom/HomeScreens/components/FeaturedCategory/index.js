@@ -81,7 +81,6 @@ const FeaturedCategory = () => {
         wrap
         shadow
         alignCenter
-        justifyCenter
         radius={10}
         marginBottom={10}
         paddingVertical={16}
