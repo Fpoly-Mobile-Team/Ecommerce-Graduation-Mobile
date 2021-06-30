@@ -18,9 +18,12 @@ export const theme = {
     lightGreen: '#29bb89',
     yellow: '#FFDF00',
     dark: '#00000060',
-    pink: '#ff5555',
+    pink: '#DB3022',
+    sell: '#ff5555',
     pinkholder: '#ffc9c9',
     silver: '#C0C0C0',
+    transparent: '#efefef00',
+    bgiconheader: '#24242480',
   },
 
   fonts: {

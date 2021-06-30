@@ -11,7 +11,6 @@ import styles from './styles';
 const ItemProduct = React.memo(
   ({style, image, nameProduct, fashsale, left}) => {
     const navigation = useNavigation();
-
     return (
       <Pressable onPress={() => navigation.navigate(routes.PRODUCT_DETAILS)}>
         <Block
@@ -20,7 +19,6 @@ const ItemProduct = React.memo(
           width={(width - 36) / 2.5}
           marginBottom={10}
           paddingVertical={10}
-          margin={6}
           style={style}
           backgroundColor="white">
           <Block
@@ -71,7 +69,7 @@ const ItemProduct = React.memo(
                   radius={2}
                   paddingHorizontal={2}
                   marginLeft={10}
-                  backgroundColor={theme.colors.pink}>
+                  backgroundColor={theme.colors.sell}>
                   <Text
                     center
                     size={12}

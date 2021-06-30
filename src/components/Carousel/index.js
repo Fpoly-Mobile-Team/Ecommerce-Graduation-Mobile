@@ -7,13 +7,13 @@ import {SwiperFlatList} from 'react-native-swiper-flatlist';
 import styles from './styles';
 
 const data = [
-  'https://cf.shopee.vn/file/2154b67c24a54aae907f4546b58b23ca',
-  'https://cf.shopee.vn/file/21ae6f4160a20bc3d57d6ffee625d343',
+  'https://cf.shopee.vn/file/53a8bd5f5e3640bc6b46050545bc3fb3',
+  'https://cf.shopee.vn/file/f4467b565a890cc6a43fad227ab19bbe',
   'https://cf.shopee.vn/file/0cdbcb18b8c959da2bf3be64b6446560',
   'https://cf.shopee.vn/file/4f11b4fbc8cf97b09bdfa07722c54ea9',
-  'https://cf.shopee.vn/file/11304ff42346cf5f39c18dca7e85fa62',
-  'https://cf.shopee.vn/file/00efeacb1f7f58b9c859bbb1333d8e39',
-  'https://cf.shopee.vn/file/9e38c34d798fbb9b4e38d4d6287f428d',
+  'https://cf.shopee.vn/file/e00e69599655258de2535ffc9d59f0a7',
+  'https://cf.shopee.vn/file/4f22aada2325886567779f337665c4bd',
+  'https://cf.shopee.vn/file/e0a813d7db376a7c007b59786e536831',
 ];
 
 const Carousel = () => {

@@ -12,7 +12,8 @@ export default StyleSheet.create({
     height: getSize.s(10),
     marginLeft: getSize.m(2),
   },
-  box: {
-    width: (width - 48.2) / 2,
-  },
+  box: index => ({
+    width: (width - 35) / 2,
+    marginLeft: index % 2 !== 0 ? 10 : 0,
+  }),
 });

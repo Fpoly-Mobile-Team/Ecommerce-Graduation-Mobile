@@ -42,6 +42,7 @@ const data = [
       'Áo thun tay lỡ nữ freesize - Áo phông form rộng dáng Unisex, mặc lớp, nhóm, cặp, couple thêu hình rau củ 6 màu',
   },
 ];
+
 const FlashSale = () => {
   const _renderItem = ({item}) => (
     <ItemProduct
@@ -49,8 +50,10 @@ const FlashSale = () => {
       nameProduct={item.title}
       fashsale
       left={-0.75}
+      style={styles.styleitem}
     />
   );
+
   const keyExtractor = React.useCallback((item, index) => String(index), []);
 
   return (

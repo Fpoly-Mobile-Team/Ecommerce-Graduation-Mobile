@@ -20,6 +20,7 @@ const Header = props => {
 
 const HeaderHome = ({scroll}) => {
   const {top} = useSafeAreaInsets();
+  const [isLightStatusBar, setIsLightStatusBar] = useState(true);
 
   const HEADER_MAX_HEIGHT = getSize.m(200);
   const HEADER_MIN_HEIGHT = getSize.m(60);
@@ -29,10 +30,10 @@ const HeaderHome = ({scroll}) => {
   scroll.addListener(({value}) => {
     if (value >= 60) {
       setCheck(true);
-      StatusBar.setBarStyle('dark-content');
+      setIsLightStatusBar(false);
     } else {
       setCheck(!check);
-      StatusBar.setBarStyle('light-content');
+      setIsLightStatusBar(true);
     }
   });
 
@@ -66,7 +67,10 @@ const HeaderHome = ({scroll}) => {
 
   return (
     <Block>
-      <StatusBar translucent barStyle="light-content" />
+      <StatusBar
+        translucent
+        barStyle={`${isLightStatusBar ? 'light-content' : 'dark-content'}`}
+      />
       <Animated.View
         style={{
           ...styles.container(top, backgroundColor),
