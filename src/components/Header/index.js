@@ -7,6 +7,7 @@ import React, {useState} from 'react';
 import {Animated, Image, Pressable, StatusBar} from 'react-native';
 import {Badge} from 'react-native-elements';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {ChevronLeft} from 'svg/common';
 import styles from './styles';
 
 const Header = props => {
@@ -100,7 +101,7 @@ const HeaderHome = ({scroll}) => {
   );
 };
 
-const HeaderCommon = ({canGoBack, title}) => {
+const HeaderCommon = ({canGoBack, title, checkBackground, checkCorlor}) => {
   const {top} = useSafeAreaInsets();
   const navigation = useNavigation();
 
@@ -109,22 +110,28 @@ const HeaderCommon = ({canGoBack, title}) => {
       row
       alignCenter
       shadow
-      paddingTop={top + 10}
-      paddingVertical={16}
+      paddingTop={top + 15}
+      paddingVertical={15}
       paddingHorizontal={12}
       space="between"
-      backgroundColor={theme.colors.pink}>
+      backgroundColor={
+        checkBackground ? theme.colors.white : theme.colors.pink
+      }>
+      <StatusBar
+        translucent
+        barStyle={checkBackground ? 'dark-content' : 'light-content'}
+      />
       {canGoBack && (
         <Pressable onPress={() => navigation.goBack()}>
-          <Image source={icons.back} style={styles.iconback} />
+          <ChevronLeft />
         </Pressable>
       )}
       {title && (
         <Block flex alignCenter>
           <Text
             fontType="semibold"
-            color={theme.colors.white}
-            size={16}
+            color={checkBackground ? theme.colors.black : theme.colors.white}
+            size={18}
             numberOfLines={2}>
             {title}
           </Text>

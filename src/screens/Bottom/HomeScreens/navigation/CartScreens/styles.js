@@ -1,9 +1,9 @@
-import {StyleSheet, StatusBar} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+const windowHeight = Dimensions.get('window').height;
+const windowWidth = Dimensions.get('window').width;
 export default StyleSheet.create({
   headerContain: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingVertical: 20,
+    paddingVertical: 10,
     elevation: 2,
   },
   middleComponent: {
@@ -21,15 +21,14 @@ export default StyleSheet.create({
   },
   promo: {
     flexDirection: 'row',
-    justifyContent: 'flex-start',
     alignItems: 'center',
-    marginVertical: 10,
-    paddingHorizontal: 15,
+    width: windowWidth,
+    paddingTop: 20,
+    paddingHorizontal: 10,
   },
   input: {
     height: 40,
-    width: '92%',
-    borderWidth: 0,
+    width: windowWidth - 55,
     borderRadius: 10,
     backgroundColor: 'white',
   },
@@ -37,49 +36,22 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   buttonGroup: {
-    width: '95%',
+    width: windowWidth,
+    paddingHorizontal: 5,
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignSelf: 'center',
-    paddingBottom: 20,
   },
   btnOutline: {
-    width: '40%',
-    fontSize: 16,
+    width: windowWidth / 2.2,
     borderColor: 'black',
-    color: 'black',
     borderWidth: 1.5,
-    alignSelf: 'center',
-    borderRadius: 30,
-    padding: 10,
   },
   btnRounded: {
-    width: '50%',
-    fontSize: 16,
+    width: windowWidth / 2.2,
+  },
+  btnCheck: {
+    width: windowWidth - 20,
     alignSelf: 'center',
-    color: 'white',
-    borderRadius: 30,
-    padding: 10,
-    backgroundColor: '#FC5859',
-  },
-  textBtn: {
-    color: 'white',
-    fontSize: 16,
-    textAlign: 'center',
-    color: 'white',
-    paddingVertical: 2,
-  },
-  textOutline: {
-    color: 'black',
-    fontSize: 16,
-    textAlign: 'center',
-  },
-  check: {
-    width: '90%',
-    height: 48,
-    alignSelf: 'center',
-    borderRadius: 30,
-    padding: 10,
-    backgroundColor: '#FC5859',
   },
 });

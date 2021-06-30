@@ -1,55 +1,55 @@
 import React, {useRef, useState} from 'react';
-import {Block, HeaderTitle} from '@components';
-import {View, TouchableOpacity, TextInput, Text} from 'react-native';
-import {height} from '@utils/responsive';
+import {Block, Header, Button, Text} from '@components';
+import {TextInput, Pressable, ScrollView} from 'react-native';
+import {height, width} from '@utils/responsive';
 import {CircleBack} from 'svg/common';
 import styles from './styles';
 import ListCart from './ListItem';
+import {theme} from '@theme';
 
 const CartScreen = () => {
   return (
     <Block flex height={height}>
-      <HeaderTitle
-        isDefault
-        containerStyle={styles.headerContain}
-        leftStyle={{
-          fontWeight: 'bold',
-          paddingHorizontal: 10,
-        }}
-        middleComponent={
-          <Text style={styles.middleComponent}>Giỏ hàng của tôi</Text>
-        }
-      />
+      <Header checkBackground canGoBack title="Giỏ hàng của tôi" />
 
-      <View style={{flex: 1, height: '100%', paddingTop: 50}}>
+      <Block flex paddingTop={20} width={width}>
         <ListCart />
-      </View>
-      <View style={styles.container}>
-        <View style={styles.promo}>
+      </Block>
+
+      <Block paddingBottom={20}>
+        <Block style={styles.promo}>
           <TextInput
             style={styles.input}
             placeholder="Nhập mã khuyến mãi của bạn..."
           />
-          <TouchableOpacity onPress={{}}>
+          <Pressable onPress={{}}>
             <CircleBack style={styles.next} />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.amount}>
-          <Text style={{fontSize: 18, color: 'gray'}}>Tổng tiền:</Text>
-          <Text style={{color: 'black', fontSize: 18}}>124.000 VND</Text>
-        </View>
-        <View style={styles.buttonGroup}>
-          <TouchableOpacity style={styles.btnOutline}>
-            <Text style={styles.textOutline}>Quay lại</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.btnRounded}>
-            <Text style={styles.textBtn}>Thay đổi địa chỉ</Text>
-          </TouchableOpacity>
-        </View>
-        <TouchableOpacity style={styles.check}>
-          <Text style={styles.textBtn}>THANH TOÁN</Text>
-        </TouchableOpacity>
-      </View>
+          </Pressable>
+        </Block>
+        <Block style={styles.amount}>
+          <Text color={theme.colors.gray} size={16}>
+            Tổng tiền:
+          </Text>
+          <Text color={theme.colors.black} size={18} fontType="semibold">
+            124.000 VND
+          </Text>
+        </Block>
+        <Block style={styles.buttonGroup}>
+          <Button
+            title="Quay lại"
+            checkBackground
+            titleStyle={{color: 'black'}}
+            style={styles.btnOutline}
+            height={40}
+          />
+          <Button
+            height={40}
+            title="Thay đổi địa chỉ"
+            style={styles.btnRounded}
+          />
+        </Block>
+        <Button title="THANH TOÁN" height={50} style={styles.btnCheck} />
+      </Block>
     </Block>
   );
 };

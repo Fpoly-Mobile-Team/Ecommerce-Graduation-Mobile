@@ -33,121 +33,34 @@ export const DotsThreeVertical = ({width = 24, height = 24}) => {
   );
 };
 
-export const PlusCircle = ({width = 24, height = 24, color = '#ffffff'}) => {
+export const PlusCircle = ({width = 36, height = 36, color = '#ffffff'}) => {
   return (
     <Svg
       width={width}
       height={height}
-      viewBox="0 0 24 24"
+      viewBox="0 0 36 36"
       fill="none"
       xmlns="http://www.w3.org/2000/svg">
-      <G filter="url(#filter0_d)">
-        <Circle cx="26" cy="22" r="18" fill="white" />
-      </G>
-      <Svg
-        width="30"
-        height="30"
-        viewBox="-3 0 30 30"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-        <Path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M11 5V11H5V13H11V19H13V13H19V11H13V5H11Z"
-          fill="#9B9B9B"
-        />
-      </Svg>
-      <Defs>
-        <Filter
-          id="filter0_d"
-          x="0"
-          y="0"
-          width="52"
-          height="52"
-          filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feColorMatrix
-            in="SourceAlpha"
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-          />
-          <feOffset dy="4" />
-          <feGaussianBlur stdDeviation="4" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow"
-          />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="effect1_dropShadow"
-            result="shape"
-          />
-        </Filter>
-      </Defs>
+      <Circle cx="18" cy="18" r="18" fill="white" />
+      <Path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M17 11V17H11V19H17V25H19V19H25V17H19V11H17Z"
+        fill="#9B9B9B"
+      />
     </Svg>
   );
 };
-export const MinusCircle = ({width = 24, height = 24, color = '#ffffff'}) => {
+export const MinusCircle = ({width = 36, height = 36, color = '#ffffff'}) => {
   return (
     <Svg
       width={width}
       height={height}
-      viewBox="0 0 24 24"
+      viewBox="0 0 36 36"
       fill="none"
       xmlns="http://www.w3.org/2000/svg">
-      <G filter="url(#filter0_d)">
-        <Circle cx="26" cy="22" r="18" fill="white" />
-      </G>
-      <Svg
-        width="24"
-        height="24"
-        viewBox="-3 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-        <Rect x="5" y="12" width="14" height="2" fill="#9B9B9B" />
-      </Svg>
-
-      <Defs>
-        <Filter
-          id="filter0_d"
-          x="0"
-          y="0"
-          width="52"
-          height="52"
-          filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feColorMatrix
-            in="SourceAlpha"
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-          />
-          <feOffset dy="4" />
-          <feGaussianBlur stdDeviation="4" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow"
-          />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="effect1_dropShadow"
-            result="shape"
-          />
-        </Filter>
-      </Defs>
+      <Circle cx="18" cy="18" r="18" fill="white" />
+      <Rect x="11" y="17" width="14" height="2" fill="#9B9B9B" />
     </Svg>
   );
 };
@@ -418,11 +331,10 @@ export const ChevronLeft = ({width = 24, height = 24, color = 'black'}) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg">
       <Path
-        d="M15 18L9 12L15 6"
-        stroke={color}
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M7.22552 12.5431C6.92483 12.2429 6.92483 11.7579 7.22552 11.4569L14.362 4.32572C14.7961 3.89143 15.5023 3.89143 15.9372 4.32572C16.3713 4.76002 16.3713 5.46488 15.9372 5.89917L9.83231 12.0004L15.9372 18.1C16.3713 18.5351 16.3713 19.24 15.9372 19.6743C15.5023 20.1086 14.7961 20.1086 14.362 19.6743L7.22552 12.5431Z"
+        fill="#222222"
       />
     </Svg>
   );
