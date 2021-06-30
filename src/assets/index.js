@@ -26,3 +26,7 @@ export const icons = {
   favorite: require('./icons/favorite.png'),
   info: require('./icons/information.png'),
 };
+
+export const images = {
+  thumnail: require('./images/thumnail.jpg'),
+};

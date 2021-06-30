@@ -21,6 +21,7 @@ export const theme = {
     pink: '#DB3022',
     sell: '#ff5555',
     pinkholder: '#ffc9c9',
+    silver: '#C0C0C0',
     transparent: '#efefef00',
     bgiconheader: '#24242480',
   },

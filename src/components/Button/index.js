@@ -3,17 +3,26 @@ import {theme} from '@theme';
 import React from 'react';
 import {Pressable} from 'react-native';
 
-const Button = ({title, onPress, titleStyle, style}) => {
+const Button = ({
+  title,
+  height,
+  onPress,
+  titleStyle,
+  style,
+  checkBackground,
+}) => {
   return (
     <Pressable onPress={onPress}>
       <Block
         alignCenter
         justifyCenter
-        height={45}
-        radius={45}
-        marginVertical={20}
+        height={height}
+        radius={height}
+        marginVertical={10}
         style={style}
-        backgroundColor={theme.colors.pink}>
+        backgroundColor={
+          checkBackground ? theme.colors.background : theme.colors.pink
+        }>
         <Text fontType="semibold" color={theme.colors.white} style={titleStyle}>
           {title}
         </Text>
