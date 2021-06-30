@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import {icons} from '@assets';
 import {Block, Text} from '@components';
 import ItemProduct from '@components/Common/ItemProduct';
@@ -77,7 +76,7 @@ const SellingProduct = () => {
   const _renderItem = (item, index) => (
     <ItemProduct
       key={index}
-      style={styles.box}
+      style={{...styles.box(index)}}
       image={item.image}
       nameProduct={item.title}
     />
