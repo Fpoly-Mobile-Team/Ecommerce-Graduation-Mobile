@@ -9,6 +9,7 @@ import {Badge} from 'react-native-elements';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {ChevronLeft} from '@assets/svg/common';
 import styles from './styles';
+import {routes} from '@navigation/routes';
 
 const Header = props => {
   if (props.type === 'Home') {
@@ -146,20 +147,23 @@ const HeaderCommon = ({canGoBack, title, checkBackground, checkCorlor}) => {
 };
 
 const Card = ({colorimg}) => {
+  const navigation = useNavigation();
   return (
-    <Block marginHorizontal={10}>
-      <Badge
-        status="warning"
-        value="1"
-        containerStyle={styles.containerStyle}
-        textProps={{allowFontScaling: false}}
-      />
-      <Animated.Image
-        source={icons.cart}
-        style={{...styles.iconcard, tintColor: colorimg}}
-        resizeMode="contain"
-      />
-    </Block>
+    <Pressable onPress={() => navigation.navigate(routes.CARTSCREENS)}>
+      <Block marginHorizontal={10}>
+        <Badge
+          status="warning"
+          value="1"
+          containerStyle={styles.containerStyle}
+          textProps={{allowFontScaling: false}}
+        />
+        <Animated.Image
+          source={icons.cart}
+          style={{...styles.iconcard, tintColor: colorimg}}
+          resizeMode="contain"
+        />
+      </Block>
+    </Pressable>
   );
 };
 
