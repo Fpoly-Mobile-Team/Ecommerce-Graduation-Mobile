@@ -19,7 +19,6 @@ const ItemProduct = React.memo(
           width={(width - 36) / 2.5}
           marginBottom={10}
           paddingVertical={10}
-          margin={6}
           style={style}
           backgroundColor="white">
           <Block
