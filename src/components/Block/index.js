@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
 import {isNumber} from 'lodash';

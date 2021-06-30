@@ -6,6 +6,5 @@ export default StyleSheet.create({
   iconbell: {
     width: getSize.s(120),
     height: getSize.s(120),
-    resizeMode: 'contain',
   },
 });

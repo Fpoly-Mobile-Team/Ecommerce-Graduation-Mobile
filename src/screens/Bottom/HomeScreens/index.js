@@ -5,8 +5,8 @@ import React, {useRef, useState} from 'react';
 import {Animated, RefreshControl} from 'react-native';
 import CategoryHighlights from './components/CategoryHighlights';
 import FeaturedCategory from './components/FeaturedCategory';
-import FlashSale from './components/FlashSale';
 import FeaturedShop from './components/FeaturedShop';
+import FlashSale from './components/FlashSale';
 import SellingProduct from './components/SellingProduct';
 import styles from './styles';
 
@@ -25,6 +25,7 @@ const HomeScreens = () => {
       <Animated.ScrollView
         removeClippedSubviews
         scrollEventThrottle={16}
+        contentInsetAdjustmentBehavior="never"
         showsVerticalScrollIndicator={false}
         onScroll={Animated.event(
           [{nativeEvent: {contentOffset: {y: scrollY}}}],
@@ -46,32 +47,28 @@ const HomeScreens = () => {
           <Carousel />
         </Block>
         <CategoryHighlights />
+        <FlashSale />
         <Block
-          height={10}
+          height={8}
+          marginTop={10}
           marginBottom={10}
           backgroundColor={theme.colors.smoke}
         />
+
         <FeaturedCategory />
-        <Block paddingHorizontal={12}>
-          <Carousel />
-        </Block>
+
         <Block
-          height={10}
+          height={8}
           marginBottom={10}
+          marginTop={5}
           backgroundColor={theme.colors.smoke}
         />
         <FeaturedShop />
-        <Block
-          height={10}
-          marginBottom={10}
-          backgroundColor={theme.colors.smoke}
-        />
-        <FlashSale />
-        <Block
-          height={10}
-          marginTop={10}
-          backgroundColor={theme.colors.smoke}
-        />
+
+        <Block height={8} backgroundColor={theme.colors.smoke} />
+        <Block paddingHorizontal={12}>
+          <Carousel />
+        </Block>
         <SellingProduct />
       </Animated.ScrollView>
     </Block>

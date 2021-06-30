@@ -1,4 +1,7 @@
+import {icons} from '@assets';
 import {Block, Text} from '@components';
+import {routes} from '@navigation/routes';
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {Image, Pressable} from 'react-native';
 import styles from './styles';
@@ -32,6 +35,7 @@ const data = [
 ];
 
 const FeaturedCategory = () => {
+  const navigation = useNavigation();
   const _renderItem = (item, index) => {
     return (
       <Pressable style={styles.btn} key={index}>
@@ -51,11 +55,27 @@ const FeaturedCategory = () => {
       </Pressable>
     );
   };
+
+  const _onPress = () => {
+    navigation.navigate(routes.CATEGORYSCREENS);
+  };
+
   return (
-    <Block marginHorizontal={12}>
-      <Text marginBottom={16} size={16} fontType="bold">
-        Danh Mục Nổi Bật
-      </Text>
+    <Block paddingHorizontal={12}>
+      <Block row alignCenter marginBottom={16} space="between">
+        <Text size={16} fontType="bold">
+          Danh Mục Nổi Bật
+        </Text>
+        <Pressable style={styles.stylebtn} onPress={_onPress}>
+          <Text size={12}>Xem tất cả</Text>
+          <Image
+            source={icons.next}
+            style={styles.iconnext}
+            resizeMode="contain"
+          />
+        </Pressable>
+      </Block>
+
       <Block
         row
         wrap

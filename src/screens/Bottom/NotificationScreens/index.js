@@ -1,26 +1,32 @@
-import {icons} from '@assets';
-import {Block, Button, Header, Text} from '@components';
-import {routes} from '@navigation/routes';
+import {Block, Header} from '@components';
 import {useNavigation} from '@react-navigation/core';
 import React from 'react';
-import {Image} from 'react-native';
-import styles from './styles';
+import {FlatList} from 'react-native';
+import ItemNotification from './components/ItemNotification';
+import {data} from './components/data';
 
 const NotificationScreens = () => {
   const navigation = useNavigation();
 
+  const renderItem = ({item}) => (
+    <ItemNotification
+      image={item.Image}
+      title={item.title}
+      content={item.content}
+      ingredients={item.ingredients}
+      time={item.time}
+    />
+  );
+
   return (
     <Block flex>
       <Header title="Thông Báo" />
-      <Block flex alignCenter justifyCenter>
-        <Image source={icons.bell} style={styles.iconbell} />
-        <Text marginTop={20}>Vui lòng đăng nhập để nhận thông báo</Text>
-        <Button
-          title="ĐĂNG NHẬP NGAY"
-          style={styles.stylebtn}
-          onPress={() => navigation.navigate(routes.PROFILESCREENS)}
-        />
-      </Block>
+      <FlatList
+        data={data}
+        renderItem={renderItem}
+        keyExtractor={item => item.id.toString()}
+        showsVerticalScrollIndicator={false}
+      />
     </Block>
   );
 };
