@@ -4,10 +4,10 @@ import {useNavigation} from '@react-navigation/core';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
 import React, {useState} from 'react';
-import {Animated, Image, Pressable, StatusBar} from 'react-native';
+import {Animated, Pressable, StatusBar} from 'react-native';
 import {Badge} from 'react-native-elements';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {ChevronLeft} from 'svg/common';
+import {ChevronLeft} from '@assets/svg/common';
 import styles from './styles';
 
 const Header = props => {

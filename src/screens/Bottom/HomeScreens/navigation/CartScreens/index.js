@@ -1,21 +1,16 @@
-import React, {useRef, useState} from 'react';
-import {Block, Header, Button, Text} from '@components';
-import {TextInput, Pressable, ScrollView} from 'react-native';
-import {height, width} from '@utils/responsive';
-import {CircleBack} from 'svg/common';
-import styles from './styles';
-import ListCart from './ListItem';
+import {CircleBack} from '@assets/svg/common';
+import {Block, Button, Header, Text} from '@components';
 import {theme} from '@theme';
+import React from 'react';
+import {Pressable, TextInput} from 'react-native';
+import ListCart from './components/ListItem';
+import styles from './styles';
 
 const CartScreen = () => {
   return (
-    <Block flex height={height}>
+    <Block flex>
       <Header checkBackground canGoBack title="Giỏ hàng của tôi" />
-
-      <Block flex paddingTop={20} width={width}>
-        <ListCart />
-      </Block>
-
+      <ListCart />
       <Block paddingBottom={20}>
         <Block style={styles.promo}>
           <TextInput
@@ -38,7 +33,7 @@ const CartScreen = () => {
           <Button
             title="Quay lại"
             checkBackground
-            titleStyle={{color: 'black'}}
+            titleStyle={{color: theme.colors.black}}
             style={styles.btnOutline}
             height={40}
           />
@@ -48,7 +43,9 @@ const CartScreen = () => {
             style={styles.btnRounded}
           />
         </Block>
-        <Button title="THANH TOÁN" height={50} style={styles.btnCheck} />
+        <Block paddingHorizontal={12}>
+          <Button title="THANH TOÁN" height={50} style={styles.btnCheck} />
+        </Block>
       </Block>
     </Block>
   );

@@ -23,3 +23,7 @@ export const icons = {
   discount: require('./icons/discount.png'),
   hotsale: require('./icons/hotsale.png'),
 };
+
+export const images = {
+  thumnail: require('./images/thumnail.jpg'),
+};

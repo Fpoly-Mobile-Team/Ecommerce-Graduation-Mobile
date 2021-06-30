@@ -1,6 +1,7 @@
-import {StyleSheet, Dimensions} from 'react-native';
-const windowHeight = Dimensions.get('window').height;
-const windowWidth = Dimensions.get('window').width;
+import {theme} from '@theme';
+import {width} from '@utils/responsive';
+import {StyleSheet} from 'react-native';
+
 export default StyleSheet.create({
   headerContain: {
     paddingVertical: 10,
@@ -21,37 +22,36 @@ export default StyleSheet.create({
   },
   promo: {
     flexDirection: 'row',
-    alignItems: 'center',
-    width: windowWidth,
-    paddingTop: 20,
-    paddingHorizontal: 10,
+    justifyContent: 'space-between',
+    paddingVertical: 20,
+    paddingHorizontal: 12,
   },
   input: {
     height: 40,
-    width: windowWidth - 55,
+    flex: 1,
+    marginRight: 5,
     borderRadius: 10,
+    paddingHorizontal: 12,
     backgroundColor: 'white',
   },
   next: {
     alignItems: 'center',
   },
   buttonGroup: {
-    width: windowWidth,
+    width: width,
     paddingHorizontal: 5,
     flexDirection: 'row',
     justifyContent: 'space-around',
-    alignSelf: 'center',
   },
   btnOutline: {
-    width: windowWidth / 2.2,
-    borderColor: 'black',
+    width: width / 2.2,
+    borderColor: theme.colors.black,
     borderWidth: 1.5,
   },
   btnRounded: {
-    width: windowWidth / 2.2,
+    width: width / 2.2,
   },
   btnCheck: {
-    width: windowWidth - 20,
-    alignSelf: 'center',
+    width: width - 24,
   },
 });
