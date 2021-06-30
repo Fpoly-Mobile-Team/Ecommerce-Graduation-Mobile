@@ -1,6 +1,7 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {bottom} from '@screens/Bottom';
+import {common} from '@screens/Common';
 import React from 'react';
 import {StatusBar} from 'react-native';
 import BottomTabNavigation from './BottomTabNavigation';
@@ -29,7 +30,7 @@ const RootStack = () => {
         />
         <Stack.Screen
           name={routes.PRODUCT_DETAILS}
-          component={bottom.PRODUCT_DETAILS}
+          component={common.PRODUCT_DETAILS}
         />
       </Stack.Navigator>
     </NavigationContainer>
