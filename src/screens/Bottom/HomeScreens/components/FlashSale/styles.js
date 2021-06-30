@@ -7,8 +7,13 @@ export default StyleSheet.create({
     width: width - 24,
     marginHorizontal: getSize.m(12),
   },
-  imageStyle: {borderRadius: getSize.m(10)},
-  styleflash: {width: getSize.s(89), height: getSize.s(28)},
+  imageStyle: {
+    borderRadius: getSize.m(10),
+  },
+  styleflash: {
+    width: getSize.s(89),
+    height: getSize.s(28),
+  },
   iconnext: {
     width: getSize.s(10),
     height: getSize.s(10),
@@ -19,5 +24,8 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  styleitem: {
+    margin: getSize.m(6),
   },
 });
