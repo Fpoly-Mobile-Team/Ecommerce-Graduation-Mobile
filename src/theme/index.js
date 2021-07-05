@@ -24,6 +24,7 @@ export const theme = {
     silver: '#C0C0C0',
     transparent: '#efefef00',
     bgiconheader: '#24242480',
+    lightRount: '#EFEFEF',
   },
 
   fonts: {
