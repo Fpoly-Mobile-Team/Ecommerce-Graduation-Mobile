@@ -19,7 +19,7 @@ const RootStack = () => {
       />
       <Stack.Navigator
         mode="modal"
-        initialRouteName={routes.BOTTOMTABBAR}
+        initialRouteName={routes.CARTSCREENS}
         screenOptions={{
           headerShown: false,
         }}>
