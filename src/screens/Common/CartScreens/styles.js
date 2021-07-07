@@ -50,8 +50,10 @@ export default StyleSheet.create({
   },
   btnRounded: {
     width: width / 2.2,
+    backgroundColor: theme.colors.pink,
   },
   btnCheck: {
     width: width - 24,
+    backgroundColor: theme.colors.pink,
   },
 });

@@ -32,7 +32,6 @@ const CartScreen = () => {
         <Block style={styles.buttonGroup}>
           <Button
             title="Quay lại"
-            checkBackground
             titleStyle={{color: theme.colors.black}}
             style={styles.btnOutline}
             height={40}
