@@ -42,9 +42,15 @@ const HeaderDetails = ({scroll}) => {
     outputRange: [theme.colors.white, theme.colors.pink],
     extrapolate: 'clamp',
   });
+  const backgroundsmoke = scroll.interpolate({
+    inputRange: [0, HEADER_SCROLL_DISTANCE],
+    outputRange: [theme.colors.transparent, theme.colors.smoke],
+    extrapolate: 'clamp',
+  });
 
   return (
-    <Animated.View style={styles.headercontainer(top, backgroundColor)}>
+    <Animated.View
+      style={styles.headercontainer(top, backgroundColor, backgroundsmoke)}>
       <Block
         row
         alignCenter
@@ -94,6 +100,7 @@ const HeaderDetails = ({scroll}) => {
           </Block>
         </Block>
       </Block>
+      {/* <Animated.View style={styles.backgroundColorsmoke(backgroundsmoke)} /> */}
     </Animated.View>
   );
 };
