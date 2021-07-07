@@ -25,6 +25,8 @@ export const icons = {
   share: require('./icons/share.png'),
   favorite: require('./icons/favorite.png'),
   info: require('./icons/information.png'),
+  location: require('./icons/location.png'),
+  message: require('./icons/message.png'),
 };
 
 export const images = {

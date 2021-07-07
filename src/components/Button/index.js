@@ -19,10 +19,7 @@ const Button = ({
         height={height}
         radius={height}
         marginVertical={10}
-        style={style}
-        backgroundColor={
-          checkBackground ? theme.colors.background : theme.colors.pink
-        }>
+        style={style}>
         <Text fontType="semibold" color={theme.colors.white} style={titleStyle}>
           {title}
         </Text>
