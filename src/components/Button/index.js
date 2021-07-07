@@ -3,14 +3,7 @@ import {theme} from '@theme';
 import React from 'react';
 import {Pressable} from 'react-native';
 
-const Button = ({
-  title,
-  height,
-  onPress,
-  titleStyle,
-  style,
-  checkBackground,
-}) => {
+const Button = ({title, height, onPress, titleStyle, style}) => {
   return (
     <Pressable onPress={onPress}>
       <Block
