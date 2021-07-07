@@ -100,7 +100,6 @@ const HeaderDetails = ({scroll}) => {
           </Block>
         </Block>
       </Block>
-      {/* <Animated.View style={styles.backgroundColorsmoke(backgroundsmoke)} /> */}
     </Animated.View>
   );
 };
