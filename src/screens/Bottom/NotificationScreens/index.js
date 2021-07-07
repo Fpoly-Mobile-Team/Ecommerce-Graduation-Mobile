@@ -2,7 +2,7 @@ import {Block, Header} from '@components';
 import {useNavigation} from '@react-navigation/core';
 import React from 'react';
 import {FlatList} from 'react-native';
-import ItemNotification from './components/ItemNotification';
+import ItemNotification from '@components/Common/ItemList/ItemNotification';
 import {data} from './components/data';
 
 const NotificationScreens = () => {
