@@ -31,4 +31,5 @@ export const icons = {
 
 export const images = {
   thumnail: require('./images/thumnail.jpg'),
+  sale: require('@assets/images/sale.jpg'),
 };
