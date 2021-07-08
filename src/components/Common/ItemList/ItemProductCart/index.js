@@ -1,20 +1,20 @@
-import {Block, Text} from '@components';
-import {DotsThreeVertical, MinusCircle, PlusCircle} from '@assets/svg/common';
 import {images} from '@assets';
-import React from 'react';
-import {Image, Pressable, Modal} from 'react-native';
-import {theme} from '@theme';
-import styles from './styles';
-import {useNavigation} from '@react-navigation/native';
-import {Divider} from 'react-native-paper';
+import {DotsThreeVertical, MinusCircle, PlusCircle} from '@assets/svg/common';
+import {Block, Text} from '@components';
 import {routes} from '@navigation/routes';
+import {useNavigation} from '@react-navigation/native';
+import {theme} from '@theme';
+import React from 'react';
+import {Image, Pressable} from 'react-native';
+import {Divider} from 'react-native-paper';
 import {
-  MenuProvider,
   Menu,
-  MenuOptions,
   MenuOption,
+  MenuOptions,
+  MenuProvider,
   MenuTrigger,
 } from 'react-native-popup-menu';
+import styles from './styles';
 
 const ItemProductCart = ({title, color, size, amount, price}) => {
   const navigation = useNavigation();
@@ -60,9 +60,7 @@ const ItemProductCart = ({title, color, size, amount, price}) => {
                 {title}
               </Text>
 
-              <Pressable>
-                <MenuShowing />
-              </Pressable>
+              <MenuShowing />
             </Block>
             <Block marginTop={5} marginBottom={20} flexDirection="row">
               <Block paddingRight={15}>
