@@ -1,5 +1,5 @@
 import {Block} from '@components';
-import ItemPromoCart from '@components/Common/ItemList/ItemsPromoCart';
+import ItemPromoCart from '@components/Common/ItemList/ItemPromoCart';
 import React, {useState} from 'react';
 import {FlatList} from 'react-native';
 
@@ -47,7 +47,7 @@ const ListItem = () => {
       <FlatList
         data={DATA}
         renderItem={renderItem}
-        keyExtractor={item => item.id}
+        keyExtractor={(_, index) => String(index)}
         extraData={selectedId}
         showsVerticalScrollIndicator={false}
       />

@@ -54,7 +54,7 @@ const CartScreen = () => {
       <RBSheet
         ref={refRBSheet}
         closeOnDragDown={true}
-        closeOnPressMask={false}
+        closeOnPressMask={true}
         customStyles={{
           draggableIcon: {
             backgroundColor: theme.colors.dark,
@@ -68,7 +68,7 @@ const CartScreen = () => {
         }}>
         <Block style={styles.promo} marginBottom={5} marginTop={20}>
           <TextInput
-            placeholder={'Tìm kiếm mã khuyến mãi..'}
+            placeholder="Tìm kiếm mã khuyến mãi.."
             backgroundColor={theme.colors.white}
             style={styles.input}
           />

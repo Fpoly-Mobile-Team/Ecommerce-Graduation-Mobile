@@ -34,9 +34,6 @@ export default StyleSheet.create({
   justifyCenter: {
     justifyContent: 'center',
   },
-  justifyBetween: {
-    justifyContent: 'space-between',
-  },
   shadow: {
     shadowOffset: {
       width: 0,
