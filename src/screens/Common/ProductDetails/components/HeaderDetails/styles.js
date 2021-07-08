@@ -13,7 +13,7 @@ export default StyleSheet.create({
     top: getSize.m(-5),
     right: getSize.m(-5),
   },
-  headercontainer: (top, backgroundColor) => ({
+  headercontainer: (top, backgroundColor, backgroundsmoke) => ({
     zIndex: 999,
     position: 'absolute',
     right: 0,
@@ -22,6 +22,8 @@ export default StyleSheet.create({
     paddingTop: top + 10,
     paddingVertical: 16,
     backgroundColor: backgroundColor,
+    borderBottomWidth: 0.5,
+    borderBottomColor: backgroundsmoke,
   }),
   iconcart: {marginHorizontal: getSize.m(10)},
   styleBoxicon: backgroundColor => ({
