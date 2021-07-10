@@ -20,7 +20,7 @@ const RootStack = () => {
       />
       <Stack.Navigator
         mode="modal"
-        initialRouteName={routes.SEARCHSCREEN}
+        initialRouteName={routes.BOTTOMTABBAR}
         screenOptions={{
           headerShown: false,
         }}>

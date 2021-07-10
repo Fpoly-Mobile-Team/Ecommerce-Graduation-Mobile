@@ -13,13 +13,13 @@ export const dataCategory = [
   },
   {
     id: '3',
-    Image: 'https://toppng.com/uploads/preview/trail-running-shoe-svg-icon-free-running-shoes-icon-11553411374cmdx4xovql.png',
+    Image:
+      'https://toppng.com/uploads/preview/trail-running-shoe-svg-icon-free-running-shoes-icon-11553411374cmdx4xovql.png',
     title: 'Giày dép nam',
   },
   {
     id: '4',
-    Image:
-      'https://www.freeiconspng.com/uploads/shoe-icon-woman-0.png',
+    Image: 'https://www.freeiconspng.com/uploads/shoe-icon-woman-0.png',
     title: 'Giày dép nữ',
   },
   {
@@ -36,14 +36,13 @@ export const dataCategory = [
   },
   {
     id: '7',
-    Image:
-      'https://salegiatot.com/img/png/balo-mini-balo-icon-logo.png',
+    Image: 'https://salegiatot.com/img/png/balo-mini-balo-icon-logo.png',
     title: 'Balo và vali',
   },
   {
     id: '8',
     Image:
-    'https://www.pinclipart.com/picdir/middle/151-1513155_banner-royalty-free-download-accessory-fashion-jewelry-accessory.png',
+      'https://www.pinclipart.com/picdir/middle/151-1513155_banner-royalty-free-download-accessory-fashion-jewelry-accessory.png',
     title: 'Phụ kiện',
   },
   {
