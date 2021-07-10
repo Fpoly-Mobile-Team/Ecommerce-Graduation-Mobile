@@ -8,6 +8,7 @@ import FeaturedCategory from './components/FeaturedCategory';
 import FeaturedShop from './components/FeaturedShop';
 import FlashSale from './components/FlashSale';
 import SellingProduct from './components/SellingProduct';
+import SearchSreen from './components/../Navigation/SearchScreen'
 import styles from './styles';
 
 const HomeScreens = () => {
