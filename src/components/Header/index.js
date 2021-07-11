@@ -42,7 +42,6 @@ const HeaderHome = ({scroll}) => {
       }
     });
   }, [check, scroll, isLightStatusBar]);
-  console.log(isLightStatusBar);
 
   const backgroundColor = scroll.interpolate({
     inputRange: [0, HEADER_SCROLL_DISTANCE],
