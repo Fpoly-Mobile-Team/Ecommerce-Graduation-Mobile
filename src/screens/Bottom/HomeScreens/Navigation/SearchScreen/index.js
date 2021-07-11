@@ -104,5 +104,5 @@ const SearchScreen = () => {
     </Block>
   );
 };
-// fix name
+
 export default SearchScreen;
