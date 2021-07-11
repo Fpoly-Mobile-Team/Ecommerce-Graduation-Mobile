@@ -5,7 +5,7 @@ import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/core';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {Animated, Image, Pressable, StatusBar} from 'react-native';
 import {Badge} from 'react-native-elements';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
@@ -22,26 +22,22 @@ const Header = props => {
 const HeaderHome = ({scroll}) => {
   const navigation = useNavigation();
   const {top} = useSafeAreaInsets();
-  const [isLightStatusBar, setIsLightStatusBar] = useState(true);
 
   const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
+  const AnimatedStatusBar = Animated.createAnimatedComponent(StatusBar);
   const HEADER_MAX_HEIGHT = getSize.m(200);
   const HEADER_MIN_HEIGHT = getSize.m(60);
   const HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT;
-  const [check, setCheck] = useState(false);
-  useEffect(() => {
-    scroll.addListener(({value}) => {
-      if (value >= 60) {
-        setCheck(true);
-        setIsLightStatusBar(false);
-        StatusBar.setBarStyle('dark-content');
-      } else {
-        setCheck(!check);
-        setIsLightStatusBar(true);
-        StatusBar.setBarStyle('light-content');
-      }
-    });
-  }, [check, scroll, isLightStatusBar]);
+  const [dark, setDark] = useState(true);
+
+  scroll.addListener(({value}) => {
+    if (value >= 60 && dark) {
+      setDark(false);
+    }
+    if (value < 60 && !dark) {
+      setDark(true);
+    }
+  });
 
   const backgroundColor = scroll.interpolate({
     inputRange: [0, HEADER_SCROLL_DISTANCE],
@@ -70,11 +66,11 @@ const HeaderHome = ({scroll}) => {
     outputRange: [theme.colors.pink, theme.colors.smoke],
     extrapolate: 'clamp',
   });
-  const isStatus = isLightStatusBar ? 'light-content' : 'dark-content';
+  const isStatus = dark ? 'light-content' : 'dark-content';
 
   return (
     <Block>
-      <StatusBar translucent barStyle={isStatus} />
+      <AnimatedStatusBar animated={true} translucent barStyle={isStatus} />
       <Animated.View
         style={{
           ...styles.container(top, backgroundColor),
