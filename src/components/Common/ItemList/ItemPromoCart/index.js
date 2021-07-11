@@ -25,7 +25,7 @@ const ItemPromoCart = ({title, cod, time}) => {
       </Block>
       <Block paddingTop={20} alignEnd>
         <Text color={theme.colors.lightGray}>{time}</Text>
-        <Button style={{width: 100}} height={30} title="Chọn" />
+        <Button style={styles.btn} height={30} title="Chọn" />
       </Block>
     </Block>
   );
