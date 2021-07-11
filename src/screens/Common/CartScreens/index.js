@@ -3,10 +3,10 @@ import {Block, Button, Header, Text} from '@components';
 import {theme} from '@theme';
 import React, {useRef} from 'react';
 import {Pressable, TextInput} from 'react-native';
-import ListCart from './components/ListItem';
-import styles from './styles';
-import ListPromo from './components/ListPromo';
 import RBSheet from 'react-native-raw-bottom-sheet';
+import ListCart from './components/ListItem';
+import ListPromo from './components/ListPromo';
+import styles from './styles';
 
 const CartScreen = () => {
   const refRBSheet = useRef();

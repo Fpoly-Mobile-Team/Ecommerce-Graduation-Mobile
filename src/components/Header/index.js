@@ -5,7 +5,7 @@ import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/core';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Animated, Image, Pressable, StatusBar} from 'react-native';
 import {Badge} from 'react-native-elements';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
@@ -29,16 +29,20 @@ const HeaderHome = ({scroll}) => {
   const HEADER_MIN_HEIGHT = getSize.m(60);
   const HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT;
   const [check, setCheck] = useState(false);
-
-  scroll.addListener(({value}) => {
-    if (value >= 60) {
-      setCheck(true);
-      setIsLightStatusBar(false);
-    } else {
-      setCheck(!check);
-      setIsLightStatusBar(true);
-    }
-  });
+  useEffect(() => {
+    scroll.addListener(({value}) => {
+      if (value >= 60) {
+        setCheck(true);
+        setIsLightStatusBar(false);
+        StatusBar.setBarStyle('dark-content');
+      } else {
+        setCheck(!check);
+        setIsLightStatusBar(true);
+        StatusBar.setBarStyle('light-content');
+      }
+    });
+  }, [check, scroll, isLightStatusBar]);
+  console.log(isLightStatusBar);
 
   const backgroundColor = scroll.interpolate({
     inputRange: [0, HEADER_SCROLL_DISTANCE],
@@ -67,13 +71,11 @@ const HeaderHome = ({scroll}) => {
     outputRange: [theme.colors.pink, theme.colors.smoke],
     extrapolate: 'clamp',
   });
+  const isStatus = isLightStatusBar ? 'light-content' : 'dark-content';
 
   return (
     <Block>
-      <StatusBar
-        translucent
-        barStyle={`${isLightStatusBar ? 'light-content' : 'dark-content'}`}
-      />
+      <StatusBar translucent barStyle={isStatus} />
       <Animated.View
         style={{
           ...styles.container(top, backgroundColor),

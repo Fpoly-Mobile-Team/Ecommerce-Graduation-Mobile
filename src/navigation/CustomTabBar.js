@@ -6,6 +6,7 @@ import React from 'react';
 import {Image, Platform, Pressable, StyleSheet} from 'react-native';
 import {Badge} from 'react-native-elements';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+
 const CustomTabBar = ({state, descriptors, navigation}) => {
   const {bottom} = useSafeAreaInsets();
   return (
