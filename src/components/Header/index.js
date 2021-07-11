@@ -1,15 +1,15 @@
 import {icons} from '@assets';
+import {ChevronLeft} from '@assets/svg/common';
 import {Block, Text} from '@components';
+import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/core';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
 import React, {useState} from 'react';
-import {Animated, Pressable, StatusBar} from 'react-native';
+import {Animated, Image, Pressable, StatusBar} from 'react-native';
 import {Badge} from 'react-native-elements';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {ChevronLeft} from '@assets/svg/common';
 import styles from './styles';
-import {routes} from '@navigation/routes';
 
 const Header = props => {
   if (props.type === 'Home') {
@@ -82,7 +82,7 @@ const HeaderHome = ({scroll}) => {
           <AnimatedPressable
             onPress={() => navigation.navigate(routes.SEARCHSCREEN)}
             style={styles.box(backgroundColorbox)}>
-            <Animated.Image
+            <Image
               source={icons.search}
               style={styles.iconSearch}
               resizeMode="contain"

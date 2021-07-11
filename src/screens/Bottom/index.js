@@ -3,7 +3,7 @@ import CategoryScreens from './CategoryScreens';
 import NotificationScreens from './NotificationScreens';
 import ProfileScreens from './ProfileScreens';
 import ChatScreens from './ChatScreens';
-import Searchscreen from './HomeScreens/Navigation/SearchScreen';
+import Searchscreen from './HomeScreens/navigation/SearchScreen';
 
 export const bottom = {
   HOMESCREENS: HomeScreens,

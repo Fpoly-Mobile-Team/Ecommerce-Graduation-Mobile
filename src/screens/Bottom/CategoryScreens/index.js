@@ -1,7 +1,5 @@
-/* eslint-disable prettier/prettier */
 import {Block, Header} from '@components';
 import React, {useState} from 'react';
-import {StyleSheet} from 'react-native';
 import LeftBox from './components/LeftBox';
 import RightBox from './components/RightBox';
 
@@ -72,5 +70,3 @@ const CategoryScreens = () => {
 };
 
 export default CategoryScreens;
-
-const styles = StyleSheet.create({});
