@@ -54,6 +54,7 @@ const CartScreen = () => {
         ref={refRBSheet}
         closeOnDragDown={true}
         closeOnPressMask={true}
+        dragFromTopOnly={true}
         customStyles={{
           draggableIcon: {
             backgroundColor: theme.colors.dark,
