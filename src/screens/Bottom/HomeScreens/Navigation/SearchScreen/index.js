@@ -1,27 +1,37 @@
-import {Block, Text} from '@components';
-import {theme} from '@theme';
-import {useNavigation} from '@react-navigation/core';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import React, {useState} from 'react';
-import {FlatList, Image, StatusBar, TextInput, Pressable} from 'react-native';
-import {dataCategory} from './components/data';
 import {icons} from '@assets';
-import ItemSearchCategory from '@components/Common/ItemList/ItemSearchCategory';
-import ItemSuggestions from '@components/Common/ItemList/ItemSuggestions';
-import {dataSuggestions} from './components/dataSuggestions';
 import {ChevronLeft} from '@assets/svg/common';
+import {Block, Text} from '@components';
+import ItemSearchCategory from '@components/Common/ItemList/ItemSearchCategory';
+import ItemSearchProduct from '@components/Common/ItemList/ItemSearchProduct';
+import ItemSuggestions from '@components/Common/ItemList/ItemSuggestions';
+import {useNavigation} from '@react-navigation/core';
+import {theme} from '@theme';
+import React, {useState} from 'react';
+import {FlatList, Image, Pressable, StatusBar, TextInput} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {data, dataCategory} from './components/data';
+import {dataSuggestions} from './components/dataSuggestions';
+import styles from './styles';
 
 const SearchScreen = () => {
   const navigation = useNavigation();
   const [keyword, setKeyword] = useState('');
   const {top} = useSafeAreaInsets();
+
   const renderItem = ({item, index}) => (
-    <ItemSearchCategory index={index} image={item.Image} title={item.title} />
+    <ItemSearchCategory index={index} image={item.image} title={item.title} />
   );
-  const renderItemSuggestions = (item,index) => <ItemSuggestions key={index} title={item.title} />;
+
+  const renderItemSuggestions = (item, index) => (
+    <ItemSuggestions key={index} title={item.title} />
+  );
+
+  const renderItemSearchProduct = ({item, index}) => (
+    <ItemSearchProduct key={index} title={item.title} image={item.image} />
+  );
 
   return (
-    <Block flex>
+    <Block flex backgroundColor="white">
       <StatusBar barStyle="dark-content" />
       <Block
         row
@@ -45,19 +55,25 @@ const SearchScreen = () => {
           <Image
             resizeMode="contain"
             source={icons.search}
-            style={{width: 20, height: 20}}
+            style={styles.iconSearch}
           />
           <TextInput
             placeholder="Bạn muốn mua gì?"
-            style={{fontSize: 15, paddingLeft: 2, alignItems: 'center'}}
+            placeholderTextColor={theme.colors.placeholder}
+            style={styles.inputStyle}
             onChangeText={text => setKeyword(text)}
           />
         </Block>
       </Block>
 
-      <Block paddingHorizontal={12} paddingVertical={12}>
+      <Block paddingHorizontal={12}>
         {keyword ? (
-          <Block>{dataSuggestions.map(renderItemSuggestions)}</Block>
+          <FlatList
+            data={data}
+            renderItem={renderItemSearchProduct}
+            keyExtractor={(_, index) => String(index)}
+            showsVerticalScrollIndicator={false}
+          />
         ) : (
           <Block>
             <Text size={15} color={theme.colors.placeholder}>
@@ -69,7 +85,8 @@ const SearchScreen = () => {
           </Block>
         )}
       </Block>
-      <Block paddingHorizontal={12} flex>
+      <Block height={8} backgroundColor={theme.colors.smoke} />
+      <Block flex paddingHorizontal={12} marginTop={10}>
         <Text size={15} color={theme.colors.placeholder}>
           Danh mục nổi bật
         </Text>

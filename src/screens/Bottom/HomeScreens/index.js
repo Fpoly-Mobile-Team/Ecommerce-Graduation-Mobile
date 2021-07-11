@@ -8,7 +8,6 @@ import FeaturedCategory from './components/FeaturedCategory';
 import FeaturedShop from './components/FeaturedShop';
 import FlashSale from './components/FlashSale';
 import SellingProduct from './components/SellingProduct';
-import SearchSreen from './Navigation/SearchScreen';
 import styles from './styles';
 
 const HomeScreens = () => {
@@ -55,9 +54,7 @@ const HomeScreens = () => {
           marginBottom={10}
           backgroundColor={theme.colors.smoke}
         />
-
         <FeaturedCategory />
-
         <Block
           height={8}
           marginBottom={10}
@@ -65,7 +62,6 @@ const HomeScreens = () => {
           backgroundColor={theme.colors.smoke}
         />
         <FeaturedShop />
-
         <Block height={8} backgroundColor={theme.colors.smoke} />
         <Block paddingHorizontal={12}>
           <Carousel />
