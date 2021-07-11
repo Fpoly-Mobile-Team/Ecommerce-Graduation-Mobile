@@ -1,3 +1,4 @@
+import {theme} from '@theme';
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
@@ -6,5 +7,10 @@ export default StyleSheet.create({
     height: 100,
     borderTopLeftRadius: 10,
     borderBottomLeftRadius: 10,
+  },
+  btn: {
+    width: 60,
+    backgroundColor: theme.colors.pink,
+    borderRadius: 45,
   },
 });

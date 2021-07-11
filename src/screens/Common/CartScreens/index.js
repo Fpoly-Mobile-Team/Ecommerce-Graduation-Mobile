@@ -60,9 +60,10 @@ const CartScreen = () => {
             width: 100,
           },
           container: {
-            height: '60%',
+            height: '70%',
             backgroundColor: theme.colors.lightRount,
-            borderRadius: 20,
+            borderTopLeftRadius: 20,
+            borderTopRightRadius: 20,
           },
         }}>
         <Block style={styles.promo} marginBottom={5} marginTop={20}>
