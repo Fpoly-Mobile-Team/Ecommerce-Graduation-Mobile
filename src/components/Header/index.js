@@ -1,15 +1,15 @@
 import {icons} from '@assets';
+import {ChevronLeft} from '@assets/svg/common';
 import {Block, Text} from '@components';
+import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/core';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
 import React, {useState} from 'react';
-import {Animated, Pressable, StatusBar} from 'react-native';
+import {Animated, Image, Pressable, StatusBar} from 'react-native';
 import {Badge} from 'react-native-elements';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {ChevronLeft} from '@assets/svg/common';
 import styles from './styles';
-import {routes} from '@navigation/routes';
 
 const Header = props => {
   if (props.type === 'Home') {
@@ -20,9 +20,11 @@ const Header = props => {
 };
 
 const HeaderHome = ({scroll}) => {
+  const navigation = useNavigation();
   const {top} = useSafeAreaInsets();
   const [isLightStatusBar, setIsLightStatusBar] = useState(true);
 
+  const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
   const HEADER_MAX_HEIGHT = getSize.m(200);
   const HEADER_MIN_HEIGHT = getSize.m(60);
   const HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT;
@@ -77,16 +79,10 @@ const HeaderHome = ({scroll}) => {
           ...styles.container(top, backgroundColor),
         }}>
         <Block row alignCenter marginBottom={12} space="between">
-          <Animated.View
-            style={styles.box(backgroundColorbox)}
-            flex
-            row
-            alignCenter
-            backgroundColor={theme.colors.white}
-            height={40}
-            radius={5}
-            paddingHorizontal={12}>
-            <Animated.Image
+          <AnimatedPressable
+            onPress={() => navigation.navigate(routes.SEARCHSCREEN)}
+            style={styles.box(backgroundColorbox)}>
+            <Image
               source={icons.search}
               style={styles.iconSearch}
               resizeMode="contain"
@@ -96,7 +92,8 @@ const HeaderHome = ({scroll}) => {
               style={{marginLeft: getSize.s(5), color: colortext}}>
               Bạn tìm gì hôm nay?
             </Animated.Text>
-          </Animated.View>
+          </AnimatedPressable>
+
           <Card colorimg={colorimg} />
         </Block>
       </Animated.View>
