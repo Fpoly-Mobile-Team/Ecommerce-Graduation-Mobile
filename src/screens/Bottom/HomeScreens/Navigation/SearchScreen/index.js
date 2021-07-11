@@ -29,7 +29,7 @@ const SearchScreen = () => {
   const renderItemSearchProduct = ({item, index}) => (
     <ItemSearchProduct key={index} title={item.title} image={item.image} />
   );
-  //fix
+
   return (
     <Block flex backgroundColor="white">
       <StatusBar barStyle="dark-content" />
