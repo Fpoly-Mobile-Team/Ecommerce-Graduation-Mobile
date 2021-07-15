@@ -8,10 +8,6 @@ export default StyleSheet.create({
     borderColor: theme.colors.black,
     borderWidth: 1,
   },
-  name: {
-    fontSize: 17,
-    fontWeight: 'bold',
-  },
   label: {
     color: theme.colors.lightGray,
     paddingHorizontal: 20,

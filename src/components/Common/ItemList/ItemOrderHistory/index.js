@@ -1,19 +1,13 @@
 import {Block, Text, Button} from '@components';
 import {theme} from '@theme';
-import {height} from '@utils/responsive';
 import React, {useRef, useState} from 'react';
+import {routes} from '@navigation/routes';
+import {useNavigation} from '@react-navigation/native';
 import styles from './styles';
+import {Pressable} from 'react-native';
 
-const Item = ({
-  name,
-  date,
-  shop,
-  quantity,
-  price,
-  status,
-  checkColor,
-  checkBackground,
-}) => {
+const Item = ({name, date, shop, quantity, price, status, checkColor}) => {
+  const navigation = useNavigation();
   return (
     <Block
       elevation={7}
@@ -25,30 +19,35 @@ const Item = ({
       backgroundColor={theme.colors.white}
       column>
       <Block row space="between" paddingVertical={10}>
-        <Text style={styles.name}>{name}</Text>
+        <Text fontType={'bold'} size={17}>
+          {name}
+        </Text>
         <Text color={theme.colors.lightGray}>{date}</Text>
       </Block>
       <Text style={styles.containText}>
-        <Text style={styles.label}>Cửa hàng: </Text>
+        <Text style={styles.label}>Cửa hàng:{'  '}</Text>
         {shop}
       </Text>
       <Block row space="between" paddingVertical={10}>
         <Text style={styles.containText}>
-          <Text style={styles.label}>Số lượng: </Text>
+          <Text style={styles.label}>Số lượng:{'  '}</Text>
           {quantity}
         </Text>
         <Text style={styles.containText}>
-          <Text style={styles.label}>Thành tiền: </Text>
+          <Text style={styles.label}>Thành tiền:{'  '}</Text>
           {price} VND
         </Text>
       </Block>
+
       <Block row space="between" alignCenter>
         <Button
+          onPress={() => navigation.navigate(routes.ORDERDETAILS)}
           height={35}
           title="Details"
           titleStyle={{color: theme.colors.black}}
           style={styles.btnOutline}
         />
+
         <Text color={checkColor ? theme.colors.red : theme.colors.greenStatus}>
           {status}
         </Text>
