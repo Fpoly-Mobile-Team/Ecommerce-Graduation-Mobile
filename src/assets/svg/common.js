@@ -14,6 +14,7 @@ import Svg, {
   Image,
   Mask,
 } from 'react-native-svg';
+
 export const DotsThreeVertical = ({width = 24, height = 24}) => {
   return (
     <Svg

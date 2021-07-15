@@ -44,6 +44,10 @@ const RootStack = () => {
           name={routes.ORDERHISTORY}
           component={common.ORDERHISTORY}
         />
+        <Stack.Screen
+          name={routes.ORDERDETAILS}
+          component={common.ORDERDETAILS}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
