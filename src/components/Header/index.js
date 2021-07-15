@@ -109,7 +109,7 @@ const HeaderCommon = ({canGoBack, title, checkBackground, checkCorlor}) => {
       row
       alignCenter
       shadow
-      paddingTop={top + 15}
+      paddingTop={top + 10}
       paddingVertical={15}
       paddingHorizontal={12}
       space="between"
