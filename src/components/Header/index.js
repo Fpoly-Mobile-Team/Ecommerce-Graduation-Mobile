@@ -3,6 +3,7 @@ import {ChevronLeft} from '@assets/svg/common';
 import {Block, Text} from '@components';
 import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/core';
+import {useIsFocused} from '@react-navigation/native';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
 import React, {useState} from 'react';
@@ -100,26 +101,24 @@ const HeaderHome = ({scroll}) => {
   );
 };
 
-const HeaderCommon = ({canGoBack, title, checkBackground, checkCorlor}) => {
+const HeaderCommon = ({canGoBack, title, checkBackground, checkStatusBar}) => {
   const {top} = useSafeAreaInsets();
   const navigation = useNavigation();
+  const isFocused = useIsFocused();
 
   return (
     <Block
       row
       alignCenter
       shadow
-      paddingTop={top + 15}
+      paddingTop={top + 10}
       paddingVertical={15}
       paddingHorizontal={12}
       space="between"
       backgroundColor={
         checkBackground ? theme.colors.white : theme.colors.pink
       }>
-      <StatusBar
-        translucent
-        barStyle={checkBackground ? 'dark-content' : 'light-content'}
-      />
+      {isFocused && <StatusBar barStyle="dark-content" translucent animated />}
       {canGoBack && (
         <Pressable onPress={() => navigation.goBack()}>
           <ChevronLeft />

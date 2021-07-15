@@ -39,7 +39,7 @@ const SearchScreen = () => {
         justifyCenter
         paddingTop={top + 10}
         space="between"
-        padding={16}>
+        padding={12}>
         <Pressable onPress={() => navigation.goBack()}>
           <Block marginRight={10}>
             <ChevronLeft />
