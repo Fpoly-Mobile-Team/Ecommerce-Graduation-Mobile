@@ -94,7 +94,7 @@ const SearchScreen = () => {
           <FlatList
             data={dataCategory}
             renderItem={renderItem}
-            keyExtractor={item => item.id}
+            keyExtractor={(_, index) => String(index)}
             showsVerticalScrollIndicator={false}
             numColumns={2}
             horizontal={false}
