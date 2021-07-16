@@ -27,6 +27,14 @@ export const icons = {
   info: require('./icons/information.png'),
   location: require('./icons/location.png'),
   message: require('./icons/message.png'),
+  settings: require('./icons/settings.png'),
+  camera: require('./icons/camera.png'),
+  arrow_right: require('./icons/arrow_right.png'),
+  favoriteprofile: require('./icons/favoriteprofile.png'),
+  eyesview: require('./icons/eyesview.png'),
+  accountprofile: require('./icons/accountprofile.png'),
+  feedback: require('./icons/feedback.png'),
+  shopping: require('./icons/shopping.png'),
 };
 
 export const images = {

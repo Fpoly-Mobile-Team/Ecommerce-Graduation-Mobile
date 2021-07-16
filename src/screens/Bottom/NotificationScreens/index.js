@@ -4,6 +4,7 @@ import React from 'react';
 import {FlatList} from 'react-native';
 import ItemNotification from '@components/Common/ItemList/ItemNotification';
 import {data} from './components/data';
+import {theme} from '@theme';
 
 const NotificationScreens = () => {
   const navigation = useNavigation();
@@ -19,7 +20,7 @@ const NotificationScreens = () => {
   );
 
   return (
-    <Block flex>
+    <Block flex backgroundColor={theme.colors.white}>
       <Header title="Thông Báo" />
       <FlatList
         data={data}
