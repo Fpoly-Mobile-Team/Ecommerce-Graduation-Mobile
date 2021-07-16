@@ -10,7 +10,7 @@ import React, {useState} from 'react';
 import {FlatList, Image, Pressable, StatusBar, TextInput} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {data, dataCategory} from './components/data';
-import {dataSuggestions} from './components/dataSuggestions';
+import {Data} from './components/dataSuggestions';
 import styles from './styles';
 
 const SearchScreen = () => {
@@ -80,7 +80,7 @@ const SearchScreen = () => {
               Gợi ý
             </Text>
             <Block row wrap>
-              {dataSuggestions.map(renderItemSuggestions)}
+              {Data.dataSuggestions.map(renderItemSuggestions)}
             </Block>
           </Block>
         )}
@@ -94,7 +94,7 @@ const SearchScreen = () => {
           <FlatList
             data={dataCategory}
             renderItem={renderItem}
-            keyExtractor={item => item.id}
+            keyExtractor={(_, index) => String(index)}
             showsVerticalScrollIndicator={false}
             numColumns={2}
             horizontal={false}
