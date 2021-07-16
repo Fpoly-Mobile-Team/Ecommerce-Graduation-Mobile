@@ -92,7 +92,7 @@ const HeaderHome = ({scroll}) => {
             </Animated.Text>
           </AnimatedPressable>
 
-          <Card colorimg={colorimg} />
+          <Cart colorimg={colorimg} />
         </Block>
       </Animated.View>
 
@@ -139,7 +139,7 @@ const HeaderCommon = ({canGoBack, title, checkBackground, checkStatusBar}) => {
   );
 };
 
-const Card = ({colorimg}) => {
+const Cart = ({colorimg}) => {
   const navigation = useNavigation();
   return (
     <Pressable onPress={() => navigation.navigate(routes.CARTSCREENS)}>
