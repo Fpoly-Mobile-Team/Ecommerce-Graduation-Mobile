@@ -1,17 +1,24 @@
-import {Block, Text} from '@components';
+import {Block} from '@components';
 import {theme} from '@theme';
+import {width} from '@utils/responsive';
 import React from 'react';
 import {ScrollView, StyleSheet} from 'react-native';
-import HeaderProfile from './components/HeaderProfile';
 import AvatarProfile from './components/AvatarProfile';
 import ContentProfile from './components/ContentProfile';
+import HeaderProfile from './components/HeaderProfile';
 
 const ProfileScreens = () => {
   return (
     <Block flex backgroundColor={theme.colors.white}>
       <HeaderProfile />
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <AvatarProfile />
+        <Block
+          height={8}
+          marginTop={10}
+          width={width}
+          backgroundColor={theme.colors.smoke}
+        />
         <ContentProfile />
       </ScrollView>
     </Block>
