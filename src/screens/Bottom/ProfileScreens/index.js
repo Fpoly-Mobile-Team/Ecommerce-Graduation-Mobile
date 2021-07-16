@@ -2,7 +2,7 @@ import {Block} from '@components';
 import {theme} from '@theme';
 import {width} from '@utils/responsive';
 import React from 'react';
-import {ScrollView, StyleSheet} from 'react-native';
+import {ScrollView} from 'react-native';
 import AvatarProfile from './components/AvatarProfile';
 import ContentProfile from './components/ContentProfile';
 import HeaderProfile from './components/HeaderProfile';
@@ -26,5 +26,3 @@ const ProfileScreens = () => {
 };
 
 export default ProfileScreens;
-
-const styles = StyleSheet.create({});
