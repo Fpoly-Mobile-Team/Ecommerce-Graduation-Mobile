@@ -35,6 +35,11 @@ export const icons = {
   accountprofile: require('./icons/accountprofile.png'),
   feedback: require('./icons/feedback.png'),
   shopping: require('./icons/shopping.png'),
+  wallet: require('./icons/wallet.png'),
+  confirmation: require('./icons/confirmation.png'),
+  delivery: require('./icons/delivery.png'),
+  delivery_box: require('./icons/delivery_box.png'),
+  vouncher: require('./icons/vouncher.png'),
 };
 
 export const images = {
