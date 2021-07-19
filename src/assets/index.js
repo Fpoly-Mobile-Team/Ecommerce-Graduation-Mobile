@@ -27,6 +27,7 @@ export const icons = {
   info: require('./icons/information.png'),
   location: require('./icons/location.png'),
   message: require('./icons/message.png'),
+  check_blank: require('./icons/check_blank.png'),
 };
 
 export const images = {
