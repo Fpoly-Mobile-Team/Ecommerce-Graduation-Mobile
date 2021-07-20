@@ -4,11 +4,12 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   container: isFocused => ({
-    width: (width - 24) / 3.1,
+    flex: 1,
+    width: (width - 24) / 3,
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 6,
-    paddingHorizontal: 6,
+    paddingHorizontal: 2,
     borderRadius: 20,
     marginHorizontal: 10,
     backgroundColor: isFocused ? theme.colors.pink : theme.colors.transparent,
@@ -16,7 +17,7 @@ export default StyleSheet.create({
   textStyle: isFocused => ({
     color: isFocused ? theme.colors.white : theme.colors.black,
     textAlign: 'center',
-    fontWeight: isFocused ? 'bold' : 'regular',
+    fontWeight: isFocused ? 'bold' : '500',
     fontSize: 14,
   }),
 });
