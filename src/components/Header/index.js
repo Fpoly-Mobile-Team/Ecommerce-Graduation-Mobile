@@ -3,6 +3,7 @@ import {ChevronLeft} from '@assets/svg/common';
 import {Block, Text} from '@components';
 import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/core';
+import {useIsFocused} from '@react-navigation/native';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
 import React, {useState} from 'react';
@@ -22,21 +23,20 @@ const Header = props => {
 const HeaderHome = ({scroll}) => {
   const navigation = useNavigation();
   const {top} = useSafeAreaInsets();
-  const [isLightStatusBar, setIsLightStatusBar] = useState(true);
 
   const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
+  const AnimatedStatusBar = Animated.createAnimatedComponent(StatusBar);
   const HEADER_MAX_HEIGHT = getSize.m(200);
   const HEADER_MIN_HEIGHT = getSize.m(60);
   const HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT;
-  const [check, setCheck] = useState(false);
+  const [dark, setDark] = useState(true);
 
   scroll.addListener(({value}) => {
-    if (value >= 60) {
-      setCheck(true);
-      setIsLightStatusBar(false);
-    } else {
-      setCheck(!check);
-      setIsLightStatusBar(true);
+    if (value >= 60 && dark) {
+      setDark(false);
+    }
+    if (value < 60 && !dark) {
+      setDark(true);
     }
   });
 
@@ -67,13 +67,11 @@ const HeaderHome = ({scroll}) => {
     outputRange: [theme.colors.pink, theme.colors.smoke],
     extrapolate: 'clamp',
   });
+  const isStatus = dark ? 'light-content' : 'dark-content';
 
   return (
     <Block>
-      <StatusBar
-        translucent
-        barStyle={`${isLightStatusBar ? 'light-content' : 'dark-content'}`}
-      />
+      <AnimatedStatusBar animated={true} translucent barStyle={isStatus} />
       <Animated.View
         style={{
           ...styles.container(top, backgroundColor),
@@ -94,7 +92,7 @@ const HeaderHome = ({scroll}) => {
             </Animated.Text>
           </AnimatedPressable>
 
-          <Card colorimg={colorimg} />
+          <Cart colorimg={colorimg} />
         </Block>
       </Animated.View>
 
@@ -103,26 +101,24 @@ const HeaderHome = ({scroll}) => {
   );
 };
 
-const HeaderCommon = ({canGoBack, title, checkBackground, checkCorlor}) => {
+const HeaderCommon = ({canGoBack, title, checkBackground, checkStatusBar}) => {
   const {top} = useSafeAreaInsets();
   const navigation = useNavigation();
+  const isFocused = useIsFocused();
 
   return (
     <Block
       row
       alignCenter
       shadow
-      paddingTop={top + 15}
+      paddingTop={top + 10}
       paddingVertical={15}
       paddingHorizontal={12}
       space="between"
       backgroundColor={
         checkBackground ? theme.colors.white : theme.colors.pink
       }>
-      <StatusBar
-        translucent
-        barStyle={checkBackground ? 'dark-content' : 'light-content'}
-      />
+      {isFocused && <StatusBar barStyle="dark-content" translucent animated />}
       {canGoBack && (
         <Pressable onPress={() => navigation.goBack()}>
           <ChevronLeft />
@@ -143,7 +139,7 @@ const HeaderCommon = ({canGoBack, title, checkBackground, checkCorlor}) => {
   );
 };
 
-const Card = ({colorimg}) => {
+const Cart = ({colorimg}) => {
   const navigation = useNavigation();
   return (
     <Pressable onPress={() => navigation.navigate(routes.CARTSCREENS)}>
