@@ -40,6 +40,7 @@ export const icons = {
   delivery: require('./icons/delivery.png'),
   delivery_box: require('./icons/delivery_box.png'),
   vouncher: require('./icons/vouncher.png'),
+  check_blank: require('./icons/check_blank.png'),
 };
 
 export const images = {
