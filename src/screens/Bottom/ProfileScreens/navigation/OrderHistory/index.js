@@ -5,14 +5,16 @@ import {DATA} from './components/data';
 import TabScreen from './components/TabScreen';
 import CustomTabBar from './components/TabScreen/CustomTabBar';
 
-const OrderHistory = () => {
+const OrderHistory = ({route}) => {
   const Tab = createMaterialTopTabNavigator();
+
   return (
     <Block flex>
       <Header checkBackground canGoBack title="Lịch sử đặt hàng" />
       <Tab.Navigator
         lazy
         optimizationsEnabled={true}
+        initialRouteName={route.params?.title || DATA[0].title}
         tabBar={props => <CustomTabBar {...props} />}>
         {DATA.map((item, index) => {
           return (
