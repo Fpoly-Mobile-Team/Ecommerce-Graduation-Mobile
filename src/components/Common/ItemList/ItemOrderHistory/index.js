@@ -19,11 +19,10 @@ const ItemOrderHistory = ({
     <Block
       shadow={20}
       radius={7}
-      marginBottom={15}
+      marginTop={15}
       paddingVertical={10}
       paddingHorizontal={15}
-      backgroundColor={theme.colors.white}
-      column>
+      backgroundColor={theme.colors.white}>
       <Block row space="between" paddingVertical={10}>
         <Text fontType="bold" size={17}>
           {name}
