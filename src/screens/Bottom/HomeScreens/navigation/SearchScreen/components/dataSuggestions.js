@@ -1,4 +1,4 @@
-export const dataSuggestions = [
+const dataSuggestions = [
   {
     id: '1',
     title: 'Thời trang nam',
@@ -36,3 +36,4 @@ export const dataSuggestions = [
     title: 'Đồng hồ và trang sức',
   },
 ];
+export const Data = {dataSuggestions};

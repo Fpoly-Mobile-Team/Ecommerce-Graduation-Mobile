@@ -59,7 +59,7 @@ const data = [
 const CategoryScreens = () => {
   const [title, settitle] = useState(data[0].title);
   return (
-    <Block flex>
+    <Block flex backgroundColor="background">
       <Header title="Danh Mục" />
       <Block row flex>
         <LeftBox data={data} settitle={settitle} />
