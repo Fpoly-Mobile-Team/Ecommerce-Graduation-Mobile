@@ -1,6 +1,6 @@
 import {Block, Text} from '@components';
 import {theme} from '@theme';
-import React, {useRef} from 'react';
+import React from 'react';
 
 const HeaderComponent = () => {
   return (
@@ -20,8 +20,8 @@ const HeaderComponent = () => {
         </Text>
         <Text color={theme.colors.greenStatus}>Đã giao</Text>
       </Block>
-      <Text fontType={'bold'} size={15}>
-        3 items
+      <Text fontType="bold" size={15}>
+        3 Sản Phẩm
       </Text>
     </Block>
   );

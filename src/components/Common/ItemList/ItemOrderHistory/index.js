@@ -1,25 +1,31 @@
-import {Block, Text, Button} from '@components';
-import {theme} from '@theme';
-import React, {useRef, useState} from 'react';
+import {Block, Button, Text} from '@components';
 import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
+import {theme} from '@theme';
+import React from 'react';
 import styles from './styles';
-import {Pressable} from 'react-native';
 
-const Item = ({name, date, shop, quantity, price, status, checkColor}) => {
+const ItemOrderHistory = ({
+  name,
+  date,
+  shop,
+  quantity,
+  price,
+  status,
+  checkColor,
+}) => {
   const navigation = useNavigation();
   return (
     <Block
-      elevation={7}
       shadow={20}
       radius={7}
-      marginVertical={15}
+      marginBottom={15}
       paddingVertical={10}
       paddingHorizontal={15}
       backgroundColor={theme.colors.white}
       column>
       <Block row space="between" paddingVertical={10}>
-        <Text fontType={'bold'} size={17}>
+        <Text fontType="bold" size={17}>
           {name}
         </Text>
         <Text color={theme.colors.lightGray}>{date}</Text>
@@ -56,4 +62,4 @@ const Item = ({name, date, shop, quantity, price, status, checkColor}) => {
   );
 };
 
-export default Item;
+export default ItemOrderHistory;

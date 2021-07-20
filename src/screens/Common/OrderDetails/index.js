@@ -1,15 +1,16 @@
 import {Block, Button, Header} from '@components';
 import {theme} from '@theme';
-import React, {useRef} from 'react';
-import {Pressable} from 'react-native';
-import ListProductDetails from './components/ListProductDetails';
-import HeaderComponent from './components/HeaderComponent';
+import React from 'react';
 import FooterComponent from './components/FooterComponent';
+import HeaderComponent from './components/HeaderComponent';
+import ListProductDetails from './components/ListProductDetails';
+import styles from './styles';
+
 const OrderDetails = (checkTitle, onPress) => {
   return (
     <Block flex>
       <Header checkBackground canGoBack title="Hóa đơn chi tiết" />
-      <Block marginHorizontal={20} paddingBottom={0}>
+      <Block paddingHorizontal={20}>
         <HeaderComponent />
       </Block>
       <Block flex>
@@ -18,21 +19,16 @@ const OrderDetails = (checkTitle, onPress) => {
       <Block flex>
         <FooterComponent />
       </Block>
-      <Pressable>
+      <Block>
         {/* Nếu trạng thái đã giao hoặc hủy thì button title='Đặt lại' và đang
         giao thì hông có button */}
         <Button
           title="Đặt lại"
           titleStyle={{color: theme.colors.black}}
-          style={{
-            borderColor: theme.colors.black,
-            borderWidth: 1,
-            marginHorizontal: 20,
-            marginVertical: 20,
-          }}
+          style={styles.btnStyle}
           height={40}
         />
-      </Pressable>
+      </Block>
     </Block>
   );
 };

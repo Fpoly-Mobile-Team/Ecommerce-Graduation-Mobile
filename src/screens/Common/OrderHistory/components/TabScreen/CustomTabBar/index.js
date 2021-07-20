@@ -1,16 +1,16 @@
-import {theme} from '@theme';
-import React, {useRef} from 'react';
 import {Block, Text} from '@components';
+import React from 'react';
 import {Pressable} from 'react-native';
-function MyTabBar({state, descriptors, navigation}) {
+import styles from './styles';
+
+function CustomTabBar({state, descriptors, navigation}) {
   return (
     <Block
       row
-      backgroundColor={theme.colors.transparent}
-      height={70}
-      paddingTop={10}
       justifyCenter
-      alignCenter>
+      alignCenter
+      paddingVertical={15}
+      paddingHorizontal={12}>
       {state.routes.map((route, index) => {
         const {options} = descriptors[route.key];
         const label =
@@ -42,29 +42,19 @@ function MyTabBar({state, descriptors, navigation}) {
 
         return (
           <Pressable
+            key={index}
             accessibilityRole="button"
             accessibilityStates={isFocused ? ['selected'] : []}
             accessibilityLabel={options.tabBarAccessibilityLabel}
             testID={options.tabBarTestID}
             onPress={onPress}
             onLongPress={onLongPress}
-            style={{flex: 1, alignItems: 'center'}}>
-            <Text
-              style={{
-                color: isFocused ? theme.colors.white : theme.colors.black,
-                backgroundColor: isFocused
-                  ? theme.colors.pink
-                  : theme.colors.transparent,
-                paddingHorizontal: 20,
-                paddingVertical: 7,
-                borderRadius: 20,
-              }}>
-              {label}
-            </Text>
+            style={styles.container(isFocused)}>
+            <Text style={styles.textStyle(isFocused)}>{label}</Text>
           </Pressable>
         );
       })}
     </Block>
   );
 }
-export default MyTabBar;
+export default CustomTabBar;

@@ -1,6 +1,4 @@
-import {images} from '@assets';
-import {Block, Text} from '@components';
-// import ItemProductCart from '@components/Common/ItemList/ItemProductCart';
+import {Block} from '@components';
 import ItemDetailHistory from '@components/Common/ItemList/ItemDetailHistory';
 import React, {useState} from 'react';
 import {FlatList} from 'react-native';
@@ -71,11 +69,11 @@ const ListItem = () => {
   const [selectedId, setSelectedId] = useState(null);
 
   return (
-    <Block flex paddingHorizontal={12}>
+    <Block flex paddingHorizontal={12} paddingTop={10}>
       <FlatList
         data={DATA}
         renderItem={renderItem}
-        keyExtractor={item => item.id}
+        keyExtractor={(item, index) => String(index)}
         extraData={selectedId}
         showsVerticalScrollIndicator={false}
       />
