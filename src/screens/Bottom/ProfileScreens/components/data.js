@@ -1,10 +1,11 @@
 import {icons} from '@assets';
+import {routes} from '@navigation/routes';
 
 export const DATA = [
   {
     id: '1',
     title: 'Đơn Hàng Của Tôi',
-    navigation: null,
+    navigation: routes.ORDERHISTORY,
   },
   {
     id: '2',

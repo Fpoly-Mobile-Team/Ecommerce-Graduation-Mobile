@@ -20,7 +20,7 @@ const RootStack = () => {
       />
       <Stack.Navigator
         mode="modal"
-        initialRouteName={routes.ORDERHISTORY}
+        initialRouteName={routes.BOTTOMTABBAR}
         screenOptions={{
           headerShown: false,
         }}>
@@ -42,11 +42,11 @@ const RootStack = () => {
         />
         <Stack.Screen
           name={routes.ORDERHISTORY}
-          component={common.ORDERHISTORY}
+          component={bottom.ORDERHISTORY}
         />
         <Stack.Screen
           name={routes.ORDERDETAILS}
-          component={common.ORDERDETAILS}
+          component={bottom.ORDERDETAILS}
         />
       </Stack.Navigator>
     </NavigationContainer>
