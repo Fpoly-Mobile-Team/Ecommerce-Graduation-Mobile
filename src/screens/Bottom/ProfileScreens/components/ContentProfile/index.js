@@ -1,5 +1,6 @@
 import {icons} from '@assets';
 import {Block, Text} from '@components';
+import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import {width} from '@utils/responsive';
@@ -65,29 +66,36 @@ const ActionsButton = (item, index) => {
   );
 };
 
-const _renderItem = item => (
-  <Pressable key={item.id}>
-    <Block flex alignCenter width={width / 4}>
-      <Block
-        alignCenter
-        justifyCenter
-        width={50}
-        height={50}
-        radius={50}
-        marginBottom={10}
-        backgroundColor={`${theme.colors.pink}20`}>
-        <Image
-          source={item.image}
-          style={styles.iconBill}
-          resizeMode="contain"
-        />
-      </Block>
+const _renderItem = item => {
+  const navigation = useNavigation();
+  return (
+    <Pressable
+      key={item.id}
+      onPress={() =>
+        navigation.navigate(routes.ORDERHISTORY, {title: item.title})
+      }>
+      <Block flex alignCenter width={width / 4}>
+        <Block
+          alignCenter
+          justifyCenter
+          width={50}
+          height={50}
+          radius={50}
+          marginBottom={10}
+          backgroundColor={`${theme.colors.pink}20`}>
+          <Image
+            source={item.image}
+            style={styles.iconBill}
+            resizeMode="contain"
+          />
+        </Block>
 
-      <Text center marginBottom={10} marginHorizontal={12} size={12}>
-        {item.title}
-      </Text>
-    </Block>
-  </Pressable>
-);
+        <Text center marginBottom={10} marginHorizontal={12} size={12}>
+          {item.title}
+        </Text>
+      </Block>
+    </Pressable>
+  );
+};
 
 export default ContentProfile;

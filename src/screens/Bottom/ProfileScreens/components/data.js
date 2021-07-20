@@ -50,24 +50,20 @@ export const DATABILL = [
     id: '1',
     title: 'Đang xử lý',
     image: icons.wallet,
-    navigation: null,
   },
   {
     id: '2',
     image: icons.confirmation,
     title: 'Đã xác nhận',
-    navigation: null,
   },
   {
     id: '3',
     image: icons.delivery,
     title: 'Đang giao',
-    navigation: null,
   },
   {
     id: '4',
     image: icons.delivery_box,
     title: 'Giao thành công',
-    navigation: null,
   },
 ];
