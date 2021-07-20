@@ -1,5 +1,11 @@
 import {theme} from '@theme';
-import {width} from '@utils/responsive';
 import {StyleSheet} from 'react-native';
 
-export default StyleSheet.create({});
+export default StyleSheet.create({
+  btnStyle: {
+    borderColor: theme.colors.black,
+    borderWidth: 1,
+    marginHorizontal: 20,
+    marginVertical: 20,
+  },
+});
