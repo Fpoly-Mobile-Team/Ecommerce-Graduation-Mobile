@@ -1,7 +1,7 @@
 import {images} from '@assets';
 import {Block, Text} from '@components';
 import {theme} from '@theme';
-import React, {useRef} from 'react';
+import React from 'react';
 import {Image} from 'react-native';
 const FooterComponent = () => {
   return (
@@ -9,7 +9,7 @@ const FooterComponent = () => {
       <Text paddingVertical={15} size={16} fontType={'bold'}>
         Thông tin đặt hàng:
       </Text>
-      <Block row space="between" paddingVertical={10}>
+      <Block row space="between" marginBottom={10}>
         <Text color={theme.colors.lightGray}>Địa chỉ giao hàng:{'  '}</Text>
         <Block width="60%">
           <Text fontType={'bold'}>
@@ -17,7 +17,7 @@ const FooterComponent = () => {
           </Text>
         </Block>
       </Block>
-      <Block alignCenter row space="between" paddingVertical={10}>
+      <Block alignCenter row space="between" marginBottom={10}>
         <Text color={theme.colors.lightGray}>Thanh toán:{'  '}</Text>
         <Block alignCenter width="60%" row>
           <Image
@@ -29,19 +29,19 @@ const FooterComponent = () => {
           </Text>
         </Block>
       </Block>
-      <Block alignCenter row space="between" paddingVertical={10}>
+      <Block alignCenter row space="between" marginBottom={10}>
         <Text color={theme.colors.lightGray}>Vận chuyển:{'  '}</Text>
         <Block width="60%">
           <Text fontType={'bold'}>Giao hàng tiết kiệm</Text>
         </Block>
       </Block>
-      <Block alignCenter row space="between" paddingVertical={10}>
+      <Block alignCenter row space="between" marginBottom={10}>
         <Text color={theme.colors.lightGray}>Giảm giá:{'  '}</Text>
         <Block width="60%">
           <Text fontType={'bold'}>10%,mã khuyến mãi cá nhân</Text>
         </Block>
       </Block>
-      <Block alignCenter row space="between" paddingVertical={10}>
+      <Block alignCenter row space="between" marginBottom={10}>
         <Text color={theme.colors.lightGray}>Tổng cộng:{'  '}</Text>
         <Block width="60%">
           <Text fontType={'bold'}>
