@@ -5,7 +5,6 @@ export default StyleSheet.create({
   btnStyle: {
     borderColor: theme.colors.black,
     borderWidth: 1,
-    marginHorizontal: 20,
-    marginVertical: 20,
+    margin: 20,
   },
 });

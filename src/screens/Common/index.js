@@ -1,11 +1,7 @@
-import ProductDetails from './ProductDetails';
 import CartScreens from './CartScreens';
-import OrderHistory from './OrderHistory';
-import OrderDetails from './OrderDetails';
+import ProductDetails from './ProductDetails';
 
 export const common = {
   PRODUCT_DETAILS: ProductDetails,
   CARTSCREENS: CartScreens,
-  ORDERHISTORY: OrderHistory,
-  ORDERDETAILS: OrderDetails,
 };

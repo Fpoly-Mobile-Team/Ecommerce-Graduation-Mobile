@@ -1,5 +1,6 @@
 import {icons} from '@assets';
 import {Block, Text} from '@components';
+import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import {width} from '@utils/responsive';
 import React from 'react';
@@ -15,46 +16,54 @@ const ContentProfile = () => {
   );
 };
 
-const ActionsButton = (item, index) => (
-  <Block key={item.id}>
-    <Block
-      row
-      alignCenter
-      paddingHorizontal={12}
-      paddingVertical={12}
-      space="between">
-      <Block row alignCenter>
-        {item.id !== '1' && (
-          <Image source={item.image} style={styles.icon} resizeMode="contain" />
-        )}
-        <Text fontType={item.id === '1' ? 'bold' : 'regular'}>
-          {item.title}
-        </Text>
-      </Block>
-      {item.id === '1' ? (
-        <Pressable>
-          <Text color={theme.colors.pink} fontType="semibold">
-            XEM LỊCH SỬ
+const ActionsButton = (item, index) => {
+  const navigation = useNavigation();
+
+  return (
+    <Block key={item.id}>
+      <Block
+        row
+        alignCenter
+        paddingHorizontal={12}
+        paddingVertical={12}
+        space="between">
+        <Block row alignCenter>
+          {item.id !== '1' && (
+            <Image
+              source={item.image}
+              style={styles.icon}
+              resizeMode="contain"
+            />
+          )}
+          <Text fontType={item.id === '1' ? 'bold' : 'regular'}>
+            {item.title}
           </Text>
-        </Pressable>
-      ) : (
-        <Pressable>
-          <Image
-            source={icons.arrow_right}
-            style={styles.iconArrow}
-            resizeMode="contain"
-          />
-        </Pressable>
-      )}
-    </Block>
-    {item.id === '1' && (
-      <Block row alignCenter wrap>
-        {DATABILL.map(_renderItem)}
+        </Block>
+        {item.id === '1' ? (
+          <Pressable onPress={() => navigation.navigate(item.navigation)}>
+            <Text color={theme.colors.pink} fontType="semibold">
+              XEM LỊCH SỬ
+            </Text>
+          </Pressable>
+        ) : (
+          <Pressable>
+            <Image
+              source={icons.arrow_right}
+              style={styles.iconArrow}
+              resizeMode="contain"
+            />
+          </Pressable>
+        )}
       </Block>
-    )}
-    <Block height={8} width={width} backgroundColor={theme.colors.smoke} />
-  </Block>
-);
+      {item.id === '1' && (
+        <Block row alignCenter wrap>
+          {DATABILL.map(_renderItem)}
+        </Block>
+      )}
+      <Block height={8} width={width} backgroundColor={theme.colors.smoke} />
+    </Block>
+  );
+};
 
 const _renderItem = item => (
   <Pressable key={item.id}>

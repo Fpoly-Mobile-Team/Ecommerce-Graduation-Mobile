@@ -19,16 +19,14 @@ const OrderDetails = (checkTitle, onPress) => {
       <Block flex>
         <FooterComponent />
       </Block>
-      <Block>
-        {/* Nếu trạng thái đã giao hoặc hủy thì button title='Đặt lại' và đang
+      {/* Nếu trạng thái đã giao hoặc hủy thì button title='Đặt lại' và đang
         giao thì hông có button */}
-        <Button
-          title="Đặt lại"
-          titleStyle={{color: theme.colors.black}}
-          style={styles.btnStyle}
-          height={40}
-        />
-      </Block>
+      <Button
+        title="Đặt lại"
+        titleStyle={{color: theme.colors.black}}
+        style={styles.btnStyle}
+        height={40}
+      />
     </Block>
   );
 };
