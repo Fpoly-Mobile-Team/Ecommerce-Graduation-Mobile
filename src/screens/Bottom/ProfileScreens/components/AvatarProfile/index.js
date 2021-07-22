@@ -8,7 +8,7 @@ const AvatarProfile = () => {
   return (
     <Block>
       <Block row marginTop={20} paddingHorizontal={12}>
-        <Block width={80} height={80}>
+        <Block alignCenter justifyCenter width={80} height={80}>
           <Image
             source={{
               uri: 'https://kenh14cdn.com/2020/5/15/10-1589526442308960287468.jpg',

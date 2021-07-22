@@ -11,10 +11,10 @@ export default StyleSheet.create({
     borderWidth: 2,
   },
   iconCamera: {
+    position: 'absolute',
     width: getSize.s(20),
     height: getSize.s(20),
-    position: 'absolute',
     bottom: getSize.m(5),
-    right: getSize.m(2),
+    left: getSize.m(20),
   },
 });
