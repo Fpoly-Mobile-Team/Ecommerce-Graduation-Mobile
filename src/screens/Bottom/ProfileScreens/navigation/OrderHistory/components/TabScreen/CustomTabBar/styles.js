@@ -5,12 +5,9 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
   container: isFocused => ({
     flex: 1,
-    width: (width - 24) / 3,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 6,
-    paddingHorizontal: 2,
-    borderRadius: 20,
+    paddingVertical: 8,
+    paddingHorizontal: 15,
+    borderRadius: 50,
     marginHorizontal: 10,
     backgroundColor: isFocused ? theme.colors.pink : theme.colors.transparent,
   }),
