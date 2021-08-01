@@ -48,6 +48,10 @@ const RootStack = () => {
           name={routes.ORDERDETAILS}
           component={bottom.ORDERDETAILS}
         />
+        <Stack.Screen
+          name={routes.PAYMENTSCREEN}
+          component={common.PAYMENT_SCREEN}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

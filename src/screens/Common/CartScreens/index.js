@@ -1,5 +1,6 @@
 import {CircleBack} from '@assets/svg/common';
 import {Block, Button, Header, Text} from '@components';
+import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import React, {useRef} from 'react';
 import {Pressable, TextInput} from 'react-native';
@@ -10,6 +11,8 @@ import styles from './styles';
 
 const CartScreen = () => {
   const refRBSheet = useRef();
+  const navigation = useNavigation();
+
   return (
     <Block flex>
       <Header checkBackground canGoBack title="Giỏ hàng của tôi" />
@@ -39,6 +42,7 @@ const CartScreen = () => {
             titleStyle={{color: theme.colors.black}}
             style={styles.btnOutline}
             height={40}
+            onPress={() => navigation.goBack()}
           />
           <Button
             height={40}
