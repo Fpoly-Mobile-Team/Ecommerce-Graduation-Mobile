@@ -8,7 +8,7 @@ import styles from './styles';
 
 const OrderDetails = (checkTitle, onPress) => {
   return (
-    <Block flex>
+    <Block flex backgroundColor="background">
       <Header checkBackground canGoBack title="Hóa đơn chi tiết" />
       <Block paddingHorizontal={20}>
         <HeaderComponent />

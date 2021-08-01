@@ -13,8 +13,10 @@ const ItemDetailHistory = ({title, color, size, price, amount}) => {
   return (
     <Pressable onPress={() => navigation.navigate(routes.PRODUCT_DETAILS)}>
       <Block
+        shadow
         row
         marginBottom={20}
+        marginHorizontal={12}
         backgroundColor={theme.colors.white}
         radius={10}>
         <Image source={images.thumnail} style={styles.img} />

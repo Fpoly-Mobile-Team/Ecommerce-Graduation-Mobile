@@ -44,7 +44,7 @@ const TabScreen = () => {
   const [selectedId, setSelectedId] = useState(null);
 
   return (
-    <Block flex paddingHorizontal={15}>
+    <Block flex backgroundColor="background">
       <FlatList
         data={DATA}
         renderItem={renderItem}

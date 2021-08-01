@@ -4,9 +4,6 @@ import {Pressable, ScrollView} from 'react-native';
 import styles from './styles';
 
 function CustomTabBar({state, descriptors, navigation}) {
-  console.log('====================================');
-  console.log(descriptors);
-  console.log('====================================');
   return (
     <Block row justifyCenter alignCenter paddingVertical={15}>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
