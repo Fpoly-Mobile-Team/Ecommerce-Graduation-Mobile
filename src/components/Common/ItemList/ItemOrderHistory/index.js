@@ -13,6 +13,7 @@ const ItemOrderHistory = ({
   price,
   status,
   checkColor,
+  isCheck,
 }) => {
   const navigation = useNavigation();
   return (
@@ -23,6 +24,7 @@ const ItemOrderHistory = ({
       marginHorizontal={15}
       radius={7}
       marginTop={15}
+      marginBottom={isCheck ? 15 : 0}
       paddingVertical={10}
       paddingHorizontal={15}
       backgroundColor={theme.colors.white}>

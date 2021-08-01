@@ -27,7 +27,16 @@ const DATA = [
     price: '356.000',
     status: 'Đã giao',
   },
+  {
+    name: 'Order №1947034',
+    date: '05-12-2019',
+    shop: 'Cửa hàng thời trang 11',
+    quantity: '3',
+    price: '356.000',
+    status: 'Đã giao',
+  },
 ];
+const indexend = DATA.length - 1;
 const renderItem = ({item, index}) => {
   return (
     <ItemOderHistory
@@ -37,6 +46,7 @@ const renderItem = ({item, index}) => {
       quantity={item.quantity}
       price={item.price}
       status={item.status}
+      isCheck={index === indexend}
     />
   );
 };
