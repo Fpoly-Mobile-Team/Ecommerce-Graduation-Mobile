@@ -17,7 +17,10 @@ const ItemOrderHistory = ({
   const navigation = useNavigation();
   return (
     <Block
-      shadow={20}
+      shadow
+      flex
+      flexGrow
+      marginHorizontal={15}
       radius={7}
       marginTop={15}
       paddingVertical={10}

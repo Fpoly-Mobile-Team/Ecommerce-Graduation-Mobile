@@ -75,7 +75,7 @@ const ListItem = () => {
   const [selectedId, setSelectedId] = useState(null);
 
   return (
-    <Block flex paddingHorizontal={12}>
+    <Block flex>
       <FlatList
         data={DATA}
         renderItem={renderItem}

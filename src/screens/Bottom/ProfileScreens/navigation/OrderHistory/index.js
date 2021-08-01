@@ -9,7 +9,7 @@ const OrderHistory = ({route}) => {
   const Tab = createMaterialTopTabNavigator();
 
   return (
-    <Block flex>
+    <Block flex backgroundColor="background">
       <Header checkBackground canGoBack title="Lịch sử đặt hàng" />
       <Tab.Navigator
         lazy

@@ -45,7 +45,9 @@ const ItemProductCart = ({title, color, size, amount, price}) => {
       <MenuProvider skipInstanceCheck={true}>
         <Block
           row
+          shadow
           flex
+          marginHorizontal={12}
           marginTop={20}
           backgroundColor={theme.colors.white}
           radius={10}>
