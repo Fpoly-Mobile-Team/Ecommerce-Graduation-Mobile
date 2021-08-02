@@ -16,7 +16,7 @@ import {
 } from 'react-native-popup-menu';
 import styles from './styles';
 
-const ItemProductCart = ({title, color, size, amount, price}) => {
+const ItemProductCart = ({title, color, size, amount, price, isCheck}) => {
   const navigation = useNavigation();
   const MenuShowing = () => (
     <Block>
@@ -49,6 +49,7 @@ const ItemProductCart = ({title, color, size, amount, price}) => {
           flex
           marginHorizontal={12}
           marginTop={20}
+          marginBottom={isCheck ? 5 : 0}
           backgroundColor={theme.colors.white}
           radius={10}>
           <Image source={images.thumnail} style={styles.img} />
