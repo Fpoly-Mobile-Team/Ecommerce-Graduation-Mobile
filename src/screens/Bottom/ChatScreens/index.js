@@ -1,11 +1,12 @@
-import {Block, Text, Header} from '@components';
+import {Block, Header} from '@components';
+import {theme} from '@theme';
 import React from 'react';
 import {StyleSheet} from 'react-native';
 
 const ChatScreens = () => {
   return (
-    <Block flex>
-      <Header title="Tin Nhắn" />
+    <Block flex backgroundColor={theme.colors.white}>
+      <Header title="Tin nhắn" />
     </Block>
   );
 };
