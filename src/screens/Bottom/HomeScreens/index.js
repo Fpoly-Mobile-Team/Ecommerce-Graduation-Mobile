@@ -54,7 +54,9 @@ const HomeScreens = () => {
           marginBottom={10}
           backgroundColor={theme.colors.smoke}
         />
+
         <FeaturedCategory />
+
         <Block
           height={8}
           marginBottom={10}
@@ -62,6 +64,7 @@ const HomeScreens = () => {
           backgroundColor={theme.colors.smoke}
         />
         <FeaturedShop />
+
         <Block height={8} backgroundColor={theme.colors.smoke} />
         <Block paddingHorizontal={12}>
           <Carousel />

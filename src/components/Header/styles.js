@@ -43,5 +43,4 @@ export default StyleSheet.create({
     backgroundColor: backgroundsmoke,
     height: getSize.m(0.5),
   }),
-  border: {borderBottomColor: theme.colors.smoke, borderBottomWidth: 0.5},
 });

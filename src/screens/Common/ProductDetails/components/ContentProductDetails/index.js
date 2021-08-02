@@ -70,7 +70,65 @@ const ContentProductDetails = () => {
         </Block>
       </Block>
       <Block height={10} marginTop={10} backgroundColor={theme.colors.smoke} />
+      <Block paddingHorizontal={12} paddingVertical={12}>
+        <Block row alignCenter space="between">
+          <Text size={15} fontType="semibold">
+            {25} Mã Giảm Giá
+          </Text>
+          <Block row flex alignCenter justifyCenter>
+            {[1, 2].map(_renderCoupon)}
+          </Block>
+          <Pressable>
+            <Image
+              source={icons.next}
+              style={{width: getSize.s(14), height: getSize.s(14)}}
+              resizeMode="contain"
+            />
+          </Pressable>
+        </Block>
+      </Block>
+      <Block height={10} backgroundColor={theme.colors.smoke} />
     </Block>
+  );
+};
+
+const _renderCoupon = index => {
+  return (
+    <Pressable key={index}>
+      <Block
+        row
+        relative
+        margin={3}
+        alignCenter
+        justifyCenter
+        radius={4}
+        borderColor={theme.colors.pink}
+        borderWidth={1}
+        paddingVertical={6}
+        paddingHorizontal={12}>
+        <Block
+          absolute
+          left={-7}
+          height={12}
+          width={12}
+          style={styles.radiuscouponLeft}
+          borderColor={theme.colors.pink}
+          backgroundColor={theme.colors.white}
+        />
+        <Text color={theme.colors.pink} fontType="semibold">
+          Giảm 500k
+        </Text>
+        <Block
+          absolute
+          right={-7}
+          height={12}
+          width={12}
+          style={styles.radiuscouponRight}
+          borderColor={theme.colors.pink}
+          backgroundColor={theme.colors.white}
+        />
+      </Block>
+    </Pressable>
   );
 };
 

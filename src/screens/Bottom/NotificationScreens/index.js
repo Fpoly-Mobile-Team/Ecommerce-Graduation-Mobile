@@ -2,9 +2,8 @@ import {Block, Header} from '@components';
 import {useNavigation} from '@react-navigation/core';
 import React from 'react';
 import {FlatList} from 'react-native';
-import ItemNotification from '@components/Common/ItemList/ItemNotification';
+import ItemNotification from './components/ItemNotification';
 import {data} from './components/data';
-import {theme} from '@theme';
 
 const NotificationScreens = () => {
   const navigation = useNavigation();
@@ -20,8 +19,8 @@ const NotificationScreens = () => {
   );
 
   return (
-    <Block flex backgroundColor={theme.colors.white}>
-      <Header title="Thông báo" />
+    <Block flex>
+      <Header title="Thông Báo" />
       <FlatList
         data={data}
         renderItem={renderItem}

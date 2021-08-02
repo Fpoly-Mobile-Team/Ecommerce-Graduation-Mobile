@@ -1,6 +1,5 @@
 import {icons} from '@assets';
 import {Block, Text} from '@components';
-import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import {getSize, width} from '@utils/responsive';
@@ -42,15 +41,9 @@ const HeaderDetails = ({scroll}) => {
     outputRange: [theme.colors.white, theme.colors.pink],
     extrapolate: 'clamp',
   });
-  const backgroundsmoke = scroll.interpolate({
-    inputRange: [0, HEADER_SCROLL_DISTANCE],
-    outputRange: [theme.colors.transparent, theme.colors.smoke],
-    extrapolate: 'clamp',
-  });
 
   return (
-    <Animated.View
-      style={styles.headercontainer(top, backgroundColor, backgroundsmoke)}>
+    <Animated.View style={styles.headercontainer(top, backgroundColor)}>
       <Block
         row
         alignCenter
@@ -86,9 +79,9 @@ const HeaderDetails = ({scroll}) => {
                 ColorIcon={ColorIcon}
                 backgroundIcon={backgroundIcon}
                 cart
-                style={styles.iconcart}
+                style={styles.iconcard}
                 icon={icons.cart}
-                onPress={() => navigation.navigate(routes.CARTSCREENS)}
+                onPress={() => navigation.goBack()}
               />
               <_renderIcon
                 ColorIcon={ColorIcon}

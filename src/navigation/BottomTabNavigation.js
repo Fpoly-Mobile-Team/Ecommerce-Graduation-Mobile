@@ -3,9 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {routes} from './routes';
 import {bottom} from '../screens/Bottom';
 import CustomTabBar from './CustomTabBar';
-
 const Tab = createBottomTabNavigator();
-
 const BottomTabNavigation = () => {
   return (
     <Tab.Navigator tabBar={props => <CustomTabBar {...props} />}>

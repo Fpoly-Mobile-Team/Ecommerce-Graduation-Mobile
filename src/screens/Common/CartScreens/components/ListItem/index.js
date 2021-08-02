@@ -62,6 +62,7 @@ const DATA = [
 const renderItem = ({item, index}) => {
   return (
     <ItemProductCart
+      index={index}
       title={item.title}
       price={item.price}
       amount={item.amount}
@@ -75,7 +76,7 @@ const ListItem = () => {
   const [selectedId, setSelectedId] = useState(null);
 
   return (
-    <Block flex>
+    <Block flex paddingHorizontal={12}>
       <FlatList
         data={DATA}
         renderItem={renderItem}

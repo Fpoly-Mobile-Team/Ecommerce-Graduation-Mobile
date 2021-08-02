@@ -7,7 +7,7 @@ import {Image} from 'react-native';
 
 const ProductInformation = () => {
   return (
-    <Block paddingHorizontal={12} marginTop={10}>
+    <Block paddingHorizontal={12} paddingTop={2}>
       <Block row alignCenter>
         <Image
           source={icons.info}

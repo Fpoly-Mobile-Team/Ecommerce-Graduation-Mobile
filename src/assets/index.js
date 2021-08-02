@@ -25,26 +25,8 @@ export const icons = {
   share: require('./icons/share.png'),
   favorite: require('./icons/favorite.png'),
   info: require('./icons/information.png'),
-  location: require('./icons/location.png'),
-  message: require('./icons/message.png'),
-  settings: require('./icons/settings.png'),
-  camera: require('./icons/camera.png'),
-  arrow_right: require('./icons/arrow_right.png'),
-  favoriteprofile: require('./icons/favoriteprofile.png'),
-  eyesview: require('./icons/eyesview.png'),
-  accountprofile: require('./icons/accountprofile.png'),
-  feedback: require('./icons/feedback.png'),
-  shopping: require('./icons/shopping.png'),
-  wallet: require('./icons/wallet.png'),
-  confirmation: require('./icons/confirmation.png'),
-  delivery: require('./icons/delivery.png'),
-  delivery_box: require('./icons/delivery_box.png'),
-  vouncher: require('./icons/vouncher.png'),
-  check_blank: require('./icons/check_blank.png'),
 };
 
 export const images = {
   thumnail: require('./images/thumnail.jpg'),
-  sale: require('./images/sale.jpg'),
-  masterCard: require('./images/masterCard.png'),
 };

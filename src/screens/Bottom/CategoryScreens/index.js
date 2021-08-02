@@ -1,5 +1,7 @@
+/* eslint-disable prettier/prettier */
 import {Block, Header} from '@components';
 import React, {useState} from 'react';
+import {StyleSheet} from 'react-native';
 import LeftBox from './components/LeftBox';
 import RightBox from './components/RightBox';
 
@@ -59,8 +61,8 @@ const data = [
 const CategoryScreens = () => {
   const [title, settitle] = useState(data[0].title);
   return (
-    <Block flex backgroundColor="background">
-      <Header title="Danh mục" />
+    <Block flex>
+      <Header title="Danh Mục" />
       <Block row flex>
         <LeftBox data={data} settitle={settitle} />
         <RightBox title={title} />
@@ -70,3 +72,5 @@ const CategoryScreens = () => {
 };
 
 export default CategoryScreens;
+
+const styles = StyleSheet.create({});
