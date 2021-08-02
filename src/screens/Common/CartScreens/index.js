@@ -88,7 +88,7 @@ const CartScreen = () => {
             style={styles.input}
           />
         </Block>
-        <Text size={18} fontType="bold" paddingHorizontal={10}>
+        <Text size={18} fontType="semibold" paddingHorizontal={10}>
           Mã khuyến mãi của bạn
         </Text>
         <ListPromo isClosed={refRBSheet} />
