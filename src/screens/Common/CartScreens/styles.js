@@ -25,16 +25,21 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     paddingVertical: 20,
     paddingHorizontal: 12,
+    alignItems: 'center',
   },
   input: {
     height: 40,
     flex: 1,
     marginRight: 5,
     borderRadius: 10,
-    paddingHorizontal: 12,
+    paddingHorizontal: 15,
     backgroundColor: 'white',
+    justifyContent: 'center',
   },
   next: {
+    position: 'absolute',
+    right: -10,
+    top: 1.5,
     alignItems: 'center',
   },
   buttonGroup: {
@@ -50,8 +55,10 @@ export default StyleSheet.create({
   },
   btnRounded: {
     width: width / 2.2,
+    backgroundColor: theme.colors.pink,
   },
   btnCheck: {
     width: width - 24,
+    backgroundColor: theme.colors.pink,
   },
 });

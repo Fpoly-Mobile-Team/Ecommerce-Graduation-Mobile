@@ -6,6 +6,7 @@ import {StatusBar} from 'react-native';
 import BottomTabNavigation from './BottomTabNavigation';
 import {navigate} from './RootNavigation';
 import {routes} from './routes';
+import {bottom} from '../screens/Bottom';
 
 const Stack = createStackNavigator();
 
@@ -34,6 +35,22 @@ const RootStack = () => {
         <Stack.Screen
           name={routes.CARTSCREENS}
           component={common.CARTSCREENS}
+        />
+        <Stack.Screen
+          name={routes.SEARCHSCREEN}
+          component={bottom.SEARCHSCREEN}
+        />
+        <Stack.Screen
+          name={routes.ORDERHISTORY}
+          component={bottom.ORDERHISTORY}
+        />
+        <Stack.Screen
+          name={routes.ORDERDETAILS}
+          component={bottom.ORDERDETAILS}
+        />
+        <Stack.Screen
+          name={routes.PAYMENTSCREEN}
+          component={common.PAYMENT_SCREEN}
         />
       </Stack.Navigator>
     </NavigationContainer>
