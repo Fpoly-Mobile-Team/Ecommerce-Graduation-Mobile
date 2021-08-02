@@ -30,7 +30,7 @@ const HeaderProfile = () => {
             <Block width={(width - 24) * 0.2} />
             <Block width={(width - 24) * 0.6} alignCenter>
               <Text size={18} color={theme.colors.black} fontType="semibold">
-                Cá Nhân
+                Cá nhân
               </Text>
             </Block>
             <Block width={(width - 24) * 0.2}>
