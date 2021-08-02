@@ -6,7 +6,7 @@ import {StyleSheet} from 'react-native';
 const ChatScreens = () => {
   return (
     <Block flex backgroundColor={theme.colors.white}>
-      <Header title="Tin Nhắn" />
+      <Header title="Tin nhắn" />
     </Block>
   );
 };

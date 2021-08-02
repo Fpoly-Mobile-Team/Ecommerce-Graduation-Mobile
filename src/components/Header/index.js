@@ -101,7 +101,7 @@ const HeaderHome = ({scroll}) => {
   );
 };
 
-const HeaderCommon = ({canGoBack, title, checkBackground, checkStatusBar}) => {
+const HeaderCommon = ({canGoBack, title, checkBackground}) => {
   const {top} = useSafeAreaInsets();
   const navigation = useNavigation();
   const isFocused = useIsFocused();
@@ -114,6 +114,7 @@ const HeaderCommon = ({canGoBack, title, checkBackground, checkStatusBar}) => {
       paddingTop={top + 10}
       paddingVertical={15}
       paddingHorizontal={12}
+      style={checkBackground ? styles.border : {}}
       space="between"
       backgroundColor={
         checkBackground ? theme.colors.white : theme.colors.pink

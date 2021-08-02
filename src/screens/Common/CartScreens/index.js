@@ -1,5 +1,6 @@
 import {CircleBack} from '@assets/svg/common';
 import {Block, Button, Header, Text} from '@components';
+import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import React, {useRef} from 'react';
@@ -51,7 +52,16 @@ const CartScreen = () => {
           />
         </Block>
         <Block paddingHorizontal={12}>
-          <Button title="THANH TOÁN" height={50} style={styles.btnCheck} />
+          <Button
+            title="THANH TOÁN"
+            height={50}
+            style={styles.btnCheck}
+            onPress={() =>
+              navigation.navigate(routes.PAYMENTSCREEN, {
+                refRBSheet,
+              })
+            }
+          />
         </Block>
       </Block>
       <RBSheet
@@ -78,10 +88,10 @@ const CartScreen = () => {
             style={styles.input}
           />
         </Block>
-        <Text size={25} fontType="bold" paddingHorizontal={10}>
+        <Text size={18} fontType="bold" paddingHorizontal={10}>
           Mã khuyến mãi của bạn
         </Text>
-        <ListPromo />
+        <ListPromo isClosed={refRBSheet} />
       </RBSheet>
     </Block>
   );

@@ -21,7 +21,7 @@ const NotificationScreens = () => {
 
   return (
     <Block flex backgroundColor={theme.colors.white}>
-      <Header title="Thông Báo" />
+      <Header title="Thông báo" />
       <FlatList
         data={data}
         renderItem={renderItem}
