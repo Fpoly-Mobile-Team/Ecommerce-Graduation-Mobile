@@ -6,9 +6,12 @@ import React from 'react';
 import {Image, Platform, Pressable, StyleSheet} from 'react-native';
 import {Badge} from 'react-native-elements';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useSelector} from 'react-redux';
 
 const CustomTabBar = ({state, descriptors, navigation}) => {
   const {bottom} = useSafeAreaInsets();
+  const config = useSelector(state => state.config?.data);
+
   return (
     <Block
       row
@@ -63,7 +66,6 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
             target: route.key,
           });
         };
-
         return (
           <Pressable
             key={index}
@@ -85,9 +87,11 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
             )}
             <Image
               source={isFocused ? iconselect : icon}
-              style={styles.iconstyle(isFocused)}
+              style={styles.iconstyle(isFocused, config?.backgroundcolor)}
             />
-            <Text style={styles.textlabel(isFocused)}>{label}</Text>
+            <Text style={styles.textlabel(isFocused, config?.backgroundcolor)}>
+              {label}
+            </Text>
           </Pressable>
         );
       })}
@@ -95,18 +99,19 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
   );
 };
 export default CustomTabBar;
+
 const styles = StyleSheet.create({
   btn: {flex: 1, alignItems: 'center'},
-  textlabel: isFocused => ({
-    color: isFocused ? theme.colors.pink : theme.colors.lightGray,
+  textlabel: (isFocused, config) => ({
+    color: isFocused ? config : theme.colors.lightGray,
     marginTop: 5,
     fontSize: 10,
   }),
-  iconstyle: isFocused => ({
+  iconstyle: (isFocused, config) => ({
     width: getSize.s(20),
     height: getSize.s(20),
     resizeMode: 'contain',
-    tintColor: isFocused ? theme.colors.pink : theme.colors.lightGray,
+    tintColor: isFocused ? config : theme.colors.lightGray,
   }),
   containerStyle: {
     position: 'absolute',

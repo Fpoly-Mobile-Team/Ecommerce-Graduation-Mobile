@@ -7,6 +7,7 @@ import {width} from '@utils/responsive';
 import React from 'react';
 import {Image, Pressable} from 'react-native';
 import {DATA, DATABILL} from '../data';
+import {useSelector} from 'react-redux';
 import styles from './styles';
 
 const ContentProfile = () => {
@@ -68,6 +69,7 @@ const ActionsButton = (item, index) => {
 
 const _renderItem = item => {
   const navigation = useNavigation();
+  const config = useSelector(state => state.config?.data);
   return (
     <Pressable
       key={item.id}
@@ -82,10 +84,10 @@ const _renderItem = item => {
           height={50}
           radius={50}
           marginBottom={10}
-          backgroundColor={`${theme.colors.pink}20`}>
+          backgroundColor={`${config?.backgroundcolor}20`}>
           <Image
             source={item.image}
-            style={styles.iconBill}
+            style={styles.iconBill(config?.backgroundcolor)}
             resizeMode="contain"
           />
         </Block>

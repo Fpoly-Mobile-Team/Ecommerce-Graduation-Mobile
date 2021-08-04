@@ -8,9 +8,12 @@ import FeaturedCategory from './components/FeaturedCategory';
 import FeaturedShop from './components/FeaturedShop';
 import FlashSale from './components/FlashSale';
 import SellingProduct from './components/SellingProduct';
+import {useSelector} from 'react-redux';
+
 import styles from './styles';
 
 const HomeScreens = () => {
+  const config = useSelector(state => state.config?.data);
   const scrollY = useRef(new Animated.Value(0)).current;
   const [refresh, setrefresh] = useState(false);
   const _onRefresh = () => {
@@ -41,9 +44,11 @@ const HomeScreens = () => {
         <Block
           height={60 + height}
           marginTop={-height - 60}
-          backgroundColor={theme.colors.pink}
+          backgroundColor={config?.backgroundcolor || theme.colors.pink}
         />
-        <Block paddingHorizontal={12} backgroundColor={theme.colors.pink}>
+        <Block
+          paddingHorizontal={12}
+          backgroundColor={config?.backgroundcolor || theme.colors.pink}>
           <Carousel />
         </Block>
         <CategoryHighlights />

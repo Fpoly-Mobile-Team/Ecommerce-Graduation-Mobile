@@ -2,10 +2,12 @@ import {Block, Text} from '@components';
 import {theme} from '@theme';
 import {getSize, width} from '@utils/responsive';
 import React, {useState} from 'react';
+import {useSelector} from 'react-redux';
 import {Image, Pressable, ScrollView} from 'react-native';
 
 const LeftBox = ({settitle, data}) => {
   const [selected, setSelected] = useState(0);
+  const config = useSelector(state => state.config?.data);
 
   const _onPress = (item, index) => {
     setSelected(index);
@@ -20,7 +22,9 @@ const LeftBox = ({settitle, data}) => {
           width={width * 0.3}
           alignCenter
           backgroundColor={
-            index === selected ? theme.colors.white : theme.colors.pinkholder
+            index === selected
+              ? theme.colors.white
+              : `${config?.backgroundcolor}20` || theme.colors.pink
           }>
           <Block alignCenter justifyCenter>
             <Image
