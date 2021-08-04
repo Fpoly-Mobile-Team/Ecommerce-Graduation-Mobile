@@ -1,19 +1,34 @@
+import {NetWork} from '@components';
+import Actions from '@redux/actions';
+import store from '@redux/store';
 import React, {useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
+import {Provider, useDispatch, useSelector} from 'react-redux';
 import RootStack from './navigation/RootStack';
-import {NetWork, Block} from '@components';
 
 const App = () => {
-  useEffect(() => {
-    SplashScreen.hide();
-  }, []);
+  const config = useSelector(state => state.config.data);
 
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch({type: Actions.GET_CONFIG});
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (config) {
+      SplashScreen.hide();
+    }
+  }, [config]);
+
+  return <RootStack />;
+};
+const AppWrappter = () => {
   return (
-    <Block flex>
-      <RootStack />
+    <Provider store={store}>
+      <App />
       <NetWork />
-    </Block>
+    </Provider>
   );
 };
 
-export default App;
+export default AppWrappter;

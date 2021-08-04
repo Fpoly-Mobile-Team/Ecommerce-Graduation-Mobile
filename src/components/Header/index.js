@@ -10,6 +10,7 @@ import React, {useState} from 'react';
 import {Animated, Image, Pressable, StatusBar} from 'react-native';
 import {Badge} from 'react-native-elements';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useSelector} from 'react-redux';
 import styles from './styles';
 
 const Header = props => {
@@ -23,7 +24,7 @@ const Header = props => {
 const HeaderHome = ({scroll}) => {
   const navigation = useNavigation();
   const {top} = useSafeAreaInsets();
-
+  const config = useSelector(state => state.config?.data);
   const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
   const AnimatedStatusBar = Animated.createAnimatedComponent(StatusBar);
   const HEADER_MAX_HEIGHT = getSize.m(200);
@@ -42,7 +43,10 @@ const HeaderHome = ({scroll}) => {
 
   const backgroundColor = scroll.interpolate({
     inputRange: [0, HEADER_SCROLL_DISTANCE],
-    outputRange: [theme.colors.pink, theme.colors.white],
+    outputRange: [
+      config?.backgroundcolor || theme.colors.pink,
+      theme.colors.white,
+    ],
     extrapolate: 'clamp',
   });
 
@@ -53,18 +57,27 @@ const HeaderHome = ({scroll}) => {
   });
   const colortext = scroll.interpolate({
     inputRange: [0, HEADER_SCROLL_DISTANCE],
-    outputRange: [theme.colors.placeholder, theme.colors.pink],
+    outputRange: [
+      theme.colors.placeholder,
+      config?.backgroundcolor || theme.colors.pink,
+    ],
     extrapolate: 'clamp',
   });
 
   const colorimg = scroll.interpolate({
     inputRange: [0, HEADER_SCROLL_DISTANCE],
-    outputRange: [theme.colors.white, theme.colors.pink],
+    outputRange: [
+      theme.colors.white,
+      config?.backgroundcolor || theme.colors.pink,
+    ],
     extrapolate: 'clamp',
   });
   const backgroundsmoke = scroll.interpolate({
     inputRange: [0, HEADER_SCROLL_DISTANCE],
-    outputRange: [theme.colors.pink, theme.colors.smoke],
+    outputRange: [
+      config?.backgroundcolor || theme.colors.pink,
+      theme.colors.smoke,
+    ],
     extrapolate: 'clamp',
   });
   const isStatus = dark ? 'light-content' : 'dark-content';
@@ -105,6 +118,7 @@ const HeaderCommon = ({canGoBack, title, checkBackground}) => {
   const {top} = useSafeAreaInsets();
   const navigation = useNavigation();
   const isFocused = useIsFocused();
+  const config = useSelector(state => state.config?.data);
 
   return (
     <Block
@@ -117,7 +131,9 @@ const HeaderCommon = ({canGoBack, title, checkBackground}) => {
       style={checkBackground ? styles.border : {}}
       space="between"
       backgroundColor={
-        checkBackground ? theme.colors.white : theme.colors.pink
+        checkBackground
+          ? theme.colors.white
+          : config?.backgroundcolor || theme.colors.pink
       }>
       {isFocused && <StatusBar barStyle="dark-content" translucent animated />}
       {canGoBack && (

@@ -13,9 +13,9 @@ export default StyleSheet.create({
     height: getSize.s(14),
     tintColor: theme.colors.gray,
   },
-  iconBill: {
+  iconBill: config => ({
     width: getSize.s(25),
     height: getSize.s(25),
-    tintColor: theme.colors.pink,
-  },
+    tintColor: config || theme.colors.pink,
+  }),
 });
