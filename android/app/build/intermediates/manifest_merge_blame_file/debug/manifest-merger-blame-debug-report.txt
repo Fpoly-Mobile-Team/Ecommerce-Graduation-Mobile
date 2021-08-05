@@ -1,0 +1,148 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.ecommerce_graduate"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="29" />
+10
+11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+11-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/debug/AndroidManifest.xml:5:5-77
+11-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/debug/AndroidManifest.xml:5:22-75
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:4:5-67
+12-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:4:22-64
+13    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+13-->[com.facebook.flipper:flipper:0.75.1] /Users/huy/.gradle/caches/transforms-2/files-2.1/a8f6015f96666ab8d93bfe5b64998bc8/jetified-flipper-0.75.1/AndroidManifest.xml:16:5-76
+13-->[com.facebook.flipper:flipper:0.75.1] /Users/huy/.gradle/caches/transforms-2/files-2.1/a8f6015f96666ab8d93bfe5b64998bc8/jetified-flipper-0.75.1/AndroidManifest.xml:16:22-73
+14    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+14-->[:react-native-community_netinfo] /Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-79
+14-->[:react-native-community_netinfo] /Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:22-76
+15
+16    <queries>
+16-->[:react-native-image-crop-picker] /Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:10:5-14:15
+17        <intent>
+17-->[:react-native-image-crop-picker] /Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:9-13:18
+18            <action android:name="android.media.action.IMAGE_CAPTURE" />
+18-->[:react-native-image-crop-picker] /Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:13-73
+18-->[:react-native-image-crop-picker] /Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:21-70
+19        </intent>
+20    </queries>
+21
+22    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+22-->[:react-native-image-crop-picker] /Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:16:5-81
+22-->[:react-native-image-crop-picker] /Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:16:22-78
+23    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+23-->[com.google.android.gms:play-services-iid:17.0.0] /Users/huy/.gradle/caches/transforms-2/files-2.1/e18b3ef1604371e7e10a2586fcf5f032/jetified-play-services-iid-17.0.0/AndroidManifest.xml:23:5-82
+23-->[com.google.android.gms:play-services-iid:17.0.0] /Users/huy/.gradle/caches/transforms-2/files-2.1/e18b3ef1604371e7e10a2586fcf5f032/jetified-play-services-iid-17.0.0/AndroidManifest.xml:23:22-79
+24    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+24-->[com.android.installreferrer:installreferrer:1.1.2] /Users/huy/.gradle/caches/transforms-2/files-2.1/150d95ff2179d66a1b5aeef5973627bb/jetified-installreferrer-1.1.2/AndroidManifest.xml:9:5-110
+24-->[com.android.installreferrer:installreferrer:1.1.2] /Users/huy/.gradle/caches/transforms-2/files-2.1/150d95ff2179d66a1b5aeef5973627bb/jetified-installreferrer-1.1.2/AndroidManifest.xml:9:22-107
+25
+26    <application
+26-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:6:5-35:19
+27        android:name="com.ecommerce_graduate.MainApplication"
+27-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:7:7-38
+28        android:allowBackup="false"
+28-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:11:7-34
+29        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+29-->[androidx.core:core:1.3.2] /Users/huy/.gradle/caches/transforms-2/files-2.1/f03ec885b8fabdebb4f0d3bbade5009e/core-1.3.2/AndroidManifest.xml:24:18-86
+30        android:debuggable="true"
+31        android:icon="@drawable/logo"
+31-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:9:7-36
+32        android:label="@string/app_name"
+32-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:8:7-39
+33        android:roundIcon="@drawable/logo"
+33-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:10:7-41
+34        android:theme="@style/AppTheme"
+34-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:12:7-38
+35        android:usesCleartextTraffic="true" >
+35-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:13:7-42
+36        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+36-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/debug/AndroidManifest.xml:11:9-86
+36-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/debug/AndroidManifest.xml:11:19-83
+37        <activity
+37-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:14:8-22:20
+38            android:name="com.ecommerce_graduate.SplashActivity"
+38-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:15:11-41
+39            android:label="@string/app_name"
+39-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:17:11-43
+40            android:theme="@style/SplashTheme" >
+40-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:16:11-45
+41            <intent-filter>
+41-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:18:11-21:27
+42                <action android:name="android.intent.action.MAIN" />
+42-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:19:15-67
+42-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:19:23-64
+43
+44                <category android:name="android.intent.category.LAUNCHER" />
+44-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:20:15-75
+44-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:20:25-72
+45            </intent-filter>
+46        </activity>
+47        <activity
+47-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:23:7-34:18
+48            android:name="com.ecommerce_graduate.MainActivity"
+48-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:24:9-37
+49            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+49-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:26:9-86
+50            android:exported="true"
+50-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:29:9-32
+51            android:label="@string/app_name"
+51-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:25:9-41
+52            android:launchMode="singleTask"
+52-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:27:9-40
+53            android:windowSoftInputMode="adjustResize" >
+53-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:28:9-51
+54            <intent-filter>
+54-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:30:6-32:20
+55                <action android:name="android.intent.action.MAIN" />
+55-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:19:15-67
+55-->/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/AndroidManifest.xml:19:23-64
+56            </intent-filter>
+57        </activity>
+58
+59        <provider
+59-->[:react-native-image-crop-picker] /Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:9-27:20
+60            android:name="androidx.core.content.FileProvider"
+60-->[:react-native-image-crop-picker] /Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:20:13-62
+61            android:authorities="com.ecommerce_graduate.provider"
+61-->[:react-native-image-crop-picker] /Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:21:13-60
+62            android:exported="false"
+62-->[:react-native-image-crop-picker] /Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:22:13-37
+63            android:grantUriPermissions="true" >
+63-->[:react-native-image-crop-picker] /Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:23:13-47
+64            <meta-data
+64-->[:react-native-image-crop-picker] /Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:24:13-26:58
+65                android:name="android.support.FILE_PROVIDER_PATHS"
+65-->[:react-native-image-crop-picker] /Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:25:17-67
+66                android:resource="@xml/provider_paths" />
+66-->[:react-native-image-crop-picker] /Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:26:17-55
+67        </provider>
+68
+69        <activity
+69-->[:react-native-image-crop-picker] /Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:29:9-31:72
+70            android:name="com.yalantis.ucrop.UCropActivity"
+70-->[:react-native-image-crop-picker] /Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:30:13-60
+71            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+71-->[:react-native-image-crop-picker] /Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/node_modules/react-native-image-crop-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:31:13-69
+72        <activity
+72-->[com.google.android.gms:play-services-base:17.0.0] /Users/huy/.gradle/caches/transforms-2/files-2.1/2631375de80937c90cd3a1032ab35871/jetified-play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+73            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+73-->[com.google.android.gms:play-services-base:17.0.0] /Users/huy/.gradle/caches/transforms-2/files-2.1/2631375de80937c90cd3a1032ab35871/jetified-play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+74            android:exported="false"
+74-->[com.google.android.gms:play-services-base:17.0.0] /Users/huy/.gradle/caches/transforms-2/files-2.1/2631375de80937c90cd3a1032ab35871/jetified-play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+75            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+75-->[com.google.android.gms:play-services-base:17.0.0] /Users/huy/.gradle/caches/transforms-2/files-2.1/2631375de80937c90cd3a1032ab35871/jetified-play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+76
+77        <meta-data
+77-->[com.google.android.gms:play-services-basement:17.0.0] /Users/huy/.gradle/caches/transforms-2/files-2.1/dcffa74d8d015470a7eae32b9eb648c7/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+78            android:name="com.google.android.gms.version"
+78-->[com.google.android.gms:play-services-basement:17.0.0] /Users/huy/.gradle/caches/transforms-2/files-2.1/dcffa74d8d015470a7eae32b9eb648c7/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+79            android:value="@integer/google_play_services_version" />
+79-->[com.google.android.gms:play-services-basement:17.0.0] /Users/huy/.gradle/caches/transforms-2/files-2.1/dcffa74d8d015470a7eae32b9eb648c7/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+80    </application>
+81
+82</manifest>

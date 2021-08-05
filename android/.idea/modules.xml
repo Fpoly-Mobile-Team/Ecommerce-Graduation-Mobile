@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ecommerce_graduate.iml" filepath="$PROJECT_DIR$/.idea/modules/ecommerce_graduate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ecommerce_graduate.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ecommerce_graduate.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1067575632/ecommerce_graduate.react-native-community_masked-view.iml" filepath="$PROJECT_DIR$/.idea/modules/1067575632/ecommerce_graduate.react-native-community_masked-view.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1164003961/ecommerce_graduate.react-native-gesture-handler.iml" filepath="$PROJECT_DIR$/.idea/modules/-1164003961/ecommerce_graduate.react-native-gesture-handler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1439584309/ecommerce_graduate.react-native-reanimated.iml" filepath="$PROJECT_DIR$/.idea/modules/1439584309/ecommerce_graduate.react-native-reanimated.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1264941008/ecommerce_graduate.react-native-safe-area-context.iml" filepath="$PROJECT_DIR$/.idea/modules/-1264941008/ecommerce_graduate.react-native-safe-area-context.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-978754488/ecommerce_graduate.react-native-screens.iml" filepath="$PROJECT_DIR$/.idea/modules/-978754488/ecommerce_graduate.react-native-screens.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1930322541/ecommerce_graduate.react-native-splash-screen.iml" filepath="$PROJECT_DIR$/.idea/modules/-1930322541/ecommerce_graduate.react-native-splash-screen.iml" />
+    </modules>
+  </component>
+</project>

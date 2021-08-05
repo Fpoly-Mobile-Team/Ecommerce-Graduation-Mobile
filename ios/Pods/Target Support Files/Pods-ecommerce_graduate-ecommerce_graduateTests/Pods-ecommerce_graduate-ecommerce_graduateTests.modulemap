@@ -1,0 +1,6 @@
+module Pods_ecommerce_graduate_ecommerce_graduateTests {
+  umbrella header "Pods-ecommerce_graduate-ecommerce_graduateTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

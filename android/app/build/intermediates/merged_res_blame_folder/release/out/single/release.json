@@ -1,0 +1,394 @@
+[
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_mastercard.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_mastercard.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_mdndata_css_properties.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_mdndata_css_properties.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_bell.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_bell.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_commentselect.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_commentselect.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_hotsale.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_hotsale.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_message.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_message.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_home.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_home.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_simplelineicons.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_simplelineicons.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_entities_lib_maps_decode.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_entities_lib_maps_decode.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_next.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_next.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_materialicons.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_materialicons.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_app.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/app.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_check_blank.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_check_blank.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_csstree_package.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_csstree_package.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnavigation_stack_src_views_assets_backiconmask.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnavigation_stack_src_views_assets_backiconmask.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_entities_lib_maps_entities.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_entities_lib_maps_entities.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_notification.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_notification.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_share.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_share.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_foundation.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_foundation.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_mdndata_css_atrules.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_mdndata_css_atrules.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-hdpi_node_modules_reactnavigation_stack_src_views_assets_backicon.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-hdpi/node_modules_reactnavigation_stack_src_views_assets_backicon.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_arrow_right.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_arrow_right.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_shopping.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_shopping.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_flash.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_flash.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_favoriteprofile.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_favoriteprofile.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_fontawesome.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_fontawesome.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_confirmation.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_confirmation.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_entities_lib_maps_legacy.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_entities_lib_maps_legacy.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_thumnail.jpg.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_thumnail.jpg"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_favorite.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_favorite.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_notificationselect.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_notificationselect.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeratings_dist_images_heart.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeratings_dist_images_heart.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeratings_dist_images_star.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeratings_dist_images_star.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnavigation_stack_src_views_assets_backicon.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnavigation_stack_src_views_assets_backicon.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_bg_flash.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_bg_flash.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_wallet.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_wallet.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_feedback.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_feedback.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_delivery.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_delivery.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_profileselect.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_profileselect.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_fontawesome5free_meta.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_fontawesome5free_meta.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_csstree_data_patch.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_csstree_data_patch.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_information.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_information.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_materialcommunityicons.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_materialcommunityicons.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_entypo.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_entypo.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_back.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_back.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_eyesview.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_eyesview.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_location.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_location.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_search.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_search.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_vouncher.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_vouncher.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_octicons.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_octicons.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_tick.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_tick.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_fontawesome5free.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_fontawesome5free.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-xxxhdpi_node_modules_reactnavigation_stack_src_views_assets_backicon.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-xxxhdpi/node_modules_reactnavigation_stack_src_views_assets_backicon.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_domserializer_foreignnames.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_domserializer_foreignnames.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_homeselect.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_homeselect.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_images_sale.jpg.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_images_sale.jpg"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeratings_dist_images_airbnbstarselected.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeratings_dist_images_airbnbstarselected.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable_background_splash.xml.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/res/drawable/background_splash.xml"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeratings_dist_images_bell.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeratings_dist_images_bell.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable_logo.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/res/drawable/logo.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-xhdpi_node_modules_reactnavigation_stack_src_views_assets_backicon.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-xhdpi/node_modules_reactnavigation_stack_src_views_assets_backicon.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_camera.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_camera.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_evilicons.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_evilicons.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_categoryselect.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_categoryselect.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_cart.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_cart.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeratings_dist_images_rocket.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeratings_dist_images_rocket.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_antdesign.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_antdesign.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/layout_launch_screen.xml.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/res/layout/launch_screen.xml"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_node_modules_reactnavigation_stack_src_views_assets_backicon.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-xxhdpi/node_modules_reactnavigation_stack_src_views_assets_backicon.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_cssselect_lib_procedure.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_cssselect_lib_procedure.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_giasoc.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_giasoc.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_entities_lib_maps_xml.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_entities_lib_maps_xml.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_comment.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_comment.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_zocial.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_zocial.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_settings.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_settings.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_accountprofile.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_accountprofile.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_profile.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_profile.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_menu.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_menu.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_category.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_category.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_feather.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_feather.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativepaper_src_assets_backchevron.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativepaper_src_assets_backchevron.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_mdndata_css_syntaxes.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_mdndata_css_syntaxes.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_discount.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_discount.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_ionicons.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_ionicons.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_fontisto.json.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_fontisto.json"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_delivery_box.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_delivery_box.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeratings_dist_images_airbnbstar.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeratings_dist_images_airbnbstar.png"
+    },
+    {
+        "merged": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/res/merged/release/drawable-mdpi_src_assets_icons_homnay.png.flat",
+        "source": "/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/generated/res/react/release/drawable-mdpi/src_assets_icons_homnay.png"
+    }
+]

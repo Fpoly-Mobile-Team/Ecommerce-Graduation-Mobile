@@ -25,7 +25,7 @@
       "@utils/*": ["utils/*"],
       "@redux": ["redux"],
       "@redux/*": ["redux/*"],
-      // "@hooks": ["hooks"],
+      "@hooks": ["hooks"],
       // "@hooks/*": ["hooks/*"]
     },
     "allowSyntheticDefaultImports": true,
