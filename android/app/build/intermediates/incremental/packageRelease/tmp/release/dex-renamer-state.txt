@@ -1,0 +1,4 @@
+#Tue Aug 03 00:03:01 ICT 2021
+base.0=/Users/huy/Desktop/reactnative/graduationproject/ecommerce_graduate/android/app/build/intermediates/dex/release/mergeDexRelease/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
