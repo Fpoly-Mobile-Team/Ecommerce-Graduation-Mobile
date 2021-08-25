@@ -6,22 +6,12 @@ import {Image, Platform} from 'react-native';
 import {SwiperFlatList} from 'react-native-swiper-flatlist';
 import styles from './styles';
 
-const data = [
-  'https://cf.shopee.vn/file/53a8bd5f5e3640bc6b46050545bc3fb3',
-  'https://cf.shopee.vn/file/f4467b565a890cc6a43fad227ab19bbe',
-  'https://cf.shopee.vn/file/0cdbcb18b8c959da2bf3be64b6446560',
-  'https://cf.shopee.vn/file/4f11b4fbc8cf97b09bdfa07722c54ea9',
-  'https://cf.shopee.vn/file/e00e69599655258de2535ffc9d59f0a7',
-  'https://cf.shopee.vn/file/4f22aada2325886567779f337665c4bd',
-  'https://cf.shopee.vn/file/e0a813d7db376a7c007b59786e536831',
-];
-
-const Carousel = () => {
+const Carousel = ({data}) => {
   const _renderItem = React.useCallback(({item}) => {
     return (
       <Block>
         <Image
-          source={{uri: item}}
+          source={{uri: item.banner}}
           style={{
             width: width - 24,
             height: width / 3,
@@ -32,7 +22,7 @@ const Carousel = () => {
     );
   }, []);
 
-  const keyExtractor = React.useCallback((item, index) => String(index), []);
+  const keyExtractor = React.useCallback((item, index) => item._id, []);
 
   const memoizedValue = React.useMemo(() => _renderItem, [data]);
 
