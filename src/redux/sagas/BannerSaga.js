@@ -6,7 +6,6 @@ import API from '@utils/api';
 function* getBanner() {
   try {
     const res = yield API.get('getBanner');
-    console.log(res);
     yield put({type: _onSuccess(Actions.GET_BANNER), data: res.data});
   } catch (error) {
     yield put({type: _onFail(Actions.GET_BANNER)});
