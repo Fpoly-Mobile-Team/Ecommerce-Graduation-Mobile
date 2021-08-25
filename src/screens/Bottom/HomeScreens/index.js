@@ -55,7 +55,7 @@ const HomeScreens = () => {
         <Block
           paddingHorizontal={12}
           backgroundColor={config?.backgroundcolor || theme.colors.pink}>
-          <Carousel data={banner} />
+          {banner && <Carousel data={banner} />}
         </Block>
         <CategoryHighlights />
         <FlashSale />
@@ -75,7 +75,7 @@ const HomeScreens = () => {
         <FeaturedShop />
         <Block height={8} backgroundColor={theme.colors.smoke} />
         <Block paddingHorizontal={12}>
-          <Carousel data={banner} />
+          {banner && <Carousel data={banner} />}
         </Block>
         <SellingProduct />
       </Animated.ScrollView>
