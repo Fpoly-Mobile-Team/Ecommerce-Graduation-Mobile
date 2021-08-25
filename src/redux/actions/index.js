@@ -1,5 +1,6 @@
 export default {
   GET_CONFIG: 'GET_CONFIG',
+  GET_BANNER: 'GET_BANNER',
 };
 
 export function _onSuccess(action) {
