@@ -4,15 +4,7 @@ import {getSize} from '@utils/responsive';
 import React from 'react';
 import {Pressable, UIActivityIndicator} from 'react-native';
 
-const Button = ({
-  title,
-  height,
-  onPress,
-  titleStyle,
-  style,
-  disabled,
-  backgroundcolor,
-}) => {
+const Button = ({title, height, onPress, titleStyle, style, disabled}) => {
   return (
     <Pressable onPress={onPress}>
       <Block
