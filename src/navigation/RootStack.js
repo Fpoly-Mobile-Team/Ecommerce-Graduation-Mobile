@@ -3,14 +3,16 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {common} from '@screens/Common';
 import React from 'react';
 import {StatusBar} from 'react-native';
+import {useSelector} from 'react-redux';
+import {bottom} from '../screens/Bottom';
 import BottomTabNavigation from './BottomTabNavigation';
 import {navigate} from './RootNavigation';
 import {routes} from './routes';
-import {bottom} from '../screens/Bottom';
 
 const Stack = createStackNavigator();
 
 const RootStack = () => {
+  const config = useSelector(state => state.config?.data);
   return (
     <NavigationContainer ref={navigate}>
       <StatusBar
@@ -18,41 +20,43 @@ const RootStack = () => {
         barStyle="light-content"
         backgroundColor="transparent"
       />
-      <Stack.Navigator
-        mode="modal"
-        initialRouteName={routes.BOTTOMTABBAR}
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <Stack.Screen
-          name={routes.BOTTOMTABBAR}
-          component={BottomTabNavigation}
-        />
-        <Stack.Screen
-          name={routes.PRODUCT_DETAILS}
-          component={common.PRODUCT_DETAILS}
-        />
-        <Stack.Screen
-          name={routes.CARTSCREENS}
-          component={common.CARTSCREENS}
-        />
-        <Stack.Screen
-          name={routes.SEARCHSCREEN}
-          component={bottom.SEARCHSCREEN}
-        />
-        <Stack.Screen
-          name={routes.ORDERHISTORY}
-          component={bottom.ORDERHISTORY}
-        />
-        <Stack.Screen
-          name={routes.ORDERDETAILS}
-          component={bottom.ORDERDETAILS}
-        />
-        <Stack.Screen
-          name={routes.PAYMENTSCREEN}
-          component={common.PAYMENT_SCREEN}
-        />
-      </Stack.Navigator>
+      {config && (
+        <Stack.Navigator
+          mode="modal"
+          initialRouteName={routes.BOTTOMTABBAR}
+          screenOptions={{
+            headerShown: false,
+          }}>
+          <Stack.Screen
+            name={routes.BOTTOMTABBAR}
+            component={BottomTabNavigation}
+          />
+          <Stack.Screen
+            name={routes.PRODUCT_DETAILS}
+            component={common.PRODUCT_DETAILS}
+          />
+          <Stack.Screen
+            name={routes.CARTSCREENS}
+            component={common.CARTSCREENS}
+          />
+          <Stack.Screen
+            name={routes.SEARCHSCREEN}
+            component={bottom.SEARCHSCREEN}
+          />
+          <Stack.Screen
+            name={routes.ORDERHISTORY}
+            component={bottom.ORDERHISTORY}
+          />
+          <Stack.Screen
+            name={routes.ORDERDETAILS}
+            component={bottom.ORDERDETAILS}
+          />
+          <Stack.Screen
+            name={routes.PAYMENTSCREEN}
+            component={common.PAYMENT_SCREEN}
+          />
+        </Stack.Navigator>
+      )}
     </NavigationContainer>
   );
 };

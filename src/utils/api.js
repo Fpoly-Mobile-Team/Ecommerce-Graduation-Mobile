@@ -1,12 +1,13 @@
 import axios from 'axios';
-import Config from 'react-native-config';
 import {Platform} from 'react-native';
+import Config from 'react-native-config';
+import store from '@redux/store';
 
 // axios.defaults.baseURL = Config.API_SERVER_URL;
 axios.defaults.baseURL =
   Platform.OS === 'ios'
     ? Config.API_STAGING_SERVER_URL
-    : 'http://10.0.2.2:8888/';
+    : 'http://10.0.2.2:5000/';
 
 const getDataBody = config => {
   let data = '';
@@ -72,17 +73,17 @@ axios.interceptors.response.use(
 
 export default class HttpService {
   static generateHeader(headers) {
-    // const token = store.getState().token.data;
+    const token = store.getState().token.data;
     let options = {
       'Content-Type': headers || 'application/x-www-form-urlencoded',
       Accept: 'application/json',
     };
-    // if (token !== null) {
-    //   options = {
-    //     ...options,
-    //     Authorization: `Bearer ${token}`,
-    //   };
-    // }
+    if (token !== null) {
+      options = {
+        ...options,
+        Authorization: `Bearer ${token}`,
+      };
+    }
 
     return options;
   }
