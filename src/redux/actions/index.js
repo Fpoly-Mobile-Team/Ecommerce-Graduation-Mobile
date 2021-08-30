@@ -1,4 +1,5 @@
 export default {
+  GET_TOKEN: 'GET_TOKEN',
   GET_CONFIG: 'GET_CONFIG',
   GET_BANNER: 'GET_BANNER',
 };

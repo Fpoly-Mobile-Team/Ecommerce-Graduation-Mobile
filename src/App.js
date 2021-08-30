@@ -7,18 +7,25 @@ import {Provider, useDispatch, useSelector} from 'react-redux';
 import RootStack from './navigation/RootStack';
 
 const App = () => {
+  const dispatch = useDispatch();
+  const token = useSelector(state => state.token.data);
   const config = useSelector(state => state.config.data);
 
-  const dispatch = useDispatch();
   useEffect(() => {
-    dispatch({type: Actions.GET_CONFIG});
+    dispatch({type: Actions.GET_TOKEN});
   }, [dispatch]);
 
   useEffect(() => {
-    if (config) {
+    if (token) {
+      dispatch({type: Actions.GET_CONFIG});
+    }
+  }, [dispatch, token]);
+
+  useEffect(() => {
+    if (token && config) {
       SplashScreen.hide();
     }
-  }, [config]);
+  }, [token, config]);
 
   return <RootStack />;
 };
