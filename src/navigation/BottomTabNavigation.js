@@ -3,6 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {routes} from './routes';
 import {bottom} from '../screens/Bottom';
 import CustomTabBar from './CustomTabBar';
+import { auth } from './../screens/auth';
 
 const Tab = createBottomTabNavigator();
 
@@ -39,9 +40,16 @@ const BottomTabNavigation = () => {
           tabBarLabel: 'Thông báo',
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name={routes.PROFILESCREENS}
         component={bottom.PROFILESCREENS}
+        options={{
+          tabBarLabel: 'Tài khoản',
+        }}
+      /> */}
+      <Tab.Screen
+        name={routes.AUTHFORSCREEN}
+        component={auth.AUTHFORSCREEN}
         options={{
           tabBarLabel: 'Tài khoản',
         }}
