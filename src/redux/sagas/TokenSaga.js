@@ -8,8 +8,8 @@ import Actions, {_onFail, _onSuccess} from '../actions';
 function* getToken() {
   try {
     const data = {
-      username: Config.ACCESS_USERNAME,
-      password: Config.ACCESS_PASSWORD,
+      username:'ants',
+      password: 'EWA4tWTQAgiVf9AJiYbAxUKsew2lbZqk',
     };
     const body = queryString.stringify(data);
     const res = yield API.post('getToken', body);

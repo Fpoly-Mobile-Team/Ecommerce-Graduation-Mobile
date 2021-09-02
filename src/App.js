@@ -26,7 +26,7 @@ const App = () => {
       SplashScreen.hide();
     }
   }, [token, config]);
-
+ 
   return <RootStack />;
 };
 const AppWrappter = () => {
