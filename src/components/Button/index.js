@@ -11,7 +11,7 @@ const Button = ({
   titleStyle,
   style,
   disabled,
-  backgroundcolor,
+  ...props
 }) => {
   return (
     <Pressable onPress={onPress}>
@@ -21,7 +21,8 @@ const Button = ({
         height={height}
         radius={height}
         marginVertical={10}
-        style={style}>
+        style={style}
+        {...props}>
         {disabled ? (
           <UIActivityIndicator size={getSize.s(20)} color="white" />
         ) : (

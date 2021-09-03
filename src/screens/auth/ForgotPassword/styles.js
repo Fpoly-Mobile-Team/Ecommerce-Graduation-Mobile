@@ -3,9 +3,6 @@ import {StyleSheet} from 'react-native';
 import {getSize} from '@utils/responsive';
 
 export default StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   btnOutline: {
     width: 100,
     borderColor: theme.colors.black,
@@ -25,5 +22,4 @@ export default StyleSheet.create({
     color: theme.colors.lightGray,
     height: getSize.s(12),
   },
-  textForgot: {},
 });
