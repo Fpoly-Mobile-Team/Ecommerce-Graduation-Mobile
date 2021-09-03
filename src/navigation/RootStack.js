@@ -23,7 +23,7 @@ const RootStack = () => {
       {config && (
         <Stack.Navigator
           mode="modal"
-          initialRouteName={routes.ADD_ADDRESS}
+          initialRouteName={routes.ADDRESSCREENS}
           screenOptions={{
             headerShown: false,
           }}>
@@ -55,15 +55,14 @@ const RootStack = () => {
             name={routes.PAYMENTSCREEN}
             component={common.PAYMENT_SCREEN}
           />
-            <Stack.Screen
+          <Stack.Screen
             name={routes.ADDRESSCREENS}
             component={common.ADDRESSCREENS}
           />
-           <Stack.Screen
+          <Stack.Screen
             name={routes.ADD_ADDRESS}
             component={common.ADD_ADDRESS}
           />
-          
         </Stack.Navigator>
       )}
     </NavigationContainer>

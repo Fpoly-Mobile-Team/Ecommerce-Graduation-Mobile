@@ -41,6 +41,7 @@ export const icons = {
   delivery_box: require('./icons/delivery_box.png'),
   vouncher: require('./icons/vouncher.png'),
   check_blank: require('./icons/check_blank.png'),
+  flag: require('./icons/flag.png'),
 };
 
 export const images = {

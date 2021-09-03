@@ -34,7 +34,7 @@ export const DotsThreeVertical = ({width = 24, height = 24}) => {
   );
 };
 
-export const PlusCircle = ({width = 36, height = 36, color = 'black'}) => {
+export const PlusCircle = ({width = 50, height = 50, color = 'black'}) => {
   return (
     <Svg
       width={width}

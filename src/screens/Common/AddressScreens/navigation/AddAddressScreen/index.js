@@ -5,7 +5,7 @@ import {Pressable, TextInput} from 'react-native';
 import styles from './style';
 import {theme} from '@theme';
 
-const addAddress = () => {
+const AddAddressScreen = () => {
   const navigation = useNavigation();
 
   return (
@@ -108,4 +108,4 @@ const addAddress = () => {
   );
 };
 
-export default addAddress;
+export default AddAddressScreen;

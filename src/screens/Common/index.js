@@ -2,7 +2,7 @@ import CartScreens from './CartScreens';
 import ProductDetails from './ProductDetails';
 import PaymentScreen from './CartScreens/navigation/PaymentScreen';
 import AddressScreens from './AddressScreens';
-import ADD_ADDRESS from './AddressScreens/components/addAddress'
+import ADD_ADDRESS from './AddressScreens/navigation/AddAddressScreen';
 
 export const common = {
   PRODUCT_DETAILS: ProductDetails,

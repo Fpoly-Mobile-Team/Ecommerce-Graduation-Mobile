@@ -1,41 +1,42 @@
+import {PlusCircle} from '@assets/svg/common';
 import {Block, Header} from '@components';
+import ItemAddress from '@components/Common/ItemList/ItemAddress';
+import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/core';
-import React from 'react';
-import {FlatList} from 'react-native';
- import ItemAddress from '@components/Common/ItemList/ItemAddress';
+import React, {useState} from 'react';
+import {FlatList, Pressable} from 'react-native';
 import {data} from './components/data';
-import {theme} from '@theme';
- import {PlusCircle} from '@assets/svg/common'
-
 
 const AddressCreens = () => {
   const navigation = useNavigation();
+  const [isCheck, setisCheck] = useState(false);
 
-  const renderItem = ({item}) => (
+  const renderItem = ({item, index}) => (
     <ItemAddress
       title={item.title}
       address={item.address}
-      defaault={item.defaault}
+      phone={item.phone}
+      index={index}
+      ic_default={item.ic_default}
     />
   );
 
   return (
     <Block flex>
-      <Header checkBackground canGoBack  title="Địa chỉ giao hàng" />
-      
-     <FlatList
-       data={data}
-       renderItem={renderItem}
+      <Header checkBackground canGoBack title="Địa chỉ giao hàng" />
+
+      <FlatList
+        data={data}
+        renderItem={renderItem}
         keyExtractor={item => item.id.toString()}
         showsVerticalScrollIndicator={false}
-
-     />
-     <Block absolute bottom={0} right={0} padding={10} >
-     
-       <PlusCircle/>
-     </Block>
-     </Block>
-   
+      />
+      <Block absolute bottom={20} right={0} padding={10}>
+        <Pressable onPress={() => navigation.navigate(routes.ADD_ADDRESS)}>
+          <PlusCircle />
+        </Pressable>
+      </Block>
+    </Block>
   );
 };
 
