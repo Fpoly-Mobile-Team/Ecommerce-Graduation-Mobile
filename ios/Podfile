@@ -14,6 +14,8 @@ target 'ecommerce_graduate' do
 
 
 
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
   target 'ecommerce_graduateTests' do
     inherit! :complete
     # Pods for testing

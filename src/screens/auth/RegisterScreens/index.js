@@ -85,7 +85,7 @@ const Register = ({callBack}) => {
         />
       </Block>
       <Block row marginTop={30} alignCenter justifyCenter>
-        <Text color={theme.colors.black}>Bạn có tài khoản ? </Text>
+        <Text color={theme.colors.black}>Bạn đã có tài khoản? </Text>
         <Pressable onPress={callBack}>
           <Text color={theme.colors.pink} fontType="bold">
             {' '}
