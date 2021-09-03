@@ -1,20 +1,37 @@
 import {theme} from '@theme';
-import {getSize, width} from '@utils/responsive';
+import {getSize} from '@utils/responsive';
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
-  input: {
-    height: getSize.v(45),
-    width: width,
+  resetStyles: {
+    flex: 1,
+    padding: 0,
+    margin: 0,
+    paddingHorizontal: 0,
+    paddingVertical: 0,
   },
-  iconLeft: {
-    height: getSize.s(15),
-    width: getSize.s(15),
-    marginRight: getSize.m(10),
+  defaultStyles: {
+    fontFamily: theme.fonts.fontFamily.default,
+    minHeight: getSize.m(38),
+    paddingHorizontal: getSize.m(16),
   },
-  icoWarning: {
-    tintColor: theme.colors.red,
-    height: getSize.s(11),
-    width: getSize.s(11),
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderWidth: 1,
+    backgroundColor: theme.colors.white,
+    borderRadius: getSize.s(5),
+    height: getSize.s(45),
+  },
+  leftIcon: {
+    position: 'absolute',
+    left: getSize.m(12),
+    height: getSize.s(14),
+    width: getSize.s(14),
+  },
+  rightIcon: {
+    position: 'absolute',
+    right: getSize.m(12),
   },
 });
