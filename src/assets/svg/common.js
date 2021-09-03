@@ -35,7 +35,7 @@ export const DotsThreeVertical = ({width = 24, height = 24}) => {
   );
 };
 
-export const PlusCircle = ({width = 36, height = 36, color = '#ffffff'}) => {
+export const PlusCircle = ({width = 50, height = 50, color = 'black'}) => {
   return (
     <Svg
       width={width}
@@ -43,12 +43,12 @@ export const PlusCircle = ({width = 36, height = 36, color = '#ffffff'}) => {
       viewBox="0 0 36 36"
       fill="none"
       xmlns="http://www.w3.org/2000/svg">
-      <Circle cx="18" cy="18" r="18" fill="white" />
+      <Circle cx="18" cy="18" r="18" fill="black" />
       <Path
         fill-rule="evenodd"
         clip-rule="evenodd"
         d="M17 11V17H11V19H17V25H19V19H25V17H19V11H17Z"
-        fill="#9B9B9B"
+        fill="white"
       />
     </Svg>
   );

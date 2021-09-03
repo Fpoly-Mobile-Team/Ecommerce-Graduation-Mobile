@@ -6,6 +6,7 @@ import ChatScreens from './ChatScreens';
 import Searchscreen from './HomeScreens/navigation/SearchScreen';
 import OrderHistory from './ProfileScreens/navigation/OrderHistory';
 import OrderDetails from './ProfileScreens/navigation/OrderDetails';
+import ProgrammingAccountScreen from './ProfileScreens/navigation/ProgrammingAccountScreen';
 
 export const bottom = {
   HOMESCREENS: HomeScreens,
@@ -16,4 +17,5 @@ export const bottom = {
   SEARCHSCREEN: Searchscreen,
   ORDERHISTORY: OrderHistory,
   ORDERDETAILS: OrderDetails,
+  PROGRAMMING_ACCOUNT_SCREEN: ProgrammingAccountScreen,
 };

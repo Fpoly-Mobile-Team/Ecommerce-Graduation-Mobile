@@ -43,6 +43,7 @@ export const icons = {
   check_blank: require('./icons/check_blank.png'),
   google: require('./icons/google.png'),
   facebook: require('./icons/facebook.png'),
+  flag: require('./icons/flag.png'),
 };
 
 export const images = {

@@ -72,6 +72,18 @@ const RootStack = () => {
             name={routes.FORGOTPASSWORD}
             component={auth.FORGOT_PASSWORD}
           />
+          <Stack.Screen
+            name={routes.PROGRAMMING_ACCOUNT_SCREEN}
+            component={bottom.PROGRAMMING_ACCOUNT_SCREEN}
+          />
+          <Stack.Screen
+            name={routes.ADDRESS_SCREEN}
+            component={common.ADDRESS_SCREEN}
+          />
+          <Stack.Screen
+            name={routes.ADD_ADDRESS_SCREEN}
+            component={common.ADD_ADDRESS_SCREEN}
+          />
         </Stack.Navigator>
       )}
     </NavigationContainer>

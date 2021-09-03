@@ -48,7 +48,8 @@ const Cart = () => {
   const navigation = useNavigation();
   return (
     <Block row alignCenter space="between">
-      <Pressable>
+      <Pressable
+        onPress={() => navigation.navigate(routes.PROGRAMMING_ACCOUNT_SCREEN)}>
         <Block>
           <Image
             source={icons.settings}

@@ -29,18 +29,25 @@ const ActionsButton = (item, index) => {
         paddingHorizontal={12}
         paddingVertical={12}
         space="between">
-        <Block row alignCenter>
-          {item.id !== '1' && (
-            <Image
-              source={item.image}
-              style={styles.icon}
-              resizeMode="contain"
-            />
-          )}
-          <Text fontType={item.id === '1' ? 'bold' : 'regular'}>
-            {item.title}
-          </Text>
-        </Block>
+        <Pressable
+          onPress={() =>
+            item.id !== '1'
+              ? navigation.navigate(item.navigation, {title: item.title})
+              : {}
+          }>
+          <Block row alignCenter>
+            {item.id !== '1' && (
+              <Image
+                source={item.image}
+                style={styles.icon}
+                resizeMode="contain"
+              />
+            )}
+            <Text fontType={item.id === '1' ? 'bold' : 'regular'}>
+              {item.title}
+            </Text>
+          </Block>
+        </Pressable>
         {item.id === '1' ? (
           <Pressable onPress={() => navigation.navigate(item.navigation)}>
             <Text color={theme.colors.pink} fontType="semibold">
