@@ -3,11 +3,12 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {common} from '@screens/Common';
 import React from 'react';
 import {StatusBar} from 'react-native';
-import {useSelector} from 'react-redux';
-import {bottom} from '../screens/Bottom';
 import BottomTabNavigation from './BottomTabNavigation';
 import {navigate} from './RootNavigation';
+import {useSelector} from 'react-redux';
 import {routes} from './routes';
+import {bottom} from '../screens/Bottom';
+import {auth} from './../screens/auth/';
 
 const Stack = createStackNavigator();
 
@@ -54,6 +55,22 @@ const RootStack = () => {
           <Stack.Screen
             name={routes.PAYMENTSCREEN}
             component={common.PAYMENT_SCREEN}
+          />
+          <Stack.Screen
+            name={routes.AUTHFORSCREEN}
+            component={auth.AUTHFORSCREEN}
+          />
+          <Stack.Screen
+            name={routes.REGISTERSCREEN}
+            component={auth.REGISTER_SCREEN}
+          />
+          <Stack.Screen
+            name={routes.LOGINSCREEN}
+            component={auth.LOGIN_SCREEN}
+          />
+          <Stack.Screen
+            name={routes.FORGOTPASSWORD}
+            component={auth.FORGOT_PASSWORD}
           />
         </Stack.Navigator>
       )}
