@@ -10,7 +10,11 @@ const AuthForScreens = () => {
   const [value, setValue] = useState(true);
   const isFocused = useIsFocused();
   return (
-    <FormContainer style={{backgroundColor: theme.colors.background}}>
+    <FormContainer
+      style={{
+        backgroundColor: theme.colors.background,
+        flex: 1,
+      }}>
       {isFocused && <StatusBar barStyle="dark-content" translucent animated />}
       {value ? (
         <Login callBack={() => setValue(!value)} />
