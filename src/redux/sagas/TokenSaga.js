@@ -8,7 +8,7 @@ import Actions, {_onFail, _onSuccess} from '../actions';
 function* getToken() {
   try {
     const data = {
-      username:'ants',
+      username: 'ants',
       password: 'EWA4tWTQAgiVf9AJiYbAxUKsew2lbZqk',
     };
     const body = queryString.stringify(data);
