@@ -17,11 +17,13 @@ export default StyleSheet.create({
     height: getSize.s(14),
   },
   label: {
-    marginTop: 10,
+    marginTop: 8,
     marginLeft: 16,
     color: theme.colors.lightGray,
+    fontSize: 12,
     fontWeight: '400',
-    marginBottom: 0,
+    marginBottom: -8,
+    zIndex: 8,
   },
   containerInputStyle: {
     borderRadius: 5,

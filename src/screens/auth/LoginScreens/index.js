@@ -40,7 +40,7 @@ const Login = ({callBack}) => {
             labelStyle={styles.label}
             inputStyle={styles.inputStyle}
             rightstyle={{bottom: 12}}
-            placeholder="Nhập password"
+            placeholder="Nhập mật khẩu"
             onChangeText={text => setPassword(text)}
             isSecure
           />
@@ -87,7 +87,7 @@ const Login = ({callBack}) => {
             />
           </Block>
           <Block row marginTop={30} alignCenter justifyCenter>
-            <Text color={theme.colors.black}>Bạn chưa có tài khoản ? </Text>
+            <Text color={theme.colors.black}>Bạn chưa có tài khoản? </Text>
             <Pressable onPress={callBack}>
               <Text color={theme.colors.pink} fontType="bold">
                 {' '}
