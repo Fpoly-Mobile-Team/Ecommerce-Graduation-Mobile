@@ -75,7 +75,7 @@ const Register = ({callBack}) => {
       <Block marginTop={20} paddingHorizontal={12}>
         <Button
           title="ĐĂNG KÝ"
-          height={50}
+          height={48}
           shadow
           backgroundColor={theme.colors.pink}
           onPress={callBack}

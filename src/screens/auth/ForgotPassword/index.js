@@ -6,7 +6,7 @@ import {Pressable, StatusBar} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import styles from './styles';
 
-const ForgotPassword = () => {
+const Forgot = () => {
   const [email, setEmail] = useState();
   const navigation = useNavigation();
   const {top} = useSafeAreaInsets();
@@ -39,7 +39,7 @@ const ForgotPassword = () => {
       <Block marginTop={20} paddingHorizontal={12}>
         <Button
           title="GỬI XÁC NHẬN"
-          height={50}
+          height={48}
           shadow
           backgroundColor={theme.colors.pink}
           shadowColor={`${theme.colors.pink}80`}
@@ -60,4 +60,4 @@ const ForgotPassword = () => {
   );
 };
 
-export default ForgotPassword;
+export default Forgot;
