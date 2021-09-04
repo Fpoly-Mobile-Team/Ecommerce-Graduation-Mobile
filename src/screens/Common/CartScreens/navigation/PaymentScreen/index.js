@@ -27,7 +27,7 @@ const PaymentScreen = ({route}) => {
         <ShippingMethod />
         <PaymentMethod />
       </ScrollView>
-      <Block paddingHorizontal={16} >
+      <Block paddingHorizontal={16}>
         <Button
           onPress={() => navigation.navigate(routes.PURCHASE_SCREEN)}
           title="ĐẶT HÀNG"
