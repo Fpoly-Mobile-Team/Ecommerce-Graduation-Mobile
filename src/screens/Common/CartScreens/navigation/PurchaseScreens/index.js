@@ -5,7 +5,7 @@ import {theme} from '@theme';
 import React from 'react';
 import {StatusBar} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import { routes } from '@navigation/routes';
+import {routes} from '@navigation/routes';
 
 const Purchase = () => {
   const navigation = useNavigation();
@@ -47,7 +47,7 @@ const Purchase = () => {
         paddingHorizontal={12}
         paddingBottom={bottom + 12}>
         <Button
-        onPress={() => navigation.navigate(routes.BOTTOMTABBAR)}
+          onPress={() => navigation.navigate(routes.BOTTOMTABBAR)}
           title="TIẾP TỤC MUA SẮM"
           height={48}
           shadow
