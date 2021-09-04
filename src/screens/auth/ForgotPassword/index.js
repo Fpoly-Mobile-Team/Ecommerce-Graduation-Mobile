@@ -1,13 +1,12 @@
 import {Block, Button, Text, TextInput} from '@components';
-import CheckBox from '@components/CheckBox';
 import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import React, {useState} from 'react';
-import { Pressable, StatusBar } from 'react-native';
+import {Pressable, StatusBar} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import styles from './styles';
 
-const Register = ({callBack}) => {
+const Forgot = () => {
   const [email, setEmail] = useState();
   const navigation = useNavigation();
   const {top} = useSafeAreaInsets();
@@ -40,7 +39,7 @@ const Register = ({callBack}) => {
       <Block marginTop={20} paddingHorizontal={12}>
         <Button
           title="GỞI XÁC NHẬN"
-          height={50}
+          height={48}
           shadow
           backgroundColor={theme.colors.pink}
           shadowColor={`${theme.colors.pink}80`}
@@ -61,4 +60,4 @@ const Register = ({callBack}) => {
   );
 };
 
-export default Register;
+export default Forgot;

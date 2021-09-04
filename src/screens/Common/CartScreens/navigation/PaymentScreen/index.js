@@ -7,8 +7,11 @@ import PaymentProduct from './components/PaymentProduct';
 import ShippingMethod from './components/ShippingMethod';
 import PaymentMethod from './components/PaymentMethod';
 import VoucherShop from './components/VoucherShop';
+import {useNavigation} from '@react-navigation/native';
+import {routes} from '@navigation/routes';
 
 const PaymentScreen = ({route}) => {
+  const navigation = useNavigation();
   const {refRBSheet} = route.params || {};
   LogBox.ignoreLogs([
     'Non-serializable values were found in the navigation state',
@@ -24,9 +27,10 @@ const PaymentScreen = ({route}) => {
         <ShippingMethod />
         <PaymentMethod />
       </ScrollView>
-      <Block paddingHorizontal={16} marginBottom={10}>
+      <Block paddingHorizontal={16} >
         <Button
-          title="Đặt hàng"
+          onPress={() => navigation.navigate(routes.PURCHASE_SCREEN)}
+          title="ĐẶT HÀNG"
           height={48}
           style={{backgroundColor: theme.colors.pink}}
         />
