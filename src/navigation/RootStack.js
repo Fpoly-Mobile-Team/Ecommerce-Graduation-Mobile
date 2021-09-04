@@ -84,6 +84,10 @@ const RootStack = () => {
             name={routes.ADD_ADDRESS_SCREEN}
             component={common.ADD_ADDRESS_SCREEN}
           />
+          <Stack.Screen
+            name={routes.PURCHASE_SCREEN}
+            component={common.PURCHASE_SCREEN}
+          />
         </Stack.Navigator>
       )}
     </NavigationContainer>
