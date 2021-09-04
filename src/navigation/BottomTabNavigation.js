@@ -40,20 +40,20 @@ const BottomTabNavigation = () => {
           tabBarLabel: 'Thông báo',
         }}
       />
-      {/* <Tab.Screen
+      <Tab.Screen
         name={routes.PROFILESCREENS}
         component={bottom.PROFILESCREENS}
         options={{
           tabBarLabel: 'Tài khoản',
         }}
-      /> */}
-      <Tab.Screen
+      />
+      {/* <Tab.Screen
         name={routes.AUTHFORSCREEN}
         component={auth.AUTHFORSCREEN}
         options={{
           tabBarLabel: 'Tài khoản',
         }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 };
