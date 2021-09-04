@@ -58,7 +58,7 @@ const Login = ({callBack}) => {
         <Button
           onPress={callBack}
           title="ĐĂNG NHẬP"
-          height={50}
+          height={48}
           shadow
           style={{borderRadius: 5}}
           backgroundColor={theme.colors.pink}
