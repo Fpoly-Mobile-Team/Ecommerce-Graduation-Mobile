@@ -1,13 +1,12 @@
 import {Block, Button, Text, TextInput} from '@components';
-import CheckBox from '@components/CheckBox';
 import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import React, {useState} from 'react';
-import { Pressable, StatusBar } from 'react-native';
+import {Pressable, StatusBar} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import styles from './styles';
 
-const Register = ({callBack}) => {
+const ForgotPassword = () => {
   const [email, setEmail] = useState();
   const navigation = useNavigation();
   const {top} = useSafeAreaInsets();
@@ -39,7 +38,7 @@ const Register = ({callBack}) => {
       </Block>
       <Block marginTop={20} paddingHorizontal={12}>
         <Button
-          title="GỞI XÁC NHẬN"
+          title="GỬI XÁC NHẬN"
           height={50}
           shadow
           backgroundColor={theme.colors.pink}
@@ -61,4 +60,4 @@ const Register = ({callBack}) => {
   );
 };
 
-export default Register;
+export default ForgotPassword;
