@@ -38,7 +38,7 @@ const Forgot = () => {
       </Block>
       <Block marginTop={20} paddingHorizontal={12}>
         <Button
-          title="GỞI XÁC NHẬN"
+          title="GỬI XÁC NHẬN"
           height={48}
           shadow
           backgroundColor={theme.colors.pink}
