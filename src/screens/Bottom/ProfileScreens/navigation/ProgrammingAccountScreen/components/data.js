@@ -30,7 +30,7 @@ export const DATA = [
       {
         id: '3',
         title: 'Điều Khoản Sử Dụng',
-        navigation: null,
+        navigation: routes.TERM_OF_USE_SCREEN,
       },
       {
         id: '4',
