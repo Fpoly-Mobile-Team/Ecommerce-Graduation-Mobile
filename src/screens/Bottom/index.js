@@ -7,7 +7,7 @@ import Searchscreen from './HomeScreens/navigation/SearchScreen';
 import OrderHistory from './ProfileScreens/navigation/OrderHistory';
 import OrderDetails from './ProfileScreens/navigation/OrderDetails';
 import ProgrammingAccountScreen from './ProfileScreens/navigation/ProgrammingAccountScreen';
-import SecurityScreen from './ProfileScreens/navigation/ProgrammingAccountScreen/SecurityScreen';
+import SecurityScreen from './ProfileScreens/navigation/ProgrammingAccountScreen/navigation/SecurityScreen';
 
 export const bottom = {
   HOMESCREENS: HomeScreens,
