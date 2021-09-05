@@ -9,7 +9,7 @@ const TermOfUseScreen = () => {
   useEffect(() => {
     dispatch({type: actions.GET_TERMS_OF_USE});
   }, [dispatch]);
-  console.log(data);
+
   return (
     <Block flex backgroundColor="white">
       <Header
