@@ -1,12 +1,13 @@
 import {Block, Text} from '@components';
 import {theme} from '@theme';
-import {getSize} from '@utils/responsive';
+import {getSize, width} from '@utils/responsive';
 import React from 'react';
 import {Pressable, UIActivityIndicator} from 'react-native';
 
 const Button = ({
   title,
   height,
+  width,
   onPress,
   titleStyle,
   style,
@@ -19,6 +20,7 @@ const Button = ({
         alignCenter
         justifyCenter
         height={height}
+        width={width}
         radius={height}
         marginVertical={10}
         style={style}

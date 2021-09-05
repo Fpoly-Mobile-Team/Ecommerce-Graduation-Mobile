@@ -12,6 +12,11 @@ export const DATA = [
       },
       {
         id: '2',
+        title: 'Bảo mật',
+        navigation: routes.SECURITY_SCREEN,
+      },
+      {
+        id: '3',
         title: 'Địa Chỉ',
         navigation: routes.ADDRESS_SCREEN,
       },
