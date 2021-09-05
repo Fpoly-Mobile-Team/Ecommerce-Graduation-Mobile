@@ -27,6 +27,9 @@ export const theme = {
     bgiconheader: '#24242480',
     lightRount: '#EFEFEF',
     purple: '#9966CC',
+    switchOn: '#f04141',
+    switchOff: '#f3adad',
+    bgSwitch: '#f3f3f3',
   },
 
   fonts: {
