@@ -3,12 +3,12 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {common} from '@screens/Common';
 import React from 'react';
 import {StatusBar} from 'react-native';
-import BottomTabNavigation from './BottomTabNavigation';
-import {navigate} from './RootNavigation';
 import {useSelector} from 'react-redux';
-import {routes} from './routes';
 import {bottom} from '../screens/Bottom';
 import {auth} from './../screens/auth/';
+import BottomTabNavigation from './BottomTabNavigation';
+import {navigate} from './RootNavigation';
+import {routes} from './routes';
 
 const Stack = createStackNavigator();
 
@@ -91,6 +91,10 @@ const RootStack = () => {
           <Stack.Screen
             name={routes.SECURITY_SCREEN}
             component={bottom.SECURITY_SCREEN}
+          />
+          <Stack.Screen
+            name={routes.TERM_OF_USE_SCREEN}
+            component={bottom.TERM_OF_USE_SCREEN}
           />
         </Stack.Navigator>
       )}

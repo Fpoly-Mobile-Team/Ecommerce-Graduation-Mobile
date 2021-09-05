@@ -20,7 +20,6 @@ export const DATA = [
         title: 'Địa Chỉ',
         navigation: routes.ADDRESS_SCREEN,
       },
-
     ],
   },
   {
