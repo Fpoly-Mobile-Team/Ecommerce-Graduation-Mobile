@@ -10,7 +10,7 @@ const App = () => {
   const dispatch = useDispatch();
   const token = useSelector(state => state.token.data);
   const config = useSelector(state => state.config.data);
-
+  //config
   useEffect(() => {
     dispatch({type: Actions.GET_TOKEN});
   }, [dispatch]);
