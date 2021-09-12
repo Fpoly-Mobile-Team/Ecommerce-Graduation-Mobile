@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Login from '../LoginScreens';
 import Register from '../RegisterScreens';
-import FormContainer from '@components/Form/FormContainer';
+import {FormContainer} from '@components';
 import {StatusBar} from 'react-native';
 import {useIsFocused} from '@react-navigation/native';
 import {theme} from '@theme';

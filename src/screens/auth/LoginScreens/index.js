@@ -1,21 +1,46 @@
-import {icons} from '@assets';
 import {NavigationAuth} from '@assets/svg/common';
-import {Block, Button, Text, TextInput} from '@components';
+import {Block, Button, Text} from '@components';
+import {yupResolver} from '@hookform/resolvers/yup';
 import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
+import actions from '@redux/actions';
 import {theme} from '@theme';
-import React, {useState} from 'react';
-import {Pressable} from 'react-native';
+import React from 'react';
+import {useForm} from 'react-hook-form';
+import {Keyboard, Pressable} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import ButtonSocial from './components/ButtonSocial';
+import {useDispatch, useSelector} from 'react-redux';
+import LoginForm from './components/LoginForm';
+import {validation} from './components/LoginForm/validation';
+import SocialLogin from './components/SocialLogin';
 import styles from './styles';
 
+const INITIAL_VALUES = {
+  email: '',
+  password: '',
+};
 const Login = ({callBack}) => {
+  const dispatch = useDispatch();
+  const {isLoading} = useSelector(state => state.login);
   const {top} = useSafeAreaInsets();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
   const navigation = useNavigation();
-
+  const {control, handleSubmit} = useForm({
+    resolver: yupResolver(validation),
+    mode: 'onChange',
+    defaultValues: INITIAL_VALUES,
+  });
+  const onSubmit = values => {
+    Keyboard.dismiss();
+    dispatch({
+      type: actions.LOGIN_ACCOUNT,
+      body: {
+        email: values.email,
+        password: values.password,
+        device_token: 'lala',
+        device_name: 'name',
+      },
+    });
+  };
   return (
     <Block flex backgroundColor="background" paddingTop={top + 40}>
       <Block paddingBottom={56} paddingHorizontal={12}>
@@ -23,28 +48,7 @@ const Login = ({callBack}) => {
           Đăng nhập
         </Text>
       </Block>
-      <Block paddingHorizontal={12}>
-        <TextInput
-          label="Email"
-          containerInputStyle={styles.containerInputStyle}
-          labelStyle={styles.label}
-          inputStyle={styles.inputStyle}
-          keyboardType="email-address"
-          placeholder="Nhập email"
-          onChangeText={text => setEmail(text)}
-        />
-        <TextInput
-          label="Mật khẩu"
-          containerInputStyle={styles.containerInputStyle}
-          labelStyle={styles.label}
-          inputStyle={styles.inputStyle}
-          rightstyle={{bottom: 12}}
-          placeholder="Nhập mật khẩu"
-          onChangeText={text => setPassword(text)}
-          isSecure
-        />
-      </Block>
-
+      <LoginForm control={control} />
       <Block row justifyEnd alignCenter marginHorizontal={12} marginTop={16}>
         <Pressable onPress={() => navigation.navigate(routes.FORGOTPASSWORD)}>
           <Text style={styles.textForgot} size={14} paddingHorizontal={3}>
@@ -53,38 +57,24 @@ const Login = ({callBack}) => {
         </Pressable>
         <NavigationAuth />
       </Block>
-
       <Block marginTop={16} paddingHorizontal={12}>
         <Button
-          onPress={callBack}
+          onPress={handleSubmit(onSubmit)}
           title="ĐĂNG NHẬP"
           height={48}
           shadow
-          style={{borderRadius: 5}}
+          style={styles.button_login}
           backgroundColor={theme.colors.pink}
           shadowColor={`${theme.colors.pink}20`}
           elevation={10}
+          disabled={isLoading}
         />
       </Block>
-
       <Block alignCenter justifyCenter>
         <Block marginTop={20}>
           <Text color={theme.colors.black}>Hoặc Đăng nhập với </Text>
         </Block>
-
-        <Block row alignCenter marginTop={20}>
-          <ButtonSocial
-            onPress={() => console.log('google')}
-            icon={icons.google}
-            backgroundColor={theme.colors.white}
-          />
-          <ButtonSocial
-            onPress={() => console.log('face')}
-            icon={icons.facebook}
-            backgroundColor={theme.colors.blue}
-            marginLeft={28}
-          />
-        </Block>
+        <SocialLogin />
         <Block row marginTop={30} alignCenter justifyCenter>
           <Text color={theme.colors.black}>Bạn chưa có tài khoản? </Text>
           <Pressable onPress={callBack}>

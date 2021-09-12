@@ -1,13 +1,15 @@
-import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {routes} from './routes';
+import React from 'react';
+import {useSelector} from 'react-redux';
 import {bottom} from '../screens/Bottom';
-import CustomTabBar from './CustomTabBar';
 import {auth} from './../screens/auth';
+import CustomTabBar from './CustomTabBar';
+import {routes} from './routes';
 
 const Tab = createBottomTabNavigator();
 
 const BottomTabNavigation = () => {
+  const user = useSelector(state => state.tokenUser?.data);
   return (
     <Tab.Navigator
       initialRouteName={routes.HOMESCREENS}
@@ -40,20 +42,23 @@ const BottomTabNavigation = () => {
           tabBarLabel: 'Thông báo',
         }}
       />
-      <Tab.Screen
-        name={routes.PROFILESCREENS}
-        component={bottom.PROFILESCREENS}
-        options={{
-          tabBarLabel: 'Tài khoản',
-        }}
-      />
-      {/* <Tab.Screen
-        name={routes.AUTHFORSCREEN}
-        component={auth.AUTHFORSCREEN}
-        options={{
-          tabBarLabel: 'Tài khoản',
-        }}
-      /> */}
+      {user ? (
+        <Tab.Screen
+          name={routes.PROFILESCREENS}
+          component={bottom.PROFILESCREENS}
+          options={{
+            tabBarLabel: 'Tài khoản',
+          }}
+        />
+      ) : (
+        <Tab.Screen
+          name={routes.AUTHFORSCREEN}
+          component={auth.AUTHFORSCREEN}
+          options={{
+            tabBarLabel: 'Tài khoản',
+          }}
+        />
+      )}
     </Tab.Navigator>
   );
 };
