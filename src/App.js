@@ -1,6 +1,7 @@
 import {NetWork} from '@components';
 import Actions from '@redux/actions';
 import store from '@redux/store';
+import Storage from '@utils/storage';
 import React, {useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import {Provider, useDispatch, useSelector} from 'react-redux';
@@ -18,6 +19,11 @@ const App = () => {
   useEffect(() => {
     if (token) {
       dispatch({type: Actions.GET_CONFIG});
+      Storage.getItem('TOKEN_USER').then(user => {
+        if (user) {
+          dispatch({type: Actions.TOKEN_USER, data: user});
+        }
+      });
     }
   }, [dispatch, token]);
 

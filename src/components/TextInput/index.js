@@ -104,31 +104,35 @@ const InputText = ({...props}) => {
   };
 
   return (
-    <Block flexShrink style={containerInputStyle}>
-      {!isEmpty(label) && _renderLabel()}
-      <Block
-        style={[
-          styles.inputContainer,
-          {
-            borderColor: isError ? theme.colors.red : theme.colors.lightGray,
-          },
-          StyleSheet.flatten(inputStyle),
-        ]}>
-        {leftIcon && (
-          <Image
-            source={leftIcon}
-            resizeMode="contain"
-            style={{
-              ...styles.leftIcon,
-              tintColor: isError ? theme.colors.red : theme.colors.placeholder,
-            }}
-          />
-        )}
-        {_renderInput()}
-        {isSecure ? _renderSecureIcon() : rightIcon && rightIcon()}
+    <>
+      <Block flexShrink style={containerInputStyle}>
+        {!isEmpty(label) && _renderLabel()}
+        <Block
+          style={[
+            styles.inputContainer,
+            {
+              borderColor: isError ? theme.colors.red : theme.colors.lightGray,
+            },
+            StyleSheet.flatten(inputStyle),
+          ]}>
+          {leftIcon && (
+            <Image
+              source={leftIcon}
+              resizeMode="contain"
+              style={{
+                ...styles.leftIcon,
+                tintColor: isError
+                  ? theme.colors.red
+                  : theme.colors.placeholder,
+              }}
+            />
+          )}
+          {_renderInput()}
+          {isSecure ? _renderSecureIcon() : rightIcon && rightIcon()}
+        </Block>
       </Block>
       {isError && Boolean(errorText) && _renderError()}
-    </Block>
+    </>
   );
 };
 
