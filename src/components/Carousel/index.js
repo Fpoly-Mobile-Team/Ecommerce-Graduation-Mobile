@@ -32,6 +32,7 @@ const Carousel = ({data}) => {
         data={data}
         autoplay
         autoplayLoop
+        autoplayDelay={3}
         index={3}
         keyExtractor={keyExtractor}
         renderItem={memoizedValue}
@@ -41,7 +42,7 @@ const Carousel = ({data}) => {
         windowSize={5}
         removeClippedSubviews={Platform.OS === 'ios' ? true : false}
         showPagination
-        autoplayInvertDirection
+        renderAll={true}
         showsHorizontalScrollIndicator={false}
         paginationStyleItem={{height: getSize.v(2), width: getSize.v(10)}}
         paginationDefaultColor="#ffffff60"
