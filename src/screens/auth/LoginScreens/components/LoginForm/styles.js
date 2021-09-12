@@ -37,5 +37,4 @@ export default StyleSheet.create({
     color: theme.colors.lightGray,
     height: getSize.s(14),
   },
-  button_login: {borderRadius: 5},
 });
