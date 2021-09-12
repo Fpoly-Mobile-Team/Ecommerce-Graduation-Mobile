@@ -1,8 +1,9 @@
 import {Block, Text} from '@components';
 import {theme} from '@theme';
-import {getSize, width} from '@utils/responsive';
+import {getSize} from '@utils/responsive';
 import React from 'react';
-import {Pressable, UIActivityIndicator} from 'react-native';
+import {Pressable} from 'react-native';
+import {UIActivityIndicator} from 'react-native-indicators';
 
 const Button = ({
   title,
