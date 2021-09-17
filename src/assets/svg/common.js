@@ -34,6 +34,222 @@ export const DotsThreeVertical = ({width = 24, height = 24}) => {
     </Svg>
   );
 };
+export const IconBack = ({width = 24, height = 24}) => {
+  return (
+    <Svg
+      width="24"
+      height="27"
+      viewBox="0 0 24 27"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <G filter="url(#filter0_d)">
+        <Path
+          d="M15 18L9 12L15 6"
+          stroke="white"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </G>
+      <Defs>
+        <Filter
+          id="filter0_d"
+          x="-6"
+          y="-4"
+          width="36"
+          height="36"
+          filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB">
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha"
+          />
+          <feOffset dy="2" />
+          <feGaussianBlur stdDeviation="3" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0"
+          />
+          <feBlend
+            mode="normal"
+            in2="BackgroundImageFix"
+            result="effect1_dropShadow"
+          />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="effect1_dropShadow"
+            result="shape"
+          />
+        </Filter>
+      </Defs>
+    </Svg>
+  );
+};
+
+export const IconMessages = ({width = 24, height = 24}) => {
+  return (
+    <Svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <G clip-path="url(#clip0)">
+        <G filter="url(#filter0_d)">
+          <Path
+            d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z"
+            stroke="white"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </G>
+      </G>
+      <Defs>
+        <Filter
+          id="filter0_d"
+          x="-3.75"
+          y="-1.75"
+          width="31.5"
+          height="31.5"
+          filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB">
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha"
+          />
+          <feOffset dy="2" />
+          <feGaussianBlur stdDeviation="3" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0"
+          />
+          <feBlend
+            mode="normal"
+            in2="BackgroundImageFix"
+            result="effect1_dropShadow"
+          />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="effect1_dropShadow"
+            result="shape"
+          />
+        </Filter>
+        <ClipPath id="clip0">
+          <Rect width="24" height="24" fill="white" />
+        </ClipPath>
+      </Defs>
+    </Svg>
+  );
+};
+
+export const IconSearch = ({width = 50, height = 50, color = 'black'}) => {
+  return (
+    <Svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <Path
+        d="M7.33333 12.6667C10.2789 12.6667 12.6667 10.2789 12.6667 7.33333C12.6667 4.38781 10.2789 2 7.33333 2C4.38781 2 2 4.38781 2 7.33333C2 10.2789 4.38781 12.6667 7.33333 12.6667Z"
+        stroke="#8B9399"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <Path
+        d="M14 14L11.1 11.1"
+        stroke="#8B9399"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </Svg>
+  );
+};
+export const IconLocation = ({width = 50, height = 50, color = 'black'}) => {
+  return (
+    <Svg
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <Path
+        d="M10.5 5C10.5 8.5 6 11.5 6 11.5C6 11.5 1.5 8.5 1.5 5C1.5 3.80653 1.97411 2.66193 2.81802 1.81802C3.66193 0.974106 4.80653 0.5 6 0.5C7.19347 0.5 8.33807 0.974106 9.18198 1.81802C10.0259 2.66193 10.5 3.80653 10.5 5Z"
+        stroke="#8B9399"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <Path
+        d="M6 6.5C6.82843 6.5 7.5 5.82843 7.5 5C7.5 4.17157 6.82843 3.5 6 3.5C5.17157 3.5 4.5 4.17157 4.5 5C4.5 5.82843 5.17157 6.5 6 6.5Z"
+        stroke="#8B9399"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </Svg>
+  );
+};
+
+export const IconMore = ({width = 50, height = 50, color = 'black'}) => {
+  return (
+    <Svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <Path
+        d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
+        stroke="#8B9399"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <Path
+        d="M19 13C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12C18 12.5523 18.4477 13 19 13Z"
+        stroke="#8B9399"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <Path
+        d="M5 13C5.55228 13 6 12.5523 6 12C6 11.4477 5.55228 11 5 11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13Z"
+        stroke="#8B9399"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </Svg>
+  );
+};
+
+export const IconForward = ({width = 50, height = 50, color = 'black'}) => {
+  return (
+    <Svg
+      width="6"
+      height="10"
+      viewBox="0 0 6 10"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <Path
+        d="M1 9L5 5L1 1"
+        stroke="#823FFD"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </Svg>
+  );
+};
 
 export const PlusCircle = ({width = 50, height = 50, color = 'black'}) => {
   return (
@@ -53,6 +269,30 @@ export const PlusCircle = ({width = 50, height = 50, color = 'black'}) => {
     </Svg>
   );
 };
+
+export const IconVoucher = ({width = 50, height = 50, color = 'black'}) => {
+  return (
+    <Svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <Path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M1 6C1 4.89543 1.89543 4 3 4H21C22.1046 4 23 4.89543 23 6V10C21.8954 10 21 10.8954 21 12C21 13.1046 21.8954 14 23 14V18C23 19.1046 22.1046 20 21 20H3C1.89543 20 1 19.1046 1 18V14C2.10457 14 3 13.1046 3 12C3 10.8954 2.10457 10 1 10V6Z"
+        fill="#FB363B"
+      />
+      <Rect x="5" y="4" width="1" height="16" fill="#D21A20" />
+      <Path
+        d="M13.3052 14.3379C13.3093 15.2365 13.9524 16 15.1526 16C16.3405 16 17.0041 15.2365 17 14.3379V13.9434C17.0041 13.0374 16.3569 12.2813 15.1526 12.2813C13.9688 12.2813 13.3093 13.0447 13.3052 13.9434V14.3379ZM9 10.0566C9.0041 10.9553 9.64721 11.7114 10.8433 11.7114C12.0353 11.7114 12.6989 10.9626 12.6948 10.0566V9.6621C12.6989 8.75616 12.0517 8 10.8433 8C9.67179 8 9.0041 8.75616 9 9.6621V10.0566ZM9.40143 15.7406H10.4706L16.2381 8.25936H15.169L9.40143 15.7406ZM14.4972 13.9434C14.5013 13.5854 14.661 13.2164 15.1526 13.2164C15.6687 13.2164 15.8039 13.5854 15.7998 13.9434V14.3379C15.8039 14.6959 15.6523 15.0575 15.1526 15.0575C14.6528 15.0575 14.5013 14.6849 14.4972 14.3379V13.9434ZM10.2002 9.6621C10.2043 9.31507 10.3559 8.93516 10.8433 8.93516C11.3594 8.93516 11.4987 9.30411 11.4946 9.6621V10.0566C11.4987 10.4146 11.3431 10.7763 10.8433 10.7763C10.36 10.7763 10.2043 10.4146 10.2002 10.0566V9.6621Z"
+        fill="white"
+      />
+    </Svg>
+  );
+};
+
 export const GoogleGround = ({width = 79, height = 73, color = '#ffffff'}) => {
   return (
     <Svg
