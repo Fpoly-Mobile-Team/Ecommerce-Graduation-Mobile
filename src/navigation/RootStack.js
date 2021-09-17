@@ -24,7 +24,7 @@ const RootStack = () => {
       {config && (
         <Stack.Navigator
           mode="modal"
-          initialRouteName={routes.BOTTOMTABBAR}
+          initialRouteName={routes.PROMO_SCREEN}
           screenOptions={{
             headerShown: false,
           }}>
@@ -95,6 +95,10 @@ const RootStack = () => {
           <Stack.Screen
             name={routes.TERM_OF_USE_SCREEN}
             component={bottom.TERM_OF_USE_SCREEN}
+          />
+           <Stack.Screen
+            name={routes.PROMO_SCREEN}
+            component={common.PROMO_SCREEN}
           />
         </Stack.Navigator>
       )}
