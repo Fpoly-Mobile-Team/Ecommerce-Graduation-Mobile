@@ -6,15 +6,16 @@ import {Image, Platform} from 'react-native';
 import {SwiperFlatList} from 'react-native-swiper-flatlist';
 import styles from './styles';
 
-const Carousel = ({data}) => {
+const Carousel = ({data, checkBorder}) => {
   const _renderItem = React.useCallback(({item}) => {
     return (
       <Block>
         <Image
           source={{uri: item.banner}}
           style={{
-            width: width - 24,
+            width: checkBorder ? width - 49.2 / 2 : width - 24,
             height: width / 3,
+            borderRadius: checkBorder ? 8 : 0,
           }}
           resizeMode="contain"
         />
