@@ -9,7 +9,8 @@ import OrderDetails from './ProfileScreens/navigation/OrderDetails';
 import ProgrammingAccountScreen from './ProfileScreens/navigation/ProgrammingAccountScreen';
 import SecurityScreen from './ProfileScreens/navigation/ProgrammingAccountScreen/navigation/SecurityScreen';
 import TermOfUseScreen from './ProfileScreens/navigation/ProgrammingAccountScreen/navigation/TermOfUseScreen';
-
+import IntroduceScreen from './ProfileScreens/navigation/ProgrammingAccountScreen/navigation/IntroduceScreen';
+import IntroduceDetail from './ProfileScreens/navigation/ProgrammingAccountScreen/navigation/IntroduceScreen/navigation/IntroduceDetails';
 export const bottom = {
   HOMESCREENS: HomeScreens,
   CATEGORYSCREENS: CategoryScreens,
@@ -22,4 +23,6 @@ export const bottom = {
   PROGRAMMING_ACCOUNT_SCREEN: ProgrammingAccountScreen,
   SECURITY_SCREEN: SecurityScreen,
   TERM_OF_USE_SCREEN: TermOfUseScreen,
+  INTRODUCE_SCREEN: IntroduceScreen,
+  INTRODUCE_DETAIL: IntroduceDetail,
 };

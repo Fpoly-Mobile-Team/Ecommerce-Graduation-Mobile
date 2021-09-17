@@ -96,6 +96,14 @@ const RootStack = () => {
             name={routes.TERM_OF_USE_SCREEN}
             component={bottom.TERM_OF_USE_SCREEN}
           />
+          <Stack.Screen
+            name={routes.INTRODUCE_SCREEN}
+            component={bottom.INTRODUCE_SCREEN}
+          />
+          <Stack.Screen
+            name={routes.INTRODUCE_DETAIL}
+            component={bottom.INTRODUCE_DETAIL}
+          />
         </Stack.Navigator>
       )}
     </NavigationContainer>
