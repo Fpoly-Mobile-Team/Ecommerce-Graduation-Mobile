@@ -34,7 +34,7 @@ export const DATA = [
       {
         id: '4',
         title: 'Giới Thiệu',
-        navigation: null,
+        navigation: routes.INTRODUCE_SCREEN,
       },
     ],
   },

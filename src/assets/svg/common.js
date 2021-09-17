@@ -15,6 +15,18 @@ import Svg, {
   Mask,
   Ellipse,
 } from 'react-native-svg';
+export const LineHorizontal = ({width = 309, height = 1}) => {
+  return (
+    <Svg
+      width={width}
+      height={height}
+      viewBox="0 0 309 1"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <Line y1="0.75" x2="309" y2="0.75" stroke="#F5F5F5" stroke-width="0.5" />
+    </Svg>
+  );
+};
 
 export const DotsThreeVertical = ({width = 24, height = 24}) => {
   return (
@@ -1705,9 +1717,9 @@ export const CartIconColor = ({width = 28, height = 28}) => (
   </Svg>
 );
 export const ChevronRight = ({
-  width = 16,
-  height = 16,
-  color = '#823FFD',
+  width = 24,
+  height = 24,
+  color = '#C0C0C0',
   strokeWidth = 1.5,
 }) => (
   <Svg
