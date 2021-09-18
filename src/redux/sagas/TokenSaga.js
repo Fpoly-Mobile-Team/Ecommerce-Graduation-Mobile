@@ -1,6 +1,5 @@
 import API from '@utils/api';
 import queryString from 'query-string';
-import Config from 'react-native-config';
 import {put, takeLatest} from 'redux-saga/effects';
 import Actions, {_onFail, _onSuccess} from '../actions';
 
