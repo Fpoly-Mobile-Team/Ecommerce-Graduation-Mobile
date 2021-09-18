@@ -46,22 +46,24 @@ const _renderItem = ({item}) => (
   />
 );
 
-const ProductRelated = () => {
+const ProductRelated = ({nameTitle}) => {
   return (
     <Block paddingHorizontal={12} paddingTop={10}>
       <Block row alignCenter space="between">
         <Text size={16} fontType="semibold">
-          Sản phẩm tương tự
+          {nameTitle ? nameTitle : 'Sản phẩm tương tự'}
         </Text>
         <Pressable>
-          <Block row alignCenter>
-            <Text color={theme.colors.pink}>Xem tất cả</Text>
-            <Image
-              source={icons.next}
-              style={styles.iconnext}
-              resizeMode="contain"
-            />
-          </Block>
+          {nameTitle ? null : (
+            <Block row alignCenter>
+              <Text color={theme.colors.pink}>Xem tất cả</Text>
+              <Image
+                source={icons.next}
+                style={styles.iconnext}
+                resizeMode="contain"
+              />
+            </Block>
+          )}
         </Pressable>
       </Block>
       <Block marginTop={10}>

@@ -1,10 +1,12 @@
 import {icons} from '@assets';
 import {Block, Button, Text} from '@components';
 import ItemProduct from '@components/Common/ItemList/ItemProduct';
+import {routes} from '@navigation/routes';
 import {theme} from '@theme';
 import React from 'react';
 import {FlatList, Image, Platform, Pressable} from 'react-native';
 import styles from './styles';
+import {useNavigation} from '@react-navigation/native';
 
 const data = [
   {
@@ -47,6 +49,7 @@ const _renderItem = ({item}) => (
 );
 
 const ShopProduct = () => {
+  const navigation = useNavigation();
   return (
     <Block marginBottom={10}>
       <Block paddingHorizontal={12}>
@@ -82,6 +85,7 @@ const ShopProduct = () => {
             </Block>
           </Block>
           <Button
+            onPress={() => navigation.navigate(routes.PRODUCT_STORE)}
             style={styles.btn}
             titleStyle={{color: theme.colors.pink}}
             title="Xem Shop"
