@@ -1,18 +1,18 @@
-import {IconForward, BackgroundColorShop} from '@assets/svg/common';
+import {BackgroundColorShop, IconForward} from '@assets/svg/common';
 import {Block, Carousel, Text} from '@components';
 import {useNavigation} from '@react-navigation/native';
-import {theme} from '@theme';
-import {getSize, height, width} from '@utils/responsive';
-import React from 'react';
-import {Pressable, FlatList, ScrollView} from 'react-native';
-import styles from './styles';
-import {useSelector} from 'react-redux';
-import {DATA} from './components/data';
-import ItemVoucherFromShop from './components/ItemVoucherFromShop';
 import SellingProduct from '@screens/Bottom/HomeScreens/components/SellingProduct';
-import InforShop from './components/InforShop';
-import SearchShop from './components/SearchShop';
+import {theme} from '@theme';
+import {getSize, width} from '@utils/responsive';
+import React from 'react';
+import {FlatList, Pressable, ScrollView} from 'react-native';
+import {useSelector} from 'react-redux';
 import ProductRelated from '../ProductDetails/components/ProductRelated';
+import {DATA} from './components/data';
+import InforShop from './components/InforShop';
+import ItemVoucherFromShop from './components/ItemVoucherFromShop';
+import SearchShop from './components/SearchShop';
+import styles from './styles';
 
 const ProductStore = () => {
   const navigation = useNavigation();
