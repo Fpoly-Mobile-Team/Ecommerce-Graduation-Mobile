@@ -17,7 +17,8 @@ const SearchShop = () => {
       justifyCenter
       paddingTop={top + 10}
       space="between"
-      padding={0}>
+      paddingVertical={12}
+      backgroundColor={theme.colors.blueShop}>
       <Pressable onPress={() => navigation.goBack()}>
         <Block>
           <IconBack />

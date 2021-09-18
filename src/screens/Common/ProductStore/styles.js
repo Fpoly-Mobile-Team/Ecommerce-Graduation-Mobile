@@ -7,6 +7,6 @@ export default StyleSheet.create({
     borderBottomStartRadius: getSize.m(100 / 2),
   },
   wrapperTextVoucher: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
 });

@@ -8,33 +8,35 @@ import styles from './styles';
 
 const ItemVoucherFromShop = ({typeVoucher, timeVoucher, check}) => {
   return (
-    <Block
-      flex
-      row
-      marginRight={12}
-      alignCenter
-      width={width / 1.5}
-      radius={8}
-      borderColor={'#E9EAEB'}
-      borderWidth={1}
-      padding={8}
-      marginBottom={12}>
-      <Pressable style={styles.IconVoucher}>
-        <IconVoucher />
-      </Pressable>
-      <Block paddingHorizontal={12}>
-        <Text
-          marginRight={28}
-          lineHeight={20}
-          color={theme.colors.black}
-          fontType="semibold">
-          {typeVoucher}
-        </Text>
-        <Text lineHeight={18} color={'#8B9399'}>
-          {timeVoucher}
-        </Text>
+    <Pressable>
+      <Block
+        flex
+        row
+        marginRight={12}
+        alignCenter
+        width={width / 1.5}
+        radius={8}
+        borderColor={'#E9EAEB'}
+        borderWidth={1}
+        padding={8}
+        marginBottom={12}>
+        <Block style={styles.IconVoucher}>
+          <IconVoucher />
+        </Block>
+        <Block paddingHorizontal={12}>
+          <Text
+            marginRight={28}
+            lineHeight={20}
+            color={theme.colors.black}
+            fontType="semibold">
+            {typeVoucher}
+          </Text>
+          <Text lineHeight={18} color={theme.colors.lightGray}>
+            {timeVoucher}
+          </Text>
+        </Block>
       </Block>
-    </Block>
+    </Pressable>
   );
 };
 

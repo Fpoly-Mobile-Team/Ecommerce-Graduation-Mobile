@@ -3134,3 +3134,23 @@ export const DeleteIcon = ({
     />
   </Svg>
 );
+
+export const BackgroundColorShop = ({
+  height = 24,
+  width = 24,
+  color = '#FFFFFF',
+  strokeWidth = 1.5,
+  ...rest
+}) => (
+  <Svg
+    width={width}
+    height={height}
+    viewBox="0 0 375 241"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <Path
+      d="M534 -109C534 84.2997 377.3 241 184 241C-9.29967 241 -166 84.2997 -166 -109C-166 -302.3 -9.29967 -459 184 -459C377.3 -459 534 -302.3 534 -109Z"
+      fill="#3B5998"
+    />
+  </Svg>
+);

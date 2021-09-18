@@ -13,9 +13,8 @@ const Carousel = ({data, checkBorder}) => {
         <Image
           source={{uri: item.banner}}
           style={{
-            width: checkBorder ? width - 49.2 / 2 : width - 24,
+            width: width - 24,
             height: width / 3,
-            borderRadius: checkBorder ? 8 : 0,
           }}
           resizeMode="contain"
         />

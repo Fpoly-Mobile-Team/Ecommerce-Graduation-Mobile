@@ -1,8 +1,8 @@
-import {IconForward} from '@assets/svg/common';
+import {IconForward, BackgroundColorShop} from '@assets/svg/common';
 import {Block, Carousel, Text} from '@components';
 import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
-import {height} from '@utils/responsive';
+import {getSize, height, width} from '@utils/responsive';
 import React from 'react';
 import {Pressable, FlatList, ScrollView} from 'react-native';
 import styles from './styles';
@@ -20,9 +20,7 @@ const ProductStore = () => {
 
   const _renderBanner = () => {
     return (
-      <Block marginTop={-18}>
-        {banner && <Carousel data={banner} checkBorder />}
-      </Block>
+      <Block marginTop={-18}>{banner && <Carousel data={banner} />}</Block>
     );
   };
 
@@ -34,7 +32,7 @@ const ProductStore = () => {
 
   const _renderTitleVoucher = () => {
     return (
-      <Block marginBottom={10} paddingHorizontal={12} row space="between">
+      <Block paddingHorizontal={12} row space="between" marginBottom={10}>
         <Text
           lineHeight={20}
           size={16}
@@ -43,7 +41,7 @@ const ProductStore = () => {
           Mã giảm giá
         </Text>
         <Pressable style={styles.wrapperTextVoucher}>
-          <Text color={'#823FFD'} lineHeight={18}>
+          <Text color="#823FFD" lineHeight={18}>
             Xem thêm
           </Text>
           <Block alignCenter justifyCenter paddingLeft={4}>
@@ -59,10 +57,11 @@ const ProductStore = () => {
       <Block
         backgroundColor={theme.colors.white}
         paddingTop={12}
-        marginBottom={10}>
+        marginBottom={10}
+        marginTop={-30}>
         <_renderTitleVoucher />
         <FlatList
-          style={{marginLeft: 12}}
+          style={{marginLeft: getSize.s(12)}}
           horizontal
           showsHorizontalScrollIndicator={false}
           data={DATA}
@@ -75,18 +74,13 @@ const ProductStore = () => {
 
   return (
     <Block flex>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <Block
-          style={styles.borderBottom}
-          backgroundColor={theme.colors.blueShop}
-          height={height / 3}
-          marginBottom={38}
-          paddingHorizontal={12}>
+      <ScrollView showsVerticalScrollIndicator={false} bounces={false}>
+        <BackgroundColorShop width={width} height={getSize.s(375)} />
+        <Block absolute style={{zIndex: getSize.s(99)}} paddingHorizontal={12}>
           <SearchShop />
           <InforShop />
           <_renderBanner />
         </Block>
-
         <_renderVoucherShop />
 
         <Block backgroundColor={theme.colors.white}>
