@@ -100,6 +100,7 @@ const RootStack = () => {
             name={routes.TERM_OF_USE_SCREEN}
             component={bottom.TERM_OF_USE_SCREEN}
           />
+          <Stack.Screen name={routes.CHATBOX} component={bottom.CHATBOX} />
         </Stack.Navigator>
       )}
     </NavigationContainer>

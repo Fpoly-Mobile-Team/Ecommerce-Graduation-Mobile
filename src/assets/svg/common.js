@@ -1,3 +1,4 @@
+import {theme} from '@theme';
 import React from 'react';
 import Svg, {
   Path,
@@ -15,6 +16,22 @@ import Svg, {
   Mask,
   Ellipse,
 } from 'react-native-svg';
+
+export const ADot = ({width = 3, height = 3}) => {
+  return (
+    <Svg
+      width={width}
+      height={height}
+      viewBox="0 0 3 3"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <Path
+        d="M1.25 2.93182C1.94034 2.93182 2.5 2.37216 2.5 1.68182C2.5 0.991477 1.94034 0.431818 1.25 0.431818C0.559659 0.431818 0 0.991477 0 1.68182C0 2.37216 0.559659 2.93182 1.25 2.93182Z"
+        fill="#8B9399"
+      />
+    </Svg>
+  );
+};
 
 export const DotsThreeVertical = ({width = 24, height = 24}) => {
   return (
@@ -807,7 +824,10 @@ export const CircleBack = ({width = 40, height = 40, color = 'black'}) => {
     </Svg>
   );
 };
-export const ChevronLeft = ({width = 24, height = 24, color = 'black'}) => {
+export const ChevronLeft = (
+  {width = 20, height = 20, color = 'black'},
+  isColor,
+) => {
   return (
     <Svg
       width={width}
@@ -819,7 +839,7 @@ export const ChevronLeft = ({width = 24, height = 24, color = 'black'}) => {
         fill-rule="evenodd"
         clip-rule="evenodd"
         d="M7.22552 12.5431C6.92483 12.2429 6.92483 11.7579 7.22552 11.4569L14.362 4.32572C14.7961 3.89143 15.5023 3.89143 15.9372 4.32572C16.3713 4.76002 16.3713 5.46488 15.9372 5.89917L9.83231 12.0004L15.9372 18.1C16.3713 18.5351 16.3713 19.24 15.9372 19.6743C15.5023 20.1086 14.7961 20.1086 14.362 19.6743L7.22552 12.5431Z"
-        fill="#222222"
+        fill={isColor ? theme.colors.white : theme.colors.black}
       />
     </Svg>
   );
@@ -2244,7 +2264,7 @@ export const PlusSign = ({width = 16, height = 16, color = '#333333'}) => {
   );
 };
 
-export const HorizontalDot = ({width = 24, height = 24, color = '#333333'}) => {
+export const HorizontalDot = ({width = 26, height = 26, color = '#ffffff'}) => {
   return (
     <Svg
       width={width}
