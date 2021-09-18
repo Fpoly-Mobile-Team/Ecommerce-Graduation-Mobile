@@ -89,6 +89,10 @@ const RootStack = () => {
             component={common.PURCHASE_SCREEN}
           />
           <Stack.Screen
+            name={routes.PRODUCT_STORE}
+            component={common.PRODUCT_STORE}
+          />
+          <Stack.Screen
             name={routes.SECURITY_SCREEN}
             component={bottom.SECURITY_SCREEN}
           />
