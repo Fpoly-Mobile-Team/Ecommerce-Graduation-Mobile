@@ -1,4 +1,4 @@
-import {Block, Text} from '@components';
+import {Block} from '@components';
 import ItemMessage from '@components/Common/ItemList/ItemMessage';
 import React, {useState} from 'react';
 import {FlatList} from 'react-native';

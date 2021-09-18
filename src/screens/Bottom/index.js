@@ -9,7 +9,7 @@ import OrderDetails from './ProfileScreens/navigation/OrderDetails';
 import ProgrammingAccountScreen from './ProfileScreens/navigation/ProgrammingAccountScreen';
 import SecurityScreen from './ProfileScreens/navigation/ProgrammingAccountScreen/navigation/SecurityScreen';
 import TermOfUseScreen from './ProfileScreens/navigation/ProgrammingAccountScreen/navigation/TermOfUseScreen';
-import ChatBox from './ChatScreens/navigation/ChatBox';
+import ChatBox from './ChatScreens/navigation/ChatBoxScreen';
 
 export const bottom = {
   HOMESCREENS: HomeScreens,
