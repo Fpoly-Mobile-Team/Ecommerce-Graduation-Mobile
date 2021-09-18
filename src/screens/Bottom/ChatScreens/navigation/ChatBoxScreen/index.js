@@ -1,15 +1,19 @@
-import {Block, Text} from '@components';
 import {images} from '@assets';
-import {theme} from '@theme';
-import React, {useState, useCallback, useEffect} from 'react';
-import {Avatar} from 'react-native-paper';
-import {Image, Pressable} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
 import {ChevronLeft, HorizontalDot} from '@assets/svg/common';
+import {Block, Text} from '@components';
+import {useNavigation} from '@react-navigation/native';
+import {theme} from '@theme';
+import React, {useCallback, useEffect, useState} from 'react';
+import {Image, Pressable} from 'react-native';
 import {GiftedChat} from 'react-native-gifted-chat';
+import {Avatar} from 'react-native-paper';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import styles from './styles';
 
 const ChatBox = () => {
   const [messages, setMessages] = useState([]);
+  const {top} = useSafeAreaInsets();
+
   useEffect(() => {
     setMessages([
       {
@@ -38,15 +42,16 @@ const ChatBox = () => {
         row
         space="between"
         backgroundColor={theme.colors.pink}
-        paddingTop={45}>
-        <Block padding={10} alignCenter row>
+        paddingTop={top + 10}
+        paddingVertical={15}>
+        <Block paddingHorizontal={12} alignCenter row>
           <Pressable onPress={() => navigation.goBack()}>
             <ChevronLeft isColor />
           </Pressable>
-          <Block paddingHorizontal={5}>
+          <Block marginLeft={17}>
             <Avatar.Image size={35} source={images.avatar} />
           </Block>
-          <Text color={theme.colors.white} paddingHorizontal={5}>
+          <Text color={theme.colors.white} marginLeft={8}>
             FM Style
           </Text>
         </Block>
@@ -63,10 +68,7 @@ const ChatBox = () => {
           marginVertical={8}
           marginHorizontal={15}
           alignCenter>
-          <Image
-            style={{width: 30, height: 40, borderRadius: 3}}
-            source={images.thumnail}
-          />
+          <Image style={styles.avatar} source={images.thumnail} />
           <Block paddingLeft={10}>
             <Text paddingBottom={5}>Áo flannel xám form rộng</Text>
             <Text fontType={'bold'} color={theme.colors.red} size={15}>
