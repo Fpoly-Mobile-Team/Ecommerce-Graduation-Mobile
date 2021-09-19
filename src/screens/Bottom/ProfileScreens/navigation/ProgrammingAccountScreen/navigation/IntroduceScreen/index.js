@@ -1,12 +1,12 @@
-import {Block, Text, Header} from '@components';
-import {theme} from '@theme';
-import {Image} from 'react-native';
-import React, {useState, useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
 import {images} from '@assets';
-import styles from './styles';
+import {Block, Header, Text} from '@components';
 import actions from '@redux/actions';
+import {theme} from '@theme';
+import React, {useEffect} from 'react';
+import {Image} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
 import ListIntroduce from './components/ListIntroduce';
+import styles from './styles';
 
 const IntroduceScreen = () => {
   const dispatch = useDispatch();
@@ -24,11 +24,8 @@ const IntroduceScreen = () => {
         marginHorizontal={10}
         marginTop={5}
         backgroundColor={theme.colors.white}>
-        <Block
-          style={{boderTopStartRadius: 20}}
-          paddingVertical={30}
-          alignCenter>
-          <Image style={{alignSelf: 'center'}} source={images.logo} />
+        <Block style={styles.box} paddingVertical={30} alignCenter>
+          <Image style={styles.image} source={images.logo} />
           <Text paddingTop={25} fontType="bold" size={18}>
             Ứng dụng thương mại điện tử Ants
           </Text>
