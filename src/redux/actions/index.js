@@ -8,6 +8,7 @@ export default {
   LOGOUT_ACCOUNT: 'LOGOUT_ACCOUNT',
   TOKEN_USER: 'TOKEN_USER',
   DEVICE_INFO: 'DEVICE_INFO',
+  INTRODUCE_INFOR: 'INTRODUCE_INFOR',
 };
 
 export function _onSuccess(action) {

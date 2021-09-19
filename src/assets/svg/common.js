@@ -16,6 +16,18 @@ import Svg, {
   Mask,
   Ellipse,
 } from 'react-native-svg';
+export const LineHorizontal = ({width = 309, height = 1}) => {
+  return (
+    <Svg
+      width={width}
+      height={height}
+      viewBox="0 0 309 1"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <Line y1="0.75" x2="309" y2="0.75" stroke="#F5F5F5" stroke-width="0.5" />
+    </Svg>
+  );
+};
 
 export const ADot = ({width = 3, height = 3}) => {
   return (
@@ -824,10 +836,12 @@ export const CircleBack = ({width = 40, height = 40, color = 'black'}) => {
     </Svg>
   );
 };
-export const ChevronLeft = (
-  {width = 20, height = 20, color = 'black'},
+export const ChevronLeft = ({
+  width = 20,
+  height = 20,
   isColor,
-) => {
+  color = isColor ? 'white' : 'black',
+}) => {
   return (
     <Svg
       width={width}
@@ -839,7 +853,7 @@ export const ChevronLeft = (
         fill-rule="evenodd"
         clip-rule="evenodd"
         d="M7.22552 12.5431C6.92483 12.2429 6.92483 11.7579 7.22552 11.4569L14.362 4.32572C14.7961 3.89143 15.5023 3.89143 15.9372 4.32572C16.3713 4.76002 16.3713 5.46488 15.9372 5.89917L9.83231 12.0004L15.9372 18.1C16.3713 18.5351 16.3713 19.24 15.9372 19.6743C15.5023 20.1086 14.7961 20.1086 14.362 19.6743L7.22552 12.5431Z"
-        fill={isColor ? theme.colors.white : theme.colors.black}
+        fill={color}
       />
     </Svg>
   );
@@ -1965,9 +1979,9 @@ export const CartIconColor = ({width = 28, height = 28}) => (
   </Svg>
 );
 export const ChevronRight = ({
-  width = 16,
-  height = 16,
-  color = '#823FFD',
+  width = 24,
+  height = 24,
+  color = '#C0C0C0',
   strokeWidth = 1.5,
 }) => (
   <Svg
