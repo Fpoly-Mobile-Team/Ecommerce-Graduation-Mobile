@@ -51,4 +51,5 @@ export const images = {
   sale: require('./images/sale.jpg'),
   masterCard: require('./images/masterCard.png'),
   logo: require('./images/logo.png'),
+  avatar: require('./images/avatar.jpg'),
 };

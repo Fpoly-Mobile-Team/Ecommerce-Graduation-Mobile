@@ -72,7 +72,7 @@ const data = [
   },
 ];
 
-const SellingProduct = () => {
+const SellingProduct = ({titleSelling}) => {
   const _renderItem = (item, index) => (
     <ItemProduct
       key={index}
@@ -84,18 +84,25 @@ const SellingProduct = () => {
 
   return (
     <Block paddingHorizontal={12}>
-      <Block row alignCenter marginBottom={16} space="between">
+      <Block
+        row
+        alignCenter
+        marginBottom={16}
+        paddingTop={titleSelling ? 10 : 0}
+        space="between">
         <Text size={16} fontType="bold">
-          Sản Phẩm Bán Chạy
+          {titleSelling ? titleSelling : 'Sản Phẩm Bán Chạy'}
         </Text>
-        <Pressable style={styles.stylebtn}>
-          <Text size={12}>Xem tất cả</Text>
-          <Image
-            source={icons.next}
-            style={styles.iconnext}
-            resizeMode="contain"
-          />
-        </Pressable>
+        {titleSelling ? null : (
+          <Pressable style={styles.stylebtn}>
+            <Text size={12}>Xem tất cả</Text>
+            <Image
+              source={icons.next}
+              style={styles.iconnext}
+              resizeMode="contain"
+            />
+          </Pressable>
+        )}
       </Block>
       <Block row wrap alignCenter>
         {data.map(_renderItem)}

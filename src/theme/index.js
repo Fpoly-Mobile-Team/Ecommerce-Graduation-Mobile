@@ -30,6 +30,7 @@ export const theme = {
     switchOn: '#f04141',
     switchOff: '#f3adad',
     bgSwitch: '#f3f3f3',
+    blueShop: '#3B5998',
   },
 
   fonts: {

@@ -89,6 +89,10 @@ const RootStack = () => {
             component={common.PURCHASE_SCREEN}
           />
           <Stack.Screen
+            name={routes.PRODUCT_STORE}
+            component={common.PRODUCT_STORE}
+          />
+          <Stack.Screen
             name={routes.SECURITY_SCREEN}
             component={bottom.SECURITY_SCREEN}
           />
@@ -104,6 +108,7 @@ const RootStack = () => {
             name={routes.INTRODUCE_DETAIL}
             component={bottom.INTRODUCE_DETAIL}
           />
+          <Stack.Screen name={routes.CHATBOX} component={bottom.CHATBOX} />
         </Stack.Navigator>
       )}
     </NavigationContainer>
