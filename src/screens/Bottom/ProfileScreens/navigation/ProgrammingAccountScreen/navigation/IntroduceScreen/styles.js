@@ -7,4 +7,6 @@ export default StyleSheet.create({
     borderTopEndRadius: 10,
     borderTopStartRadius: 10,
   },
+  box: {boderTopStartRadius: getSize.s(20)},
+  image: {alignSelf: 'center'},
 });

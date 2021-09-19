@@ -4,7 +4,7 @@ import React from 'react';
 import {LineHorizontal} from '@assets/svg/common';
 import {ScrollView} from 'react-native';
 
-const IntroduceDetail = ({navigation, route}) => {
+const IntroduceDetail = ({route}) => {
   const {data} = route.params;
   return (
     <Block flex backgroundColor={theme.colors.background}>

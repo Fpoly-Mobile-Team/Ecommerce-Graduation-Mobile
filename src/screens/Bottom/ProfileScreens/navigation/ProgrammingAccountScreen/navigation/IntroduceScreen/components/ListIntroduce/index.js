@@ -1,10 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {Block} from '@components';
 import ItemIntroduce from '@components/Common/ItemList/ItemIntroduce';
-import React, {useState} from 'react';
-import {Pressable} from 'react-native';
-import {FlatList} from 'react-native';
 import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
+import React from 'react';
+import {FlatList, Pressable} from 'react-native';
 
 const ListIntroduce = ({data}) => {
   const navigation = useNavigation();
