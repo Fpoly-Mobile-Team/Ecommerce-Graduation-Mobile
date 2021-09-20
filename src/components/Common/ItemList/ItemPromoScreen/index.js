@@ -2,7 +2,9 @@ import {Button} from '@components';
 import {getSize} from '@utils/responsive';
 import React from 'react';
 import {Image, Text, View} from 'react-native';
+import Dash from 'react-native-dash';
 import styles from './styles';
+import { theme } from '../../../../theme';
 
 const ItemPromoScreen = ({name, title, date, image}) => {
   return (
@@ -34,6 +36,7 @@ const ItemPromoScreen = ({name, title, date, image}) => {
             </View>
           </View>
         </View>
+          <Dash style={{width:'89%', height:6, borderStyle: 'solid',paddingHorizontal:20,flexDirection:'row'}}/>
         <View style={styles.ItemBottom}>
           <View style={styles.ItemText}>
             <Text style={styles.textDate}>HSD: {date}</Text>
@@ -49,9 +52,8 @@ const ItemPromoScreen = ({name, title, date, image}) => {
             }}
           />
         </View>
-
+      
         <View style={styles.ItemIconRight} />
-
         <View style={styles.ItemIconLeft} />
       </View>
     </View>

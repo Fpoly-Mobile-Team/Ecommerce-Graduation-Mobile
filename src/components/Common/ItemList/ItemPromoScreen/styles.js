@@ -28,7 +28,7 @@ export default StyleSheet.create({
     width: 30,
     height: 30,
     borderRadius: 25,
-    top: 60,
+    top: 62,
     backgroundColor: '#E9EAEB',
   },
   ItemIconLeft: {
@@ -37,7 +37,7 @@ export default StyleSheet.create({
     height: 30,
     borderRadius: 25,
     left: -20,
-    top: 60,
+    top: 62,
     backgroundColor: '#E9EAEB',
   },
   ItemTop: {
