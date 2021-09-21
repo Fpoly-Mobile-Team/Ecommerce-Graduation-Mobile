@@ -565,6 +565,76 @@ export const NavigationAuth = ({
   );
 };
 
+export const SelectCircle = ({color = '#ffffff'}) => {
+  return (
+    <Svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <Path
+        d="M22 6L11 6"
+        stroke="#8B9399"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <Path
+        d="M19 12L11 12"
+        stroke="#8B9399"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <Path
+        d="M15 18H11"
+        stroke="#8B9399"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <Path
+        d="M5 20V4"
+        stroke="#8B9399"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <Path
+        d="M2 7L5 4L8 7"
+        stroke="#8B9399"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <Path
+        d="M8 17L5 20L2 17"
+        stroke="#8B9399"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </Svg>
+  );
+};
+
+export const SelectsCircle = () => {
+  return (
+    <Svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <Path
+        d="M10.5418 8.45823L9.01823 9.98177L9.01823 9.98177C8.66182 10.3382 8.48361 10.5164 8.27812 10.5832C8.09736 10.6419 7.90264 10.6419 7.72188 10.5832C7.51639 10.5164 7.33818 10.3382 6.98177 9.98177L6.98177 9.98177L5.45823 8.45823C4.68716 7.68716 4.30162 7.30162 4.27557 6.97061C4.25296 6.68341 4.36922 6.40274 4.58829 6.21563C4.84077 6 5.386 6 6.47647 6L9.52353 6C10.614 6 11.1592 6 11.4117 6.21563C11.6308 6.40274 11.747 6.68341 11.7244 6.97061C11.6984 7.30162 11.3128 7.68716 10.5418 8.45823Z"
+        fill="#8B9399"
+      />
+    </Svg>
+  );
+};
+
 export const MinusCircle = ({width = 36, height = 36, color = '#ffffff'}) => {
   return (
     <Svg

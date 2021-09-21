@@ -76,9 +76,11 @@ const Login = ({callBack}) => {
         </Block>
         <SocialLogin />
         <Block row marginTop={30} alignCenter justifyCenter>
-          <Text color={theme.colors.black}>Bạn chưa có tài khoản? </Text>
+          <Text center color={theme.colors.black}>
+            Bạn chưa có tài khoản?{' '}
+          </Text>
           <Pressable onPress={callBack}>
-            <Text color={theme.colors.pink} fontType="bold">
+            <Text color={theme.colors.pink} center fontType="bold">
               {' '}
               Đăng ký ngay
             </Text>
