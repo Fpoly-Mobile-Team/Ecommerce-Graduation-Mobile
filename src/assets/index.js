@@ -44,6 +44,7 @@ export const icons = {
   google: require('./icons/google.png'),
   facebook: require('./icons/facebook.png'),
   flag: require('./icons/flag.png'),
+  caret_down: require('./icons/caret_down.png'),
 };
 
 export const images = {

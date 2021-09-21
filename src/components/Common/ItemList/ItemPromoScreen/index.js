@@ -1,58 +1,43 @@
-import {Button} from '@components';
+import {Button, Text} from '@components';
 import {getSize} from '@utils/responsive';
 import React from 'react';
-import {Image, Text, View} from 'react-native';
-import Dash from 'react-native-dash';
+import {Image, View} from 'react-native';
+import DashedLine from 'react-native-dashed-line';
 import styles from './styles';
-import { theme } from '../../../../theme';
 
-const ItemPromoScreen = ({name, title, date, image}) => {
+const ItemPromoScreen = ({name, title, date, image, index, isCheck}) => {
+  const marginTop = index === 0 ? getSize.s(10) : 0;
+  const marginBottom = isCheck ? getSize.s(20) : 0;
   return (
-    <View style={styles.ItemContainer}>
+    <View style={[styles.ItemContainer, {marginTop, marginBottom}]}>
       <View style={styles.ItemCart}>
         <View style={styles.ItemTop}>
-          <View
-            style={{
-              width: '20%',
-              height: '100%',
-              borderRadius: 8,
-            }}>
-            <View style={{alignItems: 'center', top: 21}}>
-              <Image
-                source={{
-                  uri: image,
-                }}
-                style={{...styles.imglogo, position: 'absolute'}}
-                resizeMode="contain"
-              />
-            </View>
+          <View style={styles.box}>
+            <Image
+              source={{
+                uri: image,
+              }}
+              style={styles.imglogo}
+              resizeMode="contain"
+            />
           </View>
-          <View style={{width: '80%', height: '100%', borderRadius: 8}}>
-            <View style={{top: 16}}>
+          <View style={styles.boxLeft}>
+            <View style={{paddingTop: getSize.s(16)}}>
               <Text style={styles.textDate}>{name}</Text>
-              <Text style={{fontWeight: '500', fontSize: 14, marginTop: 5}}>
-                {title}
-              </Text>
+              <Text style={styles.txtTitle}>{title}</Text>
             </View>
           </View>
         </View>
-          <Dash style={{width:'89%', height:6, borderStyle: 'solid',paddingHorizontal:20,flexDirection:'row'}}/>
+
+        <DashedLine dashColor="#E9EAEB" dashLength={6} style={styles.dash} />
+
         <View style={styles.ItemBottom}>
           <View style={styles.ItemText}>
             <Text style={styles.textDate}>HSD: {date}</Text>
           </View>
-          <Button
-            title="Lưu"
-            height={28}
-            width={46}
-            style={{
-              backgroundColor: '#3B5998',
-              borderRadius: getSize.s(4),
-              marginRight: getSize.s(16),
-            }}
-          />
+          <Button title="Lưu" height={28} width={46} style={styles.button} />
         </View>
-      
+
         <View style={styles.ItemIconRight} />
         <View style={styles.ItemIconLeft} />
       </View>
