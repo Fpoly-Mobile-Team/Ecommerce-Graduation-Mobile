@@ -7,7 +7,7 @@ import {Toast} from '@utils/helper';
 import React from 'react';
 import {FlatList} from 'react-native-gesture-handler';
 import OptionsMenu from 'react-native-option-menu';
-import {SelectCircle} from '../../../../assets/svg/common';
+import {SelectCircle} from '../../../../../assets/svg/common';
 import {data} from './components/data';
 import styles from './styles';
 

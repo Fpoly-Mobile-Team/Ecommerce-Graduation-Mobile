@@ -5,6 +5,7 @@ import {BannerReducer} from './BannerReducer';
 import {TermsOfUseReducer} from './TermsOfUseReducer';
 import {DeviceReducer} from './DeviceReducer';
 import {UserReducer} from './UserReducer';
+import {IntroduceReducer} from './IntroduceReducer';
 
 const rootReducer = combineReducers({
   ...TokenReducer,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   ...TermsOfUseReducer,
   ...DeviceReducer,
   ...UserReducer,
+  ...IntroduceReducer,
 });
 
 export default rootReducer;

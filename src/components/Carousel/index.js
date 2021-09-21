@@ -6,7 +6,7 @@ import {Image, Platform} from 'react-native';
 import {SwiperFlatList} from 'react-native-swiper-flatlist';
 import styles from './styles';
 
-const Carousel = ({data}) => {
+const Carousel = ({data, checkBorder}) => {
   const _renderItem = React.useCallback(({item}) => {
     return (
       <Block>
