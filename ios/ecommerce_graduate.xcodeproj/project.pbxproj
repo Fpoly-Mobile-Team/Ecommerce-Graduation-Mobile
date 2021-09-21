@@ -13,7 +13,13 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1F0D4345C771B5739CA564CC /* libPods-ecommerce_graduate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27BAED25ACF65D4E5297F35F /* libPods-ecommerce_graduate.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		E50E87AD26FA5BFA004A2912 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50E87AC26FA5BFA004A2912 /* File.swift */; };
 		FD425A81367D3FBE877B2ADB /* libPods-ecommerce_graduate-ecommerce_graduateTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8089B6D3B7331BD9CD7B33A2 /* libPods-ecommerce_graduate-ecommerce_graduateTests.a */; };
+		3BA617B6EDE24923ADAB0C9C /* Prompt-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 656A29E4334F47DA8B4DAD53 /* Prompt-Bold.ttf */; };
+		6B28952B928C40079B24B368 /* Prompt-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE381F87E2F5433FA6D0770F /* Prompt-Light.ttf */; };
+		6AE44BFC70AC47F9ABA1030B /* Prompt-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0403A537EFB94A0A94926716 /* Prompt-Medium.ttf */; };
+		F32BA997ACF44A50B296FA40 /* Prompt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24F9869E472A4799824D34F8 /* Prompt-Regular.ttf */; };
+		F67792A49E2B4B7AB44835A7 /* Prompt-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C63A5787F99043FCA10853C0 /* Prompt-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,8 +64,20 @@
 		E505869226E248F800962C56 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		E505869326E248F900962C56 /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		E505869426E248F900962C56 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		E50E87AB26FA5BFA004A2912 /* ecommerce_graduate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ecommerce_graduate-Bridging-Header.h"; sourceTree = "<group>"; };
+		E50E87AC26FA5BFA004A2912 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		E50E87B026FA5CA3004A2912 /* Prompt-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-Medium.ttf"; sourceTree = "<group>"; };
+		E50E87B126FA5CA3004A2912 /* Prompt-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-SemiBold.ttf"; sourceTree = "<group>"; };
+		E50E87B226FA5CA3004A2912 /* Prompt-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-Regular.ttf"; sourceTree = "<group>"; };
+		E50E87B326FA5CA3004A2912 /* Prompt-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-Light.ttf"; sourceTree = "<group>"; };
+		E50E87B426FA5CA3004A2912 /* Prompt-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-Bold.ttf"; sourceTree = "<group>"; };
 		E53055E41040246BEB8A37B5 /* Pods-ecommerce_graduate-ecommerce_graduateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ecommerce_graduate-ecommerce_graduateTests.release.xcconfig"; path = "Target Support Files/Pods-ecommerce_graduate-ecommerce_graduateTests/Pods-ecommerce_graduate-ecommerce_graduateTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		656A29E4334F47DA8B4DAD53 /* Prompt-Bold.ttf */ = {isa = PBXFileReference; name = "Prompt-Bold.ttf"; path = "../src/assets/fonts/Prompt-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FE381F87E2F5433FA6D0770F /* Prompt-Light.ttf */ = {isa = PBXFileReference; name = "Prompt-Light.ttf"; path = "../src/assets/fonts/Prompt-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0403A537EFB94A0A94926716 /* Prompt-Medium.ttf */ = {isa = PBXFileReference; name = "Prompt-Medium.ttf"; path = "../src/assets/fonts/Prompt-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		24F9869E472A4799824D34F8 /* Prompt-Regular.ttf */ = {isa = PBXFileReference; name = "Prompt-Regular.ttf"; path = "../src/assets/fonts/Prompt-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C63A5787F99043FCA10853C0 /* Prompt-SemiBold.ttf */ = {isa = PBXFileReference; name = "Prompt-SemiBold.ttf"; path = "../src/assets/fonts/Prompt-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +127,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				E50E87AC26FA5BFA004A2912 /* File.swift */,
+				E50E87AB26FA5BFA004A2912 /* ecommerce_graduate-Bridging-Header.h */,
 			);
 			name = ecommerce_graduate;
 			sourceTree = "<group>";
@@ -126,6 +146,11 @@
 		5F0364FEDCB24C4EB287BE84 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				656A29E4334F47DA8B4DAD53 /* Prompt-Bold.ttf */,
+				FE381F87E2F5433FA6D0770F /* Prompt-Light.ttf */,
+				0403A537EFB94A0A94926716 /* Prompt-Medium.ttf */,
+				24F9869E472A4799824D34F8 /* Prompt-Regular.ttf */,
+				C63A5787F99043FCA10853C0 /* Prompt-SemiBold.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -165,6 +190,11 @@
 		E505868026E2487400962C56 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				E50E87B426FA5CA3004A2912 /* Prompt-Bold.ttf */,
+				E50E87B326FA5CA3004A2912 /* Prompt-Light.ttf */,
+				E50E87B026FA5CA3004A2912 /* Prompt-Medium.ttf */,
+				E50E87B226FA5CA3004A2912 /* Prompt-Regular.ttf */,
+				E50E87B126FA5CA3004A2912 /* Prompt-SemiBold.ttf */,
 				E505868726E248F500962C56 /* AntDesign.ttf */,
 				E505868A26E248F600962C56 /* Entypo.ttf */,
 				E505869226E248F800962C56 /* EvilIcons.ttf */,
@@ -255,7 +285,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -292,6 +322,11 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				3BA617B6EDE24923ADAB0C9C /* Prompt-Bold.ttf in Resources */,
+				6B28952B928C40079B24B368 /* Prompt-Light.ttf in Resources */,
+				6AE44BFC70AC47F9ABA1030B /* Prompt-Medium.ttf in Resources */,
+				F32BA997ACF44A50B296FA40 /* Prompt-Regular.ttf in Resources */,
+				F67792A49E2B4B7AB44835A7 /* Prompt-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				E50E87AD26FA5BFA004A2912 /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,6 +514,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 37A3778ED9A960C474EF609E /* Pods-ecommerce_graduate-ecommerce_graduateTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -505,6 +542,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E53055E41040246BEB8A37B5 /* Pods-ecommerce_graduate-ecommerce_graduateTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = ecommerce_graduateTests/Info.plist;
@@ -545,6 +583,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ecommerce_graduate;
+				SWIFT_OBJC_BRIDGING_HEADER = "ecommerce_graduate-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -570,6 +609,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ecommerce_graduate;
+				SWIFT_OBJC_BRIDGING_HEADER = "ecommerce_graduate-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

@@ -51,4 +51,6 @@ export const images = {
   thumnail: require('./images/thumnail.jpg'),
   sale: require('./images/sale.jpg'),
   masterCard: require('./images/masterCard.png'),
+  logo: require('./images/logo.png'),
+  avatar: require('./images/avatar.jpg'),
 };

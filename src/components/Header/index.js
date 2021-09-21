@@ -100,7 +100,11 @@ const HeaderHome = ({scroll}) => {
             />
             <Animated.Text
               allowFontScaling={false}
-              style={{marginLeft: getSize.s(5), color: colortext}}>
+              style={{
+                marginLeft: getSize.s(5),
+                color: colortext,
+                fontFamily: 'Prompt-Regular',
+              }}>
               Bạn tìm gì hôm nay?
             </Animated.Text>
           </AnimatedPressable>
