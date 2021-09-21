@@ -4,17 +4,16 @@ import {theme} from '@theme';
 
 export default StyleSheet.create({
   ItemContainer: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    top: 5,
     paddingVertical: 6,
     paddingHorizontal: 12,
     backgroundColor: '#E9EAEB',
+    marginTop: 10,
   },
   ItemCart: {
     width: '100%',
-    height: 130,
+    height: getSize.s(130),
     backgroundColor: 'white',
     borderRadius: 8,
   },
@@ -61,5 +60,21 @@ export default StyleSheet.create({
   textDate: {
     fontSize: 13,
     color: theme.colors.placeholder,
+  },
+  box: {
+    width: '20%',
+    height: '100%',
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  boxLeft: {width: '80%', height: '100%', borderRadius: 8},
+  txtTitle: {fontWeight: '500', fontSize: 14, marginTop: 5},
+  dash: {marginHorizontal: 22},
+  button: {
+    backgroundColor: theme.colors.pink,
+    borderRadius: getSize.s(4),
+    marginRight: getSize.s(16),
+    marginBottom: getSize.s(16),
   },
 });

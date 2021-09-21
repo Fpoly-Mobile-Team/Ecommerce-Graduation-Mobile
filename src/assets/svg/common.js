@@ -350,7 +350,7 @@ export const SelectCircle = ({color = '#ffffff'}) => {
   );
 };
 
-export const SelectsCircle = ({color = '#ffffff'}) => {
+export const SelectsCircle = () => {
   return (
     <Svg
       width="16"
