@@ -1,5 +1,7 @@
 import {BackgroundColorShop, IconForward} from '@assets/svg/common';
 import {Block, Carousel, Text} from '@components';
+import ItemVoucherFromShop from '@components/Common/ItemList/ItemVoucherFromShop';
+import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
 import SellingProduct from '@screens/Bottom/HomeScreens/components/SellingProduct';
 import {theme} from '@theme';
@@ -10,7 +12,6 @@ import {useSelector} from 'react-redux';
 import ProductRelated from '../ProductDetails/components/ProductRelated';
 import {DATA} from './components/data';
 import InforShop from './components/InforShop';
-import ItemVoucherFromShop from './components/ItemVoucherFromShop';
 import SearchShop from './components/SearchShop';
 import styles from './styles';
 
@@ -40,7 +41,9 @@ const ProductStore = () => {
           color={theme.colors.black}>
           Mã giảm giá
         </Text>
-        <Pressable style={styles.wrapperTextVoucher}>
+        <Pressable
+          style={styles.wrapperTextVoucher}
+          onPress={() => navigation.navigate(routes.PROMO_SCREEN)}>
           <Text color="#823FFD" lineHeight={18}>
             Xem thêm
           </Text>

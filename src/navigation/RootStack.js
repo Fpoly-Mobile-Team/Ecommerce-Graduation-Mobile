@@ -101,6 +101,10 @@ const RootStack = () => {
             component={bottom.TERM_OF_USE_SCREEN}
           />
           <Stack.Screen
+            name={routes.PROMO_SCREEN}
+            component={common.PROMO_SCREEN}
+          />
+          <Stack.Screen
             name={routes.INTRODUCE_SCREEN}
             component={bottom.INTRODUCE_SCREEN}
           />

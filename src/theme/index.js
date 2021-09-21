@@ -35,14 +35,18 @@ export const theme = {
 
   fonts: {
     fontWeight: {
-      heavy: '700',
-      bold: 'bold',
-      semibold: Platform.OS === 'android' ? 'bold' : '600',
-      regular: 'normal',
+      bold: '700',
+      semibold: '600',
+      medium: '500',
+      regular: '400',
       light: '300',
     },
     fontFamily: {
-      default: Platform.OS === 'ios' ? 'System' : 'Roboto',
+      bold: 'Prompt-Bold',
+      semibold: 'Prompt-SemiBold',
+      medium: 'Prompt-Medium',
+      regular: 'Prompt-Regular',
+      light: 'Prompt-Light',
     },
   },
 };
