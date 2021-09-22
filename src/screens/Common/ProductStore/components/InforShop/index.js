@@ -17,12 +17,20 @@ const InforShop = () => {
         />
       </Pressable>
       <Block alignStart justifyCenter width={150} flex paddingHorizontal={16}>
-        <Text lineHeight={20} size={16} color={theme.colors.white}>
+        <Text
+          fontType="bold"
+          lineHeight={20}
+          size={16}
+          color={theme.colors.white}>
           Femi Clothing Store
         </Text>
         <Block row alignCenter justifyCenter>
           <IconLocation />
-          <Text marginHorizontal={4} lineHeight={20} color={'#8B9399'}>
+          <Text
+            fontType="light"
+            marginHorizontal={4}
+            lineHeight={20}
+            color={'#8B9399'}>
             HCM, Vietnam
           </Text>
         </Block>
@@ -38,6 +46,7 @@ const InforShop = () => {
         <Text
           color={theme.colors.white}
           paddingVertical={6}
+          fontType="bold"
           paddingHorizontal={12}>
           Đã theo dõi
         </Text>

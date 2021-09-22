@@ -70,7 +70,7 @@ const HeaderDetails = ({scroll}) => {
                 numberOfLines={1}
                 size={18}
                 color={theme.colors.black}
-                fontType="semibold">
+                fontType="bold">
                 {title}
               </Text>
             </Block>

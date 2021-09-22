@@ -49,7 +49,7 @@ const FeaturedCategory = () => {
           numberOfLines={2}
           size={12}
           marginHorizontal={2}
-          fontType="semibold">
+          fontType="bold">
           {item.title}
         </Text>
       </Pressable>

@@ -50,7 +50,7 @@ const ProductRelated = ({nameTitle}) => {
   return (
     <Block paddingHorizontal={12} paddingTop={10}>
       <Block row alignCenter space="between">
-        <Text size={16} fontType="semibold">
+        <Text size={16} fontType="bold">
           {nameTitle ? nameTitle : 'Sản phẩm tương tự'}
         </Text>
         <Pressable>

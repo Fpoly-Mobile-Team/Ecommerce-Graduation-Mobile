@@ -65,13 +65,13 @@ const ShopProduct = () => {
               borderColor={theme.colors.lightGray}>
               <Image
                 source={{
-                  uri: 'https://scontent-xsp1-2.cdninstagram.com/v/t51.2885-19/s150x150/154225644_444117673596788_4182489195005602161_n.jpg?tp=1&_nc_ht=scontent-xsp1-2.cdninstagram.com&_nc_ohc=M3kgpJvIPToAX-HCmRd&edm=AIQHJ4wBAAAA&ccb=7-4&oh=812fb23a30e3b9eb46ab8b47930e6343&oe=60EAF298&_nc_sid=7b02f1',
+                  uri: 'https://instagram.fsgn5-5.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/241797116_874897513459416_5895819174487064132_n.jpg?_nc_ht=instagram.fsgn5-5.fna.fbcdn.net&_nc_cat=100&_nc_ohc=OzmjQsLb8HwAX8Flfx1&tn=wjuZ6ds14IyDIVA8&edm=AP_V10EBAAAA&ccb=7-4&oh=6a646abdc19a7bcbda85d36c73ce12a9&oe=6152BE01&_nc_sid=4f375e',
                 }}
                 style={styles.avatarShop}
               />
             </Block>
             <Block justifyCenter marginLeft={10}>
-              <Text fontType="semibold">Võ Thanh Hoà</Text>
+              <Text fontType="bold">Võ Thanh Hoà</Text>
               <Block row alignCenter>
                 <Image
                   source={icons.location}
@@ -123,7 +123,7 @@ const ShopProduct = () => {
 
       <Block paddingHorizontal={12} paddingTop={10}>
         <Block row alignCenter space="between">
-          <Text size={16} fontType="semibold">
+          <Text size={16} fontType="bold">
             Các sản phẩm khác của shop
           </Text>
           <Pressable>

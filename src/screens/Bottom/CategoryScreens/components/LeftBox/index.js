@@ -48,7 +48,7 @@ const LeftBox = ({settitle, data}) => {
               marginBottom={5}
               numberOfLines={index === selected ? 3 : 2}
               size={index === selected ? 13 : 12}
-              fontType={index === selected ? 'semibold' : 'normal'}>
+              fontType={index === selected ? 'semibold' : 'regular'}>
               {item.title}
             </Text>
             <Block

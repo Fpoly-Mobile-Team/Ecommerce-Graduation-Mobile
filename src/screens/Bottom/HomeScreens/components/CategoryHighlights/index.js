@@ -45,7 +45,7 @@ const CategoryHighlights = () => {
           size={12}
           marginHorizontal={12}
           marginBottom={16}
-          fontType="semibold">
+          fontType="bold">
           {title}
         </Text>
       </Block>

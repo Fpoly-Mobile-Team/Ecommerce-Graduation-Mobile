@@ -37,7 +37,7 @@ const ProductStore = () => {
         <Text
           lineHeight={20}
           size={16}
-          fontType="semibold"
+          fontType="bold"
           color={theme.colors.black}>
           Mã giảm giá
         </Text>

@@ -148,7 +148,7 @@ const HeaderCommon = ({canGoBack, title, checkBackground}) => {
       {title && (
         <Block flex alignCenter>
           <Text
-            fontType="semibold"
+            fontType="bold"
             color={checkBackground ? theme.colors.black : theme.colors.white}
             size={18}
             numberOfLines={2}>

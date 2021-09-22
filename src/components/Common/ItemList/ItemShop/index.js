@@ -34,7 +34,7 @@ const ItemShop = ({item, index}) => {
         />
         <Block marginLeft={14}>
           <Block row alignCenter>
-            <Text size={16} marginRight={5} fontType="semibold">
+            <Text size={16} marginRight={5} fontType="bold">
               {item.title}
             </Text>
             <Image
@@ -43,7 +43,7 @@ const ItemShop = ({item, index}) => {
               resizeMode="contain"
             />
           </Block>
-          <Text fontType="semibold" color={theme.colors.placeholder}>
+          <Text fontType="medium" color={theme.colors.placeholder}>
             546 Product
           </Text>
           <Block row alignCenter>

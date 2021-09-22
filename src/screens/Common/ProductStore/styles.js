@@ -8,5 +8,6 @@ export default StyleSheet.create({
   },
   wrapperTextVoucher: {
     flexDirection: 'row',
+    alignItems: 'center',
   },
 });

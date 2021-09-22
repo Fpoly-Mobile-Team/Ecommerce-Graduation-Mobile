@@ -28,10 +28,10 @@ const ItemVoucherFromShop = ({typeVoucher, timeVoucher, check}) => {
             marginRight={28}
             lineHeight={20}
             color={theme.colors.black}
-            fontType="semibold">
+            fontType="medium">
             {typeVoucher}
           </Text>
-          <Text lineHeight={18} color={theme.colors.lightGray}>
+          <Text fontType="light" lineHeight={18} color={theme.colors.lightGray}>
             {timeVoucher}
           </Text>
         </Block>
