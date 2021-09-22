@@ -47,10 +47,10 @@ const ItemProduct = React.memo(
             resizeMode="contain"
           />
           <Block paddingHorizontal={3}>
-            <Text numberOfLines={2} marginBottom={5} fontType="semibold">
+            <Text numberOfLines={2} marginBottom={5} fontType="bold">
               {nameProduct}
             </Text>
-            <Text color={theme.colors.red} marginBottom={5} fontType="bold">
+            <Text color={theme.colors.red} marginBottom={5} fontType="medium">
               3.593.100 ₫
             </Text>
             {fashsale ? (
@@ -58,6 +58,7 @@ const ItemProduct = React.memo(
             ) : (
               <Block row alignCenter marginBottom={5}>
                 <Text
+                  fontType="light"
                   size={12}
                   color={theme.colors.lightGray}
                   style={styles.txtunderprice}>
@@ -88,7 +89,7 @@ const ItemProduct = React.memo(
                   (25)
                 </Text>
               </Block>
-              <Text size={9} color={theme.colors.placeholder}>
+              <Text size={9} color={theme.colors.placeholder} fontType="light">
                 Đã bán 1,3k
               </Text>
             </Block>

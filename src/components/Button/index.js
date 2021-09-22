@@ -29,10 +29,7 @@ const Button = ({
         {disabled ? (
           <UIActivityIndicator size={getSize.s(20)} color="white" />
         ) : (
-          <Text
-            fontType="semibold"
-            color={theme.colors.white}
-            style={titleStyle}>
+          <Text fontType="bold" color={theme.colors.white} style={titleStyle}>
             {title}
           </Text>
         )}

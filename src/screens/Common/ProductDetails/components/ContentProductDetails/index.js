@@ -28,6 +28,7 @@ const ContentProductDetails = () => {
 
             <Block row alignCenter>
               <Text
+                fontType="light"
                 marginVertical={5}
                 color={theme.colors.lightGray}
                 style={styles.txtunderprice}>
@@ -66,7 +67,9 @@ const ContentProductDetails = () => {
               (Xem 25 đánh giá)
             </Text>
           </Block>
-          <Text color={theme.colors.placeholder}>Đã bán 1,3k</Text>
+          <Text fontType="light" color={theme.colors.placeholder}>
+            Đã bán 1,3k
+          </Text>
         </Block>
       </Block>
       <Block height={10} marginTop={10} backgroundColor={theme.colors.smoke} />

@@ -12,18 +12,22 @@ const ProductReviews = () => {
   return (
     <Block marginTop={10} paddingHorizontal={12}>
       <Block row alignCenter marginBottom={10} space="between">
-        <Text size={16} fontType="semibold">
+        <Text size={16} fontType="bold">
           ĐÁNH GIÁ SẢN PHẨM
         </Text>
         <Block row alignCenter>
           <Rating imageSize={getSize.s(15)} readonly startingValue={4} />
-          <Text color={theme.colors.pink} marginLeft={getSize.m(5)}>
+          <Text
+            color={theme.colors.pink}
+            marginLeft={getSize.m(5)}
+            fontType="medium">
             4/5
           </Text>
           <Text
             size={14}
             color={theme.colors.lightGray}
-            marginLeft={getSize.m(5)}>
+            marginLeft={getSize.m(5)}
+            fontType="light">
             (25)
           </Text>
         </Block>
