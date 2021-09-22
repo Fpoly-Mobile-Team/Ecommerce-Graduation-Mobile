@@ -24,7 +24,9 @@ const ItemPromoScreen = ({name, title, date, image, index, isCheck}) => {
           <View style={styles.boxLeft}>
             <View style={{paddingTop: getSize.s(16)}}>
               <Text style={styles.textDate}>{name}</Text>
-              <Text style={styles.txtTitle}>{title}</Text>
+              <Text numberOfLines={1} style={styles.txtTitle}>
+                {title}
+              </Text>
             </View>
           </View>
         </View>
