@@ -57,7 +57,7 @@ const InputText = ({...props}) => {
         hitSlop={{left: 5, right: 5, bottom: 5, top: 5}}
         onPress={() => setSecureEye(!secureEye)}>
         <FontAwesomeIcon
-          name={secureEye ? 'eye' : 'eye-slash'}
+          name={secureEye ? 'eye-slash' : 'eye'}
           color={theme.colors.text}
           size={getSize.m(14)}
         />

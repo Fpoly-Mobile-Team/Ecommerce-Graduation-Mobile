@@ -28,5 +28,6 @@ export default StyleSheet.create({
     paddingHorizontal: 5,
     borderWidth: 1,
     borderColor: theme.colors.pink,
+    backgroundColor: theme.colors.white,
   },
 });

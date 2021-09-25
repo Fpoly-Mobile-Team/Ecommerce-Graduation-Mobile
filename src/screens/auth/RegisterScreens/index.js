@@ -5,17 +5,19 @@ import {theme} from '@theme';
 import React, {useState} from 'react';
 import {Pressable} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useSelector} from 'react-redux';
 import styles from './styles';
 
 const Register = ({callBack}) => {
   const [isCheck, setisCheck] = useState(false);
+  const config = useSelector(state => state.config?.data);
+
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [reqpassword, setreqPassword] = useState();
   const navigation = useNavigation();
   const {top} = useSafeAreaInsets();
-
   return (
     <Block flex backgroundColor="background" paddingTop={top + 40}>
       <Block marginBottom={56} paddingHorizontal={12}>
@@ -48,7 +50,7 @@ const Register = ({callBack}) => {
           inputStyle={styles.inputStyle}
           keyboardType="email-address"
           placeholder="Nhập mật khẩu"
-          rightstyle={{bottom: 12}}
+          rightstyle={styles.rightstyle}
           onChangeText={text => setPassword(text)}
           isSecure
         />
@@ -57,7 +59,7 @@ const Register = ({callBack}) => {
           containerInputStyle={styles.containerInputStyle}
           labelStyle={styles.label}
           inputStyle={styles.inputStyle}
-          rightstyle={{bottom: 12}}
+          rightstyle={styles.rightstyle}
           placeholder="Nhập lại mật khẩu"
           onChangeText={text => setreqPassword(text)}
           isSecure
@@ -77,17 +79,18 @@ const Register = ({callBack}) => {
           title="ĐĂNG KÝ"
           height={48}
           shadow
-          backgroundColor={theme.colors.pink}
           onPress={callBack}
           shadowColor={`${theme.colors.pink}80`}
           elevation={10}
-          style={{borderRadius: 5}}
+          style={styles.borderButton}
         />
       </Block>
       <Block row marginTop={30} alignCenter justifyCenter>
         <Text color={theme.colors.black}>Bạn đã có tài khoản? </Text>
         <Pressable onPress={callBack}>
-          <Text color={theme.colors.pink} fontType="bold">
+          <Text
+            color={config?.backgroundcolor || theme.colors.pink}
+            fontType="bold">
             {' '}
             Đăng nhập
           </Text>

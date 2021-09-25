@@ -8,6 +8,7 @@ export default StyleSheet.create({
     backgroundColor: '#F4F5F5',
     height: getSize.s(40),
     alignSelf: 'center',
+    elevation: 1.5,
   },
   inputStyle: {
     backgroundColor: '#F4F5F5',

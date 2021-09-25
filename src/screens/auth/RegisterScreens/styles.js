@@ -43,4 +43,6 @@ export default StyleSheet.create({
     color: theme.colors.black,
     fontSize: 14,
   },
+  rightstyle: {bottom: 12},
+  borderButton: {borderRadius: 5},
 });

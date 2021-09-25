@@ -103,7 +103,7 @@ const HeaderHome = ({scroll}) => {
               style={{
                 marginLeft: getSize.s(5),
                 color: colortext,
-                fontFamily: 'Prompt-Regular',
+                fontFamily: theme.fonts.fontFamily.regular,
               }}>
               Bạn tìm gì hôm nay?
             </Animated.Text>

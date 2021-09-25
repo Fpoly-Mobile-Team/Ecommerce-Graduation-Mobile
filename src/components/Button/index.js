@@ -4,6 +4,7 @@ import {getSize} from '@utils/responsive';
 import React from 'react';
 import {Pressable} from 'react-native';
 import {UIActivityIndicator} from 'react-native-indicators';
+import {useSelector} from 'react-redux';
 
 const Button = ({
   title,
@@ -15,6 +16,7 @@ const Button = ({
   disabled,
   ...props
 }) => {
+  const config = useSelector(state => state.config?.data);
   return (
     <Pressable onPress={onPress}>
       <Block
@@ -25,6 +27,7 @@ const Button = ({
         radius={height}
         marginVertical={10}
         style={style}
+        backgroundColor={config?.backgroundcolor || theme.colors.pink}
         {...props}>
         {disabled ? (
           <UIActivityIndicator size={getSize.s(20)} color="white" />

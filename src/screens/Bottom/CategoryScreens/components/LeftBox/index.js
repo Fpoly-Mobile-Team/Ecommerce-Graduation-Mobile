@@ -48,7 +48,7 @@ const LeftBox = ({settitle, data}) => {
               marginBottom={5}
               numberOfLines={index === selected ? 3 : 2}
               size={index === selected ? 13 : 12}
-              fontType={index === selected ? 'semibold' : 'regular'}>
+              fontType={index === selected ? 'medium' : 'regular'}>
               {item.title}
             </Text>
             <Block
@@ -67,7 +67,9 @@ const LeftBox = ({settitle, data}) => {
   };
 
   return (
-    <Block width={width * 0.3} backgroundColor={theme.colors.pinkholder}>
+    <Block
+      width={width * 0.3}
+      backgroundColor={`${config?.backgroundcolor}10` || theme.colors.pink}>
       <ScrollView
         nestedScrollEnabled={true}
         bounces={false}
