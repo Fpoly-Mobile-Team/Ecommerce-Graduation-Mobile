@@ -1,5 +1,3 @@
-import {Platform} from 'react-native';
-
 export const theme = {
   colors: {
     text: '#242424',
@@ -42,11 +40,11 @@ export const theme = {
       light: '300',
     },
     fontFamily: {
-      bold: 'Prompt-Bold',
-      semibold: 'Prompt-SemiBold',
-      medium: 'Prompt-Medium',
-      regular: 'Prompt-Regular',
-      light: 'Prompt-Light',
+      bold: 'Quicksand-Bold',
+      semibold: 'Quicksand-SemiBold',
+      medium: 'Quicksand-Medium',
+      regular: 'Quicksand-Regular',
+      light: 'Quicksand-Light',
     },
   },
 };

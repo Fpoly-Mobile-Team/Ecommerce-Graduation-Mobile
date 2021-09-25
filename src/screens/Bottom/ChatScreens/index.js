@@ -19,7 +19,7 @@ const ChatScreens = () => {
         icon={Search}
         style={styles.searchStyle}
         inputStyle={styles.inputStyle}
-        placeholder={'Tìm kiếm'}
+        placeholder={'Tìm kiếm...'}
         onChangeText={onChangeSearch}
         value={searchQuery}
       />

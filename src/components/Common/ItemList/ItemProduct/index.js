@@ -47,7 +47,7 @@ const ItemProduct = React.memo(
             resizeMode="contain"
           />
           <Block paddingHorizontal={3}>
-            <Text numberOfLines={2} marginBottom={5} fontType="bold">
+            <Text numberOfLines={2} marginBottom={5} size={15} fontType="bold">
               {nameProduct}
             </Text>
             <Text color={theme.colors.red} marginBottom={5} fontType="medium">

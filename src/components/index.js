@@ -9,6 +9,7 @@ import WebView from './WebView';
 import FormInput from './Form/FormInput';
 import FormContainer from './Form/FormContainer';
 import Empty from './Empty';
+import ModalBox from './ModalBox';
 export {
   Block,
   Text,
@@ -21,4 +22,5 @@ export {
   FormInput,
   FormContainer,
   Empty,
+  ModalBox,
 };

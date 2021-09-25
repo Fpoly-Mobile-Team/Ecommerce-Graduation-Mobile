@@ -13,6 +13,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import LoginForm from './components/LoginForm';
 import {validation} from './components/LoginForm/validation';
 import SocialLogin from './components/SocialLogin';
+
 import styles from './styles';
 
 const INITIAL_VALUES = {
@@ -22,6 +23,8 @@ const INITIAL_VALUES = {
 const Login = ({callBack}) => {
   const dispatch = useDispatch();
   const {isLoading} = useSelector(state => state.login);
+  const config = useSelector(state => state.config?.data);
+
   const {top} = useSafeAreaInsets();
   const navigation = useNavigation();
   const {control, handleSubmit} = useForm({
@@ -64,7 +67,6 @@ const Login = ({callBack}) => {
           height={48}
           shadow
           style={styles.button_login}
-          backgroundColor={theme.colors.pink}
           shadowColor={`${theme.colors.pink}20`}
           elevation={10}
           disabled={isLoading}
@@ -80,7 +82,10 @@ const Login = ({callBack}) => {
             Bạn chưa có tài khoản?{' '}
           </Text>
           <Pressable onPress={callBack}>
-            <Text color={theme.colors.pink} center fontType="bold">
+            <Text
+              color={config?.backgroundcolor || theme.colors.pink}
+              center
+              fontType="bold">
               {' '}
               Đăng ký ngay
             </Text>

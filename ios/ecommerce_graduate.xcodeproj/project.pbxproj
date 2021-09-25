@@ -12,13 +12,13 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1F0D4345C771B5739CA564CC /* libPods-ecommerce_graduate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27BAED25ACF65D4E5297F35F /* libPods-ecommerce_graduate.a */; };
-		3BA617B6EDE24923ADAB0C9C /* Prompt-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 656A29E4334F47DA8B4DAD53 /* Prompt-Bold.ttf */; };
-		6AE44BFC70AC47F9ABA1030B /* Prompt-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0403A537EFB94A0A94926716 /* Prompt-Medium.ttf */; };
-		6B28952B928C40079B24B368 /* Prompt-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE381F87E2F5433FA6D0770F /* Prompt-Light.ttf */; };
+		3209A47D16164B84A7C80292 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D77AB7EAAE940B3987C58EF /* Quicksand-Bold.ttf */; };
+		3A8018EBB7694D8CA47CCFB3 /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F87B39DBE7BA439AA773C483 /* Quicksand-Light.ttf */; };
+		43702CC3D2E64FDC8B125C61 /* Quicksand-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10E5B50AC0A24586B8258DA7 /* Quicksand-SemiBold.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		E50E87AD26FA5BFA004A2912 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50E87AC26FA5BFA004A2912 /* File.swift */; };
-		F32BA997ACF44A50B296FA40 /* Prompt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24F9869E472A4799824D34F8 /* Prompt-Regular.ttf */; };
-		F67792A49E2B4B7AB44835A7 /* Prompt-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C63A5787F99043FCA10853C0 /* Prompt-SemiBold.ttf */; };
+		E58CBC04D7CC4F449303FBE1 /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBA20FF03F5E4558A09D85C1 /* Quicksand-Regular.ttf */; };
+		E6098A3785994DF481AC39E0 /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC491554A0E34E4E822E448C /* Quicksand-Medium.ttf */; };
 		FD425A81367D3FBE877B2ADB /* libPods-ecommerce_graduate-ecommerce_graduateTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8089B6D3B7331BD9CD7B33A2 /* libPods-ecommerce_graduate-ecommerce_graduateTests.a */; };
 /* End PBXBuildFile section */
 
@@ -36,22 +36,22 @@
 		00E356EE1AD99517003FC87E /* ecommerce_graduateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ecommerce_graduateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* ecommerce_graduateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ecommerce_graduateTests.m; sourceTree = "<group>"; };
-		0403A537EFB94A0A94926716 /* Prompt-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Prompt-Medium.ttf"; path = "../src/assets/fonts/Prompt-Medium.ttf"; sourceTree = "<group>"; };
+		10E5B50AC0A24586B8258DA7 /* Quicksand-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-SemiBold.ttf"; path = "../src/assets/fonts/Quicksand-SemiBold.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* ecommerce_graduate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ecommerce_graduate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ecommerce_graduate/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ecommerce_graduate/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ecommerce_graduate/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ecommerce_graduate/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ecommerce_graduate/main.m; sourceTree = "<group>"; };
-		24F9869E472A4799824D34F8 /* Prompt-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Prompt-Regular.ttf"; path = "../src/assets/fonts/Prompt-Regular.ttf"; sourceTree = "<group>"; };
 		27BAED25ACF65D4E5297F35F /* libPods-ecommerce_graduate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ecommerce_graduate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		280404CC534EFF677613B04E /* Pods-ecommerce_graduate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ecommerce_graduate.debug.xcconfig"; path = "Target Support Files/Pods-ecommerce_graduate/Pods-ecommerce_graduate.debug.xcconfig"; sourceTree = "<group>"; };
+		2D77AB7EAAE940B3987C58EF /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Bold.ttf"; path = "../src/assets/fonts/Quicksand-Bold.ttf"; sourceTree = "<group>"; };
 		37A3778ED9A960C474EF609E /* Pods-ecommerce_graduate-ecommerce_graduateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ecommerce_graduate-ecommerce_graduateTests.debug.xcconfig"; path = "Target Support Files/Pods-ecommerce_graduate-ecommerce_graduateTests/Pods-ecommerce_graduate-ecommerce_graduateTests.debug.xcconfig"; sourceTree = "<group>"; };
-		656A29E4334F47DA8B4DAD53 /* Prompt-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Prompt-Bold.ttf"; path = "../src/assets/fonts/Prompt-Bold.ttf"; sourceTree = "<group>"; };
 		8089B6D3B7331BD9CD7B33A2 /* libPods-ecommerce_graduate-ecommerce_graduateTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ecommerce_graduate-ecommerce_graduateTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ecommerce_graduate/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9F7184ECADD9055219FAC69 /* Pods-ecommerce_graduate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ecommerce_graduate.release.xcconfig"; path = "Target Support Files/Pods-ecommerce_graduate/Pods-ecommerce_graduate.release.xcconfig"; sourceTree = "<group>"; };
-		C63A5787F99043FCA10853C0 /* Prompt-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Prompt-SemiBold.ttf"; path = "../src/assets/fonts/Prompt-SemiBold.ttf"; sourceTree = "<group>"; };
+		BBA20FF03F5E4558A09D85C1 /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Regular.ttf"; path = "../src/assets/fonts/Quicksand-Regular.ttf"; sourceTree = "<group>"; };
+		DC491554A0E34E4E822E448C /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Medium.ttf"; path = "../src/assets/fonts/Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 		E505868526E248F500962C56 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		E505868626E248F500962C56 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		E505868726E248F500962C56 /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
@@ -70,14 +70,9 @@
 		E505869426E248F900962C56 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		E50E87AB26FA5BFA004A2912 /* ecommerce_graduate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ecommerce_graduate-Bridging-Header.h"; sourceTree = "<group>"; };
 		E50E87AC26FA5BFA004A2912 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		E50E87B026FA5CA3004A2912 /* Prompt-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-Medium.ttf"; sourceTree = "<group>"; };
-		E50E87B126FA5CA3004A2912 /* Prompt-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-SemiBold.ttf"; sourceTree = "<group>"; };
-		E50E87B226FA5CA3004A2912 /* Prompt-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-Regular.ttf"; sourceTree = "<group>"; };
-		E50E87B326FA5CA3004A2912 /* Prompt-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-Light.ttf"; sourceTree = "<group>"; };
-		E50E87B426FA5CA3004A2912 /* Prompt-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prompt-Bold.ttf"; sourceTree = "<group>"; };
 		E53055E41040246BEB8A37B5 /* Pods-ecommerce_graduate-ecommerce_graduateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ecommerce_graduate-ecommerce_graduateTests.release.xcconfig"; path = "Target Support Files/Pods-ecommerce_graduate-ecommerce_graduateTests/Pods-ecommerce_graduate-ecommerce_graduateTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		FE381F87E2F5433FA6D0770F /* Prompt-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Prompt-Light.ttf"; path = "../src/assets/fonts/Prompt-Light.ttf"; sourceTree = "<group>"; };
+		F87B39DBE7BA439AA773C483 /* Quicksand-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Light.ttf"; path = "../src/assets/fonts/Quicksand-Light.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,11 +141,11 @@
 		5F0364FEDCB24C4EB287BE84 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				656A29E4334F47DA8B4DAD53 /* Prompt-Bold.ttf */,
-				FE381F87E2F5433FA6D0770F /* Prompt-Light.ttf */,
-				0403A537EFB94A0A94926716 /* Prompt-Medium.ttf */,
-				24F9869E472A4799824D34F8 /* Prompt-Regular.ttf */,
-				C63A5787F99043FCA10853C0 /* Prompt-SemiBold.ttf */,
+				2D77AB7EAAE940B3987C58EF /* Quicksand-Bold.ttf */,
+				F87B39DBE7BA439AA773C483 /* Quicksand-Light.ttf */,
+				DC491554A0E34E4E822E448C /* Quicksand-Medium.ttf */,
+				BBA20FF03F5E4558A09D85C1 /* Quicksand-Regular.ttf */,
+				10E5B50AC0A24586B8258DA7 /* Quicksand-SemiBold.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -190,11 +185,6 @@
 		E505868026E2487400962C56 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				E50E87B426FA5CA3004A2912 /* Prompt-Bold.ttf */,
-				E50E87B326FA5CA3004A2912 /* Prompt-Light.ttf */,
-				E50E87B026FA5CA3004A2912 /* Prompt-Medium.ttf */,
-				E50E87B226FA5CA3004A2912 /* Prompt-Regular.ttf */,
-				E50E87B126FA5CA3004A2912 /* Prompt-SemiBold.ttf */,
 				E505868726E248F500962C56 /* AntDesign.ttf */,
 				E505868A26E248F600962C56 /* Entypo.ttf */,
 				E505869226E248F800962C56 /* EvilIcons.ttf */,
@@ -322,11 +312,11 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				3BA617B6EDE24923ADAB0C9C /* Prompt-Bold.ttf in Resources */,
-				6B28952B928C40079B24B368 /* Prompt-Light.ttf in Resources */,
-				6AE44BFC70AC47F9ABA1030B /* Prompt-Medium.ttf in Resources */,
-				F32BA997ACF44A50B296FA40 /* Prompt-Regular.ttf in Resources */,
-				F67792A49E2B4B7AB44835A7 /* Prompt-SemiBold.ttf in Resources */,
+				3209A47D16164B84A7C80292 /* Quicksand-Bold.ttf in Resources */,
+				3A8018EBB7694D8CA47CCFB3 /* Quicksand-Light.ttf in Resources */,
+				E6098A3785994DF481AC39E0 /* Quicksand-Medium.ttf in Resources */,
+				E58CBC04D7CC4F449303FBE1 /* Quicksand-Regular.ttf in Resources */,
+				43702CC3D2E64FDC8B125C61 /* Quicksand-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

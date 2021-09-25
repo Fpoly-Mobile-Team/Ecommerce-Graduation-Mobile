@@ -23,12 +23,8 @@ const ItemVoucherFromShop = ({typeVoucher, timeVoucher, check}) => {
         <Block style={styles.IconVoucher}>
           <IconVoucher />
         </Block>
-        <Block paddingHorizontal={12}>
-          <Text
-            marginRight={28}
-            lineHeight={20}
-            color={theme.colors.black}
-            fontType="medium">
+        <Block paddingHorizontal={12} flex>
+          <Text lineHeight={20} color={theme.colors.black} fontType="medium">
             {typeVoucher}
           </Text>
           <Text fontType="light" lineHeight={18} color={theme.colors.lightGray}>
