@@ -50,6 +50,7 @@
     "react-native-popup-menu": "^0.15.11",
     "react-native-raw-bottom-sheet": "^2.2.0",
     "react-native-reanimated": "^2.1.0",
+    "react-native-restart": "^0.0.22",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^3.2.0",
     "react-native-simple-toast": "^1.1.3",

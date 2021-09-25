@@ -9,7 +9,6 @@ function* login(actions) {
   try {
     const body = queryString.stringify(actions.body);
     const res = yield API.post('getUser/login', body);
-
     yield put({type: _onSuccess(Actions.LOGIN_ACCOUNT), data: res.data});
     yield put({type: Actions.TOKEN_USER, data: res.data});
     Toast(res.message);

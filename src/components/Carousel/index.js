@@ -1,24 +1,19 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {Block} from '@components';
-import {getSize, width} from '@utils/responsive';
+import {getSize} from '@utils/responsive';
 import React from 'react';
 import {Image, Platform} from 'react-native';
 import {SwiperFlatList} from 'react-native-swiper-flatlist';
 import styles from './styles';
 
-const Carousel = ({data, checkBorder}) => {
+const Carousel = ({data}) => {
   const _renderItem = React.useCallback(({item}) => {
     return (
-      <Block>
-        <Image
-          source={{uri: item.banner}}
-          style={{
-            width: width - 24,
-            height: width / 3,
-          }}
-          resizeMode="contain"
-        />
-      </Block>
+      <Image
+        source={{uri: item.banner}}
+        style={styles.image}
+        resizeMode="contain"
+      />
     );
   }, []);
 
@@ -33,7 +28,6 @@ const Carousel = ({data, checkBorder}) => {
         autoplay
         autoplayLoop
         autoplayDelay={3}
-        index={3}
         keyExtractor={keyExtractor}
         renderItem={memoizedValue}
         updateCellsBatchingPeriod={30}

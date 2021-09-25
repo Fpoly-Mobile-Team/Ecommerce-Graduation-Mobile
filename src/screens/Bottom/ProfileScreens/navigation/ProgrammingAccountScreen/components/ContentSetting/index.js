@@ -1,14 +1,37 @@
 import {icons} from '@assets';
 import {Block, Button, Text} from '@components';
 import {useNavigation} from '@react-navigation/core';
+import actions, {_onSuccess} from '@redux/actions';
 import {theme} from '@theme';
-import React from 'react';
-import {Pressable, ScrollView, Image} from 'react-native';
+import React, {useState} from 'react';
+import {Alert, Image, Pressable, ScrollView} from 'react-native';
+import RNRestart from 'react-native-restart';
+import {useDispatch} from 'react-redux';
 import {DATA} from '../data';
 import styles from './styles';
 
 const ContentSetting = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const [isLoading, setisLoading] = useState(false);
+  const onPress = () => {
+    setisLoading(true);
+    setTimeout(() => {
+      setisLoading(false);
+      dispatch({type: _onSuccess(actions.LOGOUT_ACCOUNT)});
+    }, 1000);
+    Alert.alert(
+      'Thông Báo',
+      'Ứng dụng cần được khởi động lại',
+      [
+        {
+          text: 'khởi động lại',
+          onPress: () => RNRestart.Restart(),
+        },
+      ],
+      {cancelable: false},
+    );
+  };
   const _renderItem = (item, index) => {
     return (
       <Block key={item.id}>
@@ -52,12 +75,12 @@ const ContentSetting = () => {
       <Block paddingHorizontal={12}>
         <Button
           title="ĐĂNG XUẤT"
-          backgroundColor={theme.colors.pink}
           height={45}
           style={styles.button}
           shadow
-          shadowColor={`${theme.colors.pink}20`}
           elevation={10}
+          onPress={onPress}
+          disabled={isLoading}
         />
         <Text
           center
