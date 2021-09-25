@@ -1,3 +1,4 @@
+import {width} from '@utils/responsive';
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
@@ -6,5 +7,9 @@ export default StyleSheet.create({
     justifyContent: 'center',
     position: 'absolute',
     bottom: 2,
+  },
+  image: {
+    width: width - 24,
+    height: width / 3,
   },
 });
