@@ -1,6 +1,5 @@
 import React from 'react';
-import {Text} from 'react-native';
-import {Block} from '@components';
+import {Block, Text} from '@components';
 import {theme} from '@theme';
 
 const ItemSuggestions = ({title, index}) => {

@@ -1,7 +1,7 @@
 import {icons} from '@assets';
 import {Block, Text} from '@components';
 import {theme} from '@theme';
-import {getSize, width} from '@utils/responsive';
+import {width} from '@utils/responsive';
 import React from 'react';
 import {Image, Pressable, ScrollView} from 'react-native';
 import styles from './styles';
@@ -65,7 +65,7 @@ const RightBox = ({title}) => {
           <Text fontType="semibold">{title}</Text>
           <Image
             source={icons.next}
-            style={{width: getSize.s(12), height: getSize.s(12)}}
+            style={styles.icon_Next}
             resizeMode="contain"
           />
         </Block>

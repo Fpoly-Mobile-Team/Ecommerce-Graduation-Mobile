@@ -4,8 +4,8 @@ import {theme} from '@theme';
 
 export default StyleSheet.create({
   iconArrow: {
-    width: getSize.s(14),
-    height: getSize.s(14),
+    width: getSize.s(10),
+    height: getSize.s(10),
     tintColor: theme.colors.gray,
   },
   button: {

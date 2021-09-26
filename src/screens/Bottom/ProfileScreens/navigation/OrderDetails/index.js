@@ -25,7 +25,7 @@ const OrderDetails = (checkTitle, onPress) => {
         title="Đặt lại"
         titleStyle={{color: theme.colors.black}}
         style={styles.btnStyle}
-        height={40}
+        height={45}
       />
     </Block>
   );

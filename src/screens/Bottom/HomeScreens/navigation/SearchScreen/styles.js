@@ -14,5 +14,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     height: getSize.s(40),
     color: theme.colors.placeholder,
+    fontFamily: theme.fonts.fontFamily.regular,
   },
 });
