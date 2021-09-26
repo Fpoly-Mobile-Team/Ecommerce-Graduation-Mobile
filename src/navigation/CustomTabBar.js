@@ -30,14 +30,14 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
         const isFocused = state.index === index;
         const icon =
           index === 0
-            ? icons.homeselect
+            ? icons.home
             : index === 1
-            ? icons.categoryselect
+            ? icons.category
             : index === 2
-            ? icons.commentselect
+            ? icons.comment
             : index === 3
-            ? icons.notificationselect
-            : icons.profileselect;
+            ? icons.notification
+            : icons.profile;
 
         const iconselect =
           index === 0
@@ -85,21 +85,10 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
                 value="1"
               />
             )}
-            <Block
-              backgroundColor={
-                isFocused ? config?.backgroundcolor : theme.colors.white
-              }
-              width={30}
-              height={30}
-              alignCenter
-              justifyCenter
-              radius={5}>
-              <Image
-                source={isFocused ? iconselect : icon}
-                style={styles.iconstyle(isFocused, config?.backgroundcolor)}
-              />
-            </Block>
-
+            <Image
+              source={isFocused ? iconselect : icon}
+              style={styles.iconstyle(isFocused, config?.backgroundcolor)}
+            />
             <Text style={styles.textlabel(isFocused, config?.backgroundcolor)}>
               {label}
             </Text>
@@ -114,7 +103,7 @@ export default CustomTabBar;
 const styles = StyleSheet.create({
   btn: {flex: 1, alignItems: 'center'},
   textlabel: (isFocused, config) => ({
-    color: isFocused ? theme.colors.black : theme.colors.lightGray,
+    color: isFocused ? config : theme.colors.lightGray,
     marginTop: 5,
     fontSize: 10,
   }),
@@ -122,7 +111,7 @@ const styles = StyleSheet.create({
     width: getSize.s(20),
     height: getSize.s(20),
     resizeMode: 'contain',
-    tintColor: isFocused ? theme.colors.white : config,
+    tintColor: isFocused ? config : theme.colors.lightGray,
   }),
   containerStyle: {
     position: 'absolute',
