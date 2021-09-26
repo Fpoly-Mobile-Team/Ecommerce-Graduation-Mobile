@@ -1,10 +1,9 @@
-import {theme} from '@theme';
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   btnStyle: {
-    borderColor: theme.colors.black,
+    marginHorizontal: 20,
     borderWidth: 1,
-    margin: 20,
+    backgroundColor: 'transparent',
   },
 });

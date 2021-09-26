@@ -19,6 +19,7 @@ const ContentProfile = () => {
 };
 
 const ActionsButton = (item, index) => {
+  const config = useSelector(state => state.config?.data);
   const navigation = useNavigation();
 
   return (
@@ -50,7 +51,9 @@ const ActionsButton = (item, index) => {
         </Pressable>
         {item.id === '1' ? (
           <Pressable onPress={() => navigation.navigate(item.navigation)}>
-            <Text color={theme.colors.pink} fontType="semibold">
+            <Text
+              color={config?.backgroundcolor || theme.colors.pink}
+              fontType="semibold">
               XEM LỊCH SỬ
             </Text>
           </Pressable>
@@ -69,7 +72,11 @@ const ActionsButton = (item, index) => {
           {DATABILL.map(_renderItem)}
         </Block>
       )}
-      <Block height={8} width={width} backgroundColor={theme.colors.smoke} />
+      <Block
+        height={item.id === '1' ? 8 : 1}
+        width={width}
+        backgroundColor={theme.colors.smoke}
+      />
     </Block>
   );
 };

@@ -58,7 +58,7 @@ const SearchScreen = () => {
             style={styles.iconSearch}
           />
           <TextInput
-            placeholder="Bạn muốn mua gì?"
+            placeholder="Bạn cần tìm gì ..."
             placeholderTextColor={theme.colors.placeholder}
             style={styles.inputStyle}
             onChangeText={text => setKeyword(text)}
