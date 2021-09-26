@@ -24,6 +24,7 @@ const Login = ({callBack}) => {
   const dispatch = useDispatch();
   const {isLoading} = useSelector(state => state.login);
   const config = useSelector(state => state.config?.data);
+  const {device_name, device_token} = useSelector(state => state.device);
 
   const {top} = useSafeAreaInsets();
   const navigation = useNavigation();
@@ -39,8 +40,8 @@ const Login = ({callBack}) => {
       body: {
         email: values.email,
         password: values.password,
-        device_token: 'lala',
-        device_name: 'name',
+        device_token,
+        device_name,
       },
     });
   };
