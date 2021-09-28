@@ -9,6 +9,8 @@ export default {
   TOKEN_USER: 'TOKEN_USER',
   DEVICE_INFO: 'DEVICE_INFO',
   INTRODUCE_INFOR: 'INTRODUCE_INFOR',
+  GET_CATEGORY_ALL: 'GET_CATEGORY_ALL',
+  GET_CATEGORY_SUB: 'GET_CATEGORY_SUB',
 };
 
 export function _onSuccess(action) {
