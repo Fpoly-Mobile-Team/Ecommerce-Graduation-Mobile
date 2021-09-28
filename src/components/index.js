@@ -10,6 +10,7 @@ import FormInput from './Form/FormInput';
 import FormContainer from './Form/FormContainer';
 import Empty from './Empty';
 import ModalBox from './ModalBox';
+import Shimmer from './Shimmer';
 export {
   Block,
   Text,
@@ -23,4 +24,5 @@ export {
   FormContainer,
   Empty,
   ModalBox,
+  Shimmer,
 };

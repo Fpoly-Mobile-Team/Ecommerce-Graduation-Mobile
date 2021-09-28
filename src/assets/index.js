@@ -54,3 +54,6 @@ export const images = {
   logo: require('./images/logo.png'),
   avatar: require('./images/avatar.jpg'),
 };
+export const lottie = {
+  emptyCategory: require('./lottie/emptyCategory.json'),
+};

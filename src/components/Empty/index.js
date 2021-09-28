@@ -34,7 +34,7 @@ const Empty = ({
           resizeMode="contain"
         />
       )}
-      <Text size={16}>{content}</Text>
+      <Text size={18}>{content}</Text>
       {contentMore && (
         <Pressable onPress={onPress}>
           <LinearGradient

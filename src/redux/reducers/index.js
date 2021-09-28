@@ -6,6 +6,7 @@ import {TermsOfUseReducer} from './TermsOfUseReducer';
 import {DeviceReducer} from './DeviceReducer';
 import {UserReducer} from './UserReducer';
 import {IntroduceReducer} from './IntroduceReducer';
+import {CategoryReducer} from './CategoryReducer';
 
 const rootReducer = combineReducers({
   ...TokenReducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   ...DeviceReducer,
   ...UserReducer,
   ...IntroduceReducer,
+  ...CategoryReducer,
 });
 
 export default rootReducer;
