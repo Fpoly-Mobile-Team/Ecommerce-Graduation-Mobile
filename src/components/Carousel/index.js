@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import {Block} from '@components';
+import {Block, LazyImage} from '@components';
 import {getSize} from '@utils/responsive';
 import React from 'react';
 import {Image, Platform} from 'react-native';
@@ -9,10 +9,11 @@ import styles from './styles';
 const Carousel = ({data}) => {
   const _renderItem = React.useCallback(({item}) => {
     return (
-      <Image
+      <LazyImage
         source={{uri: item.banner}}
         style={styles.image}
         resizeMode="contain"
+        thumbnailSource={{uri: item.banner}}
       />
     );
   }, []);

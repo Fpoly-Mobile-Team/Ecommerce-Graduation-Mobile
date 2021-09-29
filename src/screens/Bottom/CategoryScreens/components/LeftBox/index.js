@@ -1,8 +1,8 @@
-import {Block, Text} from '@components';
+import {Block, LazyImage, Text} from '@components';
 import {theme} from '@theme';
 import {width} from '@utils/responsive';
 import React, {useState, useEffect} from 'react';
-import {FlatList, Image, Pressable} from 'react-native';
+import {FlatList, Pressable} from 'react-native';
 import {useSelector} from 'react-redux';
 import styles from './styles';
 
@@ -45,7 +45,11 @@ const LeftBox = ({setTitle, data}) => {
           alignCenter
           backgroundColor={backgroundColor}>
           <Block alignCenter justifyCenter>
-            <Image source={{uri: item.icon}} style={styles.image} />
+            <LazyImage
+              source={{uri: item.icon}}
+              thumbnailSource={{uri: item.icon}}
+              style={styles.image}
+            />
             <Text
               color={color}
               center
