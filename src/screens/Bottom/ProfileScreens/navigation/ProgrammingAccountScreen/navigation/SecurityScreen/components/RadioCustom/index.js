@@ -5,13 +5,13 @@ import {Animated, Pressable} from 'react-native';
 import styles from './styles';
 
 const Radio = ({id, title, value, setValue}) => {
-  const scaled = title === value;
+  const scaled = id === value;
 
   return (
     <Block key={id} row alignCenter>
       <Pressable
         onPress={() => {
-          setValue(title);
+          setValue(id);
         }}
         style={styles.btn}>
         {scaled && <Animated.View style={styles.btnchild} />}
