@@ -1,5 +1,5 @@
 import {icons} from '@assets';
-import {Block, Text} from '@components';
+import {Block, LazyImage, Text} from '@components';
 import React from 'react';
 import {Image, Pressable} from 'react-native';
 import {useSelector} from 'react-redux';
@@ -12,10 +12,11 @@ const AvatarProfile = () => {
     <Block>
       <Block row marginTop={20} paddingHorizontal={12}>
         <Block alignCenter justifyCenter width={80} height={80}>
-          <Image
+          <LazyImage
             source={{
               uri: userInfo?.avatar,
             }}
+            thumbnailSource={{uri: userInfo?.avatar}}
             style={styles.avatar}
           />
           <Pressable>
