@@ -42,6 +42,12 @@ const App = () => {
       Storage.getItem('TOKEN_USER').then(user => {
         if (user) {
           dispatch({type: Actions.TOKEN_USER, data: user});
+          dispatch({
+            type: Actions.GET_USER_INFORMATION,
+            params: {
+              user,
+            },
+          });
         }
       });
     }
