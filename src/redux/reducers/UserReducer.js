@@ -7,6 +7,10 @@ export const login = (...props) => {
   return reducerDefault(...props, Actions.LOGIN_ACCOUNT);
 };
 
+export const register = (...props) => {
+  return reducerDefault(...props, Actions.SIGNUP_ACCOUNT);
+};
+
 export const tokenUser = (state = stateDefault, action) => {
   switch (action.type) {
     case Actions.TOKEN_USER: {
@@ -20,6 +24,7 @@ export const tokenUser = (state = stateDefault, action) => {
       return state;
   }
 };
+
 export const logout = (state = stateDefault, action) => {
   switch (action.type) {
     case Actions.LOGOUT_ACCOUNT: {
@@ -36,4 +41,4 @@ export const logout = (state = stateDefault, action) => {
       return state;
   }
 };
-export const UserReducer = {login, tokenUser, logout};
+export const UserReducer = {login, register, tokenUser, logout};
