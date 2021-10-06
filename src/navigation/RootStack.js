@@ -113,6 +113,10 @@ const RootStack = () => {
             component={bottom.INTRODUCE_DETAIL}
           />
           <Stack.Screen name={routes.CHATBOX} component={bottom.CHATBOX} />
+          <Stack.Screen
+            name={routes.PROFILESCREENS}
+            component={bottom.PROFILESCREENS}
+          />
         </Stack.Navigator>
       )}
     </NavigationContainer>
