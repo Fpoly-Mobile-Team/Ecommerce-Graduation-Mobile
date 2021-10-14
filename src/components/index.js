@@ -11,6 +11,7 @@ import FormContainer from './Form/FormContainer';
 import Empty from './Empty';
 import ModalBox from './ModalBox';
 import Shimmer from './Shimmer';
+import LazyImage from './LazyImage';
 export {
   Block,
   Text,
@@ -25,4 +26,5 @@ export {
   Empty,
   ModalBox,
   Shimmer,
+  LazyImage,
 };

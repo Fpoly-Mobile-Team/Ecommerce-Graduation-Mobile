@@ -26,7 +26,7 @@ const CategoryScreens = () => {
         <CategoryHolder />
       ) : (
         <>
-          {data?.length ? (
+          {data?.length && data && !isLoading ? (
             <Block row flex>
               <LeftBox data={data} setTitle={setTitle} />
               <RightBox title={title} />

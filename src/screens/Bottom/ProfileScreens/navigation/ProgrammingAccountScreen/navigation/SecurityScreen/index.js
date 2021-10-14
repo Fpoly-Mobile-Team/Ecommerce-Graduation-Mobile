@@ -25,7 +25,7 @@ const Security = () => {
   const [newPassword, setNewPassword] = useState();
   const [rePassword, setRePassword] = useState();
   const [isSwitchEnabled, setSwitch] = useState(false);
-  const [checked, setChecked] = useState('Nam');
+  const [checked, setChecked] = useState('0');
   const navigation = useNavigation();
   const [show, setShow] = useState(false);
   const [date, setDate] = useState('');

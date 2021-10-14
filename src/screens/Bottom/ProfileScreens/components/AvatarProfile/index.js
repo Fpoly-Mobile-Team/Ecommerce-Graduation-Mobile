@@ -1,18 +1,22 @@
 import {icons} from '@assets';
-import {Block, Text} from '@components';
+import {Block, LazyImage, Text} from '@components';
 import React from 'react';
 import {Image, Pressable} from 'react-native';
+import {useSelector} from 'react-redux';
 import styles from './styles';
 
 const AvatarProfile = () => {
+  const userInfo = useSelector(state => state.userInfo?.data);
+
   return (
     <Block>
       <Block row marginTop={20} paddingHorizontal={12}>
         <Block alignCenter justifyCenter width={80} height={80}>
-          <Image
+          <LazyImage
             source={{
-              uri: 'https://kenh14cdn.com/2020/5/15/10-1589526442308960287468.jpg',
+              uri: userInfo?.avatar,
             }}
+            thumbnailSource={{uri: userInfo?.avatar}}
             style={styles.avatar}
           />
           <Pressable>
@@ -25,9 +29,9 @@ const AvatarProfile = () => {
         </Block>
         <Block marginLeft={10}>
           <Text marginTop={10} size={16} fontType="semibold">
-            Cao Thi Thuy Linh
+            {userInfo?.username}
           </Text>
-          <Text>kingonwork@gmail.com</Text>
+          <Text>{userInfo?.email}</Text>
         </Block>
       </Block>
       <Block flex row marginTop={10}>
