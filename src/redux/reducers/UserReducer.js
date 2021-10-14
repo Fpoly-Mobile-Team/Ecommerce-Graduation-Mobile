@@ -11,6 +11,10 @@ export const register = (...props) => {
   return reducerDefault(...props, Actions.SIGNUP_ACCOUNT);
 };
 
+export const userInfo = (...props) => {
+  return reducerDefault(...props, Actions.GET_USER_INFORMATION);
+};
+
 export const tokenUser = (state = stateDefault, action) => {
   switch (action.type) {
     case Actions.TOKEN_USER: {
@@ -41,4 +45,4 @@ export const logout = (state = stateDefault, action) => {
       return state;
   }
 };
-export const UserReducer = {login, register, tokenUser, logout};
+export const UserReducer = {login, register, tokenUser, logout, userInfo};
