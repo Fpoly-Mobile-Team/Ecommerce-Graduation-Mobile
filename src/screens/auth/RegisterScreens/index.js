@@ -1,23 +1,63 @@
-import {Block, Button, Text, TextInput} from '@components';
-import CheckBox from '@components/CheckBox';
-import {useNavigation} from '@react-navigation/native';
+import {Block, Button, Text} from '@components';
+import {yupResolver} from '@hookform/resolvers/yup';
+import actions from '@redux/actions';
 import {theme} from '@theme';
+import {Toast} from '@utils/helper';
 import React, {useState} from 'react';
-import {Pressable} from 'react-native';
+import {useForm} from 'react-hook-form';
+import {Keyboard, Pressable} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import CheckBox from './components/CheckBox';
+import ModalTermOfUse from './components/ModalTermOfUse';
+import RegisterForm from './components/RegisterForm';
+import {validation} from './components/RegisterForm/validation';
 import styles from './styles';
 
+const INITIAL_VALUES = {
+  email: '',
+  username: '',
+  phone: '',
+  password: '',
+};
+
 const Register = ({callBack}) => {
-  const [isCheck, setisCheck] = useState(false);
+  const {top} = useSafeAreaInsets();
+  const [isCheck, setIsCheck] = useState(false);
+  const [isAccept, setIsAccept] = useState(false);
+  const [isShow, setIsShow] = useState(false);
   const config = useSelector(state => state.config?.data);
 
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [reqpassword, setreqPassword] = useState();
-  const navigation = useNavigation();
-  const {top} = useSafeAreaInsets();
+  const dispatch = useDispatch();
+  const {isLoading} = useSelector(state => state.register);
+  const {device_name, device_token} = useSelector(state => state.device);
+
+  const {control, handleSubmit} = useForm({
+    resolver: yupResolver(validation),
+    mode: 'onChange',
+    defaultValues: INITIAL_VALUES,
+  });
+
+  const onSubmit = values => {
+    Keyboard.dismiss();
+    if (isAccept && isCheck) {
+      dispatch({
+        type: actions.SIGNUP_ACCOUNT,
+        body: {
+          email: values.email,
+          username: values.username,
+          phone: values.phone,
+          password: values.password,
+          device_token,
+          device_name,
+        },
+      });
+      callBack();
+    } else {
+      Toast('Vui lòng chấp nhận điều khoản');
+    }
+  };
+
   return (
     <Block flex backgroundColor="background" paddingTop={top + 40}>
       <Block marginBottom={56} paddingHorizontal={12}>
@@ -25,53 +65,16 @@ const Register = ({callBack}) => {
           Đăng ký
         </Text>
       </Block>
-      <Block paddingHorizontal={12}>
-        <TextInput
-          label="Họ và tên"
-          containerInputStyle={styles.containerInputStyle}
-          labelStyle={styles.label}
-          inputStyle={styles.inputStyle}
-          placeholder="Nhập họ và tên"
-          onChangeText={text => setName(text)}
-        />
-        <TextInput
-          label="Email"
-          containerInputStyle={styles.containerInputStyle}
-          labelStyle={styles.label}
-          inputStyle={styles.inputStyle}
-          keyboardType="email-address"
-          placeholder="Nhập email"
-          onChangeText={text => setEmail(text)}
-        />
-        <TextInput
-          label="Mật khẩu"
-          containerInputStyle={styles.containerInputStyle}
-          labelStyle={styles.label}
-          inputStyle={styles.inputStyle}
-          keyboardType="email-address"
-          placeholder="Nhập mật khẩu"
-          rightstyle={styles.rightstyle}
-          onChangeText={text => setPassword(text)}
-          isSecure
-        />
-        <TextInput
-          label="Xác nhận mật khẩu"
-          containerInputStyle={styles.containerInputStyle}
-          labelStyle={styles.label}
-          inputStyle={styles.inputStyle}
-          rightstyle={styles.rightstyle}
-          placeholder="Nhập lại mật khẩu"
-          onChangeText={text => setreqPassword(text)}
-          isSecure
-        />
-      </Block>
+      <RegisterForm control={control} />
+
       <Block paddingHorizontal={12} marginTop={20}>
         <CheckBox
-          activeColor={theme.colors.black}
-          title="Tôi đồng ý với điều khoản dịch vụ và chính sách quyền riêng tư"
-          labelStyles={styles.textRules}
-          setValue={setisCheck}
-          value={isCheck}
+          label="Tôi đồng ý với điều khoản dịch vụ và chính sách quyền riêng tư"
+          isCheck={isCheck}
+          setIsCheck={setIsCheck}
+          onPress={() => {
+            setIsShow(true);
+          }}
         />
       </Block>
       <Block marginTop={20} paddingHorizontal={12}>
@@ -79,9 +82,10 @@ const Register = ({callBack}) => {
           title="ĐĂNG KÝ"
           height={48}
           shadow
-          onPress={callBack}
+          onPress={handleSubmit(onSubmit)}
           shadowColor={`${theme.colors.pink}80`}
           elevation={10}
+          disabled={isLoading}
           style={styles.borderButton}
         />
       </Block>
@@ -96,6 +100,12 @@ const Register = ({callBack}) => {
           </Text>
         </Pressable>
       </Block>
+      <ModalTermOfUse
+        isVisible={isShow}
+        setIsVisible={setIsShow}
+        isAccept={isAccept}
+        setIsAccept={setIsAccept}
+      />
     </Block>
   );
 };
