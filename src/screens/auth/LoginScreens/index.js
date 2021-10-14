@@ -20,6 +20,7 @@ const INITIAL_VALUES = {
   email: '',
   password: '',
 };
+
 const Login = ({callBack}) => {
   const dispatch = useDispatch();
   const {isLoading} = useSelector(state => state.login);
@@ -33,6 +34,7 @@ const Login = ({callBack}) => {
     mode: 'onChange',
     defaultValues: INITIAL_VALUES,
   });
+
   const onSubmit = values => {
     Keyboard.dismiss();
     dispatch({
@@ -45,6 +47,7 @@ const Login = ({callBack}) => {
       },
     });
   };
+
   return (
     <Block flex backgroundColor="background" paddingTop={top + 40}>
       <Block paddingBottom={56} paddingHorizontal={12}>
