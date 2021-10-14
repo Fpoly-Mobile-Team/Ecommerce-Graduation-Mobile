@@ -25,7 +25,7 @@ const LoginForm = ({control}) => {
         containerInputStyle={styles.containerInputStyle}
         labelStyle={styles.label}
         inputStyle={styles.inputStyle}
-        rightstyle={{bottom: 12}}
+        rightstyle={styles.rightStyle}
         placeholder="Nhập mật khẩu"
         onChangeText={() => {}}
         isSecure

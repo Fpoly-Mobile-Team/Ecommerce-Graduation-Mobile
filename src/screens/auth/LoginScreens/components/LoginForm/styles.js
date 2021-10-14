@@ -37,4 +37,5 @@ export default StyleSheet.create({
     color: theme.colors.lightGray,
     height: getSize.s(14),
   },
+  rightStyle: {bottom: 12},
 });
