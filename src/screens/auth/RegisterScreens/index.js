@@ -1,18 +1,18 @@
-import {Block, Button, Text, TextInput} from '@components';
-import CheckBox from '@components/CheckBox';
+import {Block, Button, Text} from '@components';
 import {yupResolver} from '@hookform/resolvers/yup';
-import {useNavigation} from '@react-navigation/native';
 import actions from '@redux/actions';
 import {theme} from '@theme';
+import {Toast} from '@utils/helper';
 import React, {useState} from 'react';
 import {useForm} from 'react-hook-form';
 import {Keyboard, Pressable} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useDispatch, useSelector} from 'react-redux';
+import CheckBox from './components/CheckBox';
+import ModalTermOfUse from './components/ModalTermOfUse';
 import RegisterForm from './components/RegisterForm';
-import styles from './styles';
 import {validation} from './components/RegisterForm/validation';
-import {routes} from '@navigation/routes';
+import styles from './styles';
 
 const INITIAL_VALUES = {
   email: '',
@@ -23,9 +23,10 @@ const INITIAL_VALUES = {
 
 const Register = ({callBack}) => {
   const {top} = useSafeAreaInsets();
-  const [isCheck, setisCheck] = useState(false);
+  const [isCheck, setIsCheck] = useState(false);
+  const [isAccept, setIsAccept] = useState(false);
+  const [isShow, setIsShow] = useState(false);
   const config = useSelector(state => state.config?.data);
-  const navigation = useNavigation();
 
   const dispatch = useDispatch();
   const {isLoading} = useSelector(state => state.register);
@@ -39,18 +40,22 @@ const Register = ({callBack}) => {
 
   const onSubmit = values => {
     Keyboard.dismiss();
-    dispatch({
-      type: actions.SIGNUP_ACCOUNT,
-      body: {
-        email: values.email,
-        username: values.username,
-        phone: values.phone,
-        password: values.password,
-        device_token,
-        device_name,
-      },
-    });
-    callBack()
+    if (isAccept && isCheck) {
+      dispatch({
+        type: actions.SIGNUP_ACCOUNT,
+        body: {
+          email: values.email,
+          username: values.username,
+          phone: values.phone,
+          password: values.password,
+          device_token,
+          device_name,
+        },
+      });
+      callBack();
+    } else {
+      Toast('Vui lòng chấp nhận điều khoản');
+    }
   };
 
   return (
@@ -64,11 +69,12 @@ const Register = ({callBack}) => {
 
       <Block paddingHorizontal={12} marginTop={20}>
         <CheckBox
-          activeColor={theme.colors.black}
-          title="Tôi đồng ý với điều khoản dịch vụ và chính sách quyền riêng tư"
-          labelStyles={styles.textRules}
-          setValue={setisCheck}
-          value={isCheck}
+          label="Tôi đồng ý với điều khoản dịch vụ và chính sách quyền riêng tư"
+          isCheck={isCheck}
+          setIsCheck={setIsCheck}
+          onPress={() => {
+            setIsShow(true);
+          }}
         />
       </Block>
       <Block marginTop={20} paddingHorizontal={12}>
@@ -94,6 +100,12 @@ const Register = ({callBack}) => {
           </Text>
         </Pressable>
       </Block>
+      <ModalTermOfUse
+        isVisible={isShow}
+        setIsVisible={setIsShow}
+        isAccept={isAccept}
+        setIsAccept={setIsAccept}
+      />
     </Block>
   );
 };
