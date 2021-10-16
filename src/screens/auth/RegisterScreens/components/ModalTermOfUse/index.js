@@ -26,7 +26,7 @@ const ModalTermOfUse = ({isVisible, setIsVisible, isAccept, setIsAccept}) => {
       setIsVisible={setIsVisible}
       onBackdropPress={onBackdropPress}
       position="center">
-      <Block height="70%" radius={20} backgroundColor={theme.colors.white}>
+      <Block height="85%" radius={20} backgroundColor={theme.colors.white}>
         <Text size={18} center fontType="bold" marginTop={12}>
           {data ? data[0]?.title : 'Điều khoản sử dụng'}
         </Text>

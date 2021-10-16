@@ -89,7 +89,7 @@ const Register = ({callBack}) => {
           style={styles.borderButton}
         />
       </Block>
-      <Block row marginTop={30} alignCenter justifyCenter>
+      <Block row marginVertical={20} alignCenter justifyCenter>
         <Text color={theme.colors.black}>Bạn đã có tài khoản? </Text>
         <Pressable onPress={callBack}>
           <Text

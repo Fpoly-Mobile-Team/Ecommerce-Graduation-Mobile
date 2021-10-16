@@ -12,6 +12,7 @@ const BottomTabNavigation = () => {
   const user = useSelector(state => state.tokenUser?.data);
   return (
     <Tab.Navigator
+      tabBarOptions={{keyboardHidesTabBar: true}}
       initialRouteName={routes.HOMESCREENS}
       tabBar={props => <CustomTabBar {...props} />}>
       <Tab.Screen
