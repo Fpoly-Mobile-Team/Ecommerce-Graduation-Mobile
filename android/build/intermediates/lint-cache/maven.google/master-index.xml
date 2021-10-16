@@ -104,10 +104,7 @@
   <androidx.wear/>
   <androidx.wear.compose/>
   <androidx.wear.tiles/>
-<<<<<<< HEAD
   <androidx.wear.watchface/>
-=======
->>>>>>> 7aabf7ad342175c0be6170e6cb379b5b680f61e1
   <androidx.webkit/>
   <androidx.window/>
   <androidx.work/>
