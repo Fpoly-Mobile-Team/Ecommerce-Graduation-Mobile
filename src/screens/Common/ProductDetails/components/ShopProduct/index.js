@@ -8,6 +8,8 @@ import {FlatList, Image, Platform, Pressable} from 'react-native';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 
+const uri =
+  'https://scontent.fdad3-4.fna.fbcdn.net/v/t1.6435-9/131621153_835496243935495_7699482739742171687_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=0debeb&_nc_ohc=UVVSJqLEZkwAX8Uihvr&_nc_ht=scontent.fdad3-4.fna&oh=5caff79316561014d86e4e175b0cdc36&oe=6191B392';
 const data = [
   {
     image:
@@ -65,13 +67,13 @@ const ShopProduct = () => {
               borderColor={theme.colors.lightGray}>
               <Image
                 source={{
-                  uri: 'https://instagram.fsgn5-5.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/241797116_874897513459416_5895819174487064132_n.jpg?_nc_ht=instagram.fsgn5-5.fna.fbcdn.net&_nc_cat=100&_nc_ohc=OzmjQsLb8HwAX8Flfx1&tn=wjuZ6ds14IyDIVA8&edm=AP_V10EBAAAA&ccb=7-4&oh=6a646abdc19a7bcbda85d36c73ce12a9&oe=6152BE01&_nc_sid=4f375e',
+                  uri,
                 }}
                 style={styles.avatarShop}
               />
             </Block>
             <Block justifyCenter marginLeft={10}>
-              <Text fontType="bold">Võ Thanh Hoà</Text>
+              <Text fontType="bold">Thuỳ Dung</Text>
               <Block row alignCenter>
                 <Image
                   source={icons.location}

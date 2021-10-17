@@ -5,8 +5,6 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
   btnCheck: {
     width: width - 24,
-    backgroundColor: theme.colors.pink,
-    borderRadius: 5,
   },
   label: {
     marginTop: 8,

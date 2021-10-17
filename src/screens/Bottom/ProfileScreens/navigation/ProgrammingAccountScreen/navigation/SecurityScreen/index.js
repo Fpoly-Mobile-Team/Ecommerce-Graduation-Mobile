@@ -2,12 +2,13 @@ import {Block, Button, Header, Text, TextInput} from '@components';
 import FormContainer from '@components/Form/FormContainer';
 import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
-import {width} from '@utils/responsive';
+import {getSize, width} from '@utils/responsive';
 import moment from 'moment';
 import React, {useState} from 'react';
 import {LayoutAnimation, Platform, StatusBar, UIManager} from 'react-native';
 import {Switch} from 'react-native-gesture-handler';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import {useSelector} from 'react-redux';
 import {DATA} from './components/data';
 import FormEditInput from './components/FormEditInput';
 import Radio from './components/RadioCustom';
@@ -20,7 +21,9 @@ if (Platform.OS === 'android') {
 }
 
 const Security = () => {
+  const config = useSelector(state => state.config?.data);
   const [name, setName] = useState();
+
   const [oldPassword, setOldPassword] = useState();
   const [newPassword, setNewPassword] = useState();
   const [rePassword, setRePassword] = useState();
@@ -31,13 +34,11 @@ const Security = () => {
   const [date, setDate] = useState('');
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const thumbColorOn =
-    Platform.OS === 'android' ? theme.colors.switchOn : theme.colors.bgSwitch;
+    Platform.OS === 'android' ? config?.backgroundcolor : theme.colors.bgSwitch;
   const thumbColorOff =
     Platform.OS === 'android' ? theme.colors.bgSwitch : theme.colors.bgSwitch;
-  const trackColorOn =
-    Platform.OS === 'android' ? theme.colors.switchOn : theme.colors.switchOn;
-  const trackColorOff =
-    Platform.OS === 'android' ? theme.colors.switchOff : theme.colors.switchOff;
+  const trackColorOn = config?.backgroundcolor;
+  const trackColorOff = `${config?.backgroundcolor}50`;
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);
@@ -159,10 +160,8 @@ const Security = () => {
             width={width / 5}
             height={32}
             shadow
-            backgroundColor={theme.colors.pink}
-            shadowColor={`${theme.colors.pink}80`}
             elevation={10}
-            style={{borderRadius: 30}}
+            style={{borderRadius: getSize.s(30)}}
           />
         </Block>
         {show && renderSecure()}
@@ -187,11 +186,9 @@ const Security = () => {
         <Block marginBottom={10} paddingHorizontal={12}>
           <Button
             title="CẬP NHẬT"
-            backgroundColor={theme.colors.pink}
             height={45}
             style={styles.button}
             shadow
-            shadowColor={`${theme.colors.pink}20`}
             elevation={5}
           />
         </Block>

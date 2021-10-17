@@ -1,15 +1,18 @@
-import {IconMessages, IconSearch, IconBack} from '@assets/svg/common';
+import {IconBack, IconMessages, IconSearch} from '@assets/svg/common';
 import {Block} from '@components';
+import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import React from 'react';
 import {Pressable, TextInput} from 'react-native';
-import styles from './styles';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {useNavigation} from '@react-navigation/native';
+import {useSelector} from 'react-redux';
+import styles from './styles';
 
 const SearchShop = () => {
   const {top} = useSafeAreaInsets();
   const navigation = useNavigation();
+  const config = useSelector(state => state.config?.data);
+
   return (
     <Block
       row
@@ -18,7 +21,7 @@ const SearchShop = () => {
       paddingTop={top + 10}
       space="between"
       paddingVertical={12}
-      backgroundColor={theme.colors.blueShop}>
+      backgroundColor={config?.backgroundcolor}>
       <Pressable onPress={() => navigation.goBack()}>
         <Block>
           <IconBack />
@@ -28,7 +31,7 @@ const SearchShop = () => {
         flex
         row
         alignCenter
-        backgroundColor={theme.colors.smoke}
+        backgroundColor={theme.colors.white + 10}
         paddingHorizontal={12}
         marginHorizontal={16}
         radius={4}>
@@ -37,7 +40,7 @@ const SearchShop = () => {
         </Pressable>
         <TextInput
           placeholder="Tìm kiếm trong cửa hàng"
-          placeholderTextColor={'#8B9399'}
+          placeholderTextColor={theme.colors.white}
           style={styles.inputStyle}
         />
       </Block>

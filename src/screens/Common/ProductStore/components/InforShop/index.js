@@ -5,6 +5,8 @@ import React from 'react';
 import {Pressable, Image} from 'react-native';
 import styles from './styles';
 
+const uri =
+  'https://scontent.fdad3-4.fna.fbcdn.net/v/t1.6435-9/131621153_835496243935495_7699482739742171687_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=0debeb&_nc_ohc=UVVSJqLEZkwAX8Uihvr&_nc_ht=scontent.fdad3-4.fna&oh=5caff79316561014d86e4e175b0cdc36&oe=6191B392';
 const InforShop = () => {
   return (
     <Block row space="between" alignCenter marginVertical={24}>
@@ -12,12 +14,13 @@ const InforShop = () => {
         <Image
           style={styles.iconAvatar}
           source={{
-            uri: 'https://scontent.fvca1-2.fna.fbcdn.net/v/t1.6435-9/238436993_1517607961914642_1112862778912670549_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=jCOT2apc68QAX-g0BrO&tn=CU0A5yL8bDui7MH4&_nc_ht=scontent.fvca1-2.fna&oh=dbee2b9069656c6e67b62374dc6e7e1b&oe=616A3DFA',
+            uri,
           }}
         />
       </Pressable>
       <Block alignStart justifyCenter width={150} flex paddingHorizontal={16}>
         <Text
+          flex
           fontType="bold"
           lineHeight={20}
           size={16}
@@ -30,7 +33,7 @@ const InforShop = () => {
             fontType="light"
             marginHorizontal={4}
             lineHeight={20}
-            color={'#8B9399'}>
+            color="#130000">
             HCM, Vietnam
           </Text>
         </Block>
