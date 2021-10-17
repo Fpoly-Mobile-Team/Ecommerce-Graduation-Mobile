@@ -113,6 +113,16 @@ const RootStack = () => {
             component={bottom.INTRODUCE_DETAIL}
           />
           <Stack.Screen name={routes.CHATBOX} component={bottom.CHATBOX} />
+          <Stack.Screen
+            name={routes.POPUP_SCREEN}
+            component={common.POPUP_SCREEN}
+            options={{
+              animationEnabled: false,
+              cardStyle: {
+                backgroundColor: 'rgba(0,0,0,.4)',
+              },
+            }}
+          />
         </Stack.Navigator>
       )}
     </NavigationContainer>

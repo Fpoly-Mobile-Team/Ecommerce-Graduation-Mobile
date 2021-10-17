@@ -6,6 +6,7 @@ import AddAddressScreen from './AddressScreen/navigation/AddAdressScreen';
 import PurchaseScreen from './CartScreens/navigation/PurchaseScreens';
 import PromoScreen from './ProductStore/navigation/PromoScreen';
 import ProductStore from './ProductStore';
+import PopupScreen from './PopupScreen';
 
 export const common = {
   PRODUCT_DETAILS: ProductDetails,
@@ -16,4 +17,5 @@ export const common = {
   PURCHASE_SCREEN: PurchaseScreen,
   PROMO_SCREEN: PromoScreen,
   PRODUCT_STORE: ProductStore,
+  POPUP_SCREEN: PopupScreen,
 };
