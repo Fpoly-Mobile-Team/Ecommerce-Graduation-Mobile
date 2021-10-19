@@ -31,6 +31,7 @@ function* register(actions) {
     Toast(res.message);
   } catch (error) {
     yield put({type: _onFail(Actions.SIGNUP_ACCOUNT)});
+    Toast(error);
   }
 }
 function* getUserInfo(actions) {
