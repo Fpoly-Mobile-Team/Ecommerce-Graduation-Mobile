@@ -3258,3 +3258,76 @@ export const BackgroundColorShop = ({
     />
   </Svg>
 );
+
+export const CameraIcon = ({width = 35, height = 35, color = '#FFFFFF'}) => (
+  <Svg
+    width={width}
+    height={height}
+    viewBox="0 0 26 26"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <Path
+      d="M12.9999 16.4668C14.9145 16.4668 16.4665 14.9147 16.4665 13.0001C16.4665 11.0855 14.9145 9.53345 12.9999 9.53345C11.0853 9.53345 9.5332 11.0855 9.5332 13.0001C9.5332 14.9147 11.0853 16.4668 12.9999 16.4668Z"
+      fill={color}
+    />
+    <Path
+      d="M9.74984 2.16675L7.76734 4.33341H4.33317C3.1415 4.33341 2.1665 5.30841 2.1665 6.50008V19.5001C2.1665 20.6917 3.1415 21.6667 4.33317 21.6667H21.6665C22.8582 21.6667 23.8332 20.6917 23.8332 19.5001V6.50008C23.8332 5.30841 22.8582 4.33341 21.6665 4.33341H18.2323L16.2498 2.16675H9.74984ZM12.9998 18.4167C10.0098 18.4167 7.58317 15.9901 7.58317 13.0001C7.58317 10.0101 10.0098 7.58342 12.9998 7.58342C15.9898 7.58342 18.4165 10.0101 18.4165 13.0001C18.4165 15.9901 15.9898 18.4167 12.9998 18.4167Z"
+      fill={color}
+    />
+  </Svg>
+);
+
+export const ImageIcon = ({width = 35, height = 35, color = '#FFFFFF'}) => (
+  <Svg
+    width={width}
+    height={height}
+    viewBox="0 0 26 26"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <Path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M3.25 5.25C3.25 4.14543 4.14543 3.25 5.25 3.25H20.75C21.8546 3.25 22.75 4.14543 22.75 5.25V20.75C22.75 21.8546 21.8546 22.75 20.75 22.75H5.25C4.14543 22.75 3.25 21.8546 3.25 20.75V5.25Z"
+      stroke={color}
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <Path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M9.20825 10.8333C10.1057 10.8333 10.8333 10.1058 10.8333 9.20834C10.8333 8.31088 10.1057 7.58334 9.20825 7.58334C8.31079 7.58334 7.58325 8.31088 7.58325 9.20834C7.58325 10.1058 8.31079 10.8333 9.20825 10.8333Z"
+      fill={color}
+      stroke={color}
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <Path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M22.7501 16.25L17.3334 10.8333L5.41675 22.75"
+      fill={color}
+    />
+    <Path
+      d="M22.7501 16.25L17.3334 10.8333L5.41675 22.75"
+      stroke={color}
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <Path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M22.6237 15.349L21.6206 22.3839L6.75488 21.6912"
+      fill={color}
+    />
+    <Path
+      d="M22.6237 15.349L21.6206 22.3839L6.75488 21.6912"
+      stroke={color}
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </Svg>
+);

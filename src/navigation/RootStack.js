@@ -114,6 +114,8 @@ const RootStack = () => {
           />
           <Stack.Screen name={routes.CHATBOX} component={bottom.CHATBOX} />
           <Stack.Screen
+            name={routes.PROFILESCREENS}
+            component={bottom.PROFILESCREENS}
             name={routes.POPUP_SCREEN}
             component={common.POPUP_SCREEN}
             options={{
