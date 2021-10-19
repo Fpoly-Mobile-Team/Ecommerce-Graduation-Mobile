@@ -1,5 +1,4 @@
-import {theme} from '@theme';
-import {getSize, height} from '@utils/responsive';
+import {getSize} from '@utils/responsive';
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
@@ -13,8 +12,6 @@ export default StyleSheet.create({
     right: getSize.m(5),
   },
   modalContainer: {
-    backgroundColor: theme.colors.white,
-    marginTop: height - 250,
     borderTopStartRadius: getSize.m(20),
     borderTopEndRadius: getSize.m(20),
   },
