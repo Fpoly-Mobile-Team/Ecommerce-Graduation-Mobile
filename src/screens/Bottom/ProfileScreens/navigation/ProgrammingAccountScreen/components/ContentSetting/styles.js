@@ -9,7 +9,6 @@ export default StyleSheet.create({
     tintColor: theme.colors.gray,
   },
   button: {
-    borderRadius: 5,
-    marginBottom: 20,
+    marginBottom: getSize.s(20),
   },
 });

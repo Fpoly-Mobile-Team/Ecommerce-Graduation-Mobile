@@ -190,14 +190,14 @@ export const IconSearch = ({width = 50, height = 50, color = 'black'}) => {
       xmlns="http://www.w3.org/2000/svg">
       <Path
         d="M7.33333 12.6667C10.2789 12.6667 12.6667 10.2789 12.6667 7.33333C12.6667 4.38781 10.2789 2 7.33333 2C4.38781 2 2 4.38781 2 7.33333C2 10.2789 4.38781 12.6667 7.33333 12.6667Z"
-        stroke="#8B9399"
+        stroke="#fff"
         stroke-width="1.5"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <Path
         d="M14 14L11.1 11.1"
-        stroke="#8B9399"
+        stroke="#fff"
         stroke-width="1.5"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -215,13 +215,13 @@ export const IconLocation = ({width = 50, height = 50, color = 'black'}) => {
       xmlns="http://www.w3.org/2000/svg">
       <Path
         d="M10.5 5C10.5 8.5 6 11.5 6 11.5C6 11.5 1.5 8.5 1.5 5C1.5 3.80653 1.97411 2.66193 2.81802 1.81802C3.66193 0.974106 4.80653 0.5 6 0.5C7.19347 0.5 8.33807 0.974106 9.18198 1.81802C10.0259 2.66193 10.5 3.80653 10.5 5Z"
-        stroke="#8B9399"
+        stroke="#130000"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <Path
         d="M6 6.5C6.82843 6.5 7.5 5.82843 7.5 5C7.5 4.17157 6.82843 3.5 6 3.5C5.17157 3.5 4.5 4.17157 4.5 5C4.5 5.82843 5.17157 6.5 6 6.5Z"
-        stroke="#8B9399"
+        stroke="#130000"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
@@ -239,21 +239,21 @@ export const IconMore = ({width = 50, height = 50, color = 'black'}) => {
       xmlns="http://www.w3.org/2000/svg">
       <Path
         d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
-        stroke="#8B9399"
+        stroke="#130000"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <Path
         d="M19 13C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12C18 12.5523 18.4477 13 19 13Z"
-        stroke="#8B9399"
+        stroke="#130000"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <Path
         d="M5 13C5.55228 13 6 12.5523 6 12C6 11.4477 5.55228 11 5 11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13Z"
-        stroke="#8B9399"
+        stroke="#130000"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -272,7 +272,7 @@ export const IconForward = ({width = 50, height = 50, color = 'black'}) => {
       xmlns="http://www.w3.org/2000/svg">
       <Path
         d="M1 9L5 5L1 1"
-        stroke="#823FFD"
+        stroke="#08978E"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
@@ -559,7 +559,7 @@ export const NavigationAuth = ({
       xmlns="http://www.w3.org/2000/svg">
       <Path
         d="M16.01 11H5C4.45 11 4 11.45 4 12C4 12.55 4.45 13 5 13H16.01V14.79C16.01 15.24 16.55 15.46 16.86 15.14L19.64 12.35C19.83 12.15 19.83 11.84 19.64 11.64L16.86 8.84996C16.55 8.52996 16.01 8.75996 16.01 9.19996V11Z"
-        fill="#DB3022"
+        fill="#08978E"
       />
     </Svg>
   );
@@ -3254,7 +3254,7 @@ export const BackgroundColorShop = ({
     xmlns="http://www.w3.org/2000/svg">
     <Path
       d="M534 -109C534 84.2997 377.3 241 184 241C-9.29967 241 -166 84.2997 -166 -109C-166 -302.3 -9.29967 -459 184 -459C377.3 -459 534 -302.3 534 -109Z"
-      fill="#3B5998"
+      fill="#08978E"
     />
   </Svg>
 );

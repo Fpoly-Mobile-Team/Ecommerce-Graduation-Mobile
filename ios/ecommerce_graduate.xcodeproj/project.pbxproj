@@ -16,7 +16,7 @@
 		3A8018EBB7694D8CA47CCFB3 /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F87B39DBE7BA439AA773C483 /* Quicksand-Light.ttf */; };
 		43702CC3D2E64FDC8B125C61 /* Quicksand-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10E5B50AC0A24586B8258DA7 /* Quicksand-SemiBold.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		E50E87AD26FA5BFA004A2912 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50E87AC26FA5BFA004A2912 /* File.swift */; };
+		E52491B7271C2936005991FC /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52491B6271C2936005991FC /* File.swift */; };
 		E58CBC04D7CC4F449303FBE1 /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBA20FF03F5E4558A09D85C1 /* Quicksand-Regular.ttf */; };
 		E5A42C8827008B3E00E8D37E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5A42C8727008B3E00E8D37E /* GoogleService-Info.plist */; };
 		E6098A3785994DF481AC39E0 /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC491554A0E34E4E822E448C /* Quicksand-Medium.ttf */; };
@@ -70,7 +70,7 @@
 		E505869326E248F900962C56 /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		E505869426E248F900962C56 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		E50E87AB26FA5BFA004A2912 /* ecommerce_graduate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ecommerce_graduate-Bridging-Header.h"; sourceTree = "<group>"; };
-		E50E87AC26FA5BFA004A2912 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		E52491B6271C2936005991FC /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		E53055E41040246BEB8A37B5 /* Pods-ecommerce_graduate-ecommerce_graduateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ecommerce_graduate-ecommerce_graduateTests.release.xcconfig"; path = "Target Support Files/Pods-ecommerce_graduate-ecommerce_graduateTests/Pods-ecommerce_graduate-ecommerce_graduateTests.release.xcconfig"; sourceTree = "<group>"; };
 		E5A42C8727008B3E00E8D37E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -124,8 +124,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				E50E87AC26FA5BFA004A2912 /* File.swift */,
 				E50E87AB26FA5BFA004A2912 /* ecommerce_graduate-Bridging-Header.h */,
+				E52491B6271C2936005991FC /* File.swift */,
 			);
 			name = ecommerce_graduate;
 			sourceTree = "<group>";
@@ -502,7 +502,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
-				E50E87AD26FA5BFA004A2912 /* File.swift in Sources */,
+				E52491B7271C2936005991FC /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,6 +575,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 280404CC534EFF677613B04E /* Pods-ecommerce_graduate.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -602,6 +603,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B9F7184ECADD9055219FAC69 /* Pods-ecommerce_graduate.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;

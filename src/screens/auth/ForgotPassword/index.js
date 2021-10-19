@@ -4,12 +4,15 @@ import {theme} from '@theme';
 import React, {useState} from 'react';
 import {Pressable, StatusBar} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useSelector} from 'react-redux';
 import styles from './styles';
 
 const Forgot = () => {
   const [email, setEmail] = useState();
   const navigation = useNavigation();
   const {top} = useSafeAreaInsets();
+
+  const config = useSelector(state => state.config?.data);
 
   return (
     <Block flex backgroundColor="background" paddingTop={top + 40}>
@@ -37,20 +40,12 @@ const Forgot = () => {
         />
       </Block>
       <Block marginTop={20} paddingHorizontal={12}>
-        <Button
-          title="GỬI XÁC NHẬN"
-          height={48}
-          shadow
-          backgroundColor={theme.colors.pink}
-          shadowColor={`${theme.colors.pink}80`}
-          elevation={10}
-          style={{borderRadius: 5}}
-        />
+        <Button title="GỬI XÁC NHẬN" height={48} shadow elevation={10} />
       </Block>
       <Block row marginTop={30} alignCenter justifyCenter>
         <Text color={theme.colors.black}>Bạn đã nhớ tài khoản? </Text>
         <Pressable onPress={() => navigation.goBack()}>
-          <Text color={theme.colors.pink} fontType="bold">
+          <Text color={config?.backgroundcolor} fontType="bold">
             {' '}
             Đăng nhập
           </Text>

@@ -18,6 +18,7 @@ import styles from './styles';
 const ProductStore = () => {
   const navigation = useNavigation();
   const banner = useSelector(state => state.banner?.data);
+  const config = useSelector(state => state.config?.data);
 
   const _renderBanner = () => {
     return (
@@ -44,7 +45,7 @@ const ProductStore = () => {
         <Pressable
           style={styles.wrapperTextVoucher}
           onPress={() => navigation.navigate(routes.PROMO_SCREEN)}>
-          <Text color="#823FFD" lineHeight={18}>
+          <Text color={config?.backgroundcolor} lineHeight={18}>
             Xem thêm
           </Text>
           <Block alignCenter justifyCenter paddingLeft={4}>
@@ -89,7 +90,7 @@ const ProductStore = () => {
         <Block backgroundColor={theme.colors.white}>
           <ProductRelated nameTitle="Sản phẩm bán chạy" />
         </Block>
-        <Block marginTop={10} backgroundColor={theme.colors.white}>
+        <Block marginVertical={10} backgroundColor={theme.colors.white}>
           <SellingProduct titleSelling="Tất cả sản phẩm" />
         </Block>
       </ScrollView>

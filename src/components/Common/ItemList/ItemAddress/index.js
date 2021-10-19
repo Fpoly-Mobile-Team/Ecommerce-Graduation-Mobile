@@ -4,6 +4,7 @@ import {theme} from '@theme';
 import {width} from '@utils/responsive';
 import React from 'react';
 import {Image} from 'react-native';
+import styles from './styles';
 
 const ItemAddress = ({title, address, phone, index, ic_default}) => {
   return (
@@ -27,11 +28,7 @@ const ItemAddress = ({title, address, phone, index, ic_default}) => {
               </Text>
               <Image
                 source={icons.flag}
-                style={{
-                  width: 18,
-                  height: 18,
-                  tintColor: 'red',
-                }}
+                style={styles.icon}
                 resizeMode="contain"
               />
             </Block>

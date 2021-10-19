@@ -7,7 +7,7 @@ import store from '@redux/store';
 axios.defaults.baseURL =
   Platform.OS === 'ios'
     ? Config.API_STAGING_SERVER_URL
-    : 'http://10.0.2.2:5000/';
+    : 'https://antsecm.herokuapp.com/';
 
 const getDataBody = config => {
   let data = '';

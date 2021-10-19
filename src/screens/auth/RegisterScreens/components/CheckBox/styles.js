@@ -1,20 +1,21 @@
+import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
-  btn: config => ({
+  button: {
     width: getSize.s(20),
     height: getSize.s(20),
-    borderRadius: getSize.s(20),
-    borderColor: config,
+    borderColor: theme.colors.smoke,
     borderWidth: 1,
+    borderRadius: getSize.s(5),
     alignItems: 'center',
     justifyContent: 'center',
-  }),
-  btnchild: config => ({
-    width: 12,
-    height: 12,
-    borderRadius: 12,
-    backgroundColor: config,
-  }),
+    overflow: 'hidden',
+  },
+  icon: {
+    width: getSize.s(15),
+    height: getSize.s(15),
+    tintColor: theme.colors.white,
+  },
 });

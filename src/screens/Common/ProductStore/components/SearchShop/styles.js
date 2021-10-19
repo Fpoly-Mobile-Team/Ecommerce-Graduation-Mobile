@@ -6,7 +6,7 @@ export default StyleSheet.create({
   iconSearch: {
     width: getSize.s(20),
     height: getSize.s(20),
-    tintColor: theme.colors.placeholder,
+    tintColor: theme.colors.white,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -17,7 +17,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     height: getSize.s(40),
-    color: theme.colors.placeholder,
+    color: theme.colors.white,
     fontFamily: theme.fonts.fontFamily.regular,
   },
 });
