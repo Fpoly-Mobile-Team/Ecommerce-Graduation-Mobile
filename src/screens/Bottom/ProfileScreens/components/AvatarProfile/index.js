@@ -1,19 +1,59 @@
 import {icons} from '@assets';
 import {Block, LazyImage, Text} from '@components';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Image, Pressable} from 'react-native';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {useImagePicker} from '@hooks';
 import styles from './styles';
-import {ModalBox} from '@components';
-import {CameraIcon, ImageIcon} from '@assets/svg/common';
-import {theme} from '@theme';
+import ImagePickerModal from '../ImagePickerModal';
+import actions from '@redux/actions';
+import storage from '@react-native-firebase/storage';
 
 const AvatarProfile = () => {
+  const dispatch = useDispatch();
   const userInfo = useSelector(state => state.userInfo?.data);
-  const picker = useImagePicker();
+  const user = useSelector(state => state.tokenUser?.data);
+  const {openPicker, openCamera, closeModal, picture, cleanUp} =
+    useImagePicker();
   const [isVisible, setIsVisible] = useState(false);
 
+  useEffect(() => {
+    setIsVisible(false);
+  }, [closeModal]);
+
+  useEffect(() => {
+    if (picture) {
+      const path = 'AvatarProfile/' + picture?.name;
+      return new Promise(async (res, rej) => {
+        const response = await fetch(picture?.uri);
+        const file = await response.blob();
+
+        let upload = storage().ref(path).put(file);
+
+        upload.on(
+          'state_changed',
+          snapshot => {},
+          err => {
+            rej(err);
+          },
+          async () => {
+            const url = await upload.snapshot.ref.getDownloadURL();
+
+            res(url);
+            dispatch({
+              type: actions.UPDATE_AVATAR,
+              body: {
+                id: user,
+                avatar: url,
+              },
+              user,
+              onFinish: () => cleanUp(),
+            });
+          },
+        );
+      });
+    }
+  }, [dispatch, user, picture]);
   return (
     <Block>
       <Block row marginTop={20} paddingHorizontal={12}>
@@ -25,13 +65,16 @@ const AvatarProfile = () => {
             thumbnailSource={{uri: userInfo?.avatar}}
             style={styles.avatar}
           />
-          <Pressable onPress={() => setIsVisible(isVisible)}>
-            <Image
-              source={icons.camera}
-              style={styles.iconCamera}
-              resizeMode="contain"
-            />
-          </Pressable>
+
+          <Block style={styles.wrapIconCamera}>
+            <Pressable onPress={() => setIsVisible(true)}>
+              <Image
+                source={icons.camera}
+                style={styles.iconCamera}
+                resizeMode="contain"
+              />
+            </Pressable>
+          </Block>
         </Block>
         <Block marginLeft={10}>
           <Text marginTop={10} size={16} fontType="semibold">
@@ -54,42 +97,11 @@ const AvatarProfile = () => {
           <Text>Đánh giá của tôi</Text>
         </Block>
       </Block>
-      <ModalBox
-        isVisible
-        containerStyle={styles.modalContainer}
-        children={
-          <Block
-            alignCenter
-            justifyCenter
-            row
-            marginHorizontal={20}
-            paddingBottom={25}
-            space="around">
-            <Pressable onPress={picker.openCamera}>
-              <Block alignCenter>
-                <Block
-                  backgroundColor={theme.colors.primaryColor}
-                  padding={15}
-                  radius={50}>
-                  <CameraIcon />
-                </Block>
-                <Text paddingTop={5}>Máy ảnh</Text>
-              </Block>
-            </Pressable>
-
-            <Pressable onPress={picker.openMultiPicker}>
-              <Block alignCenter>
-                <Block
-                  backgroundColor={theme.colors.primaryColor}
-                  padding={15}
-                  radius={50}>
-                  <ImageIcon />
-                </Block>
-                <Text paddingTop={5}>Thư viện</Text>
-              </Block>
-            </Pressable>
-          </Block>
-        }
+      <ImagePickerModal
+        isVisible={isVisible}
+        setIsVisible={setIsVisible}
+        openPicker={openPicker}
+        openCamera={openCamera}
       />
     </Block>
   );

@@ -45,4 +45,14 @@ export const logout = (state = stateDefault, action) => {
       return state;
   }
 };
-export const UserReducer = {login, register, tokenUser, logout, userInfo};
+export const upadte_avatar = (...props) => {
+  return reducerDefault(...props, Actions.UPDATE_AVATAR);
+};
+export const UserReducer = {
+  login,
+  register,
+  tokenUser,
+  logout,
+  userInfo,
+  upadte_avatar,
+};

@@ -26,6 +26,7 @@
     "@react-native-community/push-notification-ios": "^1.10.1",
     "@react-native-firebase/app": "^12.8.0",
     "@react-native-firebase/messaging": "^12.8.0",
+    "@react-native-firebase/storage": "^12.9.2",
     "@react-navigation/bottom-tabs": "^5.11.10",
     "@react-navigation/material-top-tabs": "^5.3.15",
     "@react-navigation/native": "^5.9.4",
