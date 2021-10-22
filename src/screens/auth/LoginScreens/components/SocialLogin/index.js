@@ -3,7 +3,10 @@ import {Block} from '@components';
 import {theme} from '@theme';
 import React from 'react';
 import ButtonSocial from '../ButtonSocial';
+import {useSocialLogin} from '@hooks';
+
 const SocialLogin = () => {
+  const {data, handleLoginFacebook, handleLoginGoogle} = useSocialLogin();
   return (
     <Block row alignCenter marginTop={20}>
       <ButtonSocial
