@@ -45,14 +45,23 @@ export const logout = (state = stateDefault, action) => {
       return state;
   }
 };
-export const upadte_avatar = (...props) => {
+export const update_avatar = (...props) => {
   return reducerDefault(...props, Actions.UPDATE_AVATAR);
 };
+export const loginFb = (...props) => {
+  return reducerDefault(...props, Actions.LOGIN_FACEBOOK);
+};
+export const loginGg = (...props) => {
+  return reducerDefault(...props, Actions.LOGIN_GOOGLE);
+};
+
 export const UserReducer = {
   login,
   register,
   tokenUser,
   logout,
   userInfo,
-  upadte_avatar,
+  update_avatar,
+  loginFb,
+  loginGg,
 };
