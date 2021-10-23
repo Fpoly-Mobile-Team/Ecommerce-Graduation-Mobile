@@ -7,4 +7,7 @@ export const category = (...props) => {
 export const categorySub = (...props) => {
   return reducerDefault(...props, Actions.GET_CATEGORY_SUB);
 };
-export const CategoryReducer = {category, categorySub};
+export const categoryHome = (...props) => {
+  return reducerDefault(...props, Actions.GET_CATEGORY_HOME);
+};
+export const CategoryReducer = {category, categorySub, categoryHome};
