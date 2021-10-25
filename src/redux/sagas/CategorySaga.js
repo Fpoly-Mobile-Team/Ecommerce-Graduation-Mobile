@@ -12,7 +12,15 @@ function* getCategoryAll() {
     yield put({type: _onFail(Actions.GET_CATEGORY_ALL)});
   }
 }
+function* getCategoryHome(actions) {
+  try {
+    const res = yield API.get('getCategories', actions.params);
 
+    yield put({type: _onSuccess(Actions.GET_CATEGORY_HOME), data: res.data});
+  } catch (error) {
+    yield put({type: _onFail(Actions.GET_CATEGORY_HOME)});
+  }
+}
 function* getCategorySub(actions) {
   try {
     const res = yield API.get('getCategories/getCategorySub', actions.params);
@@ -26,4 +34,5 @@ function* getCategorySub(actions) {
 export function* watchCategorySagas() {
   yield takeLatest(Actions.GET_CATEGORY_ALL, getCategoryAll);
   yield takeLatest(Actions.GET_CATEGORY_SUB, getCategorySub);
+  yield takeLatest(Actions.GET_CATEGORY_HOME, getCategoryHome);
 }

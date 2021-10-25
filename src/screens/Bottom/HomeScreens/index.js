@@ -15,6 +15,7 @@ import styles from './styles';
 const HomeScreens = () => {
   const dispatch = useDispatch();
   const banner = useSelector(state => state.banner?.data);
+  const categoryHome = useSelector(state => state.categoryHome?.data);
   const config = useSelector(state => state.config?.data);
   const scrollY = useRef(new Animated.Value(0)).current;
   const [refresh, setrefresh] = useState(false);
@@ -23,6 +24,19 @@ const HomeScreens = () => {
       setrefresh(true);
     }, 1000);
   };
+
+  useEffect(() => {
+    dispatch({
+      type: actions.GET_CATEGORY_HOME,
+      params: {
+        p: 1,
+        numshow: 5,
+      },
+    });
+  }, [dispatch]);
+  console.log('====================================');
+  console.log('logg', categoryHome);
+  console.log('====================================');
 
   useEffect(() => {
     dispatch({type: actions.GET_BANNER});
@@ -65,7 +79,7 @@ const HomeScreens = () => {
           marginBottom={10}
           backgroundColor={theme.colors.smoke}
         />
-        <FeaturedCategory />
+        <FeaturedCategory data={categoryHome} />
         <Block
           height={8}
           marginBottom={10}

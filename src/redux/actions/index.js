@@ -15,6 +15,7 @@ export default {
   UPDATE_AVATAR: 'UPDATE_AVATAR',
   LOGIN_FACEBOOK: 'LOGIN_FACEBOOK',
   LOGIN_GOOGLE: 'LOGIN_GOOGLE',
+  GET_CATEGORY_HOME: 'GET_CATEGORY_HOME',
 };
 
 export function _onSuccess(action) {
