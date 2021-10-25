@@ -34,9 +34,6 @@ const HomeScreens = () => {
       },
     });
   }, [dispatch]);
-  console.log('====================================');
-  console.log('logg', categoryHome);
-  console.log('====================================');
 
   useEffect(() => {
     dispatch({type: actions.GET_BANNER});
