@@ -40,7 +40,7 @@ const Empty = ({
           <LinearGradient
             start={{x: 0, y: 0}}
             end={{x: 1, y: 0}}
-            colors={config?.backgroundcolor}
+            colors={[config?.backgroundcolor,config?.backgroundcolor]}
             style={styles.button}>
             <Text center color="white">
               {contentMore}
