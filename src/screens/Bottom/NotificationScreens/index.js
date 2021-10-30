@@ -12,7 +12,9 @@ import {routes} from '@navigation/routes';
 const NotificationScreens = () => {
   const navigation = useNavigation();
   const user = useSelector(state => state.tokenUser?.data);
-  const onPress = () =>{navigation.navigate(routes.PROFILESCREENS)}
+  const onPress = () => {
+    navigation.navigate(routes.AUTHFORSCREEN);
+  };
   const renderItem = ({item}) => (
     <ItemNotification
       image={item.Image}
@@ -37,7 +39,8 @@ const NotificationScreens = () => {
         <Empty
           lottie={lottie.emptyNotification}
           content="Vui lòng đăng nhập để nhận thông báo!"
-          contentMore="Đăng nhập ngay" onPress={onPress}
+          contentMore="Đăng nhập ngay"
+          onPress={onPress}
           // onPress={() => navigation.navigate(routes.PROFILESCREENS)}
           // onPress={() => console.log('ádasdasdasd')}
         />
