@@ -73,9 +73,7 @@ export const reducerSearch = (state = stateSearch, action, actionName) => {
       };
     case _onSearch(actionName): {
       const newData = state.dataTmp?.filter(item => {
-        const itemData = item.title
-          ? item.title.toUpperCase()
-          : ''.toUpperCase();
+        const itemData = item.name ? item.name.toUpperCase() : ''.toUpperCase();
         const textData = action.keyword.toUpperCase();
         return itemData.indexOf(textData) > -1;
       });

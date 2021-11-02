@@ -116,6 +116,8 @@ const RootStack = () => {
           <Stack.Screen
             name={routes.PROFILESCREENS}
             component={bottom.PROFILESCREENS}
+          />
+          <Stack.Screen
             name={routes.POPUP_SCREEN}
             component={common.POPUP_SCREEN}
             options={{
@@ -124,6 +126,10 @@ const RootStack = () => {
                 backgroundColor: 'rgba(0,0,0,.4)',
               },
             }}
+          />
+          <Stack.Screen
+            name={routes.CHOOSE_A_DELIVERY_ADDRESS_SCREEN}
+            component={common.CHOOSE_A_DELIVERY_ADDRESS_SCREEN}
           />
         </Stack.Navigator>
       )}
