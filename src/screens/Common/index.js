@@ -8,7 +8,7 @@ import PromoScreen from './ProductStore/navigation/PromoScreen';
 import ProductStore from './ProductStore';
 import PopupScreen from './PopupScreen';
 import ChooseADeliveryAddressScreen from './AddressScreen/navigation/ChooseADeliveryAddressScreen';
-
+import MyselfInformation from './MyselfInformation';
 export const common = {
   PRODUCT_DETAILS: ProductDetails,
   CARTSCREENS: CartScreens,
@@ -20,4 +20,5 @@ export const common = {
   PRODUCT_STORE: ProductStore,
   POPUP_SCREEN: PopupScreen,
   CHOOSE_A_DELIVERY_ADDRESS_SCREEN: ChooseADeliveryAddressScreen,
+  MYSELFINFOMATION: MyselfInformation,
 };

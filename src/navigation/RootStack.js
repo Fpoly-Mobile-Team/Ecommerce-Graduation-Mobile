@@ -118,6 +118,10 @@ const RootStack = () => {
             component={bottom.PROFILESCREENS}
           />
           <Stack.Screen
+            name={routes.MYSELFINFOMATION}
+            component={common.MYSELFINFOMATION}
+          />
+          <Stack.Screen
             name={routes.POPUP_SCREEN}
             component={common.POPUP_SCREEN}
             options={{
