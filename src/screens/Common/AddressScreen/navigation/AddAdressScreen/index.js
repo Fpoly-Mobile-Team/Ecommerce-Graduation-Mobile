@@ -137,7 +137,6 @@ const AddAddressScreen = ({route}) => {
             containerInputStyle={styles.containerInputStyle}
             labelStyle={styles.label}
             inputStyle={styles.inputStyle}
-            keyboardType="phone-pad"
             placeholder="Tên đường, Toà nhà, Số nhà."
             onChangeText={() => {}}
           />
