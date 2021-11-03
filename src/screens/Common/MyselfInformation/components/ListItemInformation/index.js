@@ -20,7 +20,7 @@ const ListItemInformation = () => {
             <ListItem.Title style={styles.title}>Ngày sinh</ListItem.Title>
           </ListItem.Content>
           <Text size={13} fontType={'medium'} color={theme.colors.gray}>
-            {userInfo?.birthday === ' ' ? (
+            {userInfo?.birthday ? (
               userInfo?.birthday
             ) : (
               <Text
@@ -32,17 +32,18 @@ const ListItemInformation = () => {
               </Text>
             )}
           </Text>
-
-          {userInfo?.birthday === ' ' ? (
-            ' '
-          ) : (
-            <Block paddingTop={7}>
-              <Pressable
-                onPress={() => navigation.navigate(routes.SECURITY_SCREEN)}>
-                <ChevronRight width={20} height={20} />
-              </Pressable>
-            </Block>
-          )}
+          <Text>
+            {userInfo?.birthday ? (
+              ' '
+            ) : (
+              <Block paddingTop={7}>
+                <Pressable
+                  onPress={() => navigation.navigate(routes.SECURITY_SCREEN)}>
+                  <ChevronRight width={20} height={20} />
+                </Pressable>
+              </Block>
+            )}
+          </Text>
         </ListItem>
 
         <ListItem style={styles.item}>
@@ -50,7 +51,7 @@ const ListItemInformation = () => {
             <ListItem.Title style={styles.title}>Giới tính</ListItem.Title>
           </ListItem.Content>
           <Text size={13} fontType={'medium'} color={theme.colors.gray}>
-            {userInfo?.gender === ' ' ? (
+            {userInfo?.gender ? (
               userInfo?.gender
             ) : (
               <Text
@@ -63,17 +64,18 @@ const ListItemInformation = () => {
               </Text>
             )}
           </Text>
-
-          {userInfo?.gender === ' ' ? (
-            ' '
-          ) : (
-            <Block paddingTop={7}>
-              <Pressable
-                onPress={() => navigation.navigate(routes.SECURITY_SCREEN)}>
-                <ChevronRight width={20} height={20} />
-              </Pressable>
-            </Block>
-          )}
+          <Text>
+            {userInfo?.gender ? (
+              ' '
+            ) : (
+              <Block paddingTop={7}>
+                <Pressable
+                  onPress={() => navigation.navigate(routes.SECURITY_SCREEN)}>
+                  <ChevronRight width={20} height={20} />
+                </Pressable>
+              </Block>
+            )}
+          </Text>
         </ListItem>
 
         <ListItem style={styles.item}>
@@ -96,6 +98,7 @@ const ListItemInformation = () => {
           <Text size={13} fontType={'medium'} color={theme.colors.gray}>
             {userInfo?.email}
           </Text>
+          <Block paddingTop={7}></Block>
         </ListItem>
       </Block>
 
@@ -105,7 +108,7 @@ const ListItemInformation = () => {
             <ListItem.Title style={styles.title}>Địa chỉ</ListItem.Title>
           </ListItem.Content>
           <Text size={13} fontType={'medium'} color={theme.colors.gray}>
-            {userInfo?.address === '' ? (
+            {/* {userInfo?.address ? (
               userInfo?.address
             ) : (
               <Text
@@ -115,17 +118,17 @@ const ListItemInformation = () => {
                 color={theme.colors.lightGray}>
                 Thiết lập ngay
               </Text>
-            )}
+            )} */}
           </Text>
           <Block paddingTop={7}>
-            {userInfo?.address === ' ' ? (
+            {/* {userInfo?.address ? (
               ' '
             ) : (
               <Pressable
                 onPress={() => navigation.navigate(routes.ADD_ADDRESS_SCREEN)}>
                 <ChevronRight width={20} height={20} />
               </Pressable>
-            )}
+            )} */}
           </Block>
         </ListItem>
 

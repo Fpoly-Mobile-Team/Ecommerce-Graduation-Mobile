@@ -15,7 +15,7 @@ const MyselfInformation = () => {
       <Header canGoBack title="Hồ sơ của tôi" />
       <Block flex>
         <Block marginTop={getSize.s(-27)}>
-          <BackgroundColorShop width={width} height={getSize.s(199)} />
+          <BackgroundColorShop width={width} height={getSize.s(180)} />
         </Block>
         <Block absolute top={12} paddingHorizontal={10}>
           <Block row marginTop={20} paddingHorizontal={30}>
