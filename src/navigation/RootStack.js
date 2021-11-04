@@ -128,6 +128,10 @@ const RootStack = () => {
             }}
           />
           <Stack.Screen
+            name={routes.PRODUCT_REVIEWS}
+            component={common.PRODUCTS_REVIEW}
+          />
+          <Stack.Screen
             name={routes.CHOOSE_A_DELIVERY_ADDRESS_SCREEN}
             component={common.CHOOSE_A_DELIVERY_ADDRESS_SCREEN}
           />
