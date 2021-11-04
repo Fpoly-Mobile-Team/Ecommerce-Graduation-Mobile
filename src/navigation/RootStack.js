@@ -131,6 +131,10 @@ const RootStack = () => {
             name={routes.CHOOSE_A_DELIVERY_ADDRESS_SCREEN}
             component={common.CHOOSE_A_DELIVERY_ADDRESS_SCREEN}
           />
+          <Stack.Screen
+            name={routes.LIST_PRODUCTS}
+            component={bottom.LIST_PRODUCTS}
+          />
         </Stack.Navigator>
       )}
     </NavigationContainer>

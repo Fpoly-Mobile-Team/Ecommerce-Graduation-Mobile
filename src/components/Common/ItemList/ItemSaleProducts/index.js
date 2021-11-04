@@ -9,7 +9,7 @@ import {Image, Pressable} from 'react-native';
 import {Rating} from 'react-native-elements';
 import styles from './styles';
 
-const ItemProduct = React.memo(
+const ItemSaleProducts = React.memo(
   ({style, images, nameProduct, left, price, productSold, sellOff}) => {
     const navigation = useNavigation();
     const promotionalPrice = price * sellOff;
@@ -52,54 +52,20 @@ const ItemProduct = React.memo(
           <Block paddingHorizontal={3}>
             <Text
               flex
-              numberOfLines={2}
+              numberOfLines={1}
               marginBottom={5}
-              size={16}
+              size={15}
               fontType="bold">
               {nameProduct}
             </Text>
-            {sellOff !== 0 && (
-              <Text
-                color={theme.colors.red}
-                marginBottom={5}
-                size={15}
-                fontType="medium">
-                {Currency(promotionalPrice)}
-              </Text>
-            )}
 
-            <Block row alignCenter marginBottom={5}>
-              {sellOff === 0 ? (
-                <Text color={theme.colors.red} size={15} fontType="medium">
-                  {Currency(price)}
-                </Text>
-              ) : (
-                <>
-                  <Text
-                    fontType="light"
-                    size={12}
-                    color={theme.colors.lightGray}
-                    style={styles.txtunderprice}>
-                    {Currency(price)}
-                  </Text>
-                  <Block
-                    alignCenter
-                    justifyCenter
-                    radius={2}
-                    paddingHorizontal={2}
-                    marginLeft={10}
-                    backgroundColor={theme.colors.sell}>
-                    <Text
-                      center
-                      color={theme.colors.white}
-                      size={12}
-                      fontType="semibold">
-                      {sellOff * 100}%
-                    </Text>
-                  </Block>
-                </>
-              )}
-            </Block>
+            <Text
+              color={theme.colors.red}
+              marginBottom={5}
+              size={15}
+              fontType="medium">
+              {Currency(promotionalPrice)}
+            </Text>
 
             <Block row alignCenter space="between" alignEnd>
               <Block row alignCenter>
@@ -119,4 +85,4 @@ const ItemProduct = React.memo(
   },
 );
 
-export default ItemProduct;
+export default ItemSaleProducts;
