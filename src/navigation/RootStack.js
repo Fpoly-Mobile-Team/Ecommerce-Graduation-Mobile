@@ -24,7 +24,7 @@ const RootStack = () => {
       {config && (
         <Stack.Navigator
           mode="modal"
-          initialRouteName={routes.BOTTOMTABBAR}
+          initialRouteName={routes.MYSELFINFOMATION}
           screenOptions={{
             headerShown: false,
           }}>

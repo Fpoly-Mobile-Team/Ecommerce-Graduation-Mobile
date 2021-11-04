@@ -15,9 +15,9 @@ const MyselfInformation = () => {
       <Header canGoBack title="Hồ sơ của tôi" />
       <Block flex>
         <Block marginTop={getSize.s(-27)}>
-          <BackgroundColorShop width={width} height={getSize.s(180)} />
+          <BackgroundColorShop width={width} height={getSize.s(190)} />
         </Block>
-        <Block absolute top={12} paddingHorizontal={10}>
+        <Block absolute top={7} paddingHorizontal={10}>
           <Block row marginTop={20} paddingHorizontal={30}>
             <Block alignCenter justifyCenter width={80} height={80}>
               <LazyImage
