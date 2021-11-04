@@ -21,6 +21,8 @@ export default {
   GET_WARD: 'GET_WARD',
   ADD_ADDRESS: 'ADD_ADDRESS',
   ADD_ADDRESS_DEFAULT: 'ADD_ADDRESS_DEFAULT',
+  GET_PRODUCT: 'GET_PRODUCT',
+  GET_PRODUCT_SALE: 'GET_PRODUCT_SALE',
 };
 
 export function _onSuccess(action) {

@@ -12,6 +12,8 @@ import Empty from './Empty';
 import ModalBox from './ModalBox';
 import Shimmer from './Shimmer';
 import LazyImage from './LazyImage';
+import LoadMore from './LoadMore';
+
 export {
   Block,
   Text,
@@ -27,4 +29,5 @@ export {
   ModalBox,
   Shimmer,
   LazyImage,
+  LoadMore,
 };

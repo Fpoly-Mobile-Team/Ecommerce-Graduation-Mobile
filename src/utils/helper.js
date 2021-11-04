@@ -5,5 +5,5 @@ export const Toast = string => {
 };
 
 export const Currency = value => {
-  return `${value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} đ`;
+  return `${value?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} đ`;
 };
