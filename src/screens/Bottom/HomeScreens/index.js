@@ -16,9 +16,11 @@ const HomeScreens = () => {
   const dispatch = useDispatch();
   const banner = useSelector(state => state.banner?.data);
   const categoryHome = useSelector(state => state.categoryHome?.data);
+  const product = useSelector(state => state.product?.data);
   const config = useSelector(state => state.config?.data);
   const scrollY = useRef(new Animated.Value(0)).current;
   const [refresh, setrefresh] = useState(false);
+
   const _onRefresh = () => {
     setTimeout(() => {
       setrefresh(true);
@@ -37,6 +39,16 @@ const HomeScreens = () => {
 
   useEffect(() => {
     dispatch({type: actions.GET_BANNER});
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch({
+      type: actions.GET_PRODUCT,
+      params: {
+        p: 1,
+        numshow: 12,
+      },
+    });
   }, [dispatch]);
 
   return (
@@ -69,7 +81,7 @@ const HomeScreens = () => {
           {banner && <Carousel data={banner} />}
         </Block>
         <CategoryHighlights />
-        <FlashSale />
+        {product && <FlashSale data={product} />}
         <Block
           height={8}
           marginTop={10}
@@ -88,7 +100,7 @@ const HomeScreens = () => {
         <Block paddingHorizontal={12}>
           {banner && <Carousel data={banner} />}
         </Block>
-        <SellingProduct />
+        {product && <SellingProduct data={product} />}
       </Animated.ScrollView>
     </Block>
   );

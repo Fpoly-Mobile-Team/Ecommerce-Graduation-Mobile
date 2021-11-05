@@ -16,6 +16,13 @@ export default {
   LOGIN_FACEBOOK: 'LOGIN_FACEBOOK',
   LOGIN_GOOGLE: 'LOGIN_GOOGLE',
   GET_CATEGORY_HOME: 'GET_CATEGORY_HOME',
+  GET_PROVINCE: 'GET_PROVINCE',
+  GET_DISTRICT: 'GET_DISTRICT',
+  GET_WARD: 'GET_WARD',
+  ADD_ADDRESS: 'ADD_ADDRESS',
+  ADD_ADDRESS_DEFAULT: 'ADD_ADDRESS_DEFAULT',
+  GET_PRODUCT: 'GET_PRODUCT',
+  GET_PRODUCT_SALE: 'GET_PRODUCT_SALE',
 };
 
 export function _onSuccess(action) {
@@ -26,4 +33,7 @@ export function _onFail(action) {
 }
 export function _onUnmount(action) {
   return action + '_UNMOUNT';
+}
+export function _onSearch(action) {
+  return action + '_SEARCH';
 }

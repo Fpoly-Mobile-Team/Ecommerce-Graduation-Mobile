@@ -1,13 +1,13 @@
-import {Block, Header, Text, Empty} from '@components';
+import {lottie} from '@assets';
+import {Block, Empty, Header} from '@components';
+import ItemNotification from '@components/Common/ItemList/ItemNotification';
+import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/core';
+import {theme} from '@theme';
 import React from 'react';
 import {FlatList} from 'react-native';
-import ItemNotification from '@components/Common/ItemList/ItemNotification';
-import {data} from './components/data';
-import {theme} from '@theme';
 import {useSelector} from 'react-redux';
-import {lottie} from '@assets';
-import {routes} from '@navigation/routes';
+import {data} from './components/data';
 
 const NotificationScreens = () => {
   const navigation = useNavigation();

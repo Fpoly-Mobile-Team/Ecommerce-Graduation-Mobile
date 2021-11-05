@@ -53,7 +53,7 @@ const AvatarProfile = () => {
         );
       });
     }
-  }, [dispatch, user, picture]);
+  }, [dispatch, user, picture, cleanUp]);
   return (
     <Block>
       <Block row marginTop={20} paddingHorizontal={12}>

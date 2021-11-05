@@ -12,6 +12,7 @@ import TermOfUseScreen from './ProfileScreens/navigation/ProgrammingAccountScree
 import IntroduceScreen from './ProfileScreens/navigation/ProgrammingAccountScreen/navigation/IntroduceScreen';
 import IntroduceDetail from './ProfileScreens/navigation/ProgrammingAccountScreen/navigation/IntroduceScreen/navigation/IntroduceDetails';
 import ChatBox from './ChatScreens/navigation/ChatBoxScreen';
+import ListProducts from './HomeScreens/navigation/ListProducts';
 
 export const bottom = {
   HOMESCREENS: HomeScreens,
@@ -28,4 +29,5 @@ export const bottom = {
   INTRODUCE_SCREEN: IntroduceScreen,
   INTRODUCE_DETAIL: IntroduceDetail,
   CHATBOX: ChatBox,
+  LIST_PRODUCTS: ListProducts,
 };
