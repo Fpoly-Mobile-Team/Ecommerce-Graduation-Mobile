@@ -1,111 +1,138 @@
-/* eslint-disable react-native/no-inline-styles */
-import {icons} from '@assets';
-import {Block, Text} from '@components';
 import {theme} from '@theme';
-import React from 'react';
-import {Image, TextInput} from 'react-native';
+import {getSize} from '@utils/responsive';
+import {isEmpty} from 'lodash';
+import React, {useState} from 'react';
+import {Image, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Block from '../Block';
+import Text from '../Text';
 import styles from './styles';
 
-const InputText = ({
-  setRef,
-  iconLeft,
-  testLeft,
-  testStyle,
-  placeholder,
-  keyboardType,
-  onChangeText,
-  onChange,
-  value,
-  style,
-  containerStyle,
-  inputStyle,
-  isSecure,
-  isError,
-  errorText,
-  errorContainerStyle,
-  contentRight,
-  errorTextStyles,
-  onFocus,
-  returnKeyType,
-  onSubmitEditing,
-  colorErr,
-  colorNotErr,
-}) => {
-  const ColorErr = colorErr || theme.colors.red;
-  const ColorNotErr = colorNotErr || theme.colors.smoke;
+const InputText = ({...props}) => {
+  const {
+    ref,
+    label,
+    labelStyle,
+    containerInputStyle,
+    fontType,
+    color,
+    size,
+    isSecure,
+    rightIcon,
+    leftIcon,
+    maxHeight,
+    maxLength,
+    inputStyle,
+    errorText,
+    isError,
+    disabled,
+    errorContainerStyle,
+    rightstyle,
+    ...inputProps
+  } = props;
+  const [secureEye, setSecureEye] = useState(true);
+
+  const textStyle = [
+    styles.resetStyles,
+    fontType && {
+      fontFamily: theme.fonts.fontFamily[fontType],
+    },
+    !fontType && {fontFamily: theme.fonts.fontFamily.regular},
+    color && {color: theme.colors[color]},
+    color && !theme.colors[color] && {color: color},
+    !color && {color: theme.colors.text},
+    styles.defaultStyles,
+    (rightIcon || isSecure) && {paddingRight: getSize.m(50)},
+    props.multiline && maxHeight ? {maxHeight} : {height: getSize.m(21) * 2},
+    leftIcon && {paddingLeft: getSize.m(38)},
+    {fontSize: getSize.m(size ? size : 14)},
+    {...StyleSheet.flatten(inputProps.style)},
+  ];
+
+  const _renderSecureIcon = () => {
+    return (
+      <TouchableOpacity
+        style={{...styles.rightIcon, ...rightstyle}}
+        hitSlop={{left: 5, right: 5, bottom: 5, top: 5}}
+        onPress={() => setSecureEye(!secureEye)}>
+        <FontAwesomeIcon
+          name={secureEye ? 'eye-slash' : 'eye'}
+          color={theme.colors.text}
+          size={getSize.m(14)}
+        />
+      </TouchableOpacity>
+    );
+  };
+
+  const _renderLabel = () => (
+    <Text marginBottom={5} style={labelStyle}>
+      {label}
+    </Text>
+  );
 
   const _renderError = () => (
-    <Block
-      row
-      alignCenter
-      paddingVertical={5}
-      paddingHorizontal={15}
-      style={errorContainerStyle}>
-      <Image
-        source={icons.warning}
-        resizeMode="contain"
-        style={styles.icoWarning}
+    <Block row alignCenter paddingVertical={3} style={errorContainerStyle}>
+      <Ionicons
+        name="ios-warning"
+        color={theme.colors.red}
+        size={getSize.m(11)}
       />
-      <Text
-        style={errorTextStyles}
-        marginLeft={5}
-        size={11}
-        color={theme.colors.red}>
+      <Text marginLeft={6} size={12} color={theme.colors.red}>
         {errorText}
       </Text>
     </Block>
   );
 
+  const _renderInput = () => {
+    return (
+      <TextInput
+        ref={ref}
+        autoCorrect={false}
+        textAlignVertical={props.multiline ? 'top' : 'center'}
+        placeholder={!isEmpty(label) && leftIcon ? props.placeholder : ''}
+        placeholderTextColor={theme.colors.placeholder}
+        underlineColorAndroid="transparent"
+        autoCapitalize="none"
+        secureTextEntry={secureEye && isSecure}
+        maxLength={maxLength}
+        style={textStyle}
+        editable={!disabled}
+        {...inputProps}
+      />
+    );
+  };
+
   return (
-    <Block style={containerStyle}>
-      <Block
-        row
-        flex
-        alignCenter
-        paddingHorizontal={12}
-        radius={45}
-        backgroundColor="white"
-        borderWidth={0.5}
-        borderColor={isError ? ColorErr : ColorNotErr}
-        style={style}>
-        {testLeft || iconLeft ? (
-          <Block row alignCenter>
-            {iconLeft && (
-              <Image
-                source={iconLeft}
-                resizeMode={'contain'}
-                style={{
-                  ...styles.iconLeft,
-                  tintColor: isError ? theme.colors.red : theme.colors.grays,
-                }}
-              />
-            )}
-            <Text
+    <>
+      <Block flexShrink style={containerInputStyle}>
+        {!isEmpty(label) && _renderLabel()}
+        <Block
+          style={[
+            styles.inputContainer,
+            {
+              borderColor: isError ? theme.colors.red : theme.colors.lightGray,
+            },
+            StyleSheet.flatten(inputStyle),
+          ]}>
+          {leftIcon && (
+            <Image
+              source={leftIcon}
+              resizeMode="contain"
               style={{
-                ...testStyle,
-              }}>
-              {testLeft}
-            </Text>
-          </Block>
-        ) : null}
-        <TextInput
-          ref={setRef}
-          style={{flex: 1, ...inputStyle}}
-          secureTextEntry={isSecure}
-          placeholder={placeholder}
-          keyboardType={keyboardType}
-          placeholderTextColor={theme.colors.placeholder}
-          value={value}
-          onChangeText={text => onChangeText(text)}
-          onFocus={onFocus}
-          onChange={onChange}
-          returnKeyType={returnKeyType}
-          onSubmitEditing={onSubmitEditing}
-        />
-        {contentRight && contentRight()}
+                ...styles.leftIcon,
+                tintColor: isError
+                  ? theme.colors.red
+                  : theme.colors.placeholder,
+              }}
+            />
+          )}
+          {_renderInput()}
+          {isSecure ? _renderSecureIcon() : rightIcon && rightIcon()}
+        </Block>
       </Block>
       {isError && Boolean(errorText) && _renderError()}
-    </Block>
+    </>
   );
 };
 

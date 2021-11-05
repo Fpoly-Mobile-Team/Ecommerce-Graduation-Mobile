@@ -1,5 +1,5 @@
 import {theme} from '@theme';
-import {getSize} from '@utils/responsive';
+import {getSize, height} from '@utils/responsive';
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
@@ -11,10 +11,13 @@ export default StyleSheet.create({
     borderWidth: 2,
   },
   iconCamera: {
-    position: 'absolute',
     width: getSize.s(20),
     height: getSize.s(20),
-    bottom: getSize.m(5),
-    left: getSize.m(20),
+  },
+  wrapIconCamera: {
+    position: 'absolute',
+    bottom: getSize.m(0),
+    right: getSize.m(5),
+    
   },
 });

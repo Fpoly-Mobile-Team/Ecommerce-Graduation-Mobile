@@ -41,10 +41,23 @@ export const icons = {
   delivery_box: require('./icons/delivery_box.png'),
   vouncher: require('./icons/vouncher.png'),
   check_blank: require('./icons/check_blank.png'),
+  google: require('./icons/google.png'),
+  facebook: require('./icons/facebook.png'),
+  flag: require('./icons/flag.png'),
+  caret_down: require('./icons/caret_down.png'),
+  close: require('./icons/close.png'),
 };
 
 export const images = {
   thumnail: require('./images/thumnail.jpg'),
   sale: require('./images/sale.jpg'),
   masterCard: require('./images/masterCard.png'),
+  logo: require('./images/logo.png'),
+  avatar: require('./images/avatar.jpg'),
+  otpphone: require('./images/otpphone.png'),
+  otpcode: require('./images/otpcode.png'),
+};
+export const lottie = {
+  emptyCategory: require('./lottie/emptyCategory.json'),
+  emptyNotification: require('./lottie/emptyNotification.json'),
 };

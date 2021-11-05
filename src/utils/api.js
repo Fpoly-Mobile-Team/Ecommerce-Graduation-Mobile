@@ -1,9 +1,13 @@
 import axios from 'axios';
+import {Platform} from 'react-native';
 import Config from 'react-native-config';
-import store from 'redux/store';
+import store from '@redux/store';
 
 // axios.defaults.baseURL = Config.API_SERVER_URL;
-axios.defaults.baseURL = Config.API_STAGING_SERVER_URL;
+axios.defaults.baseURL =
+  Platform.OS === 'ios'
+    ? Config.API_STAGING_SERVER_URL
+    : 'https://antsecm.herokuapp.com/';
 
 const getDataBody = config => {
   let data = '';

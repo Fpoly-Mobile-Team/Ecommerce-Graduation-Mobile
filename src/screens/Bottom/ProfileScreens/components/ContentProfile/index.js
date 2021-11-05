@@ -7,6 +7,7 @@ import {width} from '@utils/responsive';
 import React from 'react';
 import {Image, Pressable} from 'react-native';
 import {DATA, DATABILL} from '../data';
+import {useSelector} from 'react-redux';
 import styles from './styles';
 
 const ContentProfile = () => {
@@ -18,6 +19,7 @@ const ContentProfile = () => {
 };
 
 const ActionsButton = (item, index) => {
+  const config = useSelector(state => state.config?.data);
   const navigation = useNavigation();
 
   return (
@@ -28,21 +30,30 @@ const ActionsButton = (item, index) => {
         paddingHorizontal={12}
         paddingVertical={12}
         space="between">
-        <Block row alignCenter>
-          {item.id !== '1' && (
-            <Image
-              source={item.image}
-              style={styles.icon}
-              resizeMode="contain"
-            />
-          )}
-          <Text fontType={item.id === '1' ? 'bold' : 'regular'}>
-            {item.title}
-          </Text>
-        </Block>
+        <Pressable
+          onPress={() =>
+            item.id !== '1'
+              ? navigation.navigate(item.navigation, {title: item.title})
+              : {}
+          }>
+          <Block row alignCenter>
+            {item.id !== '1' && (
+              <Image
+                source={item.image}
+                style={styles.icon}
+                resizeMode="contain"
+              />
+            )}
+            <Text fontType={item.id === '1' ? 'bold' : 'regular'}>
+              {item.title}
+            </Text>
+          </Block>
+        </Pressable>
         {item.id === '1' ? (
           <Pressable onPress={() => navigation.navigate(item.navigation)}>
-            <Text color={theme.colors.pink} fontType="semibold">
+            <Text
+              color={config?.backgroundcolor || theme.colors.pink}
+              fontType="semibold">
               XEM LỊCH SỬ
             </Text>
           </Pressable>
@@ -61,13 +72,18 @@ const ActionsButton = (item, index) => {
           {DATABILL.map(_renderItem)}
         </Block>
       )}
-      <Block height={8} width={width} backgroundColor={theme.colors.smoke} />
+      <Block
+        height={item.id === '1' ? 8 : 1}
+        width={width}
+        backgroundColor={theme.colors.smoke}
+      />
     </Block>
   );
 };
 
 const _renderItem = item => {
   const navigation = useNavigation();
+  const config = useSelector(state => state.config?.data);
   return (
     <Pressable
       key={item.id}
@@ -82,10 +98,10 @@ const _renderItem = item => {
           height={50}
           radius={50}
           marginBottom={10}
-          backgroundColor={`${theme.colors.pink}20`}>
+          backgroundColor={`${config?.backgroundcolor}20`}>
           <Image
             source={item.image}
-            style={styles.iconBill}
+            style={styles.iconBill(config?.backgroundcolor)}
             resizeMode="contain"
           />
         </Block>

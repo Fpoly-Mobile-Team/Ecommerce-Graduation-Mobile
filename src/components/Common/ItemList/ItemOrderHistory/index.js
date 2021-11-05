@@ -32,7 +32,9 @@ const ItemOrderHistory = ({
         <Text fontType="bold" size={17}>
           {name}
         </Text>
-        <Text color={theme.colors.lightGray}>{date}</Text>
+        <Text fontType="light" color={theme.colors.lightGray}>
+          {date}
+        </Text>
       </Block>
       <Text style={styles.containText}>
         <Text style={styles.label}>Cửa hàng:{'  '}</Text>

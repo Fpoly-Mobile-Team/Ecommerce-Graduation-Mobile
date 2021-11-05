@@ -5,10 +5,13 @@ import {width} from '@utils/responsive';
 import React from 'react';
 import {Image, Pressable} from 'react-native';
 import styles from './styles';
+import {routes} from '@navigation/routes';
+import {useNavigation} from '@react-navigation/native';
 
 const ChooseTypeProduct = () => {
+  const navigation = useNavigation();
   const ActionsButton = () => (
-    <Pressable>
+    <Pressable onPress={() => navigation.navigate(routes.CHATBOX)}>
       <Block
         width={(width - 24) * 0.13}
         radius={5}

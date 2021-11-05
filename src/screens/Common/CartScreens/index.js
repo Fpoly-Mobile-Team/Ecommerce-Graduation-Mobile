@@ -54,7 +54,7 @@ const CartScreen = () => {
         <Block paddingHorizontal={12}>
           <Button
             title="THANH TOÁN"
-            height={50}
+            height={48}
             style={styles.btnCheck}
             onPress={() =>
               navigation.navigate(routes.PAYMENTSCREEN, {

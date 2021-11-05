@@ -41,7 +41,7 @@ export const DATA = [
     id: '7',
     image: icons.accountprofile,
     title: 'Thiết lập tài khoản',
-    navigation: null,
+    navigation: routes.PROGRAMMING_ACCOUNT_SCREEN,
   },
 ];
 

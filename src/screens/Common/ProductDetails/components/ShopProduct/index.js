@@ -1,11 +1,15 @@
 import {icons} from '@assets';
 import {Block, Button, Text} from '@components';
 import ItemProduct from '@components/Common/ItemList/ItemProduct';
+import {routes} from '@navigation/routes';
 import {theme} from '@theme';
 import React from 'react';
 import {FlatList, Image, Platform, Pressable} from 'react-native';
 import styles from './styles';
+import {useNavigation} from '@react-navigation/native';
 
+const uri =
+  'https://scontent.fdad3-4.fna.fbcdn.net/v/t1.6435-9/131621153_835496243935495_7699482739742171687_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=0debeb&_nc_ohc=UVVSJqLEZkwAX8Uihvr&_nc_ht=scontent.fdad3-4.fna&oh=5caff79316561014d86e4e175b0cdc36&oe=6191B392';
 const data = [
   {
     image:
@@ -47,6 +51,7 @@ const _renderItem = ({item}) => (
 );
 
 const ShopProduct = () => {
+  const navigation = useNavigation();
   return (
     <Block marginBottom={10}>
       <Block paddingHorizontal={12}>
@@ -62,13 +67,13 @@ const ShopProduct = () => {
               borderColor={theme.colors.lightGray}>
               <Image
                 source={{
-                  uri: 'https://scontent-xsp1-2.cdninstagram.com/v/t51.2885-19/s150x150/154225644_444117673596788_4182489195005602161_n.jpg?tp=1&_nc_ht=scontent-xsp1-2.cdninstagram.com&_nc_ohc=M3kgpJvIPToAX-HCmRd&edm=AIQHJ4wBAAAA&ccb=7-4&oh=812fb23a30e3b9eb46ab8b47930e6343&oe=60EAF298&_nc_sid=7b02f1',
+                  uri,
                 }}
                 style={styles.avatarShop}
               />
             </Block>
             <Block justifyCenter marginLeft={10}>
-              <Text fontType="semibold">Võ Thanh Hoà</Text>
+              <Text fontType="bold">Thuỳ Dung</Text>
               <Block row alignCenter>
                 <Image
                   source={icons.location}
@@ -82,6 +87,7 @@ const ShopProduct = () => {
             </Block>
           </Block>
           <Button
+            onPress={() => navigation.navigate(routes.PRODUCT_STORE)}
             style={styles.btn}
             titleStyle={{color: theme.colors.pink}}
             title="Xem Shop"
@@ -119,7 +125,7 @@ const ShopProduct = () => {
 
       <Block paddingHorizontal={12} paddingTop={10}>
         <Block row alignCenter space="between">
-          <Text size={16} fontType="semibold">
+          <Text size={16} fontType="bold">
             Các sản phẩm khác của shop
           </Text>
           <Pressable>

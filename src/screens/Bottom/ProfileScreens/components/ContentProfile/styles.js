@@ -9,13 +9,13 @@ export default StyleSheet.create({
     marginRight: getSize.m(10),
   },
   iconArrow: {
-    width: getSize.s(14),
-    height: getSize.s(14),
+    width: getSize.s(10),
+    height: getSize.s(10),
     tintColor: theme.colors.gray,
   },
-  iconBill: {
+  iconBill: config => ({
     width: getSize.s(25),
     height: getSize.s(25),
-    tintColor: theme.colors.pink,
-  },
+    tintColor: config || theme.colors.pink,
+  }),
 });

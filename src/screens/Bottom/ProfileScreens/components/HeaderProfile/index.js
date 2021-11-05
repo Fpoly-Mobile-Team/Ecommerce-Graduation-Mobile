@@ -29,7 +29,7 @@ const HeaderProfile = () => {
           <Block row alignCenter space="between">
             <Block width={(width - 24) * 0.2} />
             <Block width={(width - 24) * 0.6} alignCenter>
-              <Text size={18} color={theme.colors.black} fontType="semibold">
+              <Text size={18} color={theme.colors.black} fontType="bold">
                 Cá nhân
               </Text>
             </Block>
@@ -48,7 +48,8 @@ const Cart = () => {
   const navigation = useNavigation();
   return (
     <Block row alignCenter space="between">
-      <Pressable>
+      <Pressable
+        onPress={() => navigation.navigate(routes.PROGRAMMING_ACCOUNT_SCREEN)}>
         <Block>
           <Image
             source={icons.settings}

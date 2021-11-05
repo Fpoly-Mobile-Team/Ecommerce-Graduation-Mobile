@@ -1,5 +1,3 @@
-import {Platform} from 'react-native';
-
 export const theme = {
   colors: {
     text: '#242424',
@@ -27,18 +25,28 @@ export const theme = {
     bgiconheader: '#24242480',
     lightRount: '#EFEFEF',
     purple: '#9966CC',
+    switchOn: '#f04141',
+    switchOff: '#f3adad',
+    bgSwitch: '#f3f3f3',
+    blueShop: '#3B5998',
+    primaryColor: '#08978E',
+    paleGreen: '#10A190',
   },
 
   fonts: {
     fontWeight: {
-      heavy: '700',
-      bold: 'bold',
-      semibold: Platform.OS === 'android' ? 'bold' : '600',
-      regular: 'normal',
+      bold: '700',
+      semibold: '600',
+      medium: '500',
+      regular: '400',
       light: '300',
     },
     fontFamily: {
-      default: Platform.OS === 'ios' ? 'System' : 'Roboto',
+      bold: 'Quicksand-Bold',
+      semibold: 'Quicksand-SemiBold',
+      medium: 'Quicksand-Medium',
+      regular: 'Quicksand-Regular',
+      light: 'Quicksand-Light',
     },
   },
 };

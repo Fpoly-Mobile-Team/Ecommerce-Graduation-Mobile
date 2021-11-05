@@ -1,11 +1,29 @@
 import {icons} from '@assets';
 import {Block, Text} from '@components';
+import actions from '@redux/actions';
 import {theme} from '@theme';
-import {getSize, width} from '@utils/responsive';
-import React from 'react';
+import {getSize, height, width} from '@utils/responsive';
+import React, {useEffect} from 'react';
 import {Image, Pressable, ScrollView} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import {UIActivityIndicator} from 'react-native-indicators';
 import styles from './styles';
+
 const RightBox = ({title}) => {
+  const dispatch = useDispatch();
+  const config = useSelector(state => state.config?.data);
+  const data = useSelector(state => state.categorySub?.data);
+  const isLoading = useSelector(state => state.categorySub?.isLoading);
+
+  useEffect(() => {
+    dispatch({
+      type: actions.GET_CATEGORY_SUB,
+      params: {
+        _id: title?._id,
+      },
+    });
+  }, [dispatch, title?._id]);
+
   const _renderItemImage = index => (
     <Pressable key={index}>
       <Block width={(width * 0.7 - 24.2) / 3} marginTop={10}>
@@ -20,10 +38,10 @@ const RightBox = ({title}) => {
       </Block>
     </Pressable>
   );
-  const _renderItem = index => {
+  const _renderItem = (item, index) => {
     return (
       <Block
-        key={index}
+        key={item._id}
         radius={5}
         paddingVertical={10}
         paddingHorizontal={6}
@@ -32,7 +50,7 @@ const RightBox = ({title}) => {
         <Pressable>
           <Block row alignCenter space="between">
             <Text size={13} numberOfLines={2} fontType="semibold">
-              Tã, Bỉm
+              {item.name}
             </Text>
             <Text size={11} color={theme.colors.pink}>
               Xem tất cả
@@ -62,14 +80,25 @@ const RightBox = ({title}) => {
           paddingHorizontal={12}
           space="between"
           backgroundColor={theme.colors.white}>
-          <Text fontType="semibold">{title}</Text>
+          <Text fontType="semibold">{title?.title}</Text>
           <Image
             source={icons.next}
-            style={{width: getSize.s(12), height: getSize.s(12)}}
+            style={styles.icon_Next}
             resizeMode="contain"
           />
         </Block>
-        {[1, 9, 3, 4, 11, 2, 34, 5, 8].map(_renderItem)}
+        <Block flex>
+          {!isLoading && data?.length ? (
+            <>{data[0]?.subCategory?.map(_renderItem)}</>
+          ) : (
+            <Block flex alignCenter justifyCenter height={height - 300}>
+              <UIActivityIndicator
+                size={getSize.s(20)}
+                color={config?.backgroundcolor || theme.colors.pink}
+              />
+            </Block>
+          )}
+        </Block>
       </Block>
     </ScrollView>
   );

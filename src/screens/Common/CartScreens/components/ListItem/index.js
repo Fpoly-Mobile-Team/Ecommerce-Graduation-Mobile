@@ -59,6 +59,8 @@ const DATA = [
     amount: '1',
   },
 ];
+const indexend = DATA.length - 1;
+
 const renderItem = ({item, index}) => {
   return (
     <ItemProductCart
@@ -67,6 +69,7 @@ const renderItem = ({item, index}) => {
       amount={item.amount}
       color={item.color}
       size={item.size}
+      isCheck={indexend === index}
     />
   );
 };

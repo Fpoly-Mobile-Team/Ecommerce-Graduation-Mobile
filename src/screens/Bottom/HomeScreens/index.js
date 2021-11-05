@@ -1,8 +1,10 @@
 import {Block, Carousel, Header} from '@components';
+import actions from '@redux/actions';
 import {theme} from '@theme';
 import {height} from '@utils/responsive';
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useEffect} from 'react';
 import {Animated, RefreshControl} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
 import CategoryHighlights from './components/CategoryHighlights';
 import FeaturedCategory from './components/FeaturedCategory';
 import FeaturedShop from './components/FeaturedShop';
@@ -11,6 +13,10 @@ import SellingProduct from './components/SellingProduct';
 import styles from './styles';
 
 const HomeScreens = () => {
+  const dispatch = useDispatch();
+  const banner = useSelector(state => state.banner?.data);
+  const categoryHome = useSelector(state => state.categoryHome?.data);
+  const config = useSelector(state => state.config?.data);
   const scrollY = useRef(new Animated.Value(0)).current;
   const [refresh, setrefresh] = useState(false);
   const _onRefresh = () => {
@@ -18,6 +24,20 @@ const HomeScreens = () => {
       setrefresh(true);
     }, 1000);
   };
+
+  useEffect(() => {
+    dispatch({
+      type: actions.GET_CATEGORY_HOME,
+      params: {
+        p: 1,
+        numshow: 5,
+      },
+    });
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch({type: actions.GET_BANNER});
+  }, [dispatch]);
 
   return (
     <Block flex backgroundColor="white">
@@ -41,10 +61,12 @@ const HomeScreens = () => {
         <Block
           height={60 + height}
           marginTop={-height - 60}
-          backgroundColor={theme.colors.pink}
+          backgroundColor={config?.backgroundcolor || theme.colors.pink}
         />
-        <Block paddingHorizontal={12} backgroundColor={theme.colors.pink}>
-          <Carousel />
+        <Block
+          paddingHorizontal={12}
+          backgroundColor={config?.backgroundcolor || theme.colors.pink}>
+          {banner && <Carousel data={banner} />}
         </Block>
         <CategoryHighlights />
         <FlashSale />
@@ -54,7 +76,7 @@ const HomeScreens = () => {
           marginBottom={10}
           backgroundColor={theme.colors.smoke}
         />
-        <FeaturedCategory />
+        <FeaturedCategory data={categoryHome} />
         <Block
           height={8}
           marginBottom={10}
@@ -64,7 +86,7 @@ const HomeScreens = () => {
         <FeaturedShop />
         <Block height={8} backgroundColor={theme.colors.smoke} />
         <Block paddingHorizontal={12}>
-          <Carousel />
+          {banner && <Carousel data={banner} />}
         </Block>
         <SellingProduct />
       </Animated.ScrollView>

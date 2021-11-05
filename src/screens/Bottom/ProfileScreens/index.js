@@ -1,6 +1,6 @@
 import {Block} from '@components';
 import {theme} from '@theme';
-import {width} from '@utils/responsive';
+import {height, width} from '@utils/responsive';
 import React from 'react';
 import {ScrollView} from 'react-native';
 import AvatarProfile from './components/AvatarProfile';

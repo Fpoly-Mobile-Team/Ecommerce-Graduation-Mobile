@@ -18,7 +18,7 @@ const ProductInformation = () => {
           }}
           resizeMode="contain"
         />
-        <Text marginLeft={5} size={16} fontType="semibold">
+        <Text marginLeft={5} size={16} fontType="bold">
           Thông Tin Sản Phẩm
         </Text>
       </Block>
