@@ -1,11 +1,10 @@
 import {images} from '@assets';
 import {Block, Button, Header, Text} from '@components';
-import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/core';
 import {theme} from '@theme';
+import React, {useRef, useState} from 'react';
+import {Image, KeyboardAvoidingView, Pressable, TextInput} from 'react-native';
 import styles from './styles';
-import React, {useState, useRef} from 'react';
-import {Image, TextInput, KeyboardAvoidingView, Pressable} from 'react-native';
 
 const OTPCodeScreen = () => {
   const navigation = useNavigation();
@@ -31,7 +30,7 @@ const OTPCodeScreen = () => {
         behavior="padding">
         <Block flex alignCenter justifyCenter>
           <Image style={styles.image} source={images.otpcode} />
-          <Text size={22} fontType={'bold'}>
+          <Text size={22} fontType="bold">
             OTP Verfitication
           </Text>
           <Block paddingTop={5} paddingBottom={35}>
@@ -43,9 +42,9 @@ const OTPCodeScreen = () => {
             <TextInput
               ref={pin1ref}
               autoFocus={true}
-              keyboardType={'number-pad'}
+              keyboardType="number-pad"
               maxLength={1}
-              textAlign={'center'}
+              textAlign="center"
               style={customStyle1}
               onChangeText={text => {
                 text && pin2ref.current.focus();
@@ -55,8 +54,8 @@ const OTPCodeScreen = () => {
             <TextInput
               ref={pin2ref}
               maxLength={1}
-              keyboardType={'numeric'}
-              textAlign={'center'}
+              keyboardType="numeric"
+              textAlign="center"
               style={customStyle2}
               onChangeText={text => {
                 text ? pin3ref.current.focus() : pin1ref.current.focus();
@@ -66,8 +65,8 @@ const OTPCodeScreen = () => {
             <TextInput
               ref={pin3ref}
               maxLength={1}
-              keyboardType={'numeric'}
-              textAlign={'center'}
+              keyboardType="numeric"
+              textAlign="center"
               style={customStyle3}
               onChangeText={text => {
                 text ? pin4ref.current.focus() : pin2ref.current.focus();
@@ -77,8 +76,8 @@ const OTPCodeScreen = () => {
             <TextInput
               ref={pin4ref}
               maxLength={1}
-              keyboardType={'numeric'}
-              textAlign={'center'}
+              keyboardType="numeric"
+              textAlign="center"
               style={customStyle4}
               onChangeText={text => {
                 !text && pin3ref.current.focus();
@@ -87,9 +86,9 @@ const OTPCodeScreen = () => {
             />
           </Block>
           <Block row>
-            <Text fontType={'bold'}>Chưa có mã nào !</Text>
+            <Text fontType="bold">Chưa có mã nào !</Text>
             <Pressable>
-              <Text fontType={'bold'} color={theme.colors.paleGreen}>
+              <Text fontType="bold" color={theme.colors.paleGreen}>
                 {' '}
                 Gửi lại
               </Text>

@@ -24,7 +24,7 @@ const RootStack = () => {
       {config && (
         <Stack.Navigator
           mode="modal"
-          initialRouteName={routes.OTPSCREENS}
+          initialRouteName={routes.BOTTOMTABBAR}
           screenOptions={{
             headerShown: false,
           }}>
@@ -124,6 +124,8 @@ const RootStack = () => {
           <Stack.Screen
             name={routes.PROFILESCREENS}
             component={bottom.PROFILESCREENS}
+          />
+          <Stack.Screen
             name={routes.POPUP_SCREEN}
             component={common.POPUP_SCREEN}
             options={{
