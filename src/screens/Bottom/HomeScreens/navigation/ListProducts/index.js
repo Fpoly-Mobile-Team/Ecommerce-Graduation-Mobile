@@ -112,7 +112,7 @@ const ListProducts = ({route}) => {
   };
 
   return (
-    <Block flex paddingBottom={bottom}>
+    <Block flex>
       <Header title={title} canGoBack />
       <FlatList
         numColumns={2}
@@ -124,6 +124,7 @@ const ListProducts = ({route}) => {
         onRefresh={_onRefresh}
         onEndReached={_loadMore}
         removeClippedSubviews={true}
+        contentContainerStyle={{paddingBottom: bottom}}
         refreshing={refreshing}
       />
       {/* {isLoading && page > 1 && <LoadMore />} */}
