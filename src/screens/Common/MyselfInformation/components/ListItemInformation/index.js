@@ -8,16 +8,12 @@ import {ChevronRight} from '@assets/svg/common';
 import {Pressable} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {routes} from '@navigation/routes';
+import moment from 'moment';
 
 const ListItemInformation = () => {
   const userInfo = useSelector(state => state.userInfo?.data);
   const navigation = useNavigation();
-  function convert(str) {
-    var date = new Date(str),
-      mnth = ('0' + (date.getMonth() + 1)).slice(-2),
-      day = ('0' + date.getDate()).slice(-2);
-    return [day, mnth, date.getFullYear()].join('/');
-  }
+
   return (
     <Block marginBottom={15}>
       <Block>
@@ -28,7 +24,7 @@ const ListItemInformation = () => {
 
           <Text size={12} fontType={'medium'} color={theme.colors.gray}>
             {userInfo?.birthday ? (
-              convert(userInfo?.birthday)
+              moment(userInfo?.birthday).format('DD/MM/YYYY')
             ) : (
               <Text
                 onPress={() => navigation.navigate(routes.SECURITY_SCREEN)}
@@ -91,7 +87,7 @@ const ListItemInformation = () => {
           </ListItem.Content>
 
           <Text size={12} fontType={'medium'} color={theme.colors.gray}>
-            {'***** ' + userInfo?.phone.slice(8)}
+            {'*****' + userInfo?.phone.slice(8)}
           </Text>
           <ChevronRight width={17} height={17} />
         </ListItem>
@@ -154,7 +150,7 @@ const ListItemInformation = () => {
           </ListItem.Content>
 
           <Text size={12} fontType={'medium'} color={theme.colors.gray}>
-            {convert(userInfo?.created_at)}
+            {moment(userInfo?.created_at).format('DD/MM/YYYY')}
           </Text>
           <ChevronRight width={7} height={7} color={theme.colors.white} />
         </ListItem>
