@@ -54,6 +54,8 @@ export const images = {
   masterCard: require('./images/masterCard.png'),
   logo: require('./images/logo.png'),
   avatar: require('./images/avatar.jpg'),
+  otpphone: require('./images/otpphone.png'),
+  otpcode: require('./images/otpcode.png'),
 };
 export const lottie = {
   emptyCategory: require('./lottie/emptyCategory.json'),

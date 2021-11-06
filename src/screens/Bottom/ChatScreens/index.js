@@ -3,9 +3,9 @@ import {Block, Header} from '@components';
 import {theme} from '@theme';
 import React from 'react';
 import {Searchbar} from 'react-native-paper';
+import {useSelector} from 'react-redux';
 import ListMess from './components/ListMessage';
 import styles from './styles';
-import {useSelector} from 'react-redux';
 
 const ChatScreens = () => {
   const [searchQuery, setSearchQuery] = React.useState('');
@@ -25,9 +25,7 @@ const ChatScreens = () => {
           onChangeText={onChangeSearch}
           value={searchQuery}
         />
-      ) : (
-        <Block></Block>
-      )}
+      ) : null}
 
       <ListMess />
     </Block>

@@ -1,12 +1,12 @@
+import {lottie} from '@assets';
 import {Block, Empty} from '@components';
 import ItemMessage from '@components/Common/ItemList/ItemMessage';
+import {routes} from '@navigation/routes';
+import {useNavigation} from '@react-navigation/core';
+import {getSize} from '@utils/responsive';
 import React, {useState} from 'react';
 import {FlatList} from 'react-native';
-import {useNavigation} from '@react-navigation/core';
-import {lottie} from '@assets';
-
 import {useSelector} from 'react-redux';
-import {routes} from '@navigation/routes';
 
 const DATA = [
   {
@@ -38,14 +38,14 @@ const DATA = [
     status: '15 Th12',
   },
 ];
-const indexend = 0;
+const index_end = 0;
 const renderItem = ({item, index}) => {
   return (
     <ItemMessage
       name={item.name}
       mess={item.mess}
       status={item.status}
-      isCheck={indexend === index}
+      isCheck={index_end === index}
     />
   );
 };
@@ -73,7 +73,7 @@ const ListMess = () => {
           content="Vui lòng đăng nhập để sử dụng tin nhắn!"
           contentMore="Đăng nhập ngay"
           onPress={onPress}
-          imageStyles={{width: 200, height: 200}}
+          imageStyles={{width: getSize.s(200), height: getSize.s(200)}}
         />
       )}
     </Block>

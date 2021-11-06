@@ -24,7 +24,7 @@ const RootStack = () => {
       {config && (
         <Stack.Navigator
           mode="modal"
-          initialRouteName={routes.MYSELFINFOMATION}
+          initialRouteName={routes.BOTTOMTABBAR}
           screenOptions={{
             headerShown: false,
           }}>
@@ -109,6 +109,14 @@ const RootStack = () => {
             component={bottom.INTRODUCE_SCREEN}
           />
           <Stack.Screen
+            name={routes.OTPSCREENS}
+            component={common.OTPSCREENS}
+          />
+          <Stack.Screen
+            name={routes.OTPCODESCREENS}
+            component={common.OTPCODESCREENS}
+          />
+          <Stack.Screen
             name={routes.INTRODUCE_DETAIL}
             component={bottom.INTRODUCE_DETAIL}
           />
@@ -134,6 +142,10 @@ const RootStack = () => {
           <Stack.Screen
             name={routes.CHOOSE_A_DELIVERY_ADDRESS_SCREEN}
             component={common.CHOOSE_A_DELIVERY_ADDRESS_SCREEN}
+          />
+          <Stack.Screen
+            name={routes.LIST_PRODUCTS}
+            component={bottom.LIST_PRODUCTS}
           />
         </Stack.Navigator>
       )}

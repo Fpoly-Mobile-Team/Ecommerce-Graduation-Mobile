@@ -8,6 +8,7 @@ import {UserReducer} from './UserReducer';
 import {IntroduceReducer} from './IntroduceReducer';
 import {CategoryReducer} from './CategoryReducer';
 import {AddressReducer} from './AddressReducer';
+import {ProductReducer} from './ProductReducer';
 
 const rootReducer = combineReducers({
   ...TokenReducer,
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   ...IntroduceReducer,
   ...CategoryReducer,
   ...AddressReducer,
+  ...ProductReducer,
 });
 
 export default rootReducer;
