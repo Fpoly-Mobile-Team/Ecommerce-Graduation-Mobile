@@ -30,7 +30,7 @@ export const theme = {
     bgSwitch: '#f3f3f3',
     blueShop: '#3B5998',
     primaryColor: '#08978E',
-    paleGreen: '#10A190',
+    paleGreen: '#08978E',
   },
 
   fonts: {

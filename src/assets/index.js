@@ -60,4 +60,5 @@ export const images = {
 export const lottie = {
   emptyCategory: require('./lottie/emptyCategory.json'),
   emptyNotification: require('./lottie/emptyNotification.json'),
+  emptyMessager: require('./lottie/emptyMessager.json'),
 };
