@@ -1,18 +1,16 @@
 import {Plus_Ants} from '@assets/svg/common';
 import {Block, Header, Text} from '@components';
-import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
 import React, {useRef} from 'react';
 import {FlatList, Pressable, ScrollView} from 'react-native';
-import {useSelector} from 'react-redux';
-import styles from './styles';
-import {data} from './data';
-import StarRating from './components/StarRating';
 import RBSheet from 'react-native-raw-bottom-sheet';
-import WritingReviews from './components/WritingReviews';
 import CardReviews from './components/CardReviews';
+import StarRating from './components/StarRating';
+import WritingReviews from './components/WritingReviews';
+import {data} from './data';
+import styles from './styles';
 
 const ProductReviews = () => {
   const navigation = useNavigation();
