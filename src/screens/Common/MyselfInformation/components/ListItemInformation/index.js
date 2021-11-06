@@ -6,8 +6,8 @@ import {theme} from '@theme';
 import moment from 'moment';
 import React from 'react';
 import {Pressable} from 'react-native';
-import {ListItem} from 'react-native-elements';
 import {useSelector} from 'react-redux';
+import {ListItem} from 'react-native-elements';
 import styles from './styles';
 
 const ListItemInformation = () => {
