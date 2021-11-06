@@ -1,14 +1,17 @@
 import {Block, Text} from '@components';
 import ItemFeedBack from '@components/Common/ItemList/ItemFeedBack';
+import { routes } from '@navigation/routes';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
 import React from 'react';
 import {Pressable} from 'react-native';
 import {Rating} from 'react-native-elements';
+import { useNavigation } from '@react-navigation/native';
 
 const ProductReviews = () => {
   const _renderItem = (item, index) => <ItemFeedBack key={index} />;
-
+  const navigation = useNavigation();
+  
   return (
     <Block marginTop={10} paddingHorizontal={12}>
       <Block row alignCenter marginBottom={10} space="between">
@@ -33,7 +36,7 @@ const ProductReviews = () => {
         </Block>
       </Block>
       <Block>{[1, 2, 3].map(_renderItem)}</Block>
-      <Pressable>
+      <Pressable onPress={() => navigation.navigate(routes.PRODUCT_REVIEWS)}>
         <Text center color={theme.colors.pink}>
           Xem toàn bộ đánh giá (15)
         </Text>

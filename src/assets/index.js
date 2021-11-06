@@ -54,6 +54,11 @@ export const images = {
   masterCard: require('./images/masterCard.png'),
   logo: require('./images/logo.png'),
   avatar: require('./images/avatar.jpg'),
+  choose01: require('./images/choose01.png'),
+  choose02: require('./images/choose02.png'),
+  reviews01: require('./images/reviews01.png'),
+  reviews02: require('./images/reviews02.png'),
+  reviews03: require('./images/reviews03.png'),
   otpphone: require('./images/otpphone.png'),
   otpcode: require('./images/otpcode.png'),
 };

@@ -127,7 +127,7 @@ const RootStack = () => {
           />
           <Stack.Screen
             name={routes.MYSELFINFOMATION}
-            component={common.MYSELFINFOMATION}
+            component={bottom.MYSELFINFOMATION}
           />
           <Stack.Screen
             name={routes.POPUP_SCREEN}
@@ -138,6 +138,10 @@ const RootStack = () => {
                 backgroundColor: 'rgba(0,0,0,.4)',
               },
             }}
+          />
+          <Stack.Screen
+            name={routes.PRODUCT_REVIEWS}
+            component={common.PRODUCTS_REVIEW}
           />
           <Stack.Screen
             name={routes.CHOOSE_A_DELIVERY_ADDRESS_SCREEN}
