@@ -15,7 +15,7 @@ const ListItemInformation = () => {
   const navigation = useNavigation();
 
   return (
-    <Block marginBottom={15}>
+    <Block flex marginBottom={15}>
       <Block>
         <ListItem style={styles.item}>
           <ListItem.Content>

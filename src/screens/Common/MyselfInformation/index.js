@@ -44,9 +44,8 @@ const MyselfInformation = () => {
               </Block>
             </Block>
           </Block>
+          <ListItemInformation />
         </Block>
-
-        <ListItemInformation />
       </ScrollView>
     </Block>
   );
