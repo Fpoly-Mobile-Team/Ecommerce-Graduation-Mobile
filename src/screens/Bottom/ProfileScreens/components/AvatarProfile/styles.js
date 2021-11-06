@@ -18,5 +18,6 @@ export default StyleSheet.create({
     position: 'absolute',
     bottom: getSize.m(0),
     right: getSize.m(5),
+    
   },
 });

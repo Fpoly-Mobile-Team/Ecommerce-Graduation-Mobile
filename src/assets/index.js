@@ -59,9 +59,11 @@ export const images = {
   reviews01: require('./images/reviews01.png'),
   reviews02: require('./images/reviews02.png'),
   reviews03: require('./images/reviews03.png'),
-
+  otpphone: require('./images/otpphone.png'),
+  otpcode: require('./images/otpcode.png'),
 };
 export const lottie = {
   emptyCategory: require('./lottie/emptyCategory.json'),
-  emptyNotification: require('./lottie/emptyNotification.json')
+  emptyNotification: require('./lottie/emptyNotification.json'),
+  emptyMessager: require('./lottie/emptyMessager.json'),
 };

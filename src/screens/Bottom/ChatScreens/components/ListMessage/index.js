@@ -1,7 +1,12 @@
-import {Block} from '@components';
+import {lottie} from '@assets';
+import {Block, Empty} from '@components';
 import ItemMessage from '@components/Common/ItemList/ItemMessage';
+import {routes} from '@navigation/routes';
+import {useNavigation} from '@react-navigation/core';
+import {getSize} from '@utils/responsive';
 import React, {useState} from 'react';
 import {FlatList} from 'react-native';
+import {useSelector} from 'react-redux';
 
 const DATA = [
   {
@@ -33,29 +38,44 @@ const DATA = [
     status: '15 Th12',
   },
 ];
-const indexend = 0;
+const index_end = 0;
 const renderItem = ({item, index}) => {
   return (
     <ItemMessage
       name={item.name}
       mess={item.mess}
       status={item.status}
-      isCheck={indexend === index}
+      isCheck={index_end === index}
     />
   );
 };
 
 const ListMess = () => {
   const [selectedId, setSelectedId] = useState(null);
+  const navigation = useNavigation();
+  const user = useSelector(state => state.tokenUser?.data);
+  const onPress = () => {
+    navigation.navigate(routes.AUTHFORSCREEN);
+  };
   return (
     <Block flex>
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-        extraData={selectedId}
-        showsVerticalScrollIndicator={false}
-      />
+      {user ? (
+        <FlatList
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+          extraData={selectedId}
+          showsVerticalScrollIndicator={false}
+        />
+      ) : (
+        <Empty
+          lottie={lottie.emptyMessager}
+          content="Vui lòng đăng nhập để sử dụng tin nhắn!"
+          contentMore="Đăng nhập ngay"
+          onPress={onPress}
+          imageStyles={{width: getSize.s(200), height: getSize.s(200)}}
+        />
+      )}
     </Block>
   );
 };

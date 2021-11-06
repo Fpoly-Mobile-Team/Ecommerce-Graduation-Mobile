@@ -13,6 +13,7 @@ import IntroduceScreen from './ProfileScreens/navigation/ProgrammingAccountScree
 import IntroduceDetail from './ProfileScreens/navigation/ProgrammingAccountScreen/navigation/IntroduceScreen/navigation/IntroduceDetails';
 import ChatBox from './ChatScreens/navigation/ChatBoxScreen';
 import ListProducts from './HomeScreens/navigation/ListProducts';
+import MyselfInformation from './ProfileScreens/navigation/ProgrammingAccountScreen/navigation/MyselfInformation';
 
 export const bottom = {
   HOMESCREENS: HomeScreens,
@@ -30,4 +31,5 @@ export const bottom = {
   INTRODUCE_DETAIL: IntroduceDetail,
   CHATBOX: ChatBox,
   LIST_PRODUCTS: ListProducts,
+  MYSELFINFOMATION: MyselfInformation,
 };

@@ -109,6 +109,14 @@ const RootStack = () => {
             component={bottom.INTRODUCE_SCREEN}
           />
           <Stack.Screen
+            name={routes.OTPSCREENS}
+            component={common.OTPSCREENS}
+          />
+          <Stack.Screen
+            name={routes.OTPCODESCREENS}
+            component={common.OTPCODESCREENS}
+          />
+          <Stack.Screen
             name={routes.INTRODUCE_DETAIL}
             component={bottom.INTRODUCE_DETAIL}
           />
@@ -116,6 +124,10 @@ const RootStack = () => {
           <Stack.Screen
             name={routes.PROFILESCREENS}
             component={bottom.PROFILESCREENS}
+          />
+          <Stack.Screen
+            name={routes.MYSELFINFOMATION}
+            component={bottom.MYSELFINFOMATION}
           />
           <Stack.Screen
             name={routes.POPUP_SCREEN}

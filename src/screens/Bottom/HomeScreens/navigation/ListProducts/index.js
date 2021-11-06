@@ -1,13 +1,13 @@
-import {Block, Header, LoadMore} from '@components';
-import React, {useEffect, useState} from 'react';
-import {FlatList, RefreshControl} from 'react-native';
-import actions, {_onUnmount} from '@redux/actions';
-import {useDispatch, useSelector} from 'react-redux';
-import ItemSaleProducts from '@components/Common/ItemList/ItemSaleProducts';
+import {Block, Header} from '@components';
 import ItemProduct from '@components/Common/ItemList/ItemProduct';
+import ItemSaleProducts from '@components/Common/ItemList/ItemSaleProducts';
+import actions, {_onUnmount} from '@redux/actions';
 import moment from 'moment';
-import styles from './styles';
+import React, {useEffect, useState} from 'react';
+import {FlatList} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useDispatch, useSelector} from 'react-redux';
+import styles from './styles';
 
 const keyExtractor = (item, index) => item._id.toString();
 
@@ -112,7 +112,7 @@ const ListProducts = ({route}) => {
   };
 
   return (
-    <Block flex paddingBottom={bottom}>
+    <Block flex>
       <Header title={title} canGoBack />
       <FlatList
         numColumns={2}
@@ -124,6 +124,7 @@ const ListProducts = ({route}) => {
         onRefresh={_onRefresh}
         onEndReached={_loadMore}
         removeClippedSubviews={true}
+        contentContainerStyle={{paddingBottom: bottom}}
         refreshing={refreshing}
       />
       {/* {isLoading && page > 1 && <LoadMore />} */}
