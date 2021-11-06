@@ -9,6 +9,7 @@ import ProductStore from './ProductStore';
 import PopupScreen from './PopupScreen';
 import ChooseADeliveryAddressScreen from './AddressScreen/navigation/ChooseADeliveryAddressScreen';
 import MyselfInformation from './MyselfInformation';
+
 export const common = {
   PRODUCT_DETAILS: ProductDetails,
   CARTSCREENS: CartScreens,

@@ -1,25 +1,29 @@
-import {Block, Text} from '@components';
-import React from 'react';
-import styles from './styles';
-import {theme} from '@theme';
-import {useSelector} from 'react-redux';
-import {ListItem} from 'react-native-elements';
 import {ChevronRight} from '@assets/svg/common';
-import {Pressable} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {Block, Text} from '@components';
 import {routes} from '@navigation/routes';
+import {useNavigation} from '@react-navigation/native';
+import {theme} from '@theme';
+import moment from 'moment';
+import React from 'react';
+import {Pressable} from 'react-native';
+import {ListItem} from 'react-native-elements';
+import {useSelector} from 'react-redux';
+import styles from './styles';
 
 const ListItemInformation = () => {
   const userInfo = useSelector(state => state.userInfo?.data);
   const navigation = useNavigation();
-  function convert(str) {
-    var date = new Date(str),
-      mnth = ('0' + (date.getMonth() + 1)).slice(-2),
-      day = ('0' + date.getDate()).slice(-2);
-    return [day, mnth, date.getFullYear()].join('/');
-  }
+
+  const addressDefault = userInfo?.address.find(v => v.isDefault === true);
+  const StringAddress = [
+    addressDefault?.street,
+    addressDefault?.ward,
+    addressDefault?.district,
+    addressDefault?.province,
+  ].join(', ');
+
   return (
-    <Block marginBottom={15}>
+    <Block marginVertical={15}>
       <Block>
         <ListItem style={styles.item}>
           <ListItem.Content>
@@ -28,7 +32,7 @@ const ListItemInformation = () => {
 
           <Text size={12} fontType={'medium'} color={theme.colors.gray}>
             {userInfo?.birthday ? (
-              convert(userInfo?.birthday)
+              moment(userInfo?.birthday).format('DD/MM/YYYY')
             ) : (
               <Text
                 onPress={() => navigation.navigate(routes.SECURITY_SCREEN)}
@@ -91,7 +95,17 @@ const ListItemInformation = () => {
           </ListItem.Content>
 
           <Text size={12} fontType={'medium'} color={theme.colors.gray}>
-            {'***** ' + userInfo?.phone.slice(8)}
+            {userInfo?.phone !== 'null' ? (
+              '***** ' + userInfo?.phone.slice(8)
+            ) : (
+              <Text
+                onPress={() => navigation.navigate(routes.SECURITY_SCREEN)}
+                size={12}
+                fontType={'medium'}
+                color={theme.colors.lightGray}>
+                Thiết lập ngay
+              </Text>
+            )}
           </Text>
           <ChevronRight width={17} height={17} />
         </ListItem>
@@ -113,14 +127,15 @@ const ListItemInformation = () => {
             <ListItem.Title style={styles.title}>Địa chỉ</ListItem.Title>
           </ListItem.Content>
 
-          <Text>
+          <Text flex>
             {userInfo?.address ? (
               <Text
+                flex
                 onPress={() => navigation.navigate(routes.ADDRESS_SCREEN)}
                 size={12}
-                fontType={'medium'}
+                fontType="medium"
                 color={theme.colors.gray}>
-                {userInfo?.address[0].province}
+                {StringAddress}
               </Text>
             ) : (
               <Text
@@ -154,7 +169,7 @@ const ListItemInformation = () => {
           </ListItem.Content>
 
           <Text size={12} fontType={'medium'} color={theme.colors.gray}>
-            {convert(userInfo?.created_at)}
+            {moment(userInfo?.created_at).format('DD/MM/YYYY')}
           </Text>
           <ChevronRight width={7} height={7} color={theme.colors.white} />
         </ListItem>
@@ -179,7 +194,9 @@ const ListItemInformation = () => {
               Tài khoản liên kết
             </ListItem.Title>
           </ListItem.Content>
-          <Text size={12} fontType={'medium'} color={theme.colors.gray}></Text>
+          <Text size={12} fontType={'medium'} color={theme.colors.gray}>
+            {userInfo?.type}
+          </Text>
         </ListItem>
       </Block>
     </Block>
