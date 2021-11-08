@@ -11,6 +11,7 @@ const SellingProduct = ({titleSelling, data}) => {
   const navigation = useNavigation();
   const _renderItem = (item, index) => (
     <ItemProduct
+      _id={item._id}
       key={index}
       style={{...styles.box(index)}}
       images={item.images[0]}

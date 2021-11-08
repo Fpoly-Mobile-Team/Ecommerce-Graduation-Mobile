@@ -8,6 +8,7 @@ import {watchIntroduceSagas} from './IntroduceSaga';
 import {watchCategorySagas} from './CategorySaga';
 import {watchAddressSagas} from './AddressSaga';
 import {watchProductSagas} from './ProductSaga';
+import {watchShopSagas} from './ShopSaga';
 
 export default function* rootSaga() {
   yield all([
@@ -20,5 +21,6 @@ export default function* rootSaga() {
     fork(watchCategorySagas),
     fork(watchAddressSagas),
     fork(watchProductSagas),
+    fork(watchShopSagas),
   ]);
 }

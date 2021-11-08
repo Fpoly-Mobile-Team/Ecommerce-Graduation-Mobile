@@ -19,11 +19,11 @@ const HomeScreens = () => {
   const product = useSelector(state => state.product?.data);
   const config = useSelector(state => state.config?.data);
   const scrollY = useRef(new Animated.Value(0)).current;
-  const [refresh, setrefresh] = useState(false);
+  const [refresh, setRefresh] = useState(false);
 
   const _onRefresh = () => {
     setTimeout(() => {
-      setrefresh(true);
+      setRefresh(true);
     }, 1000);
   };
 

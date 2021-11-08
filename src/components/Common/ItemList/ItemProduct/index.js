@@ -10,12 +10,13 @@ import {Rating} from 'react-native-elements';
 import styles from './styles';
 
 const ItemProduct = React.memo(
-  ({style, images, nameProduct, left, price, productSold, sellOff}) => {
+  ({style, images, nameProduct, left, price, productSold, sellOff, _id}) => {
     const navigation = useNavigation();
     const promotionalPrice = price * sellOff;
 
     return (
-      <Pressable onPress={() => navigation.navigate(routes.PRODUCT_DETAILS)}>
+      <Pressable
+        onPress={() => navigation.navigate(routes.PRODUCT_DETAILS, {_id})}>
         <Block
           radius={5}
           shadow
