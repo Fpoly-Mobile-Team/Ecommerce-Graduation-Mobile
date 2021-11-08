@@ -30,6 +30,7 @@ const FlashSale = ({data}) => {
             images={item.images[0]}
             nameProduct={item.name}
             left={-0.75}
+            _id={item._id}
             price={item.price}
             productSold={item.productSold}
             sellOff={item.sellOff}
