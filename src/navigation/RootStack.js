@@ -151,6 +151,10 @@ const RootStack = () => {
             name={routes.LIST_PRODUCTS}
             component={bottom.LIST_PRODUCTS}
           />
+          <Stack.Screen
+            name={routes.INFORMATION_DETAILS}
+            component={common.INFORMATION_DETAILS}
+          />
         </Stack.Navigator>
       )}
     </NavigationContainer>

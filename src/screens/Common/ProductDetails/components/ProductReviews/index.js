@@ -1,17 +1,17 @@
 import {Block, Text} from '@components';
 import ItemFeedBack from '@components/Common/ItemList/ItemFeedBack';
-import { routes } from '@navigation/routes';
+import {routes} from '@navigation/routes';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
 import React from 'react';
 import {Pressable} from 'react-native';
 import {Rating} from 'react-native-elements';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 const ProductReviews = () => {
   const _renderItem = (item, index) => <ItemFeedBack key={index} />;
   const navigation = useNavigation();
-  
+
   return (
     <Block marginTop={10} paddingHorizontal={12}>
       <Block row alignCenter marginBottom={10} space="between">
