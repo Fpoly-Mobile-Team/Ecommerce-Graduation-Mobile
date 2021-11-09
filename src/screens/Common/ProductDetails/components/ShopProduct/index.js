@@ -53,14 +53,16 @@ const ShopProduct = ({data, productShop, id}) => {
                   style={styles.iconLocation}
                   resizeMode="contain"
                 />
-                <Text paddingHorizontal={5} color={theme.colors.lightGray}>
+                <Text size={12} color={theme.colors.lightGray}>
                   {data?.address.toString().split(',')[3]}
                 </Text>
               </Block>
             </Block>
           </Block>
           <Button
-            onPress={() => navigation.navigate(routes.PRODUCT_STORE)}
+            onPress={() =>
+              navigation.navigate(routes.PRODUCT_STORE, {id: data?._id})
+            }
             style={styles.btn}
             titleStyle={{color: theme.colors.pink}}
             title="Xem Shop"
@@ -101,7 +103,10 @@ const ShopProduct = ({data, productShop, id}) => {
           <Text size={16} fontType="bold">
             Các sản phẩm khác của shop
           </Text>
-          <Pressable onPress={() => navigation.navigate(routes.PRODUCT_STORE)}>
+          <Pressable
+            onPress={() =>
+              navigation.navigate(routes.PRODUCT_STORE, {id: data?._id})
+            }>
             <Block row alignCenter>
               <Text color={theme.colors.pink}>Xem tất cả</Text>
               <Image

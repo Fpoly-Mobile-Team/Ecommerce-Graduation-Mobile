@@ -6,14 +6,15 @@ import {Image, Platform} from 'react-native';
 import {SwiperFlatList} from 'react-native-swiper-flatlist';
 import styles from './styles';
 
-const Carousel = ({data}) => {
-  const _renderItem = React.useCallback(({item}) => {
+const Carousel = ({data, shop}) => {
+  const _renderItem = React.useCallback(({item, index}) => {
     return (
       <LazyImage
-        source={{uri: item.banner}}
+        key={index}
+        source={{uri: shop ? item : item.banner}}
         style={styles.image}
         resizeMode="contain"
-        thumbnailSource={{uri: item.banner}}
+        thumbnailSource={{uri: shop ? item : item.banner}}
       />
     );
   }, []);
