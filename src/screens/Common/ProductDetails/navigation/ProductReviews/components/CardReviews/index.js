@@ -43,13 +43,13 @@ const CardReviews = ({
             </Block>
           </Block>
           <Block justifyCenter>
-            <Text size={13} color={theme.colors.lightGray}>
+            <Text fontType="medium" size={13} color={theme.colors.lightGray}>
               {time}
             </Text>
           </Block>
         </Block>
 
-        <Text marginVertical={10} justify color={theme.colors.black} size={14}>
+        <Text marginVertical={10} justify color={theme.colors.gray} size={14} fontType="medium">
           {description}
         </Text>
 

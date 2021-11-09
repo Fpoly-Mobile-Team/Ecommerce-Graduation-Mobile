@@ -10,9 +10,16 @@ import {useSelector} from 'react-redux';
 import {ListItem} from 'react-native-elements';
 import styles from './styles';
 
+const dataGender = {
+  0: 'Nam',
+  1: 'Nữ',
+  2: 'Khác',
+};
+
 const ListItemInformation = () => {
   const userInfo = useSelector(state => state.userInfo?.data);
   const navigation = useNavigation();
+  const checkGender = dataGender[userInfo?.gender];
 
   const addressDefault = userInfo?.address.find(v => v.isDefault === true);
   const StringAddress = [
@@ -64,7 +71,7 @@ const ListItemInformation = () => {
 
           <Text size={12} fontType={'medium'} color={theme.colors.gray}>
             {userInfo?.gender ? (
-              userInfo?.gender
+              checkGender
             ) : (
               <Text
                 onPress={() => navigation.navigate(routes.SECURITY_SCREEN)}

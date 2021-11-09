@@ -3,9 +3,33 @@ import React from 'react';
 import {Pressable} from 'react-native';
 import styles from './styles';
 
-const FormEditInput = ({Name, Date, showDatePicker}) => {
+const FormEditInput = ({
+  Name,
+  showDatePicker,
+  Username,
+  Birthday,
+  Phone,
+  Email,
+}) => {
+  const parseDateToStringDMY = d => {
+    if (d === undefined || d === null) {
+      return '';
+    }
+    if (typeof d === 'string' && d.length <= 10) {
+      return d;
+    }
+    const dateRs = new Date(d);
+    const month = (dateRs.getMonth() + 1).toString().padStart(2, '0');
+    return dateRs.getDate() + '/' + month + '/' + dateRs.getFullYear();
+  };
+
   const [name, setName] = Name;
-  const [date, setDate] = Date;
+  const [username, setUsername] = Username;
+  const [birthday, setBirthday] = Birthday;
+  const [phone, setPhone] = Phone;
+  const [email, setEmail] = Email;
+
+  console.log('biiiiiiiiiiiiiiir' + birthday);
   return (
     <Block paddingHorizontal={12}>
       <TextInput
@@ -14,7 +38,8 @@ const FormEditInput = ({Name, Date, showDatePicker}) => {
         labelStyle={styles.label}
         inputStyle={styles.inputStyle}
         placeholder="Nhập họ và tên"
-        onChangeText={text => setName(text)}
+        onChangeText={text => setUsername(text)}
+        value={username}
       />
       <Pressable
         onPress={() => {
@@ -22,30 +47,38 @@ const FormEditInput = ({Name, Date, showDatePicker}) => {
         }}>
         <TextInput
           label="Ngày sinh"
-          editable={false}
-          placeholder="dd/mm/yyyy"
           containerInputStyle={styles.containerInputStyle}
           labelStyle={styles.label}
           inputStyle={styles.inputStyle}
-          value={date}
+          keyboardType="number-pad"
+          placeholder="dd/mm/yyyy"
+          onChangeText={text => setBirthday(text)}
+          value={parseDateToStringDMY(birthday)}
+          editable={false}
         />
       </Pressable>
 
       <TextInput
         label="Số điện thoại"
-        placeholder="Nhập số điện thoại của bạn"
-        keyboardType="number-pad"
         containerInputStyle={styles.containerInputStyle}
         labelStyle={styles.label}
         inputStyle={styles.inputStyle}
+        keyboardType="number-pad"
+        placeholder="Nhập số điện thoại của bạn"
+        onChangeText={text => setPhone(text)}
+        value={phone}
+        editable={false}
       />
       <TextInput
         label="Email"
-        placeholder="Nhập email của bạn"
-        keyboardType="email-address"
         containerInputStyle={styles.containerInputStyle}
         labelStyle={styles.label}
         inputStyle={styles.inputStyle}
+        keyboardType="email-address"
+        placeholder="Nhập email của bạn"
+        onChangeText={text => setEmail(text)}
+        value={email}
+        editable={false}
       />
     </Block>
   );
