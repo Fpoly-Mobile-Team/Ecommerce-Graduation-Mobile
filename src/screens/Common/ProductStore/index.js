@@ -3,13 +3,13 @@ import {Block, Carousel, Text} from '@components';
 import ItemVoucherFromShop from '@components/Common/ItemList/ItemVoucherFromShop';
 import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
+import actions from '@redux/actions';
 import SellingProduct from '@screens/Bottom/HomeScreens/components/SellingProduct';
 import {theme} from '@theme';
-import actions, {_onUnmount} from '@redux/actions';
 import {getSize, width} from '@utils/responsive';
 import React, {useEffect} from 'react';
 import {FlatList, Pressable, ScrollView} from 'react-native';
-import {useSelector, useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import ProductRelated from '../ProductDetails/components/ProductRelated';
 import {DATA} from './components/data';
 import InforShop from './components/InforShop';
@@ -22,7 +22,7 @@ const ProductStore = ({route}) => {
   const shop = useSelector(state => state.infoShop?.data);
   const productShop = useSelector(state => state.productDetailsShop?.data);
   const config = useSelector(state => state.config?.data);
-  const {id} = route.params;
+  const {id} = route.params || {};
 
   useEffect(() => {
     if (id) {
