@@ -5,16 +5,14 @@ import React from 'react';
 import {Pressable, Image} from 'react-native';
 import styles from './styles';
 
-const uri =
-  'https://scontent.fdad3-4.fna.fbcdn.net/v/t1.6435-9/131621153_835496243935495_7699482739742171687_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=0debeb&_nc_ohc=UVVSJqLEZkwAX8Uihvr&_nc_ht=scontent.fdad3-4.fna&oh=5caff79316561014d86e4e175b0cdc36&oe=6191B392';
-const InforShop = () => {
+const InforShop = ({data}) => {
   return (
     <Block row space="between" alignCenter marginVertical={24}>
       <Pressable>
         <Image
           style={styles.iconAvatar}
           source={{
-            uri,
+            uri: data?.profilePicture,
           }}
         />
       </Pressable>
@@ -25,16 +23,18 @@ const InforShop = () => {
           lineHeight={20}
           size={16}
           color={theme.colors.white}>
-          Femi Clothing Store
+          {data?.shopName}
         </Text>
-        <Block row alignCenter justifyCenter>
-          <IconLocation />
+        <Block row justifyCenter>
+          <Block paddingTop={5}>
+            <IconLocation />
+          </Block>
           <Text
-            fontType="light"
+            size={13}
+            numberOfLines={2}
             marginHorizontal={4}
-            lineHeight={20}
-            color="#130000">
-            HCM, Vietnam
+            color={theme.colors.black}>
+            {data?.address}
           </Text>
         </Block>
       </Block>
@@ -42,16 +42,24 @@ const InforShop = () => {
         <IconMore />
       </Block>
       <Block
-        backgroundColor={theme.colors.pink}
+        backgroundColor={
+          data?.currentStatus === 'Online'
+            ? theme.colors.green
+            : theme.colors.pink
+        }
         radius={4}
         alignCenter
         justifyCenter>
-        <Text
-          color={theme.colors.white}
-          paddingVertical={6}
-          fontType="bold"
-          paddingHorizontal={12}>
-          Đã theo dõi
+        <Text paddingVertical={6} paddingHorizontal={12}>
+          {data?.currentStatus === 'Online' ? (
+            <Text fontType="bold" color={theme.colors.white}>
+              {data?.currentStatus}
+            </Text>
+          ) : (
+            <Text fontType="bold" color={theme.colors.white}>
+              {data?.currentStatus}
+            </Text>
+          )}
         </Text>
       </Block>
     </Block>
