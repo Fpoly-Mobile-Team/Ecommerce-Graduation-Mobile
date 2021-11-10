@@ -20,10 +20,24 @@ export const productDetailsByCategory = (...props) => {
   return reducerDefault(...props, Actions.GET_PRODUCT_BY_CATEGORY);
 };
 
+export const productFavorite = (...props) => {
+  return reducerDefault(...props, Actions.GET_PRODUCT_FAVORITE);
+};
+export const addProductFavorite = (...props) => {
+  return reducerDefault(...props, Actions.ADD_PRODUCT_FAVORITE);
+};
+
+export const checkProductFavorite = (...props) => {
+  return reducerDefault(...props, Actions.CHECK_PRODUCT_FAVORITE);
+};
+
 export const ProductReducer = {
   product,
   productSale,
   productDetails,
   productDetailsShop,
   productDetailsByCategory,
+  productFavorite,
+  addProductFavorite,
+  checkProductFavorite,
 };

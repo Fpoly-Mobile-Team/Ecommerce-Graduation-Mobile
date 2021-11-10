@@ -155,6 +155,10 @@ const RootStack = () => {
             name={routes.INFORMATION_DETAILS}
             component={common.INFORMATION_DETAILS}
           />
+          <Stack.Screen
+            name={routes.FAVORITE_SCREEN}
+            component={bottom.FAVORITE_SCREEN}
+          />
         </Stack.Navigator>
       )}
     </NavigationContainer>

@@ -115,6 +115,7 @@ const ProductDetails = ({route}) => {
               sellOff={data?.sellOff}
               numberOfReviews={data?.comments.length}
               productSold={data?.productSold}
+              idProduct={_id}
             />
 
             <ShopProduct data={shop} productShop={productShop} id={_id} />

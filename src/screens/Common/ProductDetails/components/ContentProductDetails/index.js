@@ -3,19 +3,53 @@ import {Block, Text} from '@components';
 import {theme} from '@theme';
 import {Currency} from '@utils/helper';
 import {getSize, width} from '@utils/responsive';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Image, Pressable} from 'react-native';
 import {Rating} from 'react-native-elements';
+import {useDispatch, useSelector} from 'react-redux';
 import styles from './styles';
+import actions from '@redux/actions';
+import {navigate} from '@navigation/RootNavigation';
+import {routes} from '@navigation/routes';
 
 const ContentProductDetails = ({
+  idProduct,
   nameProduct,
   price,
   sellOff,
   numberOfReviews,
   productSold,
 }) => {
+  const dispatch = useDispatch();
+
+  const isCheck = useSelector(state => state.checkProductFavorite?.data);
+  const user = useSelector(state => state.tokenUser?.data);
+
+  useEffect(() => {
+    if (user) {
+      dispatch({
+        type: actions.CHECK_PRODUCT_FAVORITE,
+        user,
+        idProduct: idProduct,
+      });
+    }
+  }, [dispatch, idProduct, user]);
+
+  const _onPress = () => {
+    if (user) {
+      dispatch({
+        type: actions.ADD_PRODUCT_FAVORITE,
+        user,
+        body: {
+          idProduct: idProduct,
+        },
+      });
+    } else {
+      navigate(routes.AUTHFORSCREEN);
+    }
+  };
   const salePrice = price * sellOff;
+
   return (
     <Block paddingVertical={10}>
       <Block paddingHorizontal={12}>
@@ -25,10 +59,10 @@ const ContentProductDetails = ({
               <Text size={24} color={theme.colors.red} fontType="bold">
                 {Currency(salePrice === 0 ? price : salePrice)}
               </Text>
-              <Pressable>
+              <Pressable onPress={_onPress}>
                 <Image
-                  source={icons.favorite}
-                  style={styles.iconfav}
+                  source={isCheck ? icons.favoritefill : icons.favorite}
+                  style={styles.iconfav(isCheck)}
                   resizeMode="contain"
                 />
               </Pressable>
