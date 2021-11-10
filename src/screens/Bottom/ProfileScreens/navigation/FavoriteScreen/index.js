@@ -43,6 +43,7 @@ const FavoriteScreen = () => {
       {data && data?.length ? (
         <FlatList
           data={data}
+          numColumns={2}
           renderItem={_renderItem}
           showsVerticalScrollIndicator={false}
           keyExtractor={(item, index) => item._id.toString()}
