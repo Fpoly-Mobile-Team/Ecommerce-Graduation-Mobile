@@ -16,7 +16,6 @@ const ListProducts = ({route}) => {
   const dispatch = useDispatch();
   const product = useSelector(state => state.productSale?.data);
   const totalPage = useSelector(state => state.productSale?.totalPage);
-  const isLoading = useSelector(state => state.productSale?.isLoading);
 
   const [refreshing, setRefreshing] = useState(false);
   const [page, setPage] = useState(1);
