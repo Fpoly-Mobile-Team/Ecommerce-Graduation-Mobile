@@ -58,7 +58,6 @@ const FormEditInput = ({showDatePicker, Username, Birthday, Phone, Email}) => {
         placeholder="Nhập số điện thoại của bạn"
         onChangeText={text => setPhone(text)}
         value={phone}
-        editable={false}
       />
       <TextInput
         label="Email"
