@@ -106,6 +106,7 @@ const styles = StyleSheet.create({
     color: isFocused ? config : theme.colors.lightGray,
     marginTop: 5,
     fontSize: 10,
+    fontFamily: theme.fonts.fontFamily.medium,
   }),
   iconstyle: (isFocused, config) => ({
     width: getSize.s(20),

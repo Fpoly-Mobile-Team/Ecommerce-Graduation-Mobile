@@ -3,6 +3,7 @@ import {Block, Text} from '@components';
 import ItemProduct from '@components/Common/ItemList/ItemProduct';
 import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
+import {theme} from '@theme';
 import React from 'react';
 import {Image, Pressable} from 'react-native';
 import styles from './styles';

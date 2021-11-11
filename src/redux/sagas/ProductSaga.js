@@ -2,6 +2,7 @@ import API from '@utils/api';
 import {put, takeLatest} from 'redux-saga/effects';
 import Actions, {_onFail, _onSuccess} from '../actions';
 import queryString from 'query-string';
+import {Toast} from '@utils/helper';
 
 function* getProduct(actions) {
   try {
@@ -76,6 +77,60 @@ function* getProductDetailsByCategory(actions) {
   }
 }
 
+function* getProductFavorite(actions) {
+  try {
+    const res = yield API.get(
+      `getUser/getFavoriteProduct?user=${actions.user}`,
+    );
+
+    yield put({
+      type: _onSuccess(Actions.GET_PRODUCT_FAVORITE),
+      data: res.data,
+    });
+  } catch (error) {
+    yield put({type: _onFail(Actions.GET_PRODUCT_FAVORITE)});
+  }
+}
+
+function* addProductFavorite(actions) {
+  try {
+    const body = queryString.stringify(actions.body);
+
+    const res = yield API.post(
+      `getUser/addFavoriteProduct?user=${actions.user}`,
+      body,
+    );
+
+    yield put({
+      type: _onSuccess(Actions.ADD_PRODUCT_FAVORITE),
+      data: res.data,
+    });
+    yield put({
+      type: Actions.CHECK_PRODUCT_FAVORITE,
+      user: actions.user,
+      idProduct: actions.body.idProduct,
+    });
+    Toast(res.message);
+  } catch (error) {
+    yield put({type: _onFail(Actions.ADD_PRODUCT_FAVORITE)});
+  }
+}
+
+function* checkProductFavorite(actions) {
+  try {
+    const res = yield API.get(
+      `getUser/checkFavorite?user=${actions.user}&idProduct=${actions.idProduct}`,
+    );
+
+    yield put({
+      type: _onSuccess(Actions.CHECK_PRODUCT_FAVORITE),
+      data: res.data,
+    });
+  } catch (error) {
+    yield put({type: _onFail(Actions.CHECK_PRODUCT_FAVORITE)});
+  }
+}
+
 export function* watchProductSagas() {
   yield takeLatest(Actions.GET_PRODUCT, getProduct);
   yield takeLatest(Actions.GET_PRODUCT_SALE, getProductSale);
@@ -85,4 +140,7 @@ export function* watchProductSagas() {
     Actions.GET_PRODUCT_BY_CATEGORY,
     getProductDetailsByCategory,
   );
+  yield takeLatest(Actions.GET_PRODUCT_FAVORITE, getProductFavorite);
+  yield takeLatest(Actions.ADD_PRODUCT_FAVORITE, addProductFavorite);
+  yield takeLatest(Actions.CHECK_PRODUCT_FAVORITE, checkProductFavorite);
 }

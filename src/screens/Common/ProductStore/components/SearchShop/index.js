@@ -1,9 +1,10 @@
 import {IconBack, IconMessages, IconSearch} from '@assets/svg/common';
 import {Block} from '@components';
+import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import React from 'react';
-import {Pressable, TextInput} from 'react-native';
+import {Pressable, TextInput, TouchableOpacity} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useSelector} from 'react-redux';
 import styles from './styles';
@@ -44,8 +45,11 @@ const SearchShop = () => {
           style={styles.inputStyle}
         />
       </Block>
+
       <Block>
-        <IconMessages />
+        <Pressable onPress={() => navigation.navigate(routes.CHATBOX)}>
+          <IconMessages />
+        </Pressable>
       </Block>
     </Block>
   );

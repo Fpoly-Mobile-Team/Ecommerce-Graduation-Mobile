@@ -46,6 +46,7 @@ export const icons = {
   flag: require('./icons/flag.png'),
   caret_down: require('./icons/caret_down.png'),
   close: require('./icons/close.png'),
+  favoritefill: require('./icons/favoritefill.png'),
 };
 
 export const images = {
@@ -67,4 +68,5 @@ export const lottie = {
   emptyNotification: require('./lottie/emptyNotification.json'),
   emptyMessager: require('./lottie/emptyMessager.json'),
   emptyProductDetails: require('./lottie/emptyProductDetails.json'),
+  empty_Favorite: require('./lottie/empty_Favorite.json'),
 };

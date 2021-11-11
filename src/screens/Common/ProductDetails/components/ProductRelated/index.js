@@ -43,7 +43,7 @@ const ProductRelated = ({nameTitle, productCategory}) => {
         <FlatList
           horizontal
           showsHorizontalScrollIndicator={false}
-          data={productCategory}
+          data={productCategory?.slice(0, 10)}
           maxToRenderPerBatch={5}
           updateCellsBatchingPeriod={30}
           initialNumToRender={6}

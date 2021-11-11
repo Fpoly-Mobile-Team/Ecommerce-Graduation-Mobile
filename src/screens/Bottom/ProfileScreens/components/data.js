@@ -23,7 +23,7 @@ export const DATA = [
     id: '4',
     image: icons.favoriteprofile,
     title: 'Yêu thích',
-    navigation: null,
+    navigation: routes.FAVORITE_SCREEN,
   },
   {
     id: '5',
