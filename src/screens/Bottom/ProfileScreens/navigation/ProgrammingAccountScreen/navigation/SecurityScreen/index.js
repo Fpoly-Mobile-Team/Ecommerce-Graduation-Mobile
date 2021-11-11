@@ -102,7 +102,6 @@ const Security = () => {
     userInfo?.gender ? userInfo.gender : '0',
   );
   const [show, setShow] = useState(false);
-  const [date, setDate] = useState('');
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
   const showDatePicker = () => {
