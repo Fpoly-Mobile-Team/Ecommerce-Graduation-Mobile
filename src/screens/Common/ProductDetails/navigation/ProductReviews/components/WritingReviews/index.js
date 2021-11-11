@@ -3,15 +3,12 @@ import React from 'react';
 import {Image, Pressable, TextInput} from 'react-native';
 import {theme} from '@theme';
 import styles from './styles';
-import {DATA} from '../data';
 import {ScrollView} from 'react-native-gesture-handler';
 import {Camering} from '@assets/svg/common';
 import {useImagePicker} from '@hooks';
-import {cos} from 'react-native-reanimated';
-import {cleanSingle} from 'react-native-image-crop-picker';
 
 const WritingReviews = ({isClosed}) => {
-  const {openMultiPicker, pictures, cleanUp} = useImagePicker();
+  const {openMultiPicker, pictures} = useImagePicker();
 
   const _onPress = () => {
     isClosed.current.close();
@@ -54,11 +51,7 @@ const WritingReviews = ({isClosed}) => {
         height={247 / 2}
         radius={4}
         alignCenter
-        justifyCenter
-        // backgroundColor={theme.colors.white}
-        // elevation={6}
-        // shadow
-      >
+        justifyCenter>
         <Pressable onPress={openMultiPicker} style={styles.wrapperCamera}>
           <Camering />
         </Pressable>

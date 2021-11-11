@@ -48,6 +48,12 @@ export const logout = (state = stateDefault, action) => {
 export const update_avatar = (...props) => {
   return reducerDefault(...props, Actions.UPDATE_AVATAR);
 };
+export const update_user = (...props) => {
+  return reducerDefault(...props, Actions.UPDATE_USER);
+};
+export const update_password = (...props) => {
+  return reducerDefault(...props, Actions.UPDATE_PASSWORD);
+};
 export const loginFb = (...props) => {
   return reducerDefault(...props, Actions.LOGIN_FACEBOOK);
 };
@@ -62,6 +68,8 @@ export const UserReducer = {
   logout,
   userInfo,
   update_avatar,
+  update_user,
+  update_password,
   loginFb,
   loginGg,
 };

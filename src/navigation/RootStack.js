@@ -7,7 +7,7 @@ import {useSelector} from 'react-redux';
 import {bottom} from '../screens/Bottom';
 import {auth} from './../screens/auth/';
 import BottomTabNavigation from './BottomTabNavigation';
-import {navigate} from './RootNavigation';
+import {navigationRef} from './RootNavigation';
 import {routes} from './routes';
 
 const Stack = createStackNavigator();
@@ -15,7 +15,7 @@ const Stack = createStackNavigator();
 const RootStack = () => {
   const config = useSelector(state => state.config?.data);
   return (
-    <NavigationContainer ref={navigate}>
+    <NavigationContainer ref={navigationRef}>
       <StatusBar
         translucent
         barStyle="light-content"
