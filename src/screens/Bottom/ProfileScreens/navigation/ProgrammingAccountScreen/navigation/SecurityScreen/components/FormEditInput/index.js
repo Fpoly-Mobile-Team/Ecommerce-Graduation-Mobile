@@ -3,14 +3,7 @@ import React from 'react';
 import {Pressable} from 'react-native';
 import styles from './styles';
 
-const FormEditInput = ({
-  Name,
-  showDatePicker,
-  Username,
-  Birthday,
-  Phone,
-  Email,
-}) => {
+const FormEditInput = ({showDatePicker, Username, Birthday, Phone, Email}) => {
   const parseDateToStringDMY = d => {
     if (d === undefined || d === null) {
       return '';
@@ -23,13 +16,11 @@ const FormEditInput = ({
     return dateRs.getDate() + '/' + month + '/' + dateRs.getFullYear();
   };
 
-  const [name, setName] = Name;
   const [username, setUsername] = Username;
   const [birthday, setBirthday] = Birthday;
   const [phone, setPhone] = Phone;
   const [email, setEmail] = Email;
 
-  console.log('biiiiiiiiiiiiiiir' + birthday);
   return (
     <Block paddingHorizontal={12}>
       <TextInput

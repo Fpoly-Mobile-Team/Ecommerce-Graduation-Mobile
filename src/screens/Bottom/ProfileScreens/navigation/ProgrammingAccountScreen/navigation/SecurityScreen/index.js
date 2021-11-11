@@ -1,6 +1,5 @@
 import {Block, Button, Header, Text} from '@components';
 import FormContainer from '@components/Form/FormContainer';
-import {useNavigation} from '@react-navigation/native';
 import actions from '@redux/actions';
 import {theme} from '@theme';
 import {getSize, width} from '@utils/responsive';
@@ -31,7 +30,6 @@ if (Platform.OS === 'android') {
 }
 
 const Security = () => {
-  const [name, setName] = useState();
   const user = useSelector(state => state.tokenUser?.data);
   const userInfo = useSelector(state => state.userInfo?.data);
   const isLoading = useSelector(state => state.update_user?.isLoading);
@@ -103,7 +101,6 @@ const Security = () => {
   const [checked, setChecked] = useState(
     userInfo?.gender ? userInfo.gender : '0',
   );
-  const navigation = useNavigation();
   const [show, setShow] = useState(false);
   const [date, setDate] = useState('');
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -144,7 +141,6 @@ const Security = () => {
           </Text>
         </Block>
         <FormEditInput
-          Name={[name, setName]}
           Username={[username, setUsername]}
           Birthday={[birthday, setBirthday]}
           Phone={[phone, setPhone]}
