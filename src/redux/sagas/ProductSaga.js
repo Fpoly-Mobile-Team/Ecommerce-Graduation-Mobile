@@ -131,6 +131,37 @@ function* checkProductFavorite(actions) {
   }
 }
 
+function* getProductViewed(actions) {
+  try {
+    const res = yield API.get(`getUser/getViewedProduct?user=${actions.user}`);
+
+    yield put({
+      type: _onSuccess(Actions.GET_PRODUCT_VIEWED),
+      data: res.data,
+    });
+  } catch (error) {
+    yield put({type: _onFail(Actions.GET_PRODUCT_VIEWED)});
+  }
+}
+
+function* addProductViewed(actions) {
+  try {
+    const body = queryString.stringify(actions.body);
+
+    const res = yield API.post(
+      `getUser/addViewedProduct?user=${actions.user}`,
+      body,
+    );
+
+    yield put({
+      type: _onSuccess(Actions.ADD_PRODUCT_VIEWED),
+      data: res.data,
+    });
+  } catch (error) {
+    yield put({type: _onFail(Actions.ADD_PRODUCT_VIEWED)});
+  }
+}
+
 export function* watchProductSagas() {
   yield takeLatest(Actions.GET_PRODUCT, getProduct);
   yield takeLatest(Actions.GET_PRODUCT_SALE, getProductSale);
@@ -143,4 +174,6 @@ export function* watchProductSagas() {
   yield takeLatest(Actions.GET_PRODUCT_FAVORITE, getProductFavorite);
   yield takeLatest(Actions.ADD_PRODUCT_FAVORITE, addProductFavorite);
   yield takeLatest(Actions.CHECK_PRODUCT_FAVORITE, checkProductFavorite);
+  yield takeLatest(Actions.ADD_PRODUCT_VIEWED, addProductViewed);
+  yield takeLatest(Actions.GET_PRODUCT_VIEWED, getProductViewed);
 }
