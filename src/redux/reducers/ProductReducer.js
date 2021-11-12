@@ -31,6 +31,13 @@ export const checkProductFavorite = (...props) => {
   return reducerDefault(...props, Actions.CHECK_PRODUCT_FAVORITE);
 };
 
+export const productViewed = (...props) => {
+  return reducerDefault(...props, Actions.GET_PRODUCT_VIEWED);
+};
+export const addProductViewed = (...props) => {
+  return reducerDefault(...props, Actions.ADD_PRODUCT_VIEWED);
+};
+
 export const ProductReducer = {
   product,
   productSale,
@@ -40,4 +47,6 @@ export const ProductReducer = {
   productFavorite,
   addProductFavorite,
   checkProductFavorite,
+  productViewed,
+  addProductViewed,
 };

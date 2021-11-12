@@ -15,6 +15,7 @@ import ChatBox from './ChatScreens/navigation/ChatBoxScreen';
 import ListProducts from './HomeScreens/navigation/ListProducts';
 import MyselfInformation from './ProfileScreens/navigation/ProgrammingAccountScreen/navigation/MyselfInformation';
 import FavoriteScreen from './ProfileScreens/navigation/FavoriteScreen';
+import ViewedProductScreen from './ProfileScreens/navigation/ViewedProductScreen';
 
 export const bottom = {
   HOMESCREENS: HomeScreens,
@@ -34,4 +35,5 @@ export const bottom = {
   LIST_PRODUCTS: ListProducts,
   MYSELFINFOMATION: MyselfInformation,
   FAVORITE_SCREEN: FavoriteScreen,
+  VIEW_PRODUCTS: ViewedProductScreen,
 };

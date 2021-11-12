@@ -20,6 +20,8 @@ const ProductDetails = ({route}) => {
   const dispatch = useDispatch();
   const {_id} = route.params;
   const data = useSelector(state => state.productDetails?.data);
+  const user = useSelector(state => state.tokenUser?.data);
+
   const isLoadingDetails = useSelector(
     state => state.productDetails?.isLoading,
   );
@@ -40,6 +42,16 @@ const ProductDetails = ({route}) => {
     isLoadingShop ||
     isLoadingproductShop ||
     isLoadingproductCategory;
+
+  useEffect(() => {
+    dispatch({
+      type: actions.ADD_PRODUCT_VIEWED,
+      user,
+      body: {
+        idProduct: _id,
+      },
+    });
+  }, [_id, dispatch, user]);
 
   useEffect(() => {
     dispatch({
