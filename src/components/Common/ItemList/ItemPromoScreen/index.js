@@ -18,13 +18,15 @@ const ItemPromoScreen = ({name, title, date, image, index, isCheck}) => {
                 uri: image,
               }}
               style={styles.imglogo}
-              resizeMode="contain"
             />
           </View>
           <View style={styles.boxLeft}>
             <View style={{paddingTop: getSize.s(16)}}>
               <Text style={styles.textDate}>{name}</Text>
-              <Text numberOfLines={1} style={styles.txtTitle}>
+              <Text
+                fontType={'medium'}
+                numberOfLines={1}
+                style={styles.txtTitle}>
                 {title}
               </Text>
             </View>
