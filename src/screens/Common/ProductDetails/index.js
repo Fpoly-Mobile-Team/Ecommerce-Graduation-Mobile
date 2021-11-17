@@ -125,7 +125,7 @@ const ProductDetails = ({route}) => {
               nameProduct={data?.name}
               price={data?.price}
               sellOff={data?.sellOff}
-              numberOfReviews={data?.comments.length}
+              numberOfReviews={data?.comments?.length}
               productSold={data?.productSold}
               idProduct={_id}
             />
