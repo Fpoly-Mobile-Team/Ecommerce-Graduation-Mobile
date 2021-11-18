@@ -16,6 +16,7 @@ const CheckBox = ({
   activeColor = theme.colors.green,
   containerStyles,
   labelStyles,
+  onPress,
 }) => {
   const animatedValue = useRef(new Animated.Value(0)).current;
 
@@ -40,7 +41,10 @@ const CheckBox = ({
     }
   }, [animatedValue, setValue, value]);
 
-  const _onChange = () => setValue(prev => !prev);
+  const _onChange = () => {
+    onPress && onPress();
+    setValue(prev => !prev);
+  };
 
   const borderColor = animatedValue.interpolate({
     inputRange: [0, 1],
