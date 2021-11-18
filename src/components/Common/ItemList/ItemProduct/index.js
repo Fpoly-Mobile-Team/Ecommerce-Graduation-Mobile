@@ -2,6 +2,7 @@ import {Block, Text} from '@components';
 import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
+import {Currency} from '@utils/helper';
 import {getSize, width} from '@utils/responsive';
 import React from 'react';
 import {Image, Pressable} from 'react-native';
@@ -9,10 +10,13 @@ import {Rating} from 'react-native-elements';
 import styles from './styles';
 
 const ItemProduct = React.memo(
-  ({style, image, nameProduct, fashsale, left}) => {
+  ({style, images, nameProduct, left, price, productSold, sellOff, _id}) => {
     const navigation = useNavigation();
+    const promotionalPrice = price * sellOff;
+
     return (
-      <Pressable onPress={() => navigation.navigate(routes.PRODUCT_DETAILS)}>
+      <Pressable
+        onPress={() => navigation.navigate(routes.PRODUCT_DETAILS, {_id})}>
         <Block
           radius={5}
           shadow
@@ -35,61 +39,78 @@ const ItemProduct = React.memo(
             />
             <Block paddingHorizontal={6} paddingVertical={2}>
               <Text size={12} color={theme.colors.white} fontType="semibold">
-                {fashsale ? 'Giảm -35%' : 'Hàng mới'}
+                {sellOff !== 0 ? `Giảm ${sellOff * 100}%` : 'Hàng mới'}
               </Text>
             </Block>
           </Block>
           <Image
             source={{
-              uri: image,
+              uri: images,
             }}
-            style={styles.imgbox}
+            style={styles.imgbox(sellOff === 0)}
             resizeMode="contain"
           />
           <Block paddingHorizontal={3}>
-            <Text numberOfLines={2} marginBottom={5} fontType="semibold">
+            <Text
+              flex
+              numberOfLines={2}
+              marginBottom={5}
+              size={16}
+              fontType="bold">
               {nameProduct}
             </Text>
-            <Text color={theme.colors.red} marginBottom={5} fontType="bold">
-              3.593.100 ₫
-            </Text>
-            {fashsale ? (
-              <Block />
-            ) : (
-              <Block row alignCenter marginBottom={5}>
-                <Text
-                  size={12}
-                  color={theme.colors.lightGray}
-                  style={styles.txtunderprice}>
-                  4.500.000 đ
-                </Text>
-                <Block
-                  alignCenter
-                  justifyCenter
-                  radius={2}
-                  paddingHorizontal={2}
-                  marginLeft={10}
-                  backgroundColor={theme.colors.sell}>
-                  <Text
-                    center
-                    size={12}
-                    color={theme.colors.white}
-                    fontType="semibold">
-                    -35%
-                  </Text>
-                </Block>
-              </Block>
+            {sellOff !== 0 && (
+              <Text
+                color={theme.colors.red}
+                marginBottom={5}
+                size={15}
+                fontType="medium">
+                {Currency(promotionalPrice)}
+              </Text>
             )}
 
-            <Block row alignCenter space="between">
+            <Block row alignCenter marginBottom={5}>
+              {sellOff === 0 ? (
+                <Text color={theme.colors.red} size={15} fontType="medium">
+                  {Currency(price)}
+                </Text>
+              ) : (
+                <>
+                  <Text
+                    fontType="light"
+                    size={12}
+                    color={theme.colors.lightGray}
+                    style={styles.txtunderprice}>
+                    {Currency(price)}
+                  </Text>
+                  <Block
+                    alignCenter
+                    justifyCenter
+                    radius={2}
+                    paddingHorizontal={2}
+                    marginLeft={10}
+                    backgroundColor={theme.colors.sell}>
+                    <Text
+                      center
+                      color={theme.colors.white}
+                      size={12}
+                      fontType="semibold">
+                      {sellOff * 100}%
+                    </Text>
+                  </Block>
+                </>
+              )}
+            </Block>
+
+            <Block row alignCenter space="between" alignEnd>
               <Block row alignCenter>
                 <Rating imageSize={getSize.s(10)} readonly startingValue={4} />
                 <Text size={10} marginLeft={getSize.m(5)}>
                   (25)
                 </Text>
               </Block>
-              <Text size={9} color={theme.colors.placeholder}>
-                Đã bán 1,3k
+              <Text size={9} color={theme.colors.placeholder} fontType="light">
+                Đã bán {productSold}
               </Text>
             </Block>
           </Block>

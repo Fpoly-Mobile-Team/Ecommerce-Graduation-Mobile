@@ -1,9 +1,12 @@
 import {Block, Text} from '@components';
 import React from 'react';
 import {Pressable, ScrollView} from 'react-native';
+import {useSelector} from 'react-redux';
 import styles from './styles';
 
 function CustomTabBar({state, descriptors, navigation}) {
+  const config = useSelector(state => state.config?.data);
+
   return (
     <Block row justifyCenter alignCenter paddingVertical={15}>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -45,7 +48,7 @@ function CustomTabBar({state, descriptors, navigation}) {
               testID={options.tabBarTestID}
               onPress={onPress}
               onLongPress={onLongPress}
-              style={styles.container(isFocused)}>
+              style={styles.container(isFocused, config?.backgroundcolor)}>
               <Text style={styles.textStyle(isFocused)}>{label}</Text>
             </Pressable>
           );

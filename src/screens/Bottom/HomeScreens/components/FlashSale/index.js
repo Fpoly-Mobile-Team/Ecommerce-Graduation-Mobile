@@ -1,8 +1,11 @@
 import {icons} from '@assets';
 import {Block, Text} from '@components';
-import ItemProduct from '@components/Common/ItemList/ItemProduct';
+import ItemSaleProducts from '@components/Common/ItemList/ItemSaleProducts';
+import {routes} from '@navigation/routes';
+import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
+import moment from 'moment';
 import React from 'react';
 import {
   FlatList,
@@ -13,46 +16,39 @@ import {
 } from 'react-native';
 import styles from './styles';
 
-const data = [
-  {
-    image:
-      'https://salt.tikicdn.com/cache/280x280/ts/product/17/6d/36/179b87629f8780608d63943662103ce4.jpg',
-    title: 'Smart Tivi Casper HD 32 inch 32HX6200',
-  },
-  {
-    image:
-      'https://salt.tikicdn.com/cache/280x280/ts/product/e4/93/74/d869ef799a8b1f7625146e97f53fcf04.png',
-    title:
-      'Áo thun nam thể thao trơn, cổ tròn đẹp, trẻ trung, mặc thoáng mát, thấm hút tốt, đủ size 25kg-92kg (Trắng)',
-  },
-  {
-    image:
-      'https://salt.tikicdn.com/cache/280x280/ts/product/86/78/40/0df5a90d7bd5d327de2d25d510dd9b65.jpg',
-    title: 'Điện Thoại Samsung Galaxy M31 (6GB/128GB) - Hàng Chính Hãng',
-  },
-  {
-    image:
-      'https://salt.tikicdn.com/cache/280x280/ts/product/82/d5/05/18c7abbd948c6e5dae557244a8e3ac44.jpg',
-    title: 'KHẨU TRANG Y TẾ WAKAMONO - (4 Lớp, Hộp 10 Cái)',
-  },
-  {
-    image:
-      'https://salt.tikicdn.com/cache/280x280/ts/product/d3/f6/d5/9fd75deca506264412da501a2a429c65.jpg',
-    title:
-      'Áo thun tay lỡ nữ freesize - Áo phông form rộng dáng Unisex, mặc lớp, nhóm, cặp, couple thêu hình rau củ 6 màu',
-  },
-];
+const FlashSale = ({data}) => {
+  const navigation = useNavigation();
 
-const FlashSale = () => {
-  const _renderItem = ({item}) => (
-    <ItemProduct
-      image={item.image}
-      nameProduct={item.title}
-      fashsale
-      left={-0.75}
-      style={styles.styleitem}
-    />
-  );
+  const _renderItem = ({item}) => {
+    if (item?.saleStart !== null && item?.saleEnd) {
+      if (
+        moment(item?.saleStart) <= Date.now() &&
+        Date.now() <= moment(item?.saleEnd)
+      ) {
+        return (
+          <ItemSaleProducts
+            images={item.images[0]}
+            nameProduct={item.name}
+            left={-0.75}
+            _id={item._id}
+            price={item.price}
+            productSold={item.productSold}
+            sellOff={item.sellOff}
+            style={styles.styleitem}
+          />
+        );
+      } else {
+        return null;
+      }
+    }
+  };
+
+  const onPress = () => {
+    navigation.navigate(routes.LIST_PRODUCTS, {
+      tag: '0',
+      title: 'Giá Sốc Hôm Nay',
+    });
+  };
 
   const keyExtractor = React.useCallback((item, index) => String(index), []);
 
@@ -84,7 +80,10 @@ const FlashSale = () => {
             resizeMode="contain"
           />
         </Block>
-        <Pressable style={styles.stylebtn}>
+        <Pressable
+          hitSlop={{top: 20, bottom: 20, left: 50, right: 50}}
+          style={styles.stylebtn}
+          onPress={onPress}>
           <Text size={12} color={theme.colors.white}>
             Xem tất cả
           </Text>

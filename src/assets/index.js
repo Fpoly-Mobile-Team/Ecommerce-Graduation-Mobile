@@ -42,10 +42,32 @@ export const icons = {
   vouncher: require('./icons/vouncher.png'),
   check_blank: require('./icons/check_blank.png'),
   gift_voucher: require('./icons/gift_voucher.png'),
+  google: require('./icons/google.png'),
+  facebook: require('./icons/facebook.png'),
+  flag: require('./icons/flag.png'),
+  caret_down: require('./icons/caret_down.png'),
+  close: require('./icons/close.png'),
+  favoritefill: require('./icons/favoritefill.png'),
 };
 
 export const images = {
   thumnail: require('./images/thumnail.jpg'),
   sale: require('./images/sale.jpg'),
   masterCard: require('./images/masterCard.png'),
+  logo: require('./images/logo.png'),
+  avatar: require('./images/avatar.jpg'),
+  choose01: require('./images/choose01.png'),
+  choose02: require('./images/choose02.png'),
+  reviews01: require('./images/reviews01.png'),
+  reviews02: require('./images/reviews02.png'),
+  reviews03: require('./images/reviews03.png'),
+  otpphone: require('./images/otpphone.png'),
+  otpcode: require('./images/otpcode.png'),
+};
+export const lottie = {
+  emptyCategory: require('./lottie/emptyCategory.json'),
+  emptyNotification: require('./lottie/emptyNotification.json'),
+  emptyMessager: require('./lottie/emptyMessager.json'),
+  emptyProductDetails: require('./lottie/emptyProductDetails.json'),
+  empty_Favorite: require('./lottie/empty_Favorite.json'),
 };

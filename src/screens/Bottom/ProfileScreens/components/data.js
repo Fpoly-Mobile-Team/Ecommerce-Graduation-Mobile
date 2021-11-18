@@ -23,13 +23,13 @@ export const DATA = [
     id: '4',
     image: icons.favoriteprofile,
     title: 'Yêu thích',
-    navigation: null,
+    navigation: routes.FAVORITE_SCREEN,
   },
   {
     id: '5',
     image: icons.eyesview,
     title: 'Đã xem gần đây',
-    navigation: null,
+    navigation: routes.VIEW_PRODUCTS,
   },
   {
     id: '6',
@@ -41,7 +41,7 @@ export const DATA = [
     id: '7',
     image: icons.accountprofile,
     title: 'Thiết lập tài khoản',
-    navigation: null,
+    navigation: routes.PROGRAMMING_ACCOUNT_SCREEN,
   },
 ];
 

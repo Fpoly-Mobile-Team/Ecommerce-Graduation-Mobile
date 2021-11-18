@@ -21,8 +21,8 @@ const ItemFeedBack = () => {
         />
         <Block flex paddingLeft={10}>
           <Block row space="between">
-            <Text>Tran Dinh Huy</Text>
-            <Text size={12} color={theme.colors.lightGray}>
+            <Text fontType="medium">Tran Dinh Huy</Text>
+            <Text fontType="light" size={12} color={theme.colors.lightGray}>
               18/03/2021
             </Text>
           </Block>

@@ -1,6 +1,0 @@
-module Pods_ecommerce_graduate {
-  umbrella header "Pods-ecommerce_graduate-umbrella.h"
-
-  export *
-  module * { export * }
-}

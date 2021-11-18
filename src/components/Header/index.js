@@ -100,7 +100,11 @@ const HeaderHome = ({scroll}) => {
             />
             <Animated.Text
               allowFontScaling={false}
-              style={{marginLeft: getSize.s(5), color: colortext}}>
+              style={{
+                marginLeft: getSize.s(5),
+                color: colortext,
+                fontFamily: theme.fonts.fontFamily.regular,
+              }}>
               Bạn tìm gì hôm nay?
             </Animated.Text>
           </AnimatedPressable>
@@ -137,14 +141,16 @@ const HeaderCommon = ({canGoBack, title, checkBackground}) => {
       }>
       {isFocused && <StatusBar barStyle="dark-content" translucent animated />}
       {canGoBack && (
-        <Pressable onPress={() => navigation.goBack()}>
-          <ChevronLeft />
+        <Pressable
+          hitSlop={{top: 20, bottom: 20, left: 50, right: 50}}
+          onPress={() => navigation.goBack()}>
+          <ChevronLeft isColor={!checkBackground} />
         </Pressable>
       )}
       {title && (
         <Block flex alignCenter>
           <Text
-            fontType="semibold"
+            fontType="bold"
             color={checkBackground ? theme.colors.black : theme.colors.white}
             size={18}
             numberOfLines={2}>

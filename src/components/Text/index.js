@@ -33,7 +33,6 @@ const Typography = props => {
     fontType = 'regular',
     lineHeight,
     animated,
-    customFont = 'default',
     ...textProps
   } = props;
 
@@ -62,7 +61,7 @@ const Typography = props => {
     marginVertical && {marginVertical: getSize.m(marginVertical)},
     isNumber(lineHeight) && {lineHeight: getSize.m(lineHeight)},
     {fontSize: getSize.m(size)},
-    {fontFamily: theme.fonts.fontFamily[customFont]},
+    {fontFamily: theme.fonts.fontFamily[fontType]},
     {...StyleSheet.flatten(style)},
   ];
 

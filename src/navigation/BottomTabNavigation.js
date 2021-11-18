@@ -1,14 +1,33 @@
-import React from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {routes} from './routes';
+import {useNavigation} from '@react-navigation/core';
+import React, {useEffect} from 'react';
+import {useSelector} from 'react-redux';
 import {bottom} from '../screens/Bottom';
+import {auth} from './../screens/auth';
 import CustomTabBar from './CustomTabBar';
+import {routes} from './routes';
 
 const Tab = createBottomTabNavigator();
 
 const BottomTabNavigation = () => {
+  const navigation = useNavigation();
+
+  const user = useSelector(state => state.tokenUser?.data);
+  const config = useSelector(state => state.config.data);
+
+  useEffect(() => {
+    if (config) {
+      setTimeout(() => {
+        navigation.navigate(routes.POPUP_SCREEN);
+      }, 1000);
+    }
+  }, [config]);
   return (
-    <Tab.Navigator tabBar={props => <CustomTabBar {...props} />}>
+    <Tab.Navigator
+      tabBarOptions={{keyboardHidesTabBar: true}}
+      initialRouteName={routes.HOMESCREENS}
+      tabBar={props => <CustomTabBar {...props} />}>
       <Tab.Screen
         name={routes.HOMESCREENS}
         component={bottom.HOMESCREENS}
@@ -37,13 +56,23 @@ const BottomTabNavigation = () => {
           tabBarLabel: 'Thông báo',
         }}
       />
-      <Tab.Screen
-        name={routes.PROFILESCREENS}
-        component={bottom.PROFILESCREENS}
-        options={{
-          tabBarLabel: 'Tài khoản',
-        }}
-      />
+      {user ? (
+        <Tab.Screen
+          name={routes.PROFILESCREENS}
+          component={bottom.PROFILESCREENS}
+          options={{
+            tabBarLabel: 'Tài khoản',
+          }}
+        />
+      ) : (
+        <Tab.Screen
+          name={routes.AUTHFORSCREEN}
+          component={auth.AUTHFORSCREEN}
+          options={{
+            tabBarLabel: 'Tài khoản',
+          }}
+        />
+      )}
     </Tab.Navigator>
   );
 };
