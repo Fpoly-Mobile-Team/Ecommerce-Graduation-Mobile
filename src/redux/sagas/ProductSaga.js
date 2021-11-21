@@ -195,6 +195,18 @@ function* updateProductReview(actions) {
     Toast(res.message);
   } catch (error) {
     yield put({type: _onFail(Actions.UPDATE_PRODUCT_REVIEW)});
+function* searchProduct(actions) {
+  try {
+    const res = yield API.get('product/searchAllProducts', actions.params);
+
+    yield put({
+      type: _onSuccess(Actions.SEARCH_KEYWORD_PRODUCT),
+      data: res.data,
+      totalPage: res.total_Page,
+      isLoadMore: actions.isLoadMore,
+    });
+  } catch (error) {
+    yield put({type: _onFail(Actions.SEARCH_KEYWORD_PRODUCT)});
   }
 }
 
@@ -214,4 +226,5 @@ export function* watchProductSagas() {
   yield takeLatest(Actions.GET_PRODUCT_VIEWED, getProductViewed);
   yield takeLatest(Actions.ADD_PRODUCT_REVIEW, addProductReview);
   yield takeLatest(Actions.UPDATE_PRODUCT_REVIEW, updateProductReview);
+  yield takeLatest(Actions.SEARCH_KEYWORD_PRODUCT, searchProduct);
 }

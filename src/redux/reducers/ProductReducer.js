@@ -34,6 +34,7 @@ export const checkProductFavorite = (...props) => {
 export const productViewed = (...props) => {
   return reducerDefault(...props, Actions.GET_PRODUCT_VIEWED);
 };
+
 export const addProductViewed = (...props) => {
   return reducerDefault(...props, Actions.ADD_PRODUCT_VIEWED);
 };
@@ -46,6 +47,10 @@ export const updateProductReview = (...props) => {
 
 export const productReview = (...props) => {
   return reducerDefault(...props, Actions.GET_PRODUCT_REVIEW);
+};
+
+export const searchProduct = (...props) => {
+  return reducerAdvance(...props, Actions.SEARCH_KEYWORD_PRODUCT);
 };
 
 export const ProductReducer = {
@@ -62,4 +67,5 @@ export const ProductReducer = {
   addProductReview,
   updateProductReview,
   productReview,
+  searchProduct,
 };

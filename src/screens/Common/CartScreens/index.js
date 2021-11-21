@@ -1,98 +1,84 @@
-import {CircleBack} from '@assets/svg/common';
+import {icons} from '@assets';
 import {Block, Button, Header, Text} from '@components';
 import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
+import {getSize} from '@utils/responsive';
 import React, {useRef} from 'react';
-import {Pressable, TextInput} from 'react-native';
-import RBSheet from 'react-native-raw-bottom-sheet';
+import {Image, Platform, Pressable} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import BottomSheet from './components/BottomSheet';
 import ListCart from './components/ListItem';
-import ListPromo from './components/ListPromo';
 import styles from './styles';
 
 const CartScreen = () => {
   const refRBSheet = useRef();
   const navigation = useNavigation();
+  const {bottom} = useSafeAreaInsets();
 
   return (
     <Block flex>
       <Header checkBackground canGoBack title="Giỏ hàng của tôi" />
       <ListCart />
-      <Block paddingBottom={20}>
-        <Block style={styles.promo}>
-          <Block style={styles.input}>
-            <Text color={theme.colors.lightGray}>Chọn mã khuyến mãi</Text>
-            <Pressable
-              style={styles.next}
-              onPress={() => refRBSheet.current.open()}>
-              <CircleBack />
+      <Block
+        paddingHorizontal={12}
+        paddingBottom={Platform.OS === 'ios' ? bottom : 20}>
+        <Block height={0.5} backgroundColor={theme.colors.smoke} />
+        <Block backgroundColor={theme.colors.white} radius={5}>
+          <Block row alignCenter padding={16} space="between">
+            <Block row alignCenter>
+              <Image
+                source={icons.gift_voucher}
+                style={{
+                  width: getSize.s(24),
+                  height: getSize.s(24),
+                  tintColor: theme.colors.pink,
+                }}
+                resizeMode="contain"
+              />
+              <Text marginLeft={5}>Voucher</Text>
+            </Block>
+            <Pressable onPress={() => refRBSheet.current.open()}>
+              <Block row alignCenter>
+                <Text marginRight={5} color={theme.colors.lightGray}>
+                  Chọn hoặc nhập mã
+                </Text>
+                <Image
+                  source={icons.arrow_right}
+                  style={{
+                    width: getSize.s(12),
+                    height: getSize.s(12),
+                    tintColor: theme.colors.placeholder,
+                  }}
+                  resizeMode="contain"
+                />
+              </Block>
             </Pressable>
           </Block>
-        </Block>
-        <Block style={styles.amount}>
-          <Text color={theme.colors.gray} size={16}>
-            Tổng tiền:
-          </Text>
-          <Text color={theme.colors.black} size={18} fontType="semibold">
-            124.000 VND
-          </Text>
-        </Block>
-        <Block style={styles.buttonGroup}>
-          <Button
-            title="Quay lại"
-            titleStyle={{color: theme.colors.black}}
-            style={styles.btnOutline}
-            height={40}
-            onPress={() => navigation.goBack()}
-          />
-          <Button
-            height={40}
-            title="Thay đổi địa chỉ"
-            style={styles.btnRounded}
-          />
-        </Block>
-        <Block paddingHorizontal={12}>
-          <Button
-            title="THANH TOÁN"
-            height={48}
-            style={styles.btnCheck}
-            onPress={() =>
-              navigation.navigate(routes.PAYMENTSCREEN, {
-                refRBSheet,
-              })
-            }
-          />
+          <Block height={0.5} backgroundColor={theme.colors.lightGray} />
+          <Block padding={16}>
+            <Text size={16} marginBottom={5} fontType="semibold">
+              Tổng cộng
+            </Text>
+            <Block row alignCenter space="between">
+              <Text color={theme.colors.pink} size={18} fontType="bold">
+                1.956.000 đ
+              </Text>
+              <Button
+                height={35}
+                title="Thanh toán"
+                style={styles.btn}
+                onPress={() =>
+                  navigation.navigate(routes.PAYMENTSCREEN, {
+                    refRBSheet,
+                  })
+                }
+              />
+            </Block>
+          </Block>
         </Block>
       </Block>
-      <RBSheet
-        ref={refRBSheet}
-        closeOnDragDown={true}
-        closeOnPressMask={true}
-        dragFromTopOnly={true}
-        customStyles={{
-          draggableIcon: {
-            backgroundColor: theme.colors.dark,
-            width: 100,
-          },
-          container: {
-            height: '70%',
-            backgroundColor: theme.colors.lightRount,
-            borderTopLeftRadius: 20,
-            borderTopRightRadius: 20,
-          },
-        }}>
-        <Block style={styles.promo} marginBottom={5} marginTop={20}>
-          <TextInput
-            placeholder="Tìm kiếm mã khuyến mãi.."
-            backgroundColor={theme.colors.white}
-            style={styles.input}
-          />
-        </Block>
-        <Text size={18} fontType="bold" paddingHorizontal={10}>
-          Mã khuyến mãi của bạn
-        </Text>
-        <ListPromo isClosed={refRBSheet} />
-      </RBSheet>
+      <BottomSheet refRBSheet={refRBSheet} />
     </Block>
   );
 };
