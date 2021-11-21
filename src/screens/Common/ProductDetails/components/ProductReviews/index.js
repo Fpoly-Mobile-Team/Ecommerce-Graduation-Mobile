@@ -7,10 +7,12 @@ import React from 'react';
 import {Pressable} from 'react-native';
 import {Rating} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
+import {useSelector} from 'react-redux';
 
-const ProductReviews = () => {
+const ProductReviews = ({onPress}) => {
   const _renderItem = (item, index) => <ItemFeedBack key={index} />;
   const navigation = useNavigation();
+  const product = useSelector(state => state.product?.data);
 
   return (
     <Block marginTop={10} paddingHorizontal={12}>
@@ -36,7 +38,7 @@ const ProductReviews = () => {
         </Block>
       </Block>
       <Block>{[1, 2, 3].map(_renderItem)}</Block>
-      <Pressable onPress={() => navigation.navigate(routes.PRODUCT_REVIEWS)}>
+      <Pressable onPress={onPress}>
         <Text center color={theme.colors.pink}>
           Xem toàn bộ đánh giá (15)
         </Text>

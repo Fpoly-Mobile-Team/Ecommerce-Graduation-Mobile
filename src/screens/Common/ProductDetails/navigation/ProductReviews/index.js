@@ -1,20 +1,18 @@
 import {Plus_Ants} from '@assets/svg/common';
 import {Block, Header, Text} from '@components';
-import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
 import React, {useRef} from 'react';
 import {FlatList, Pressable, ScrollView} from 'react-native';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import CardReviews from './components/CardReviews';
-import StarRating from './components/StarRating';
 import WritingReviews from './components/WritingReviews';
 import {data} from './data';
 import styles from './styles';
 
-const ProductReviews = () => {
-  const navigation = useNavigation();
+const ProductReviews = ({route}) => {
   const refRBSheet = useRef();
+  const {_id} = route.params;
 
   const _renderTop = () => {
     return (
@@ -75,37 +73,22 @@ const ProductReviews = () => {
             width: 100,
           },
           container: {
-            height: '70%',
+            height: '71%',
             backgroundColor: theme.colors.white,
             borderTopLeftRadius: 20,
             borderTopRightRadius: 20,
           },
         }}>
-        <Block marginBottom={0} marginTop={20}>
-          <Block alignCenter>
-            <Text
-              size={18}
-              fontType="bold"
-              paddingHorizontal={0}
-              center
-              marginBottom={20}>
-              Đánh giá của bạn
-            </Text>
-            <StarRating startingValue={0} imageSize={36} readonly />
-            <Text
-              size={18}
-              fontType="semibold"
-              paddingHorizontal={0}
-              center
-              marginTop={30}>
-              Hãy chia sẻ ý kiến của bạn về sản phẩm
+        <Block marginTop={10}>
+          <Block alignCenter marginBottom={16}>
+            <Text size={18} fontType="bold" center>
+              ĐÁNH GIÁ CỦA BẠN
             </Text>
           </Block>
         </Block>
-        <WritingReviews isClosed={refRBSheet} />
+        <WritingReviews _id={_id} isClosed={refRBSheet} />
       </RBSheet>
     </Block>
   );
 };
-
 export default ProductReviews;

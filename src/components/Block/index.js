@@ -16,6 +16,7 @@ const Block = ({
   flexShrink,
   flexGrow,
   row,
+  reverse,
   column,
   shadow,
   backgroundColor,
@@ -71,6 +72,7 @@ const Block = ({
     width && {width: width},
     height && {height: height},
     row && styles.row,
+    reverse && styles.reverse,
     column && styles.column,
     shadow && {
       ...styles.shadow,

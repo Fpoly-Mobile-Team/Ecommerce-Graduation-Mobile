@@ -1,5 +1,5 @@
 import {theme} from '@theme';
-import {getSize, height} from '@utils/responsive';
+import {getSize} from '@utils/responsive';
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
@@ -18,6 +18,5 @@ export default StyleSheet.create({
     position: 'absolute',
     bottom: getSize.m(0),
     right: getSize.m(5),
-    
   },
 });

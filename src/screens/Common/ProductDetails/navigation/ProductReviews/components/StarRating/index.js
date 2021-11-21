@@ -5,7 +5,7 @@ import {Rating} from 'react-native-elements';
 import {getSize} from '@utils/responsive';
 import {theme} from '@theme';
 
-const StarRating = ({startingValue, imageSize, marginVertical, readonly}) => {
+const StarRating = ({startingValue, imageSize, marginVertical, readonly, onFinishRating}) => {
   return (
     <View style={styles.wrapperStar}>
       <Rating
@@ -15,9 +15,10 @@ const StarRating = ({startingValue, imageSize, marginVertical, readonly}) => {
         ratingColor={theme.colors.yellow}
         ratingBackgroundColor={theme.colors.white}
         readonly={!readonly ? true : false}
+        onFinishRating={onFinishRating}
         style={{
           alignItems: 'flex-start',
-          marginVertical: marginVertical ? getSize.m(marginVertical) : 0,
+          marginVertical: marginVertical,
         }}
       />
     </View>

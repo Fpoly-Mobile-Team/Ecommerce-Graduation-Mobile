@@ -87,7 +87,7 @@ const AvatarProfile = () => {
             </Pressable>
           </Block>
         </Block>
-        <Block marginLeft={10}>
+        <Block marginLeft={10} paddingHorizontal={4}>
           <Text marginTop={10} size={16} fontType="semibold">
             {userInfo?.username}
           </Text>

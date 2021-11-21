@@ -13,6 +13,9 @@ export default StyleSheet.create({
   row: {
     flexDirection: 'row',
   },
+  reverse: {
+    flexDirection: 'row-reverse',
+  },
   column: {
     flexDirection: 'column',
   },

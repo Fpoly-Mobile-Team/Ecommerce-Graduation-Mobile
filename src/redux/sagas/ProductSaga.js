@@ -162,6 +162,42 @@ function* addProductViewed(actions) {
   }
 }
 
+function* addProductReview(actions) {
+  try {
+    const body = queryString.stringify(actions.body);
+    const res = yield API.post(
+      `product/addProductReview`,
+      body,
+    );
+    yield put({type: _onSuccess(Actions.ADD_PRODUCT_REVIEW), data: res.data});
+    yield put({
+      type: Actions.GET_PRODUCT,
+      params: {user: actions.user},
+    });
+    Toast(res.message);
+  } catch (error) {
+    yield put({type: _onFail(Actions.ADD_PRODUCT_REVIEW)});
+  }
+}
+
+function* updateProductReview(actions) {
+  try {
+    const body = queryString.stringify(actions.body);
+    const res = yield API.post(
+      `product/updateProductReview?id=${actions.user}`,
+      body,
+    );
+    yield put({type: _onSuccess(Actions.UPDATE_PRODUCT_REVIEW), data: res.data});
+    yield put({
+      type: Actions.GET_PRODUCT,
+      params: {user: actions.user},
+    });
+    Toast(res.message);
+  } catch (error) {
+    yield put({type: _onFail(Actions.UPDATE_PRODUCT_REVIEW)});
+  }
+}
+
 export function* watchProductSagas() {
   yield takeLatest(Actions.GET_PRODUCT, getProduct);
   yield takeLatest(Actions.GET_PRODUCT_SALE, getProductSale);
@@ -176,4 +212,6 @@ export function* watchProductSagas() {
   yield takeLatest(Actions.CHECK_PRODUCT_FAVORITE, checkProductFavorite);
   yield takeLatest(Actions.ADD_PRODUCT_VIEWED, addProductViewed);
   yield takeLatest(Actions.GET_PRODUCT_VIEWED, getProductViewed);
+  yield takeLatest(Actions.ADD_PRODUCT_REVIEW, addProductReview);
+  yield takeLatest(Actions.UPDATE_PRODUCT_REVIEW, updateProductReview);
 }

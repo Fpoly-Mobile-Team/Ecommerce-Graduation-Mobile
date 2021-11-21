@@ -68,7 +68,7 @@ function* update_user(actions) {
     yield put({type: _onSuccess(Actions.UPDATE_USER), data: res.data});
     yield put({
       type: Actions.GET_USER_INFORMATION,
-      params: {user: actions.user},
+      params: {user: actions.user}, 
     });
     if (res.message === 'Cập Nhật Thành Công') {
       goBack();
@@ -91,7 +91,6 @@ function* update_password(actions) {
       type: Actions.GET_USER_INFORMATION,
       params: {user: actions.user},
     });
-    // actions.onFinish && call(actions.onFinish);
     if (res.message === 'Cập Nhật Thành Công') {
       goBack();
     }

@@ -37,6 +37,16 @@ export const productViewed = (...props) => {
 export const addProductViewed = (...props) => {
   return reducerDefault(...props, Actions.ADD_PRODUCT_VIEWED);
 };
+export const addProductReview = (...props) => {
+  return reducerDefault(...props, Actions.ADD_PRODUCT_REVIEW);
+};
+export const updateProductReview = (...props) => {
+  return reducerDefault(...props, Actions.UPDATE_PRODUCT_REVIEW);
+};
+
+export const productReview = (...props) => {
+  return reducerDefault(...props, Actions.GET_PRODUCT_REVIEW);
+};
 
 export const ProductReducer = {
   product,
@@ -49,4 +59,7 @@ export const ProductReducer = {
   checkProductFavorite,
   productViewed,
   addProductViewed,
+  addProductReview,
+  updateProductReview,
+  productReview,
 };
