@@ -93,6 +93,9 @@ const ProductDetails = ({route}) => {
       dispatch({type: _onUnmount(actions.GET_PRODUCT_BY_CATEGORY)});
     };
   }, [_id, data, dispatch]);
+
+  console.log('data', data);
+
   return (
     <Block flex backgroundColor={theme.colors.white}>
       <StatusBar translucent barStyle="dark-content" />
@@ -150,7 +153,14 @@ const ProductDetails = ({route}) => {
             />
             <ProductRelated productCategory={productCategory} />
           </Animated.ScrollView>
-          <ChooseTypeProduct />
+          <ChooseTypeProduct
+            option={data?.options}
+            image={data?.images[0]}
+            productStock={data?.productStock}
+            price={
+              data?.sellOff === 0 ? data?.price : data?.price * data?.sellOff
+            }
+          />
         </>
       )}
     </Block>

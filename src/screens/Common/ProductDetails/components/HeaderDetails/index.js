@@ -8,6 +8,7 @@ import React, {useState, useEffect} from 'react';
 import {Animated, Pressable} from 'react-native';
 import {Badge} from 'react-native-elements';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useSelector} from 'react-redux';
 import styles from './styles';
 
 const HeaderDetails = ({scroll, nameProduct, scrollViewRef}) => {
@@ -57,6 +58,7 @@ const HeaderDetails = ({scroll, nameProduct, scrollViewRef}) => {
     outputRange: [theme.colors.transparent, theme.colors.smoke],
     extrapolate: 'clamp',
   });
+  const user = useSelector(state => state.tokenUser?.data);
 
   return (
     <Animated.View
@@ -98,7 +100,11 @@ const HeaderDetails = ({scroll, nameProduct, scrollViewRef}) => {
                 cart
                 style={styles.iconcart}
                 icon={icons.cart}
-                onPress={() => navigation.navigate(routes.CARTSCREENS)}
+                onPress={() =>
+                  navigation.navigate(
+                    user ? routes.CARTSCREENS : routes.AUTHFORSCREEN,
+                  )
+                }
               />
               <_renderIcon
                 ColorIcon={ColorIcon}

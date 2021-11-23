@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {icons} from '@assets';
 import {Block, LazyImage, Text} from '@components';
 import React, {useState, useEffect} from 'react';
@@ -51,13 +52,13 @@ const AvatarProfile = () => {
                 avatar: url,
               },
               user,
-              onFinish: () => cleanUp(),
+              onFinish: () => cleanUp,
             });
           },
         );
       });
     }
-  }, [dispatch, user, picture, cleanUp]);
+  }, [dispatch, user, picture]);
 
   useEffect(() => {
     if (focus) {

@@ -10,6 +10,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import BottomSheet from './components/BottomSheet';
 import ListCart from './components/ListItem';
 import styles from './styles';
+import {useSelector, useDispatch} from 'react-redux';
 
 const CartScreen = () => {
   const refRBSheet = useRef();

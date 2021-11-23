@@ -163,9 +163,14 @@ const HeaderCommon = ({canGoBack, title, checkBackground}) => {
 };
 
 const Cart = ({colorimg}) => {
+  const user = useSelector(state => state.tokenUser?.data);
+
   const navigation = useNavigation();
   return (
-    <Pressable onPress={() => navigation.navigate(routes.CARTSCREENS)}>
+    <Pressable
+      onPress={() =>
+        navigation.navigate(user ? routes.CARTSCREENS : routes.AUTHFORSCREEN)
+      }>
       <Block marginHorizontal={10}>
         <Badge
           status="warning"
