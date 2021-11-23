@@ -7,12 +7,16 @@ import {useImagePicker} from '@hooks';
 import styles from './styles';
 import ImagePickerModal from '../ImagePickerModal';
 import actions from '@redux/actions';
+import {useIsFocused} from '@react-navigation/native';
 import storage from '@react-native-firebase/storage';
 
 const AvatarProfile = () => {
   const dispatch = useDispatch();
+  const focus = useIsFocused();
   const userInfo = useSelector(state => state.userInfo?.data);
   const user = useSelector(state => state.tokenUser?.data);
+  const data = useSelector(state => state.productViewed?.data);
+
   const {openPicker, openCamera, closeModal, picture, cleanUp} =
     useImagePicker();
   const [isVisible, setIsVisible] = useState(false);
@@ -54,6 +58,13 @@ const AvatarProfile = () => {
       });
     }
   }, [dispatch, user, picture, cleanUp]);
+
+  useEffect(() => {
+    if (focus) {
+      dispatch({type: actions.GET_PRODUCT_VIEWED, user});
+    }
+  }, [dispatch, focus, user]);
+
   return (
     <Block>
       <Block row marginTop={20} paddingHorizontal={12}>
@@ -86,7 +97,7 @@ const AvatarProfile = () => {
       <Block flex row marginTop={10}>
         <Block flex alignCenter justifyCenter>
           <Text marginBottom={5} fontType="bold">
-            4
+            {data?.length || 0}
           </Text>
           <Text>Xem gần đây</Text>
         </Block>

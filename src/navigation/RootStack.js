@@ -160,6 +160,10 @@ const RootStack = () => {
             name={routes.FAVORITE_SCREEN}
             component={bottom.FAVORITE_SCREEN}
           />
+          <Stack.Screen
+            name={routes.VIEW_PRODUCTS}
+            component={bottom.VIEW_PRODUCTS}
+          />
         </Stack.Navigator>
       )}
     </NavigationContainer>

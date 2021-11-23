@@ -29,7 +29,7 @@ export const DATA = [
     id: '5',
     image: icons.eyesview,
     title: 'Đã xem gần đây',
-    navigation: null,
+    navigation: routes.VIEW_PRODUCTS,
   },
   {
     id: '6',
