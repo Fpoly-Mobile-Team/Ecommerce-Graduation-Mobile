@@ -12,7 +12,8 @@ import OTPScreens from './OTPScreens';
 import OTPCodeScreens from './OTPScreens/navigation/OTPCodeScreen';
 import ChooseADeliveryAddressScreen from './AddressScreen/navigation/ChooseADeliveryAddressScreen';
 import InformationDetails from './ProductDetails/navigation/InformationDetails';
-
+import StoreInformation from './ProductStore/navigation/StoreInformation';
+import StoreDenounce from './ProductStore/navigation/StoreDenounce';
 export const common = {
   PRODUCT_DETAILS: ProductDetails,
   CARTSCREENS: CartScreens,
@@ -28,4 +29,6 @@ export const common = {
   OTPCODESCREENS: OTPCodeScreens,
   CHOOSE_A_DELIVERY_ADDRESS_SCREEN: ChooseADeliveryAddressScreen,
   INFORMATION_DETAILS: InformationDetails,
+  STORE_INFORMATION: StoreInformation,
+  STORE_DENOUNCE: StoreDenounce,
 };

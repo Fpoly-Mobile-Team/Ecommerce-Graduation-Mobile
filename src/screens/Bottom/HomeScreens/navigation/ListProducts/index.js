@@ -54,6 +54,7 @@ const ListProducts = ({route}) => {
             <ItemSaleProducts
               images={item.images[0]}
               nameProduct={item.name}
+              _id={item._id}
               left={-0.75}
               price={item.price}
               productSold={item.productSold}
@@ -71,6 +72,7 @@ const ListProducts = ({route}) => {
         <ItemProduct
           key={index}
           style={styles.style_item(index)}
+          _id={item._id}
           images={item.images[0]}
           nameProduct={item.name}
           price={item.price}
