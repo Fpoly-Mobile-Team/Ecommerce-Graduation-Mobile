@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {icons} from '@assets';
 import {Block, Text} from '@components';
 import ItemShop from '@components/Common/ItemList/ItemShop';

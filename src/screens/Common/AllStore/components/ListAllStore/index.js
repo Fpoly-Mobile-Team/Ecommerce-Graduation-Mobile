@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {Block, Text} from '@components';
 import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import {height, width} from '@utils/responsive';
 import React from 'react';
-import {Image, FlatList, Pressable} from 'react-native';
+import {Image, FlatList, Pressable, Platform} from 'react-native';
 import styles from './styles';
 const ListAllStore = ({data}) => {
   const navigation = useNavigation();

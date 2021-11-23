@@ -1,4 +1,4 @@
-import {Block, Text, Header} from '@components';
+import {Block, Header} from '@components';
 import actions from '@redux/actions';
 import {theme} from '@theme';
 import React, {useEffect} from 'react';
