@@ -20,4 +20,9 @@ export default StyleSheet.create({
     height: getSize.v(104),
     borderRadius: getSize.s(4),
   },
+  buttonStyle: {
+    width: getSize.s(44 / 2),
+    height: getSize.v(44 / 2),
+
+  },
 });

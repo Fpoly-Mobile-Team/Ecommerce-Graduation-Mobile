@@ -127,9 +127,12 @@ const ProductDetails = ({route, navigation}) => {
               nameProduct={data?.name}
               price={data?.price}
               sellOff={data?.sellOff}
-              numberOfReviews={data?.comments?.length}
+              numberOfReviews={data?.reviews?.length}
               productSold={data?.productSold}
               idProduct={_id}
+              onPressViewProductReview={() =>
+                navigation.navigate(routes.PRODUCT_REVIEWS, {_id: _id})
+              }
             />
 
             <ShopProduct data={shop} productShop={productShop} id={_id} />
@@ -145,6 +148,7 @@ const ProductDetails = ({route, navigation}) => {
               backgroundColor={theme.colors.smoke}
             />
             <ProductReviews
+              _id={_id}
               onPress={() =>
                 navigation.navigate(routes.PRODUCT_REVIEWS, {_id: _id})
               }

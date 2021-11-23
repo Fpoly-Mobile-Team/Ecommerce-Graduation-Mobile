@@ -1,4 +1,3 @@
-import {images} from '@assets';
 import {Block, Text} from '@components';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
@@ -7,12 +6,12 @@ import {Image} from 'react-native';
 import {Rating} from 'react-native-elements';
 import styles from './styles';
 
-const ItemFeedBack = () => {
+const ItemFeedBack = ({name, avatar, star, description, time, image}) => {
   return (
-    <Block marginBottom={10}>
+    <Block marginBottom={24}>
       <Block row space="between">
         <Image
-          source={images.thumnail}
+          source={{uri: avatar}}
           style={{
             width: getSize.s(40),
             height: getSize.s(40),
@@ -21,26 +20,32 @@ const ItemFeedBack = () => {
         />
         <Block flex paddingLeft={10}>
           <Block row space="between">
-            <Text fontType="medium">Tran Dinh Huy</Text>
-            <Text fontType="light" size={12} color={theme.colors.lightGray}>
-              18/03/2021
+            <Text fontType="semibold">{name}</Text>
+            <Text size={12} color={theme.colors.lightGray} fontType="medium">
+              {time}
             </Text>
           </Block>
           <Block row>
             <Rating
               imageSize={getSize.s(12)}
               readonly
-              startingValue={4}
+              startingValue={star}
               style={styles.ratings}
             />
           </Block>
-          <Text marginTop={5}>
-            I bought this product two weeks ago. I really really like it so
-            elegant.
+          <Text size={13} marginVertical={5} justify>
+            {description}
           </Text>
-          <Block flex wrap row marginTop={5}>
-            {[1, 2, 3, 4, 5, 6].map(renderImage)}
+          <Block flex wrap row>
+            {image.map(renderImage)}
           </Block>
+
+          <Block
+            marginTop={12}
+            marginHorizontal={-200}
+            backgroundColor={'#EBF0FF'}
+            height={1}
+            borderRadius={5}></Block>
         </Block>
       </Block>
     </Block>
@@ -51,13 +56,11 @@ const renderImage = (item, index) => {
   return (
     <Image
       key={index}
-      source={{
-        uri: 'https://cf.shopee.vn/file/28df06dd18d91071109d73cfdf08af18',
-      }}
+      source={{uri: item}}
       style={{
         ...styles.imglogo,
         marginBottom: getSize.m(5),
-        marginLeft: getSize.m(3),
+        marginRight: getSize.m(5),
       }}
     />
   );

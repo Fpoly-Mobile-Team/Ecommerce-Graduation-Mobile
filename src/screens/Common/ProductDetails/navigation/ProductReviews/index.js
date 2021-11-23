@@ -1,24 +1,36 @@
 import {Plus_Ants} from '@assets/svg/common';
-import {Block, Header, Text} from '@components';
+import {Block, Header, Text, Empty} from '@components';
+import actions from '@redux/actions';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
-import React, {useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {FlatList, Pressable, ScrollView} from 'react-native';
 import RBSheet from 'react-native-raw-bottom-sheet';
+import {useDispatch, useSelector} from 'react-redux';
 import CardReviews from './components/CardReviews';
 import WritingReviews from './components/WritingReviews';
-import {data} from './data';
 import styles from './styles';
+import moment from 'moment';
+import {lottie} from '@assets';
 
 const ProductReviews = ({route}) => {
+  const dispatch = useDispatch();
   const refRBSheet = useRef();
   const {_id} = route.params;
+  const productReview = useSelector(state => state.productReview?.data);
+
+  useEffect(() => {
+    dispatch({
+      type: actions.GET_PRODUCT_REVIEW,
+      productId: _id,
+    });
+  }, [dispatch, _id]);
 
   const _renderTop = () => {
     return (
       <Block row space="between" marginTop={24}>
         <Text size={24} fontType="bold">
-          2 đánh giá
+          {productReview?.length + ' đánh giá'}
         </Text>
         <Pressable
           onPress={() => refRBSheet.current.open()}
@@ -32,14 +44,24 @@ const ProductReviews = ({route}) => {
   const _renderCardReviews = ({item}) => {
     return (
       <CardReviews
+        _id={item._id}
         name={item.name}
         avatar={item.avatar}
-        star={item.star}
-        time={item.time}
-        image01={item.image01}
-        image02={item.image02}
-        image03={item.image03}
-        description={item.description}
+        star={item.rating}
+        time={moment(item.reviewDate).format('DD/MM/YYYY, hh:mm')}
+        image={item.image}
+        description={item.review}
+      />
+    );
+  };
+
+  const _renderEmpty = () => {
+    return (
+      <Empty
+        lottie={lottie.relax}
+        content="Sản phẩm này chưa có đánh giá"
+        contentMore="Đánh giá ngay"
+        onPress={() => refRBSheet.current.open()}
       />
     );
   };
@@ -47,20 +69,23 @@ const ProductReviews = ({route}) => {
   return (
     <Block flex backgroundColor="#F9F9F9">
       <Header checkBackground canGoBack title="Đánh giá" />
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        style={styles.wrapperScroll}>
-        <_renderTop />
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={data}
-          contentContainerStyle={{
-            paddingTop: getSize.m(24),
-          }}
-          renderItem={_renderCardReviews}
-          keyExtractor={item => item.id.toString()}
-        />
-      </ScrollView>
+      {productReview && productReview?.length ? (
+        <ScrollView
+          style={styles.wrapperScroll}>
+          <_renderTop />
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={productReview}
+            contentContainerStyle={{
+              paddingTop: getSize.m(24),
+            }}
+            renderItem={_renderCardReviews}
+            keyExtractor={item => item._id.toString()}
+          />
+        </ScrollView>
+      ) : (
+        _renderEmpty()
+      )}
 
       <RBSheet
         ref={refRBSheet}

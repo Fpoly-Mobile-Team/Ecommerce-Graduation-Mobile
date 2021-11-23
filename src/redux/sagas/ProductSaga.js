@@ -165,14 +165,15 @@ function* addProductViewed(actions) {
 function* addProductReview(actions) {
   try {
     const body = queryString.stringify(actions.body);
-    const res = yield API.post(
-      `product/addProductReview`,
-      body,
-    );
+    const res = yield API.post(`product/addProductReview`, body);
     yield put({type: _onSuccess(Actions.ADD_PRODUCT_REVIEW), data: res.data});
     yield put({
       type: Actions.GET_PRODUCT,
       params: {user: actions.user},
+    });
+    yield put({
+      type: Actions.GET_PRODUCT_REVIEW,
+      productId: actions.body.productId,
     });
     Toast(res.message);
   } catch (error) {
@@ -184,17 +185,43 @@ function* updateProductReview(actions) {
   try {
     const body = queryString.stringify(actions.body);
     const res = yield API.post(
-      `product/updateProductReview?id=${actions.user}`,
+      `product/updateProductReview`,
       body,
     );
-    yield put({type: _onSuccess(Actions.UPDATE_PRODUCT_REVIEW), data: res.data});
+    yield put({
+      type: _onSuccess(Actions.UPDATE_PRODUCT_REVIEW),
+      data: res.data,
+    });
     yield put({
       type: Actions.GET_PRODUCT,
       params: {user: actions.user},
     });
+    yield put({
+      type: Actions.GET_PRODUCT_REVIEW,
+      productId: actions.body.productId,
+    });
+
     Toast(res.message);
   } catch (error) {
     yield put({type: _onFail(Actions.UPDATE_PRODUCT_REVIEW)});
+  }
+}
+
+function* getProductReview(actions) {
+  try {
+    const res = yield API.get(
+      `product/getProductReviewById?productId=${actions.productId}`,
+    );
+
+    yield put({
+      type: _onSuccess(Actions.GET_PRODUCT_REVIEW),
+      data: res.data,
+    });
+  } catch (error) {
+    yield put({type: _onFail(Actions.GET_PRODUCT_REVIEW)});
+  }
+}
+
 function* searchProduct(actions) {
   try {
     const res = yield API.get('product/searchAllProducts', actions.params);
@@ -226,5 +253,6 @@ export function* watchProductSagas() {
   yield takeLatest(Actions.GET_PRODUCT_VIEWED, getProductViewed);
   yield takeLatest(Actions.ADD_PRODUCT_REVIEW, addProductReview);
   yield takeLatest(Actions.UPDATE_PRODUCT_REVIEW, updateProductReview);
+  yield takeLatest(Actions.GET_PRODUCT_REVIEW, getProductReview);
   yield takeLatest(Actions.SEARCH_KEYWORD_PRODUCT, searchProduct);
 }

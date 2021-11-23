@@ -16,7 +16,7 @@ export default StyleSheet.create({
   },
   wrapIconCamera: {
     position: 'absolute',
-    bottom: getSize.m(0),
+    bottom: getSize.m(5),
     right: getSize.m(5),
   },
 });

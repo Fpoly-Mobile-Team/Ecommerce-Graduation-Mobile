@@ -39,7 +39,6 @@ const useImagePicker = (width = 512, height = 512) => {
     })
       .then(images => {
         setCloseModal(true);
-        // console.log('imagesssssssssssss' + images);
         setPictures(images);
       })
       .then(() => setCloseModal(false));

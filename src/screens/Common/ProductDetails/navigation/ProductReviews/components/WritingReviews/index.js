@@ -9,6 +9,7 @@ import StarRating from '../StarRating';
 import {useDispatch, useSelector} from 'react-redux';
 import actions from '@redux/actions';
 import storage from '@react-native-firebase/storage';
+import {Toast} from '@utils/helper';
 
 const WritingReviews = ({_id, isClosed}) => {
   const dispatch = useDispatch();
@@ -23,7 +24,9 @@ const WritingReviews = ({_id, isClosed}) => {
   };
 
   const onSubmit = async () => {
-    if (pictures) {
+    if (rating <= 1) {
+      Toast('Vui lòng chọn thang điểm đánh giá');
+    } else if (pictures) {
       let images = [];
 
       for (let index = 0; index < pictures?.length; index++) {
@@ -56,6 +59,21 @@ const WritingReviews = ({_id, isClosed}) => {
       });
 
       _onPress();
+    } else {
+      const data = {
+        userId: user,
+        rating: rating,
+        review: review,
+      };
+
+      dispatch({
+        type: actions.ADD_PRODUCT_REVIEW,
+        body: {
+          productId: _id,
+          review: JSON.stringify(data),
+        },
+      });
+      _onPress();
     }
   };
 
@@ -72,6 +90,7 @@ const WritingReviews = ({_id, isClosed}) => {
           style={styles.input}
           placeholder="Nhập nội dung đánh giá"
           onChangeText={text => setReview(text)}
+          value={review}
           multiline
         />
       </Block>
