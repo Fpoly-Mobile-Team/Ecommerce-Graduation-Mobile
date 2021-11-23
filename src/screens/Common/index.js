@@ -12,7 +12,7 @@ import OTPScreens from './OTPScreens';
 import OTPCodeScreens from './OTPScreens/navigation/OTPCodeScreen';
 import ChooseADeliveryAddressScreen from './AddressScreen/navigation/ChooseADeliveryAddressScreen';
 import InformationDetails from './ProductDetails/navigation/InformationDetails';
-
+import AllStore from './AllStore';
 export const common = {
   PRODUCT_DETAILS: ProductDetails,
   CARTSCREENS: CartScreens,
@@ -28,4 +28,5 @@ export const common = {
   OTPCODESCREENS: OTPCodeScreens,
   CHOOSE_A_DELIVERY_ADDRESS_SCREEN: ChooseADeliveryAddressScreen,
   INFORMATION_DETAILS: InformationDetails,
+  ALL_STORE: AllStore,
 };
