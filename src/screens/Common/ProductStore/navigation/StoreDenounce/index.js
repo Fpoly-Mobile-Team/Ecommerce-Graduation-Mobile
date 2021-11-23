@@ -17,6 +17,8 @@ const StoreDenounce = ({route}) => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const shop = useSelector(state => state.infoShop?.data);
+  const isLoading = useSelector(state => state.addreport?.isLoading);
+
   const {id} = route.params || {};
   const [value, setValue] = useState({key: '1', text: 'Sản phẩm cấm'});
   const [des, setDes] = useState();
@@ -53,21 +55,18 @@ const StoreDenounce = ({route}) => {
     const reason = value.text;
     const description = des;
     console.log('Data', userid, shopid, reason, description, images);
+    const data = {
+      userId: userid,
+      shopId: shopid,
+      reason: reason,
+      description: description,
+      images: images,
+    };
     dispatch({
       type: actions.ADD_REPORT_SHOP,
       body: {
-        reportInfo: {
-          userId: userid,
-          shopId: shopid,
-          reason: reason,
-          description: description,
-          images: images,
-        },
+        reportInfo: JSON.stringify(data),
       },
-      onFinish: () =>
-        Alert.alert(
-          'Cảm ơn bạn đã đóng góp! Đơn tố cáo của bạn sẽ được chúng tôi giải quyết nhanh chóng..',
-        ),
     });
   };
 
@@ -144,6 +143,7 @@ const StoreDenounce = ({route}) => {
 
         <Block paddingTop={40} alignCenter>
           <Button
+            disabled={isLoading}
             onPress={submitEvent}
             title="Tố cáo"
             width={width - 20}
