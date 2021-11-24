@@ -37,7 +37,7 @@ const ItemFeedBack = ({name, avatar, star, description, time, image}) => {
             {description}
           </Text>
           <Block flex wrap row>
-            {image.map(renderImage)}
+            {image?.map(renderImage)}
           </Block>
 
           <Block
