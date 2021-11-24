@@ -13,6 +13,7 @@ const InputText = ({...props}) => {
   const {
     ref,
     label,
+    value,
     labelStyle,
     containerInputStyle,
     fontType,
@@ -94,6 +95,7 @@ const InputText = ({...props}) => {
         placeholderTextColor={theme.colors.placeholder}
         underlineColorAndroid="transparent"
         autoCapitalize="none"
+        value={value}
         secureTextEntry={secureEye && isSecure}
         maxLength={maxLength}
         style={textStyle}

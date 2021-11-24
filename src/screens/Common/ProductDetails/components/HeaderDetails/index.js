@@ -1,16 +1,16 @@
 import {icons} from '@assets';
 import {Block, Text} from '@components';
 import {routes} from '@navigation/routes';
-import {useNavigation} from '@react-navigation/native';
+import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import {getSize, width} from '@utils/responsive';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Animated, Pressable} from 'react-native';
 import {Badge} from 'react-native-elements';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import styles from './styles';
 
-const HeaderDetails = ({scroll}) => {
+const HeaderDetails = ({scroll, nameProduct, scrollViewRef}) => {
   const {top} = useSafeAreaInsets();
   const navigation = useNavigation();
 
@@ -19,13 +19,23 @@ const HeaderDetails = ({scroll}) => {
   const HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT;
   const [title, setTitle] = useState();
 
-  scroll.addListener(({value}) => {
-    if (value >= 40) {
-      setTitle('Điện Thoại Vsmart Live 4 (6GB/64GB) - Hàng Chính Hãng');
-    } else {
-      setTitle('');
+  const focus = useIsFocused();
+
+  useEffect(() => {
+    if (focus) {
+      scrollViewRef.current?.scrollTo({x: 0, y: 0});
     }
-  });
+  }, [focus, nameProduct, scrollViewRef]);
+
+  useEffect(() => {
+    scroll.addListener(({value}) => {
+      if (value >= 40) {
+        setTitle(nameProduct);
+      } else {
+        setTitle('');
+      }
+    });
+  }, [nameProduct, scroll]);
 
   const backgroundColor = scroll.interpolate({
     inputRange: [0, HEADER_SCROLL_DISTANCE],

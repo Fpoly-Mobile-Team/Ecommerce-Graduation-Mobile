@@ -7,7 +7,7 @@ import {useSelector} from 'react-redux';
 import {bottom} from '../screens/Bottom';
 import {auth} from './../screens/auth/';
 import BottomTabNavigation from './BottomTabNavigation';
-import {navigate} from './RootNavigation';
+import {navigationRef} from './RootNavigation';
 import {routes} from './routes';
 
 const Stack = createStackNavigator();
@@ -15,7 +15,7 @@ const Stack = createStackNavigator();
 const RootStack = () => {
   const config = useSelector(state => state.config?.data);
   return (
-    <NavigationContainer ref={navigate}>
+    <NavigationContainer ref={navigationRef}>
       <StatusBar
         translucent
         barStyle="light-content"
@@ -92,6 +92,7 @@ const RootStack = () => {
             name={routes.PRODUCT_STORE}
             component={common.PRODUCT_STORE}
           />
+          <Stack.Screen name={routes.ALL_STORE} component={common.ALL_STORE} />
           <Stack.Screen
             name={routes.SECURITY_SCREEN}
             component={bottom.SECURITY_SCREEN}
@@ -126,6 +127,10 @@ const RootStack = () => {
             component={bottom.PROFILESCREENS}
           />
           <Stack.Screen
+            name={routes.MYSELFINFOMATION}
+            component={bottom.MYSELFINFOMATION}
+          />
+          <Stack.Screen
             name={routes.POPUP_SCREEN}
             component={common.POPUP_SCREEN}
             options={{
@@ -134,6 +139,34 @@ const RootStack = () => {
                 backgroundColor: 'rgba(0,0,0,.4)',
               },
             }}
+          />
+          <Stack.Screen
+            name={routes.PRODUCT_REVIEWS}
+            component={common.PRODUCTS_REVIEW}
+          />
+          <Stack.Screen
+            name={routes.CHOOSE_A_DELIVERY_ADDRESS_SCREEN}
+            component={common.CHOOSE_A_DELIVERY_ADDRESS_SCREEN}
+          />
+          <Stack.Screen
+            name={routes.LIST_PRODUCTS}
+            component={bottom.LIST_PRODUCTS}
+          />
+          <Stack.Screen
+            name={routes.INFORMATION_DETAILS}
+            component={common.INFORMATION_DETAILS}
+          />
+          <Stack.Screen
+            name={routes.FAVORITE_SCREEN}
+            component={bottom.FAVORITE_SCREEN}
+          />
+          <Stack.Screen
+            name={routes.VIEW_PRODUCTS}
+            component={bottom.VIEW_PRODUCTS}
+          />
+          <Stack.Screen
+            name={routes.MY_RATING}
+            component={bottom.MY_RATING}
           />
         </Stack.Navigator>
       )}

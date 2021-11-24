@@ -23,19 +23,19 @@ export const DATA = [
     id: '4',
     image: icons.favoriteprofile,
     title: 'Yêu thích',
-    navigation: null,
+    navigation: routes.FAVORITE_SCREEN,
   },
   {
     id: '5',
     image: icons.eyesview,
     title: 'Đã xem gần đây',
-    navigation: null,
+    navigation: routes.VIEW_PRODUCTS,
   },
   {
     id: '6',
     image: icons.feedback,
     title: 'Đánh giá',
-    navigation: null,
+    navigation: routes.MY_RATING,
   },
   {
     id: '7',

@@ -141,8 +141,10 @@ const HeaderCommon = ({canGoBack, title, checkBackground}) => {
       }>
       {isFocused && <StatusBar barStyle="dark-content" translucent animated />}
       {canGoBack && (
-        <Pressable onPress={() => navigation.goBack()}>
-          <ChevronLeft />
+        <Pressable
+          hitSlop={{top: 20, bottom: 20, left: 50, right: 50}}
+          onPress={() => navigation.goBack()}>
+          <ChevronLeft isColor={!checkBackground} />
         </Pressable>
       )}
       {title && (

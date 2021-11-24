@@ -8,7 +8,7 @@ export const DATA = [
       {
         id: '1',
         title: 'Hồ sơ của tôi',
-        navigation: routes.ORDERHISTORY,
+        navigation: routes.MYSELFINFOMATION,
       },
       {
         id: '2',

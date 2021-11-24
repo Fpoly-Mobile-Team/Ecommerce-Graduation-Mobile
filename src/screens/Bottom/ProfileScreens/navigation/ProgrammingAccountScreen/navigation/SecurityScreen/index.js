@@ -1,18 +1,27 @@
-import {Block, Button, Header, Text, TextInput} from '@components';
+import {Block, Button, Header, Text} from '@components';
 import FormContainer from '@components/Form/FormContainer';
-import {useNavigation} from '@react-navigation/native';
+import actions from '@redux/actions';
 import {theme} from '@theme';
 import {getSize, width} from '@utils/responsive';
-import moment from 'moment';
 import React, {useState} from 'react';
-import {LayoutAnimation, Platform, StatusBar, UIManager} from 'react-native';
-import {Switch} from 'react-native-gesture-handler';
+import {
+  Keyboard,
+  LayoutAnimation,
+  Platform,
+  StatusBar,
+  UIManager,
+} from 'react-native';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {DATA} from './components/data';
 import FormEditInput from './components/FormEditInput';
+import FormSecure from './components/FormSecure';
 import Radio from './components/RadioCustom';
 import styles from './styles';
+import Notifi from './components/Notifi';
+import {useForm} from 'react-hook-form';
+import {yupResolver} from '@hookform/resolvers/yup';
+import {validation} from './components/FormSecure/validation';
 
 if (Platform.OS === 'android') {
   if (UIManager.setLayoutAnimationEnabledExperimental) {
@@ -21,24 +30,79 @@ if (Platform.OS === 'android') {
 }
 
 const Security = () => {
-  const config = useSelector(state => state.config?.data);
-  const [name, setName] = useState();
+  const user = useSelector(state => state.tokenUser?.data);
+  const userInfo = useSelector(state => state.userInfo?.data);
+  const isLoading = useSelector(state => state.update_user?.isLoading);
+  const isLoadingPassword = useSelector(
+    state => state.update_password?.isLoading,
+  );
 
-  const [oldPassword, setOldPassword] = useState();
-  const [newPassword, setNewPassword] = useState();
-  const [rePassword, setRePassword] = useState();
-  const [isSwitchEnabled, setSwitch] = useState(false);
-  const [checked, setChecked] = useState('0');
-  const navigation = useNavigation();
+  const parseDateToStringDMY = d => {
+    if (d === undefined || d === null) {
+      return '';
+    }
+    if (typeof d === 'string' && d.length <= 10) {
+      return d;
+    }
+    const dateRs = new Date(d);
+    const month = (dateRs.getMonth() + 1).toString().padStart(2, '0');
+    return dateRs.getDate() + '/' + month + '/' + dateRs.getFullYear();
+  };
+
+  const [username, setUsername] = useState(userInfo?.username);
+  const [birthday, setBirthday] = useState(
+    parseDateToStringDMY(userInfo?.birthday),
+  );
+  const [phone, setPhone] = useState(userInfo?.phone);
+  const [email, setEmail] = useState(userInfo?.email);
+
+  const dispatch = useDispatch();
+
+  const INITIAL_VALUES = {
+    name: '',
+    date: '',
+    phone: '',
+    email: '',
+  };
+
+  const {control, handleSubmit} = useForm({
+    resolver: yupResolver(validation),
+    mode: 'onChange',
+    defaultValues: INITIAL_VALUES,
+  });
+
+  const onSubmit = () => {
+    Keyboard.dismiss();
+    dispatch({
+      type: actions.UPDATE_USER,
+      user,
+      body: {
+        username: username,
+        birthday: parseDateToStringDMY(birthday),
+        phone: phone,
+        email: email,
+        gender: checked,
+      },
+    });
+  };
+
+  const onSubmitPasword = values => {
+    Keyboard.dismiss();
+    dispatch({
+      type: actions.UPDATE_PASSWORD,
+      user,
+      body: {
+        currentPassword: values.currentPassword,
+        password: values.password,
+      },
+    });
+  };
+
+  const [checked, setChecked] = useState(
+    userInfo?.gender ? userInfo.gender : '0',
+  );
   const [show, setShow] = useState(false);
-  const [date, setDate] = useState('');
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
-  const thumbColorOn =
-    Platform.OS === 'android' ? config?.backgroundcolor : theme.colors.bgSwitch;
-  const thumbColorOff =
-    Platform.OS === 'android' ? theme.colors.bgSwitch : theme.colors.bgSwitch;
-  const trackColorOn = config?.backgroundcolor;
-  const trackColorOff = `${config?.backgroundcolor}50`;
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);
@@ -49,7 +113,7 @@ const Security = () => {
   };
 
   const handleConfirm = date => {
-    setDate(moment(date).format('DD/MM/YYYY'));
+    setBirthday(date);
     hideDatePicker();
   };
 
@@ -65,43 +129,6 @@ const Security = () => {
     );
   };
 
-  const renderSecure = () => {
-    return (
-      <Block paddingHorizontal={12}>
-        <TextInput
-          label="Mật khẩu cũ"
-          containerInputStyle={styles.containerInputStyle}
-          labelStyle={styles.label}
-          inputStyle={styles.inputStyle}
-          rightstyle={{bottom: 12}}
-          value="000000000"
-          onChangeText={text => setOldPassword(text)}
-          isSecure
-        />
-        <TextInput
-          label="Mật khẩu mới"
-          containerInputStyle={styles.containerInputStyle}
-          labelStyle={styles.label}
-          inputStyle={styles.inputStyle}
-          rightstyle={{bottom: 12}}
-          value="000000000"
-          onChangeText={text => setNewPassword(text)}
-          isSecure
-        />
-        <TextInput
-          label="Nhập lại mật khẩu mới"
-          containerInputStyle={styles.containerInputStyle}
-          labelStyle={styles.label}
-          inputStyle={styles.inputStyle}
-          value="000000000"
-          rightstyle={{bottom: 12}}
-          onChangeText={text => setRePassword(text)}
-          isSecure
-        />
-      </Block>
-    );
-  };
-
   return (
     <Block flex backgroundColor="background">
       <FormContainer>
@@ -113,10 +140,13 @@ const Security = () => {
           </Text>
         </Block>
         <FormEditInput
-          Name={[name, setName]}
-          Date={[date, setDate]}
+          Username={[username, setUsername]}
+          Birthday={[birthday, setBirthday]}
+          Phone={[phone, setPhone]}
+          Email={[email, setEmail]}
           showDatePicker={showDatePicker}
         />
+
         <Block paddingHorizontal={12}>
           <Block
             radius={5}
@@ -141,6 +171,7 @@ const Security = () => {
             </Block>
           </Block>
         </Block>
+
         <Block
           alignCenter
           row
@@ -164,27 +195,12 @@ const Security = () => {
             style={{borderRadius: getSize.s(30)}}
           />
         </Block>
-        {show && renderSecure()}
-
-        <Block
-          row
-          space="between"
-          paddingTop={16}
-          marginBottom={10}
-          paddingHorizontal={12}>
-          <Text size={16} fontType="semibold">
-            Thông báo
-          </Text>
-          <Switch
-            value={isSwitchEnabled}
-            onValueChange={value => setSwitch(value)}
-            thumbColor={isSwitchEnabled ? thumbColorOn : thumbColorOff}
-            trackColor={{false: trackColorOff, true: trackColorOn}}
-            ios_backgroundColor={trackColorOff}
-          />
-        </Block>
+        {show && <FormSecure control={control} />}
+        <Notifi />
         <Block marginBottom={10} paddingHorizontal={12}>
           <Button
+            disabled={show ? isLoadingPassword : isLoading}
+            onPress={show ? handleSubmit(onSubmitPasword) : onSubmit}
             title="CẬP NHẬT"
             height={45}
             style={styles.button}
