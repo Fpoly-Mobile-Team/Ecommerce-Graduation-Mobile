@@ -1,9 +1,11 @@
 import {Block, TextInput} from '@components';
 import React from 'react';
 import {Pressable} from 'react-native';
+import { useSelector } from 'react-redux';
 import styles from './styles';
 
 const FormEditInput = ({showDatePicker, Username, Birthday, Phone, Email}) => {
+  const userInfo = useSelector(state => state.userInfo?.data);
   const parseDateToStringDMY = d => {
     if (d === undefined || d === null) {
       return '';
@@ -58,6 +60,7 @@ const FormEditInput = ({showDatePicker, Username, Birthday, Phone, Email}) => {
         placeholder="Nhập số điện thoại của bạn"
         onChangeText={text => setPhone(text)}
         value={phone}
+        editable={userInfo?.phone ? false : true}
       />
       <TextInput
         label="Email"

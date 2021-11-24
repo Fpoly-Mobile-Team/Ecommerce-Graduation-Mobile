@@ -6,6 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import React from 'react';
 import {FlatList, Image, Platform, Pressable} from 'react-native';
+import { useSelector } from 'react-redux';
 import styles from './styles';
 
 const _renderItem = ({item}) => (
@@ -24,6 +25,7 @@ const _renderItem = ({item}) => (
 const ShopProduct = ({data, productShop, id}) => {
   const navigation = useNavigation();
   const productData = productShop?.filter(v => v._id !== id);
+  const productReview = useSelector(state => state.productReview?.data);
 
   return (
     <Block marginBottom={10}>
@@ -87,7 +89,7 @@ const ShopProduct = ({data, productShop, id}) => {
           <Block flex>
             <Block alignCenter justifyCenter>
               <Text size={16} fontType="semibold" color={theme.colors.pink}>
-                1,2k
+                {productReview?.length}
               </Text>
               <Text marginTop={5} color={theme.colors.lightGray}>
                 Đánh giá
