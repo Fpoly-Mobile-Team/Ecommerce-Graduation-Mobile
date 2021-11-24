@@ -19,18 +19,19 @@ const ProductReviews = ({route}) => {
   const productReview = useSelector(state => state.productReview?.data);
   const user = useSelector(state => state.tokenUser?.data);
   const [check, setCheck] = useState({});
-  // const reversed = productReview?.reverse();
-  // const softed = productReview?.sort((a, b) => {
-  //   return a.reviewDate - b.reviewDate;
-  // });
 
   const noPhoto =
     'https://t-f20-zpg.zdn.vn/480/31373314168375588/1fd9c43dd0381b664229.jpg';
 
   let userId;
   for (let index = 0; index < productReview?.length; index++) {
-    userId = productReview[index]?.userId;
+    if (productReview[index]?.userId === user) {
+      userId = productReview[index]?.userId;
+    }
   }
+
+  console.log('TOKEN USER ----- ', user);
+  console.log('ID POST REVIEW ----- ', userId);
 
   useEffect(() => {
     dispatch({
