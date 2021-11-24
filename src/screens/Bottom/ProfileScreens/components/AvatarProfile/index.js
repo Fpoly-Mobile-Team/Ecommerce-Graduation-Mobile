@@ -16,6 +16,7 @@ const AvatarProfile = () => {
   const userInfo = useSelector(state => state.userInfo?.data);
   const user = useSelector(state => state.tokenUser?.data);
   const data = useSelector(state => state.productViewed?.data);
+  const myReview = useSelector(state => state.myReview?.data);
 
   const {openPicker, openCamera, closeModal, picture, cleanUp} =
     useImagePicker();
@@ -65,6 +66,10 @@ const AvatarProfile = () => {
     }
   }, [dispatch, focus, user]);
 
+  useEffect(() => {
+    dispatch({type: actions.GET_MY_REVIEW, user});
+  }, [dispatch, user]);
+
   return (
     <Block>
       <Block row marginTop={20} paddingHorizontal={12}>
@@ -103,7 +108,7 @@ const AvatarProfile = () => {
         </Block>
         <Block flex alignCenter justifyCenter>
           <Text marginBottom={5} fontType="bold">
-            4
+            {myReview?.length}
           </Text>
           <Text>Đánh giá của tôi</Text>
         </Block>

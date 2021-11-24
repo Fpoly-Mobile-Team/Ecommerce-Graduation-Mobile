@@ -18,6 +18,7 @@ const Block = ({
   row,
   reverse,
   column,
+  reverseColumn,
   shadow,
   backgroundColor,
   space,
@@ -74,6 +75,7 @@ const Block = ({
     row && styles.row,
     reverse && styles.reverse,
     column && styles.column,
+    reverseColumn && styles.reverseColumn,
     shadow && {
       ...styles.shadow,
       shadowColor: shadowColor ? theme.colors[shadowColor] : theme.colors.black,

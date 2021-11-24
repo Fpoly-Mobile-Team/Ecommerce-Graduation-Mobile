@@ -142,9 +142,8 @@ function* getMyReview(actions) {
     const res = yield API.get(
       `getUser/GetFeedBackMyReview?user=${actions.user}`,
     );
-
     yield put({
-      type: _onSuccess(Actions.GET_MY_REVIEW),
+      type: _onSuccess(Actions.GET_PRODUCT_REVIEW && Actions.GET_MY_REVIEW),
       data: res.data,
     });
   } catch (error) {

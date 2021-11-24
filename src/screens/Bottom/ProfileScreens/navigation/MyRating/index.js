@@ -26,35 +26,49 @@ const MyRating = () => {
 
   const _renderItem = ({item, index}) => {
     return (
-      <Pressable
-        key={index}
-        style={styles.wrapItems}
-        onPress={() =>
-          navigation.navigate(routes.PRODUCT_REVIEWS, {
-            _id: item._idProduct,
-          })
-        }>
-        <Block row alignCenter>
-          <Pressable style={styles.wrapperImages}>
-            <Image
-              source={{uri: item.shopUsers.profilePicture}}
-              style={styles.imageShop}
-            />
-          </Pressable>
-          <Block marginHorizontal={12} width={width / 2.1}>
-            <Text fontType="bold">{item.shopUsers?.shopName}</Text>
-            <Text fontType="medium" size={13} numberOfLines={1}>
-              {item.name}
+      <Block>
+        <Pressable
+          key={index}
+          style={styles.wrapItems}
+          onPress={() =>
+            navigation.navigate(routes.PRODUCT_REVIEWS, {
+              _id: item._idProduct,
+            })
+          }>
+          <Block row alignCenter>
+            <Block
+              width={67}
+              height={67}
+              radius={67}
+              borderColor={theme.colors.lightRount}
+              borderWidth={1.5}
+              justifyCenter
+              alignCenter>
+              <Image
+                source={{uri: item.shopUsers.profilePicture}}
+                style={styles.imageShop}
+              />
+            </Block>
+            <Block marginHorizontal={12} width={width / 2.5}>
+              <Text fontType="bold">{item.shopUsers?.shopName}</Text>
+              <Text fontType="medium" size={13} numberOfLines={1}>
+                {item.name}
+              </Text>
+            </Block>
+          </Block>
+          <Block>
+            <Text fontType="regular" size={13}>
+              {moment(item.review.reviewDate).format('DD/MM/YYYY')}
             </Text>
           </Block>
-        </Block>
-        <Block>
-          <Text fontType="regular" size={13}>
-            {moment(item.review.reviewDate).format('DD/MM/YYYY')}
-          </Text>
-        </Block>
-      </Pressable>
+        </Pressable>
+        <_renderLines />
+      </Block>
     );
+  };
+
+  const _renderLines = () => {
+    return <Block backgroundColor={theme.colors.background} height={2}></Block>;
   };
 
   const _renderEmpty = () => {
@@ -69,7 +83,7 @@ const MyRating = () => {
   };
 
   return (
-    <Block flex backgroundColor={theme.colors.background}>
+    <Block flex backgroundColor={theme.colors.white}>
       <Header checkBackground canGoBack title="Đánh giá của tôi" />
       {data && data?.length ? (
         <FlatList

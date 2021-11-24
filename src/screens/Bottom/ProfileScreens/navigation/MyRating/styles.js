@@ -4,7 +4,6 @@ import {theme} from '@theme';
 
 export default StyleSheet.create({
   wrapItems: {
-    marginTop: getSize.m(5),
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -12,16 +11,6 @@ export default StyleSheet.create({
     paddingHorizontal: getSize.m(12),
     borderRadius: getSize.s(8),
     backgroundColor: theme.colors.white,
-  },
-  wrapperImages: {
-    width: getSize.s(67),
-    height: getSize.v(67),
-    borderRadius: getSize.s(67),
-    borderColor: theme.colors.lightRount,
-    borderWidth: getSize.s(3 / 2),
-    justifyContent: 'center',
-    alignItems: 'center',
-    // borderStyle: 'dashed',
   },
   imageShop: {
     width: getSize.s(60),

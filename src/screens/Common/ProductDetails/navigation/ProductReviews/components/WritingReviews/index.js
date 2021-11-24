@@ -11,20 +11,23 @@ import actions from '@redux/actions';
 import storage from '@react-native-firebase/storage';
 import {Toast} from '@utils/helper';
 
-const WritingReviews = ({_id, isClosed}) => {
+const WritingReviews = ({_id, check, isClosed}) => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.tokenUser?.data);
   const isLoading = useSelector(state => state.addProductReview?.isLoading);
+  const isLoadingUpdate = useSelector(
+    state => state.updateProductReview?.isLoading,
+  );
   const {openMultiPicker, pictures, cleanUps} = useImagePicker();
-  const [rating, setRating] = useState(0);
-  const [review, setReview] = useState();
+  const [rating, setRating] = useState(check ? check?.rating : 0);
+  const [review, setReview] = useState(check ? check?.review : '');
 
   const _onPress = () => {
     isClosed.current.close();
   };
 
   const onSubmit = async () => {
-    if (rating <= 1) {
+    if (rating < 1) {
       Toast('Vui lòng chọn thang điểm đánh giá');
     } else if (pictures) {
       let images = [];
@@ -51,6 +54,7 @@ const WritingReviews = ({_id, isClosed}) => {
 
       dispatch({
         type: actions.ADD_PRODUCT_REVIEW,
+        user,
         body: {
           productId: _id,
           review: JSON.stringify(data),
@@ -68,6 +72,7 @@ const WritingReviews = ({_id, isClosed}) => {
 
       dispatch({
         type: actions.ADD_PRODUCT_REVIEW,
+        user,
         body: {
           productId: _id,
           review: JSON.stringify(data),
@@ -77,24 +82,62 @@ const WritingReviews = ({_id, isClosed}) => {
     }
   };
 
-  const _renderInput = () => {
-    return (
-      <Block
-        style={styles.shadow}
-        height={155}
-        backgroundColor={theme.colors.white}
-        radius={8}
-        paddingHorizontal={12}
-        marginBottom={32}>
-        <TextInput
-          style={styles.input}
-          placeholder="Nhập nội dung đánh giá"
-          onChangeText={text => setReview(text)}
-          value={review}
-          multiline
-        />
-      </Block>
-    );
+  const onEdit = async () => {
+    if (rating < 1) {
+      Toast('Vui lòng chọn thang điểm đánh giá');
+    } else if (pictures) {
+      let multiline = [];
+
+      for (let index = 0; index < pictures?.length; index++) {
+        const filename = pictures[index]?.path.substring(
+          pictures[index]?.path.lastIndexOf('/') + 1,
+        );
+
+        const path = 'ProductReview/' + filename;
+        const response = await fetch(pictures[index]?.path);
+        const file = await response.blob();
+        let upload = await storage().ref(path).put(file);
+        const url = await storage().ref(path).getDownloadURL();
+        multiline.push(url);
+      }
+
+      const DataObject = {
+        _id: check?._id,
+        userId: user,
+        rating: rating,
+        review: review,
+        image: multiline,
+      };
+
+      dispatch({
+        type: actions.UPDATE_PRODUCT_REVIEW,
+        user,
+        body: {
+          productId: _id,
+          review: JSON.stringify(DataObject),
+        },
+        onFinish: () => cleanUps(),
+      });
+
+      _onPress();
+    } else {
+      const DataObject = {
+        _id: check?._id,
+        userId: user,
+        rating: rating,
+        review: review,
+      };
+
+      dispatch({
+        type: actions.UPDATE_PRODUCT_REVIEW,
+        user,
+        body: {
+          productId: _id,
+          review: JSON.stringify(DataObject),
+        },
+      });
+      _onPress();
+    }
   };
 
   const _renderMapImages = (item, index) => {
@@ -119,43 +162,59 @@ const WritingReviews = ({_id, isClosed}) => {
   };
   return (
     <Block flex paddingHorizontal={12}>
-      <Block alignCenter>
-        <StarRating
-          startingValue={rating}
-          imageSize={36}
-          readonly
-          onFinishRating={rating => setRating(rating)}
-        />
-        <Text
-          size={18}
-          fontType="semibold"
-          paddingHorizontal={0}
-          center
-          marginTop={32}
-          lineHeight={22}
-          marginBottom={16}>
-          {'Hãy chia sẻ ý kiến của bạn về sản phẩm'}
-        </Text>
-      </Block>
-      <_renderInput />
-      <ScrollView
-        keyboardShouldPersistTaps="handled"
-        showsHorizontalScrollIndicator={false}
-        horizontal>
-        <Block row wrap alignCenter>
-          {pictures?.map(_renderMapImages)}
-          <_renderCamering />
+      <>
+        <Block alignCenter>
+          <StarRating
+            startingValue={rating}
+            imageSize={36}
+            readonly
+            onFinishRating={rating => setRating(rating)}
+          />
+          <Text
+            size={18}
+            fontType="semibold"
+            paddingHorizontal={0}
+            center
+            marginTop={32}
+            lineHeight={22}
+            marginBottom={16}>
+            {'Hãy chia sẻ ý kiến của bạn về sản phẩm'}
+          </Text>
         </Block>
-      </ScrollView>
-      <Button
-        disabled={isLoading}
-        onPress={onSubmit}
-        title="GỬI NHẬN XÉT"
-        height={45}
-        shadow
-        style={styles.button}
-        elevation={10}
-      />
+        <Block
+          style={styles.shadow}
+          height={155}
+          backgroundColor={theme.colors.white}
+          radius={8}
+          paddingHorizontal={12}
+          marginBottom={32}>
+          <TextInput
+            style={styles.input}
+            placeholder="Nhập nội dung đánh giá"
+            value={review}
+            onChangeText={text => setReview(text)}
+            multiline
+          />
+        </Block>
+        <ScrollView
+          keyboardShouldPersistTaps="handled"
+          showsHorizontalScrollIndicator={false}
+          horizontal>
+          <Block row wrap alignCenter>
+            {pictures?.map(_renderMapImages)}
+            <_renderCamering />
+          </Block>
+        </ScrollView>
+        <Button
+          disabled={check ? isLoadingUpdate : isLoading}
+          onPress={check ? onEdit : onSubmit}
+          title={check ? 'SỬA NHẬN XÉT' : 'GỬI NHẬN XÉT'}
+          height={45}
+          shadow
+          style={styles.button}
+          elevation={10}
+        />
+      </>
     </Block>
   );
 };

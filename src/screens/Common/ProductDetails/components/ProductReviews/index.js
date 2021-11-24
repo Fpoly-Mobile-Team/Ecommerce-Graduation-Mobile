@@ -12,6 +12,7 @@ import moment from 'moment';
 const ProductReviews = ({onPress, _id}) => {
   const dispatch = useDispatch();
   const productReview = useSelector(state => state.productReview?.data);
+  const user = useSelector(state => state.tokenUser?.data);
   const checkData = productReview?.length;
   let sum = 0;
 
@@ -21,12 +22,16 @@ const ProductReviews = ({onPress, _id}) => {
   }
 
   const totalRating = sum / checkData;
+  const parseRating = totalRating.toFixed(1);
+
+  const noPhoto =
+  'https://t-f20-zpg.zdn.vn/480/31373314168375588/1fd9c43dd0381b664229.jpg';
 
   const _renderItem = (item, index) => (
     <ItemFeedBack
       key={index}
-      name={item.name}
-      avatar={item.avatar}
+      name={!user ? '*****' + item?.name?.slice(6) : item?.name}
+      avatar={user ? item.avatar : noPhoto}
       star={item.rating}
       time={moment(item.reviewDate).format('DD/MM/YYYY, hh:mm')}
       image={item.image}
@@ -57,7 +62,7 @@ const ProductReviews = ({onPress, _id}) => {
             color={theme.colors.pink}
             marginLeft={getSize.m(5)}
             fontType="medium">
-            {checkData ? totalRating + '/5' : '0/5'}
+            {checkData ? parseRating + '/5' : '0/5'}
           </Text>
           <Text
             size={14}

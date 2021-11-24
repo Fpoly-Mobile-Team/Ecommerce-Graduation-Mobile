@@ -19,6 +19,9 @@ export default StyleSheet.create({
   column: {
     flexDirection: 'column',
   },
+  reverseColumn: {
+    flexDirection: 'column-reverse',
+  },
   alignCenter: {
     alignItems: 'center',
   },

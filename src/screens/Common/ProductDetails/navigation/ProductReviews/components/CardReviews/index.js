@@ -6,23 +6,25 @@ import styles from './styles';
 import {ScrollView} from 'react-native-gesture-handler';
 import StarRating from '../StarRating';
 import {getSize, width} from '@utils/responsive';
-import {Toast} from '@utils/helper';
 import OptionsMenu from 'react-native-option-menu';
 import {icons} from '@assets';
 
-const CardReviews = ({_id, name, avatar, star, time, image, description}) => {
-  const editReview = () => {
-    // Toast('Edit Review ' + _id);
-    console.log('IDING ' + _id);
-  };
-
-  const deleteReview = () => {
-    Toast('Delete Review');
-  };
-
+const CardReviews = ({
+  _id,
+  name,
+  avatar,
+  star,
+  time,
+  image,
+  description,
+  onEvent,
+  onEdit,
+  onDelete,
+}) => {
   const _renderImage = (item, index) => {
     return (
       <Image
+        key={index}
         source={{uri: item}}
         style={{
           ...styles.imgReviews,
@@ -36,22 +38,23 @@ const CardReviews = ({_id, name, avatar, star, time, image, description}) => {
     <Block
       backgroundColor={theme.colors.white}
       radius={8}
-      paddingTop={8}
+      paddingTop={onEvent ? 8 : 24}
       paddingHorizontal={16}
       shadow
       shadowColor={theme.colors.black}
-      elevation={8}
-      marginHorizontal={16}
-      paddingBottom={16}
-      marginBottom={32}>
+      elevation={6}
+      marginHorizontal={6}
+      marginBottom={16}>
       <Pressable style={{alignItems: 'flex-end'}}>
-        <OptionsMenu
-          button={icons.mening}
-          buttonStyle={styles.buttonStyle}
-          destructiveIndex={1}
-          options={['Sửa đánh giá', 'Xóa đánh giá', 'Hủy thao tác']}
-          actions={[editReview, deleteReview]}
-        />
+        {onEvent && (
+          <OptionsMenu
+            button={icons.mening}
+            buttonStyle={styles.buttonStyle}
+            destructiveIndex={1}
+            options={['Sửa đánh giá', 'Xóa đánh giá', 'Hủy thao tác']}
+            actions={[onEdit, onDelete]}
+          />
+        )}
       </Pressable>
       <Block row space="between">
         <Block row>
@@ -60,7 +63,6 @@ const CardReviews = ({_id, name, avatar, star, time, image, description}) => {
           </Pressable>
           <Block marginHorizontal={12} width={width / 3}>
             <Text
-              // numberOfLines={1}
               size={14}
               fontType="semibold"
               color={theme.colors.black}
@@ -78,7 +80,6 @@ const CardReviews = ({_id, name, avatar, star, time, image, description}) => {
       </Block>
 
       <Text
-        marginBottom={5}
         marginTop={8}
         justify
         color={theme.colors.gray}

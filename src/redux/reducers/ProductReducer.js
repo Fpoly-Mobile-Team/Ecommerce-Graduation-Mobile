@@ -41,8 +41,13 @@ export const addProductViewed = (...props) => {
 export const addProductReview = (...props) => {
   return reducerDefault(...props, Actions.ADD_PRODUCT_REVIEW);
 };
+
 export const updateProductReview = (...props) => {
   return reducerDefault(...props, Actions.UPDATE_PRODUCT_REVIEW);
+};
+
+export const deleteProductReview = (...props) => {
+  return reducerDefault(...props, Actions.DELETE_PRODUCT_REVIEW);
 };
 
 export const productReview = (...props) => {
@@ -66,6 +71,7 @@ export const ProductReducer = {
   addProductViewed,
   addProductReview,
   updateProductReview,
+  deleteProductReview,
   productReview,
   searchProduct,
 };

@@ -3,7 +3,7 @@ import {Block, Header, Text, Empty} from '@components';
 import actions from '@redux/actions';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {FlatList, Pressable, ScrollView} from 'react-native';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import {useDispatch, useSelector} from 'react-redux';
@@ -18,6 +18,20 @@ const ProductReviews = ({route}) => {
   const refRBSheet = useRef();
   const {_id} = route.params;
   const productReview = useSelector(state => state.productReview?.data);
+  const user = useSelector(state => state.tokenUser?.data);
+  const [check, setCheck] = useState({});
+  // const reversed = productReview?.reverse();
+  // const softed = productReview?.sort((a, b) => {
+  //   return a.reviewDate - b.reviewDate;
+  // });
+
+  const noPhoto =
+    'https://t-f20-zpg.zdn.vn/480/31373314168375588/1fd9c43dd0381b664229.jpg';
+
+  let userId;
+  for (let index = 0; index < productReview?.length; index++) {
+    userId = productReview[index]?.userId;
+  }
 
   useEffect(() => {
     dispatch({
@@ -26,31 +40,57 @@ const ProductReviews = ({route}) => {
     });
   }, [dispatch, _id]);
 
+  const editReview = item => {
+    setCheck(item);
+    refRBSheet.current.open();
+  };
+
+  const deleteReview = id => {
+    dispatch({
+      type: actions.DELETE_PRODUCT_REVIEW,
+      body: {
+        productId: _id,
+        reviewId: id,
+      },
+    });
+  };
+
   const _renderTop = () => {
     return (
-      <Block row space="between" marginTop={24}>
+      <Block row space="between" marginTop={24} marginBottom={18}>
         <Text size={24} fontType="bold">
           {productReview?.length + ' đánh giá'}
         </Text>
-        <Pressable
-          onPress={() => refRBSheet.current.open()}
-          style={styles.wrapperEventAddReviews}>
-          <Plus_Ants />
-        </Pressable>
+        {user === userId
+          ? null
+          : user && (
+              <Pressable
+                onPress={() => {
+                  setCheck(0);
+                  refRBSheet.current.open();
+                }}
+                style={styles.wrapperEventAddReviews}>
+                <Plus_Ants />
+              </Pressable>
+            )}
       </Block>
     );
   };
 
-  const _renderCardReviews = ({item}) => {
+  const _renderCardReviews = (item, index) => {
     return (
       <CardReviews
+        key={item._id}
         _id={item._id}
-        name={item.name}
-        avatar={item.avatar}
+        name={!user ? '*****' + item?.name?.slice(6) : item?.name}
+        avatar={user ? item.avatar : noPhoto}
         star={item.rating}
         time={moment(item.reviewDate).format('DD/MM/YYYY, hh:mm')}
         image={item.image}
         description={item.review}
+        onEvent={item.userId === user ? true : false}
+        onEdit={() => editReview(item)}
+        onDelete={() => deleteReview(item._id)}
       />
     );
   };
@@ -60,28 +100,22 @@ const ProductReviews = ({route}) => {
       <Empty
         lottie={lottie.relax}
         content="Sản phẩm này chưa có đánh giá"
-        contentMore="Đánh giá ngay"
-        onPress={() => refRBSheet.current.open()}
+        contentMore={user && 'Đánh giá ngay'}
+        onPress={() => {
+          setCheck(0);
+          refRBSheet.current.open();
+        }}
       />
     );
   };
 
   return (
-    <Block flex backgroundColor="#F9F9F9">
+    <Block flex backgroundColor={theme.colors.white}>
       <Header checkBackground canGoBack title="Đánh giá" />
       {productReview && productReview?.length ? (
-        <ScrollView
-          style={styles.wrapperScroll}>
+        <ScrollView style={styles.wrapperScroll}>
           <_renderTop />
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            data={productReview}
-            contentContainerStyle={{
-              paddingTop: getSize.m(24),
-            }}
-            renderItem={_renderCardReviews}
-            keyExtractor={item => item._id.toString()}
-          />
+          {productReview?.map(_renderCardReviews)}
         </ScrollView>
       ) : (
         _renderEmpty()
@@ -111,7 +145,7 @@ const ProductReviews = ({route}) => {
             </Text>
           </Block>
         </Block>
-        <WritingReviews _id={_id} isClosed={refRBSheet} />
+        <WritingReviews _id={_id} check={check} isClosed={refRBSheet} />
       </RBSheet>
     </Block>
   );

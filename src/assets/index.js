@@ -65,6 +65,7 @@ export const images = {
   otpphone: require('./images/otpphone.png'),
   otpcode: require('./images/otpcode.png'),
   handm: require('./images/handm.png'),
+  no_avatar: require('./images/not_avt.png'),
 };
 export const lottie = {
   emptyCategory: require('./lottie/emptyCategory.json'),
@@ -74,4 +75,6 @@ export const lottie = {
   empty_Favorite: require('./lottie/empty_Favorite.json'),
   emptyReview: require('./lottie/emptyReview.json'),
   relax: require('./lottie/relax.json'),
+  emptyData: require('./lottie/emptyData.json'),
+  success: require('./lottie/success.json'),
 };
