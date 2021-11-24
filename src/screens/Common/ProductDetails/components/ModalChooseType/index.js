@@ -17,6 +17,51 @@ const ModalChooseType = ({
 }) => {
   const [option, setOption] = useState({});
   const [quantity, setQuantity] = useState(1);
+
+  const _onPressAddCart = type => {
+    if (options?.length) {
+      if (option?._id) {
+        if (type) {
+          setQuantity(value => value + 1);
+        } else {
+          if (quantity !== 1) {
+            setQuantity(value => value - 1);
+          }
+        }
+      }
+    } else {
+      if (type) {
+        setQuantity(value => value + 1);
+      } else {
+        if (quantity !== 1) {
+          setQuantity(value => value - 1);
+        }
+      }
+    }
+  };
+
+  const onPressBuy = () => {
+    console.log('onPressBuy');
+  };
+
+  const _renderButton = ({title, onPress}) => {
+    return (
+      <Pressable onPress={onPress}>
+        <Block
+          alignCenter
+          justifyCenter
+          width={30}
+          radius={5}
+          height={30}
+          borderWidth={0.5}
+          borderColor={theme.colors.lightGray}>
+          <Text fontType="bold" color={theme.colors.lightGray}>
+            {title}
+          </Text>
+        </Block>
+      </Pressable>
+    );
+  };
   const _renderItem = item => {
     const _onPress = () => {
       setOption(item);
@@ -49,21 +94,6 @@ const ModalChooseType = ({
         </Block>
       </Pressable>
     );
-  };
-  const _onPressAddCart = type => {
-    console.log('type', type);
-    if (options) {
-      if (option?._id) {
-        if (type == true) {
-          setQuantity(value => value + 1);
-        } else if (type == false) {
-          console.log('kaka');
-          const quantitys = quantity - 1;
-          setQuantity(quantitys);
-        }
-      }
-    } else {
-    }
   };
 
   return (
@@ -129,7 +159,12 @@ const ModalChooseType = ({
               <Text marginHorizontal={10} color={theme.colors.pink}>
                 {quantity}
               </Text>
-              <_renderButton title="+" onPress={() => _onPressAddCart(true)} />
+              <_renderButton
+                title="+"
+                onPress={() => {
+                  _onPressAddCart(true);
+                }}
+              />
             </Block>
           </Block>
         </Block>
@@ -143,30 +178,16 @@ const ModalChooseType = ({
             }}
           />
         ) : (
-          <Button title="MUA HÀNG" height={45} style={styles.buttonAdd} />
+          <Button
+            title="MUA HÀNG"
+            height={45}
+            style={styles.buttonAdd}
+            onPress={onPressBuy}
+          />
         )}
       </Block>
     </ModalBox>
   );
 };
-const _renderButton = ({title, onPress}) => {
-  return (
-    <Pressable
-      hitSlop={{top: 20, bottom: 20, left: 50, right: 50}}
-      onPress={onPress}>
-      <Block
-        alignCenter
-        justifyCenter
-        width={30}
-        radius={5}
-        height={30}
-        borderWidth={0.5}
-        borderColor={theme.colors.lightGray}>
-        <Text fontType="bold" color={theme.colors.lightGray}>
-          {title}
-        </Text>
-      </Block>
-    </Pressable>
-  );
-};
+
 export default ModalChooseType;
