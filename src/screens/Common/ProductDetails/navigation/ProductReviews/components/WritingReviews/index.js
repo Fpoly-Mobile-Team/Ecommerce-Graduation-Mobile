@@ -18,7 +18,7 @@ const WritingReviews = ({_id, check, isClosed}) => {
   const isLoadingUpdate = useSelector(
     state => state.updateProductReview?.isLoading,
   );
-  const {openMultiPicker, pictures, cleanUps} = useImagePicker();
+  const {openMultiPicker, pictures} = useImagePicker();
   const [rating, setRating] = useState(check ? check?.rating : 0);
   const [review, setReview] = useState(check ? check?.review : '');
 
@@ -59,7 +59,6 @@ const WritingReviews = ({_id, check, isClosed}) => {
           productId: _id,
           review: JSON.stringify(data),
         },
-        onFinish: () => cleanUps(),
       });
 
       _onPress();
@@ -116,7 +115,6 @@ const WritingReviews = ({_id, check, isClosed}) => {
           productId: _id,
           review: JSON.stringify(DataObject),
         },
-        onFinish: () => cleanUps(),
       });
 
       _onPress();

@@ -18,8 +18,7 @@ const AvatarProfile = () => {
   const data = useSelector(state => state.productViewed?.data);
   const myReview = useSelector(state => state.myReview?.data);
 
-  const {openPicker, openCamera, closeModal, picture, cleanUp} =
-    useImagePicker();
+  const {openPicker, openCamera, closeModal, picture} = useImagePicker();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -52,13 +51,12 @@ const AvatarProfile = () => {
                 avatar: url,
               },
               user,
-              onFinish: () => cleanUp(),
             });
           },
         );
       });
     }
-  }, [dispatch, user, picture, cleanUp]);
+  }, [dispatch, user, picture]);
 
   useEffect(() => {
     if (focus) {
