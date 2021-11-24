@@ -30,9 +30,6 @@ const ProductReviews = ({route}) => {
     }
   }
 
-  console.log('TOKEN USER ----- ', user);
-  console.log('ID POST REVIEW ----- ', userId);
-
   useEffect(() => {
     dispatch({
       type: actions.GET_PRODUCT_REVIEW,
