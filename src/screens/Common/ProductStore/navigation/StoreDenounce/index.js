@@ -1,24 +1,23 @@
 import {Block, Header, LazyImage, Text, Button} from '@components';
-import {Alert, ScrollView, TextInput} from 'react-native';
+import {ScrollView, TextInput, Modal} from 'react-native';
 import styles from './styles';
-import actions from '@redux/actions';
-import {routes} from '@navigation/routes';
-import {useNavigation} from '@react-navigation/native';
+import actions, {_onFail} from '@redux/actions';
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {theme} from '@theme';
 import CheckBox from './components/Checkbox';
-import {width} from '@utils/responsive';
+import {height, width} from '@utils/responsive';
 import SelectImage from './components/SelectImage';
 import storage from '@react-native-firebase/storage';
 import {val} from './components/data';
+import {SkypeIndicator} from 'react-native-indicators';
 
 const StoreDenounce = ({route}) => {
-  const navigation = useNavigation();
   const dispatch = useDispatch();
   const shop = useSelector(state => state.infoShop?.data);
   const isLoading = useSelector(state => state.addreport?.isLoading);
 
+  const [modalVisible, setModalVisible] = useState(false);
   const {id} = route.params || {};
   const [value, setValue] = useState({key: '1', text: 'Sản phẩm cấm'});
   const [des, setDes] = useState();
@@ -54,7 +53,6 @@ const StoreDenounce = ({route}) => {
     const shopid = shop?._id;
     const reason = value.text;
     const description = des;
-    console.log('Data', userid, shopid, reason, description, images);
     const data = {
       userId: userid,
       shopId: shopid,
@@ -74,6 +72,26 @@ const StoreDenounce = ({route}) => {
     <Block flex>
       <Header checkBackground canGoBack title="Tố cáo cửa hàng này" />
       <ScrollView showsVerticalScrollIndicator={false}>
+        <Block>
+          {isLoading ? (
+            <Modal
+              animationType="fade"
+              transparent={true}
+              onShow={() => setModalVisible(modalVisible)}>
+              <Block
+                backgroundColor={theme.colors.black}
+                paddingVertical={15}
+                paddingHorizontal={10}
+                radius={10}
+                absolute
+                top={height / 3}
+                left={width / 3}>
+                <SkypeIndicator size={50} color={theme.colors.paleGreen} />
+                <Text color={theme.colors.white}>Chờ vài giây...</Text>
+              </Block>
+            </Modal>
+          ) : null}
+        </Block>
         <Block backgroundColor={theme.colors.white} marginTop={5} row>
           <Block alignCenter justifyCenter width={80} height={80}>
             <LazyImage
@@ -140,10 +158,8 @@ const StoreDenounce = ({route}) => {
           </Text>
           <SelectImage files={files} setFiles={setFiles} />
         </Block>
-
         <Block paddingTop={40} alignCenter>
           <Button
-            disabled={isLoading}
             onPress={submitEvent}
             title="Tố cáo"
             width={width - 20}

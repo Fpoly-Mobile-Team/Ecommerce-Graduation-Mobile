@@ -3,7 +3,6 @@ import {Block, Text} from '@components';
 import {theme} from '@theme';
 import React, {useState, useEffect, Fragment} from 'react';
 import {Image, ScrollView, Pressable, Modal} from 'react-native';
-import {useSelector, useDispatch} from 'react-redux';
 import ImagePicker from 'react-native-image-crop-picker';
 import styles from './styles';
 import ImagePickerModalDenounce from './components/ImagePickerModalDenounce';
