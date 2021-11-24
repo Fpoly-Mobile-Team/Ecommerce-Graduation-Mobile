@@ -1,17 +1,16 @@
+import {lottie} from '@assets';
 import {Plus_Ants} from '@assets/svg/common';
-import {Block, Header, Text, Empty} from '@components';
+import {Block, Empty, Header, Text} from '@components';
 import actions from '@redux/actions';
 import {theme} from '@theme';
-import {getSize} from '@utils/responsive';
+import moment from 'moment';
 import React, {useEffect, useRef, useState} from 'react';
-import {FlatList, Pressable, ScrollView} from 'react-native';
+import {Pressable, ScrollView} from 'react-native';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import {useDispatch, useSelector} from 'react-redux';
 import CardReviews from './components/CardReviews';
 import WritingReviews from './components/WritingReviews';
 import styles from './styles';
-import moment from 'moment';
-import {lottie} from '@assets';
 
 const ProductReviews = ({route}) => {
   const dispatch = useDispatch();

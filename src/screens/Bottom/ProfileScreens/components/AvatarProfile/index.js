@@ -67,8 +67,10 @@ const AvatarProfile = () => {
   }, [dispatch, focus, user]);
 
   useEffect(() => {
-    dispatch({type: actions.GET_MY_REVIEW, user});
-  }, [dispatch, user]);
+    if (focus) {
+      dispatch({type: actions.GET_MY_REVIEW, user});
+    }
+  }, [dispatch, user, focus]);
 
   return (
     <Block>

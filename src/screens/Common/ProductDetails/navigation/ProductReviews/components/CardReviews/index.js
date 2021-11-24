@@ -33,7 +33,7 @@ const CardReviews = ({
       />
     );
   };
-
+  // console.log('image', image);
   return (
     <Block
       backgroundColor={theme.colors.white}
