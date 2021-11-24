@@ -18,8 +18,9 @@ export default StyleSheet.create({
     borderRadius: 8,
   },
   imglogo: {
-    width: getSize.s(40),
-    height: getSize.s(40),
+    width: getSize.s(50),
+    height: getSize.s(50),
+    borderRadius: getSize.s(50),
   },
   ItemIconRight: {
     position: 'absolute',

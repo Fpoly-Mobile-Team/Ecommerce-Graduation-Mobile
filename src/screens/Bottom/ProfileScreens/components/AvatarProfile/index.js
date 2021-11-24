@@ -104,7 +104,7 @@ const AvatarProfile = () => {
       <Block flex row marginTop={10}>
         <Block flex alignCenter justifyCenter>
           <Text marginBottom={5} fontType="bold">
-            {data?.length}
+            {data?.length || 0}
           </Text>
           <Text>Xem gần đây</Text>
         </Block>
