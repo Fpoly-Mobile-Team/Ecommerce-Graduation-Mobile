@@ -3,15 +3,18 @@ import ItemProduct from '@components/Common/ItemList/ItemProduct';
 import ItemSaleProducts from '@components/Common/ItemList/ItemSaleProducts';
 import actions, {_onUnmount} from '@redux/actions';
 import moment from 'moment';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {FlatList} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useDispatch, useSelector} from 'react-redux';
 import styles from './styles';
+import RBSheetEvent from './components/BottomEvent';
+import SortComponent from './components/SortComponent';
 
 const keyExtractor = (item, index) => item._id.toString();
 
 const ListProducts = ({route}) => {
+  const refRBSheet = useRef();
   const {bottom} = useSafeAreaInsets();
   const dispatch = useDispatch();
   const product = useSelector(state => state.productSale?.data);
@@ -112,7 +115,9 @@ const ListProducts = ({route}) => {
 
   return (
     <Block flex>
-      <Header title={title} canGoBack />
+      <Header title={title} canGoBack checkBackground />
+      <SortComponent refRBSheet={refRBSheet} />
+
       <FlatList
         numColumns={2}
         data={data}
@@ -127,6 +132,7 @@ const ListProducts = ({route}) => {
         refreshing={refreshing}
       />
       {/* {isLoading && page > 1 && <LoadMore />} */}
+      <RBSheetEvent refRBSheet={refRBSheet} />
     </Block>
   );
 };

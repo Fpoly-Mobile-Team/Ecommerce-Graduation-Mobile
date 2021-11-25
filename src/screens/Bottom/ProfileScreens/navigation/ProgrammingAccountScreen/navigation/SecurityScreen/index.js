@@ -196,6 +196,7 @@ const Security = () => {
           />
         </Block>
         {show && <FormSecure control={control} />}
+
         <Notifi />
         <Block marginBottom={10} paddingHorizontal={12}>
           <Button
