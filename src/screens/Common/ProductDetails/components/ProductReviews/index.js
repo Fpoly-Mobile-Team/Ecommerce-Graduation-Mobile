@@ -25,7 +25,7 @@ const ProductReviews = ({onPress, _id}) => {
   const parseRating = totalRating.toFixed(1);
 
   const noPhoto =
-  'https://t-f20-zpg.zdn.vn/480/31373314168375588/1fd9c43dd0381b664229.jpg';
+    'https://t-f20-zpg.zdn.vn/480/31373314168375588/1fd9c43dd0381b664229.jpg';
 
   const _renderItem = (item, index) => (
     <ItemFeedBack
