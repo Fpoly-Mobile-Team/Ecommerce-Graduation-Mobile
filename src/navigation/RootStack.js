@@ -164,6 +164,10 @@ const RootStack = () => {
             name={routes.VIEW_PRODUCTS}
             component={bottom.VIEW_PRODUCTS}
           />
+          <Stack.Screen
+            name={routes.MY_RATING}
+            component={bottom.MY_RATING}
+          />
         </Stack.Navigator>
       )}
     </NavigationContainer>

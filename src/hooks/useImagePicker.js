@@ -59,6 +59,9 @@ const useImagePicker = (width = 512, height = 512) => {
   const cleanUp = () => {
     setPicture(null);
   };
+  const cleanUps = () => {
+    setPictures(null);
+  };
 
   return {
     picture,
@@ -68,6 +71,7 @@ const useImagePicker = (width = 512, height = 512) => {
     openMultiPicker,
     openCamera,
     cleanUp,
+    cleanUps,
   };
 };
 

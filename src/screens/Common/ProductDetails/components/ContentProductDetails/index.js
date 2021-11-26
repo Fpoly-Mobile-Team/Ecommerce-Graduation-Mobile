@@ -19,11 +19,22 @@ const ContentProductDetails = ({
   sellOff,
   numberOfReviews,
   productSold,
+  onPressViewProductReview,
 }) => {
   const dispatch = useDispatch();
 
   const isCheck = useSelector(state => state.checkProductFavorite?.data);
   const user = useSelector(state => state.tokenUser?.data);
+  const productReview = useSelector(state => state.productReview?.data);
+  const checkData = productReview?.length;
+  let sum = 0;
+
+  for (let index = 0; index < checkData; index++) {
+    const getRating = productReview[index]?.rating;
+    sum += getRating;
+  }
+
+  const totalRating = sum / checkData;
 
   useEffect(() => {
     if (user) {
@@ -105,10 +116,16 @@ const ContentProductDetails = ({
           width={width - 44}
           space="between">
           <Block row alignCenter>
-            <Rating imageSize={getSize.s(15)} readonly startingValue={4} />
-            <Text marginLeft={getSize.m(5)} color={theme.colors.placeholder}>
-              (Xem {numberOfReviews} đánh giá)
-            </Text>
+            <Rating
+              imageSize={getSize.s(15)}
+              readonly
+              startingValue={totalRating >= 1 && totalRating}
+            />
+            <Pressable onPress={onPressViewProductReview}>
+              <Text marginLeft={getSize.m(5)} color={theme.colors.placeholder}>
+                (Xem {numberOfReviews} đánh giá)
+              </Text>
+            </Pressable>
           </Block>
           <Text fontType="light" color={theme.colors.placeholder}>
             Đã bán {productSold}

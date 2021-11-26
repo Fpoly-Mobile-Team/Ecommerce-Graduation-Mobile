@@ -31,6 +31,9 @@ export const theme = {
     blueShop: '#3B5998',
     primaryColor: '#08978E',
     paleGreen: '#08978E',
+    textSecond: '#223263',
+    border: '#EBF0FF',
+  
   },
 
   fonts: {

@@ -41,8 +41,6 @@ const NotificationScreens = () => {
           content="Vui lòng đăng nhập để nhận thông báo!"
           contentMore="Đăng nhập ngay"
           onPress={onPress}
-          // onPress={() => navigation.navigate(routes.PROFILESCREENS)}
-          // onPress={() => console.log('ádasdasdasd')}
         />
       )}
     </Block>
