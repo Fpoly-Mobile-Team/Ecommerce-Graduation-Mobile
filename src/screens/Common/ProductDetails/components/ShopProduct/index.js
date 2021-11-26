@@ -6,7 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import React from 'react';
 import {FlatList, Image, Platform, Pressable} from 'react-native';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 import styles from './styles';
 
 const _renderItem = ({item}) => (
@@ -16,6 +16,7 @@ const _renderItem = ({item}) => (
     price={item.price}
     productSold={item.productSold}
     sellOff={item.sellOff}
+    review={item.reviews}
     left={-0.75}
     style={styles.styleitem}
     _id={item._id}

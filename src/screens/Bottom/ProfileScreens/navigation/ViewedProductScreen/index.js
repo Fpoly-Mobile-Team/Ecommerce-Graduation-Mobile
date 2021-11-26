@@ -25,6 +25,7 @@ const ViewedProductScreen = ({route}) => {
     return (
       <ItemProduct
         key={index}
+        review={item.reviews}
         style={styles.style_item(index)}
         images={item.images[0]}
         nameProduct={item.name}
