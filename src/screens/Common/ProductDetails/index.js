@@ -89,8 +89,6 @@ const ProductDetails = ({route, navigation}) => {
     }
 
     return () => {
-      dispatch({type: _onUnmount(actions.GET_SHOP_USERS_BY_ID)});
-      dispatch({type: _onUnmount(actions.GET_PRODUCT_DETAILS_BY_SHOP)});
       dispatch({type: _onUnmount(actions.GET_PRODUCT_BY_CATEGORY)});
     };
   }, [_id, data, dispatch]);
