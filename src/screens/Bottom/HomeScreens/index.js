@@ -12,13 +12,15 @@ import FlashSale from './components/FlashSale';
 import SellingProduct from './components/SellingProduct';
 import styles from './styles';
 
-const HomeScreens = () => {
+const HomeScreens = ({route}) => {
   const dispatch = useDispatch();
   const banner = useSelector(state => state.banner?.data);
   const categoryHome = useSelector(state => state.categoryHome?.data);
   const product = useSelector(state => state.product?.data);
   const config = useSelector(state => state.config?.data);
+  const shoplist = useSelector(state => state.shop?.data);
   const scrollY = useRef(new Animated.Value(0)).current;
+
   const [refresh, setRefresh] = useState(false);
 
   const _onRefresh = () => {
@@ -48,6 +50,12 @@ const HomeScreens = () => {
         p: 1,
         numshow: 12,
       },
+    });
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch({
+      type: actions.GET_SHOP_USERS,
     });
   }, [dispatch]);
 
@@ -95,7 +103,7 @@ const HomeScreens = () => {
           marginTop={5}
           backgroundColor={theme.colors.smoke}
         />
-        <FeaturedShop />
+        <FeaturedShop data={shoplist} />
         <Block height={8} backgroundColor={theme.colors.smoke} />
         <Block paddingHorizontal={12}>
           {banner && <Carousel data={banner} />}

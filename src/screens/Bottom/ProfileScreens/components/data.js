@@ -35,7 +35,7 @@ export const DATA = [
     id: '6',
     image: icons.feedback,
     title: 'Đánh giá',
-    navigation: null,
+    navigation: routes.MY_RATING,
   },
   {
     id: '7',

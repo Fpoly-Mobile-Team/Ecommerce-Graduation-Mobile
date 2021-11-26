@@ -16,9 +16,9 @@ const AvatarProfile = () => {
   const userInfo = useSelector(state => state.userInfo?.data);
   const user = useSelector(state => state.tokenUser?.data);
   const data = useSelector(state => state.productViewed?.data);
+  const myReview = useSelector(state => state.myReview?.data);
 
-  const {openPicker, openCamera, closeModal, picture, cleanUp} =
-    useImagePicker();
+  const {openPicker, openCamera, closeModal, picture} = useImagePicker();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -52,19 +52,24 @@ const AvatarProfile = () => {
                 avatar: url,
               },
               user,
-              onFinish: () => cleanUp(),
             });
           },
         );
       });
     }
-  }, [dispatch, user, picture, cleanUp]);
+  }, [dispatch, user, picture]);
 
   useEffect(() => {
     if (focus) {
       dispatch({type: actions.GET_PRODUCT_VIEWED, user});
     }
   }, [dispatch, focus, user]);
+
+  useEffect(() => {
+    if (focus) {
+      dispatch({type: actions.GET_MY_REVIEW, user});
+    }
+  }, [dispatch, user, focus]);
 
   return (
     <Block>
@@ -88,7 +93,7 @@ const AvatarProfile = () => {
             </Pressable>
           </Block>
         </Block>
-        <Block marginLeft={10}>
+        <Block marginLeft={10} paddingHorizontal={4}>
           <Text marginTop={10} size={16} fontType="semibold">
             {userInfo?.username}
           </Text>
@@ -98,13 +103,13 @@ const AvatarProfile = () => {
       <Block flex row marginTop={10}>
         <Block flex alignCenter justifyCenter>
           <Text marginBottom={5} fontType="bold">
-            {data?.length}
+            {data?.length || 0}
           </Text>
           <Text>Xem gần đây</Text>
         </Block>
         <Block flex alignCenter justifyCenter>
           <Text marginBottom={5} fontType="bold">
-            4
+            {myReview?.length}
           </Text>
           <Text>Đánh giá của tôi</Text>
         </Block>

@@ -5,9 +5,10 @@ import Button from './Button';
 import Carousel from './Carousel';
 import TextInput from './TextInput';
 import NetWork from './NetWork';
-import WebView from './WebView';
-import FormInput from './Form/FormInput';
+import CheckBox from './CheckBox';
 import FormContainer from './Form/FormContainer';
+import FormInput from './Form/FormInput';
+import WebView from './WebView';
 import Empty from './Empty';
 import ModalBox from './ModalBox';
 import Shimmer from './Shimmer';
@@ -22,9 +23,10 @@ export {
   Carousel,
   TextInput,
   NetWork,
-  WebView,
-  FormInput,
+  CheckBox,
   FormContainer,
+  FormInput,
+  WebView,
   Empty,
   ModalBox,
   Shimmer,

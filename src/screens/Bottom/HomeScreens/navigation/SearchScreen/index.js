@@ -5,21 +5,29 @@ import ItemSearchCategory from '@components/Common/ItemList/ItemSearchCategory';
 import ItemSearchProduct from '@components/Common/ItemList/ItemSearchProduct';
 import ItemSuggestions from '@components/Common/ItemList/ItemSuggestions';
 import {useNavigation} from '@react-navigation/core';
+import actions from '@redux/actions';
 import {theme} from '@theme';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {FlatList, Image, Pressable, StatusBar, TextInput} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {data, dataCategory} from './components/data';
+import {useDispatch, useSelector} from 'react-redux';
 import {Data} from './components/dataSuggestions';
 import styles from './styles';
 
 const SearchScreen = () => {
+  const dispatch = useDispatch();
   const navigation = useNavigation();
+  const data = useSelector(state => state.category?.data);
+  const datasearch = useSelector(state => state.searchProduct?.data);
+  const totalPage = useSelector(state => state.searchProduct?.totalPage);
+
+  const [refreshing, setRefreshing] = useState(false);
+  const [page, setPage] = useState(1);
   const [keyword, setKeyword] = useState('');
   const {top} = useSafeAreaInsets();
 
   const renderItem = ({item, index}) => (
-    <ItemSearchCategory index={index} image={item.image} title={item.title} />
+    <ItemSearchCategory index={index} image={item.icon} title={item.name} />
   );
 
   const renderItemSuggestions = (item, index) => (
@@ -27,9 +35,65 @@ const SearchScreen = () => {
   );
 
   const renderItemSearchProduct = ({item, index}) => (
-    <ItemSearchProduct key={index} title={item.title} image={item.image} />
+    <ItemSearchProduct
+      key={index}
+      title={item.name}
+      image={item.images[0]}
+      _id={item._id}
+    />
   );
 
+  useEffect(() => {
+    dispatch({type: actions.GET_CATEGORY_ALL});
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (keyword) {
+      dispatch({
+        type: actions.SEARCH_KEYWORD_PRODUCT,
+        params: {
+          name: keyword,
+          p: 1,
+          numshow: 12,
+        },
+      });
+    }
+  }, [dispatch, keyword]);
+  const _loadMore = () => {
+    if (keyword) {
+      if (page < totalPage) {
+        setPage(page + 1);
+        dispatch({
+          type: actions.SEARCH_KEYWORD_PRODUCT,
+          isLoadMore: true,
+          params: {
+            name: keyword,
+            p: page + 1,
+            numshow: 12,
+          },
+        });
+      }
+    }
+  };
+
+  const _onRefresh = () => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 1000);
+    setPage(1);
+    if (keyword) {
+      dispatch({
+        type: actions.SEARCH_KEYWORD_PRODUCT,
+        params: {
+          name: keyword,
+
+          p: 1,
+          numshow: 12,
+        },
+      });
+    }
+  };
   return (
     <Block flex backgroundColor="white">
       <StatusBar barStyle="dark-content" />
@@ -69,10 +133,15 @@ const SearchScreen = () => {
       <Block paddingHorizontal={12}>
         {keyword ? (
           <FlatList
-            data={data}
+            data={datasearch}
             renderItem={renderItemSearchProduct}
-            keyExtractor={(_, index) => String(index)}
+            keyExtractor={(_, index) => _._id.toString()}
             showsVerticalScrollIndicator={false}
+            refreshing={refreshing}
+            onEndReachedThreshold={0.5}
+            onRefresh={_onRefresh}
+            onEndReached={_loadMore}
+            removeClippedSubviews={true}
           />
         ) : (
           <Block>
@@ -92,7 +161,7 @@ const SearchScreen = () => {
         </Text>
         <Block flex marginTop={10}>
           <FlatList
-            data={dataCategory}
+            data={data}
             renderItem={renderItem}
             keyExtractor={(_, index) => String(index)}
             showsVerticalScrollIndicator={false}

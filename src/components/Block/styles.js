@@ -13,8 +13,14 @@ export default StyleSheet.create({
   row: {
     flexDirection: 'row',
   },
+  reverse: {
+    flexDirection: 'row-reverse',
+  },
   column: {
     flexDirection: 'column',
+  },
+  reverseColumn: {
+    flexDirection: 'column-reverse',
   },
   alignCenter: {
     alignItems: 'center',

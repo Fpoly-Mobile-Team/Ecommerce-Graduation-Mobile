@@ -10,6 +10,8 @@ import {watchAddressSagas} from './AddressSaga';
 import {watchProductSagas} from './ProductSaga';
 import {watchShopSagas} from './ShopSaga';
 import {watchReportShopSagas} from './ReportShopSaga';
+import {watchShopVoucherSagas} from './ShopVoucherSaga';
+
 export default function* rootSaga() {
   yield all([
     fork(watchTokenSagas),
@@ -23,5 +25,6 @@ export default function* rootSaga() {
     fork(watchProductSagas),
     fork(watchShopSagas),
     fork(watchReportShopSagas),
+    fork(watchShopVoucherSagas),
   ]);
 }

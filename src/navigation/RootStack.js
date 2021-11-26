@@ -92,6 +92,7 @@ const RootStack = () => {
             name={routes.PRODUCT_STORE}
             component={common.PRODUCT_STORE}
           />
+          <Stack.Screen name={routes.ALL_STORE} component={common.ALL_STORE} />
           <Stack.Screen
             name={routes.STORE_INFORMATION}
             component={common.STORE_INFORMATION}
@@ -170,6 +171,10 @@ const RootStack = () => {
           <Stack.Screen
             name={routes.VIEW_PRODUCTS}
             component={bottom.VIEW_PRODUCTS}
+          />
+          <Stack.Screen
+            name={routes.MY_RATING}
+            component={bottom.MY_RATING}
           />
         </Stack.Navigator>
       )}

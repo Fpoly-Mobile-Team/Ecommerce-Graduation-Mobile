@@ -14,6 +14,7 @@ import ChooseADeliveryAddressScreen from './AddressScreen/navigation/ChooseADeli
 import InformationDetails from './ProductDetails/navigation/InformationDetails';
 import StoreInformation from './ProductStore/navigation/StoreInformation';
 import StoreDenounce from './ProductStore/navigation/StoreDenounce';
+import AllStore from './AllStore';
 export const common = {
   PRODUCT_DETAILS: ProductDetails,
   CARTSCREENS: CartScreens,
@@ -31,4 +32,5 @@ export const common = {
   INFORMATION_DETAILS: InformationDetails,
   STORE_INFORMATION: StoreInformation,
   STORE_DENOUNCE: StoreDenounce,
+  ALL_STORE: AllStore,
 };

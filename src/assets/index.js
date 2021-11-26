@@ -41,12 +41,14 @@ export const icons = {
   delivery_box: require('./icons/delivery_box.png'),
   vouncher: require('./icons/vouncher.png'),
   check_blank: require('./icons/check_blank.png'),
+  gift_voucher: require('./icons/gift_voucher.png'),
   google: require('./icons/google.png'),
   facebook: require('./icons/facebook.png'),
   flag: require('./icons/flag.png'),
   caret_down: require('./icons/caret_down.png'),
   close: require('./icons/close.png'),
   favoritefill: require('./icons/favoritefill.png'),
+  mening: require('./icons/mening.png'),
 };
 
 export const images = {
@@ -62,6 +64,8 @@ export const images = {
   reviews03: require('./images/reviews03.png'),
   otpphone: require('./images/otpphone.png'),
   otpcode: require('./images/otpcode.png'),
+  handm: require('./images/handm.png'),
+  no_avatar: require('./images/not_avt.png'),
 };
 export const lottie = {
   emptyCategory: require('./lottie/emptyCategory.json'),
@@ -69,4 +73,8 @@ export const lottie = {
   emptyMessager: require('./lottie/emptyMessager.json'),
   emptyProductDetails: require('./lottie/emptyProductDetails.json'),
   empty_Favorite: require('./lottie/empty_Favorite.json'),
+  emptyReview: require('./lottie/emptyReview.json'),
+  relax: require('./lottie/relax.json'),
+  emptyData: require('./lottie/emptyData.json'),
+  success: require('./lottie/success.json'),
 };

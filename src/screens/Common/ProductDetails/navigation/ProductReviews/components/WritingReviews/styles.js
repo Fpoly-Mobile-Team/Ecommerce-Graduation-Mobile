@@ -13,7 +13,7 @@ export default StyleSheet.create({
   },
   wrapperCamera: {
     backgroundColor: theme.colors.primaryColor,
-    borderRadius: getSize.s(52 / 2),
+    borderRadius: getSize.s(52),
     width: getSize.s(52),
     height: getSize.v(52),
     alignItems: 'center',
@@ -23,7 +23,16 @@ export default StyleSheet.create({
   input: {
     fontFamily: theme.fonts.fontFamily.medium,
     textAlign: 'justify',
-    marginTop: getSize.m(12),
     zIndex: getSize.m(1),
-  }
+  },
+  shadow: {
+    shadowColor: theme.colors.black,
+    borderRadius: getSize.m(5),
+    elevation: getSize.m(6),
+    shadowOpacity: 0.1,
+    shadowOffset: {
+      width: getSize.s(11),
+      height: getSize.v(22),
+    },
+  },
 });
