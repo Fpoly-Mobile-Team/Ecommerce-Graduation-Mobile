@@ -13,15 +13,16 @@ import ProductRelated from './components/ProductRelated';
 import {useSelector, useDispatch} from 'react-redux';
 import actions, {_onUnmount} from '@redux/actions';
 import {lottie} from '@assets';
+import {routes} from '@navigation/routes';
 
-const ProductDetails = ({route}) => {
+const ProductDetails = ({route, navigation}) => {
   const scrollY = useRef(new Animated.Value(0)).current;
   const scrollViewRef = useRef(null);
   const dispatch = useDispatch();
   const {_id} = route.params;
   const data = useSelector(state => state.productDetails?.data);
   const user = useSelector(state => state.tokenUser?.data);
-
+  console.log('kakakaka----', data);
   const isLoadingDetails = useSelector(
     state => state.productDetails?.isLoading,
   );
@@ -88,13 +89,9 @@ const ProductDetails = ({route}) => {
     }
 
     return () => {
-      dispatch({type: _onUnmount(actions.GET_SHOP_USERS_BY_ID)});
-      dispatch({type: _onUnmount(actions.GET_PRODUCT_DETAILS_BY_SHOP)});
       dispatch({type: _onUnmount(actions.GET_PRODUCT_BY_CATEGORY)});
     };
   }, [_id, data, dispatch]);
-
-  console.log('data', data);
 
   return (
     <Block flex backgroundColor={theme.colors.white}>
@@ -128,9 +125,12 @@ const ProductDetails = ({route}) => {
               nameProduct={data?.name}
               price={data?.price}
               sellOff={data?.sellOff}
-              numberOfReviews={data?.comments?.length}
+              numberOfReviews={data?.reviews?.length}
               productSold={data?.productSold}
               idProduct={_id}
+              onPressViewProductReview={() =>
+                navigation.navigate(routes.PRODUCT_REVIEWS, {_id: _id})
+              }
             />
 
             <ShopProduct data={shop} productShop={productShop} id={_id} />
@@ -145,7 +145,13 @@ const ProductDetails = ({route}) => {
               marginTop={10}
               backgroundColor={theme.colors.smoke}
             />
-            <ProductReviews />
+            <ProductReviews
+              parseRating={data?.avgProductRating}
+              _id={_id}
+              onPress={() =>
+                navigation.navigate(routes.PRODUCT_REVIEWS, {_id: _id})
+              }
+            />
             <Block
               height={10}
               marginTop={10}

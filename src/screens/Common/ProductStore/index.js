@@ -2,7 +2,7 @@ import {BackgroundColorShop, IconForward} from '@assets/svg/common';
 import {Block, Carousel, Text} from '@components';
 import ItemVoucherFromShop from '@components/Common/ItemList/ItemVoucherFromShop';
 import {routes} from '@navigation/routes';
-import {useNavigation} from '@react-navigation/native';
+import {useIsFocused, useNavigation} from '@react-navigation/native';
 import actions from '@redux/actions';
 import SellingProduct from '@screens/Bottom/HomeScreens/components/SellingProduct';
 import {theme} from '@theme';
@@ -11,7 +11,7 @@ import React, {useEffect} from 'react';
 import {FlatList, Pressable, ScrollView} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import ProductRelated from '../ProductDetails/components/ProductRelated';
-import {DATA} from './components/data';
+import moment from 'moment';
 import InforShop from './components/InforShop';
 import SearchShop from './components/SearchShop';
 import styles from './styles';
@@ -22,24 +22,61 @@ const ProductStore = ({route}) => {
   const shop = useSelector(state => state.infoShop?.data);
   const productShop = useSelector(state => state.productDetailsShop?.data);
   const config = useSelector(state => state.config?.data);
+  const shopVoucher = useSelector(state => state.shopVoucher?.data);
+
   const {id} = route.params || {};
+
+  const focus = useIsFocused();
 
   useEffect(() => {
     if (id) {
-      dispatch({
-        type: actions.GET_SHOP_USERS_BY_ID,
-        body: {
-          shopId: id,
-        },
-      });
-      dispatch({
-        type: actions.GET_PRODUCT_DETAILS_BY_SHOP,
-        params: {
-          shopId: id,
-        },
-      });
+      if (focus) {
+        dispatch({
+          type: actions.GET_SHOP_USERS_BY_ID,
+          body: {
+            shopId: id,
+          },
+        });
+        dispatch({
+          type: actions.GET_PRODUCT_DETAILS_BY_SHOP,
+          params: {
+            shopId: id,
+          },
+        });
+        dispatch({
+          type: actions.GET_SHOP_VOUCHERS,
+          params: {
+            shopId: id,
+          },
+        });
+      }
     }
-  }, [id, dispatch]);
+  }, [id, dispatch, focus]);
+  useEffect(() => {
+    if (id) {
+      if (focus) {
+        dispatch({
+          type: actions.GET_PRODUCT_DETAILS_BY_SHOP,
+          params: {
+            shopId: id,
+          },
+        });
+      }
+    }
+  }, [id, dispatch, focus]);
+
+  useEffect(() => {
+    if (id) {
+      if (focus) {
+        dispatch({
+          type: actions.GET_SHOP_VOUCHERS,
+          params: {
+            shopId: id,
+          },
+        });
+      }
+    }
+  }, [id, dispatch, focus]);
 
   const _renderBanner = () => {
     return (
@@ -51,7 +88,10 @@ const ProductStore = ({route}) => {
 
   const _renderVoucher = ({item}) => {
     return (
-      <ItemVoucherFromShop typeVoucher={item.type} timeVoucher={item.time} />
+      <ItemVoucherFromShop
+        typeVoucher={item.content}
+        timeVoucher={moment(item.expireDate).format('DD/MM/YYYY')}
+      />
     );
   };
 
@@ -67,7 +107,12 @@ const ProductStore = ({route}) => {
         </Text>
         <Pressable
           style={styles.wrapperTextVoucher}
-          onPress={() => navigation.navigate(routes.PROMO_SCREEN)}>
+          onPress={() =>
+            navigation.navigate(routes.PROMO_SCREEN, {
+              id: shop?._id,
+              shopName: shop?.shopName,
+            })
+          }>
           <Text color={config?.backgroundcolor} lineHeight={18}>
             Xem thêm
           </Text>
@@ -91,9 +136,9 @@ const ProductStore = ({route}) => {
           style={{marginLeft: getSize.s(12)}}
           horizontal
           showsHorizontalScrollIndicator={false}
-          data={DATA}
+          data={shopVoucher}
           renderItem={_renderVoucher}
-          keyExtractor={item => item.id.toString()}
+          keyExtractor={item => item._id.toString()}
         />
       </Block>
     );

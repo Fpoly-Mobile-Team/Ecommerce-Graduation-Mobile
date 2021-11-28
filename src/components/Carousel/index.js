@@ -19,7 +19,7 @@ const Carousel = ({data, shop}) => {
     );
   }, []);
 
-  const keyExtractor = React.useCallback((item, index) => item._id, []);
+  const keyExtractor = React.useCallback((item, index) => index, []);
 
   const memoizedValue = React.useMemo(() => _renderItem, [data]);
 

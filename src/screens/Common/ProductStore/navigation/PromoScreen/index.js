@@ -4,14 +4,17 @@ import ItemPromoScreen from '@components/Common/ItemList/ItemPromoScreen';
 import {useNavigation} from '@react-navigation/core';
 import {theme} from '@theme';
 import {Toast} from '@utils/helper';
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import moment from 'moment';
+import actions from '@redux/actions';
 import {FlatList} from 'react-native-gesture-handler';
 import OptionsMenu from 'react-native-option-menu';
 import {SelectCircle} from '../../../../../assets/svg/common';
 import {data} from './components/data';
 import styles from './styles';
 
-const PromoScreen = () => {
+const PromoScreen = ({route}) => {
   const navigation = useNavigation();
   const editPost = () => {
     Toast('Edit Post');
@@ -19,15 +22,30 @@ const PromoScreen = () => {
   const deletePost = () => {
     Toast('Delete Post');
   };
+  const dispatch = useDispatch();
+  const shopVoucher = useSelector(state => state.shopVoucher?.data);
+
+  const {id, shopName} = route.params || {};
+
+  useEffect(() => {
+    if (id) {
+      dispatch({
+        type: actions.GET_SHOP_VOUCHERS,
+        params: {
+          shopId: id,
+        },
+      });
+    }
+  }, [id, dispatch]);
 
   const renderItem = ({item, index}) => {
     const isCheck = index === data.length - 1;
     return (
       <ItemPromoScreen
-        name={item.name}
-        title={item.title}
-        date={item.date}
-        image={item.Image}
+        name={shopName}
+        title={item.content}
+        date={moment(item.expireDate).format('DD/MM/YYYY')}
+        image={item.image}
         index={index}
         isCheck={isCheck}
       />
@@ -66,9 +84,9 @@ const PromoScreen = () => {
       </Block>
 
       <FlatList
-        data={data}
+        data={shopVoucher}
         renderItem={renderItem}
-        keyExtractor={item => item.id.toString()}
+        keyExtractor={item => item._id.toString()}
         showsVerticalScrollIndicator={false}
       />
     </Block>

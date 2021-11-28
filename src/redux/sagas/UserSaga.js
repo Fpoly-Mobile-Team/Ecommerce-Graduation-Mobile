@@ -91,7 +91,6 @@ function* update_password(actions) {
       type: Actions.GET_USER_INFORMATION,
       params: {user: actions.user},
     });
-    // actions.onFinish && call(actions.onFinish);
     if (res.message === 'Cập Nhật Thành Công') {
       goBack();
     }
@@ -138,6 +137,20 @@ function* loginGg(actions) {
   }
 }
 
+function* getMyReview(actions) {
+  try {
+    const res = yield API.get(
+      `getUser/GetFeedBackMyReview?user=${actions.user}`,
+    );
+    yield put({
+      type: _onSuccess(Actions.GET_PRODUCT_REVIEW && Actions.GET_MY_REVIEW),
+      data: res.data,
+    });
+  } catch (error) {
+    yield put({type: _onFail(Actions.GET_MY_REVIEW)});
+  }
+}
+
 export function* watchUserSagas() {
   yield takeLatest(Actions.LOGIN_ACCOUNT, login);
   yield takeLatest(Actions.SIGNUP_ACCOUNT, register);
@@ -147,4 +160,5 @@ export function* watchUserSagas() {
   yield takeLatest(Actions.UPDATE_PASSWORD, update_password);
   yield takeLatest(Actions.LOGIN_FACEBOOK, loginFb);
   yield takeLatest(Actions.LOGIN_GOOGLE, loginGg);
+  yield takeLatest(Actions.GET_MY_REVIEW, getMyReview);
 }
