@@ -13,12 +13,13 @@ import styles from './styles';
 const ChooseTypeProduct = ({option, image, productStock, price}) => {
   const user = useSelector(state => state.tokenUser?.data);
   const [isVisible, setIsVisible] = useState(false);
-
+  const [title, setTitle] = useState('');
   const navigation = useNavigation();
 
   const onPressBuy = () => {
     if (user) {
       setIsVisible(true);
+      setTitle('MUA HÀNG');
     } else {
       navigation.navigate(routes.AUTHFORSCREEN);
     }
@@ -26,6 +27,8 @@ const ChooseTypeProduct = ({option, image, productStock, price}) => {
 
   const onPressAddCart = () => {
     if (user) {
+      setIsVisible(true);
+      setTitle('THÊM VÀO GIỎ HÀNG');
     } else {
       navigation.navigate(routes.AUTHFORSCREEN);
     }
@@ -89,6 +92,7 @@ const ChooseTypeProduct = ({option, image, productStock, price}) => {
         productStock={productStock}
         price={price}
         options={option}
+        title={title}
       />
     </Block>
   );

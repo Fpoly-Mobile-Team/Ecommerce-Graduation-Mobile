@@ -14,6 +14,7 @@ const ModalChooseType = ({
   productStock,
   price,
   options,
+  title,
 }) => {
   const [option, setOption] = useState({});
   const [quantity, setQuantity] = useState(1);
@@ -170,7 +171,7 @@ const ModalChooseType = ({
         </Block>
         {options?.length ? (
           <Button
-            title="MUA HÀNG"
+            title={title}
             height={45}
             style={styles.button(option)}
             titleStyle={{
