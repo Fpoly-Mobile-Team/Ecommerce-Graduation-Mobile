@@ -24,6 +24,8 @@ const StoreInformation = ({route}) => {
   const productShop = useSelector(state => state.productDetailsShop?.data);
   const user = useSelector(state => state.tokenUser?.data);
   const averageRating = useSelector(state => state.averageRating?.data);
+  const isLoading = useSelector(state => state.averageRating?.isLoading);
+
   const {id} = route.params || {};
 
   let array = [];
@@ -52,7 +54,6 @@ const StoreInformation = ({route}) => {
       });
     }
   }, [id, dispatch]);
-
   return (
     <Block flex>
       <Header checkBackground canGoBack title="Thông tin cửa hàng" />
@@ -87,12 +88,14 @@ const StoreInformation = ({route}) => {
             </Block>
           </Block>
         </Block>
-        <ListItemStoreInformation
-          averageRating={averageRating[0]?.shopInfo?.avgRating?.toFixed(1)}
-          data={shop}
-          countFeedback={sumArray(array)}
-          productStore={productShop}
-        />
+        {!isLoading && averageRating && productShop && (
+          <ListItemStoreInformation
+            averageRating={averageRating[0]?.shopInfo?.avgRating?.toFixed(1)}
+            data={shop}
+            countFeedback={sumArray(array)}
+            productStore={productShop}
+          />
+        )}
 
         <Block paddingTop={40} alignCenter>
           {user ? (
