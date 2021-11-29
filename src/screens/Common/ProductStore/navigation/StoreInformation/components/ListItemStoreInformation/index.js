@@ -4,7 +4,12 @@ import React from 'react';
 import {ListItem} from 'react-native-elements';
 import styles from './styles';
 
-const ListItemStoreInformation = ({data, productStore}) => {
+const ListItemStoreInformation = ({
+  data,
+  productStore,
+  averageRating,
+  countFeedback,
+}) => {
   return (
     <Block flex marginVertical={5}>
       <Block>
@@ -12,7 +17,9 @@ const ListItemStoreInformation = ({data, productStore}) => {
           <ListItem.Content>
             <ListItem.Title style={styles.title}>Đánh giá</ListItem.Title>
           </ListItem.Content>
-          <Text size={12}>4.0 / 5 (100 đánh giá)</Text>
+          <Text size={12}>
+            {averageRating} / 5 ({countFeedback} đánh giá)
+          </Text>
         </ListItem>
 
         <ListItem style={styles.item}>

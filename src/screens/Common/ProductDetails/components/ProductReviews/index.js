@@ -9,20 +9,11 @@ import {useDispatch, useSelector} from 'react-redux';
 import actions from '@redux/actions';
 import moment from 'moment';
 
-const ProductReviews = ({onPress, _id}) => {
+const ProductReviews = ({onPress, _id, parseRating}) => {
   const dispatch = useDispatch();
   const productReview = useSelector(state => state.productReview?.data);
   const user = useSelector(state => state.tokenUser?.data);
   const checkData = productReview?.length;
-  let sum = 0;
-
-  for (let index = 0; index < checkData; index++) {
-    const getRating = productReview[index]?.rating;
-    sum += getRating;
-  }
-
-  const totalRating = sum / checkData;
-  const parseRating = totalRating.toFixed(1);
 
   const noPhoto =
     'https://t-f20-zpg.zdn.vn/480/31373314168375588/1fd9c43dd0381b664229.jpg';
@@ -56,7 +47,7 @@ const ProductReviews = ({onPress, _id}) => {
           <Rating
             imageSize={getSize.s(15)}
             readonly
-            startingValue={totalRating >= 1 && totalRating}
+            startingValue={parseRating >= 1 && parseRating}
           />
           <Text
             color={theme.colors.pink}

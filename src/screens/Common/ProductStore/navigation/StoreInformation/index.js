@@ -9,15 +9,29 @@ import ListItemStoreInformation from './components/ListItemStoreInformation';
 import {width} from '@utils/responsive';
 import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
+function sumArray(mang) {
+  let sum = 0;
+  mang.forEach(function (value) {
+    sum += value;
+  });
 
+  return sum;
+}
 const StoreInformation = ({route}) => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const shop = useSelector(state => state.infoShop?.data);
   const productShop = useSelector(state => state.productDetailsShop?.data);
   const user = useSelector(state => state.tokenUser?.data);
+  const averageRating = useSelector(state => state.averageRating?.data);
+  const isLoading = useSelector(state => state.averageRating?.isLoading);
+
   const {id} = route.params || {};
 
+  let array = [];
+  for (let index = 0; index < productShop.length; index++) {
+    array.push(productShop[index]?.reviews?.length);
+  }
   useEffect(() => {
     if (id) {
       dispatch({
@@ -32,9 +46,14 @@ const StoreInformation = ({route}) => {
           shopId: id,
         },
       });
+      dispatch({
+        type: actions.GET_AVERAGE_RATING_PRODUCT,
+        body: {
+          shopId: id,
+        },
+      });
     }
   }, [id, dispatch]);
-
   return (
     <Block flex>
       <Header checkBackground canGoBack title="Thông tin cửa hàng" />
@@ -69,7 +88,14 @@ const StoreInformation = ({route}) => {
             </Block>
           </Block>
         </Block>
-        <ListItemStoreInformation data={shop} productStore={productShop} />
+        {!isLoading && averageRating && productShop && (
+          <ListItemStoreInformation
+            averageRating={averageRating[0]?.shopInfo?.avgRating?.toFixed(1)}
+            data={shop}
+            countFeedback={sumArray(array)}
+            productStore={productShop}
+          />
+        )}
 
         <Block paddingTop={40} alignCenter>
           {user ? (
