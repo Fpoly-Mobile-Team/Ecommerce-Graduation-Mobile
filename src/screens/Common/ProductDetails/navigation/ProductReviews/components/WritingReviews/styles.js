@@ -3,10 +3,17 @@ import {getSize} from '@utils/responsive';
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
-  imgReviews: {
-    width: getSize.s(104),
-    height: getSize.v(104),
-    borderRadius: getSize.s(4),
+  imgShow: {
+    width: getSize.s(55),
+    height: getSize.v(55),
+    borderRadius: getSize.s(55),
+    borderColor: theme.colors.paleGreen,
+    borderWidth: 2,
+  },
+  wrapper: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingRight: 12,
   },
   button: {
     marginBottom: getSize.m(20),

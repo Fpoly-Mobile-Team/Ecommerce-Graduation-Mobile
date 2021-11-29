@@ -1,15 +1,17 @@
 import {Block, Text, Button} from '@components';
-import React, {useState} from 'react';
-import {Image, Pressable, TextInput, ScrollView} from 'react-native';
+import React, {useState, useEffect, Fragment} from 'react';
+import {Image, Pressable, TextInput, ScrollView, Modal} from 'react-native';
 import {theme} from '@theme';
 import styles from './styles';
-import {Camering} from '@assets/svg/common';
-import {useImagePicker} from '@hooks';
+import {Camering, Close} from '@assets/svg/common';
 import StarRating from '../StarRating';
 import {useDispatch, useSelector} from 'react-redux';
 import actions from '@redux/actions';
 import storage from '@react-native-firebase/storage';
 import {Toast} from '@utils/helper';
+import ImagePicker from 'react-native-image-crop-picker';
+import ImageViewer from 'react-native-image-zoom-viewer';
+import {width} from '@utils/responsive';
 
 const WritingReviews = ({_id, check, isClosed}) => {
   const dispatch = useDispatch();
@@ -18,7 +20,29 @@ const WritingReviews = ({_id, check, isClosed}) => {
   const isLoadingUpdate = useSelector(
     state => state.updateProductReview?.isLoading,
   );
-  const {openMultiPicker, pictures} = useImagePicker();
+  const [files, setFiles] = useState([]);
+  const [ImageViwerIsVisible, showImageViwer] = useState(false);
+  let [viewingIndex, setViewingIndex] = useState(-1);
+  useEffect(() => {
+    viewingIndex !== -1 && showImageViwer(true);
+  }, [viewingIndex]);
+  useEffect(() => {
+    !ImageViwerIsVisible && setViewingIndex(-1);
+  }, [ImageViwerIsVisible]);
+
+  const selectFromGallery = () =>
+    ImagePicker.openPicker({
+      multiple: true,
+      mediaType: 'photo',
+    })
+      .then(image => {
+        setFiles([...files, image].flat());
+        setCloseModal(true);
+      })
+      .then(() => {
+        setCloseModal(false);
+      })
+      .catch(e => {});
   const [rating, setRating] = useState(check ? check?.rating : 0);
   const [review, setReview] = useState(check ? check?.review : '');
 
@@ -26,19 +50,20 @@ const WritingReviews = ({_id, check, isClosed}) => {
     isClosed.current.close();
   };
 
+  const filename = files.map(file => file);
   const onSubmit = async () => {
     if (rating < 1) {
       Toast('Vui lòng chọn thang điểm đánh giá');
-    } else if (pictures) {
+    } else if (files) {
       let images = [];
 
-      for (let index = 0; index < pictures?.length; index++) {
-        const filename = pictures[index]?.path.substring(
-          pictures[index]?.path.lastIndexOf('/') + 1,
+      for (let index = 0; index < filename?.length; index++) {
+        const name = filename[index]?.path.substring(
+          filename[index]?.path.lastIndexOf('/') + 1,
         );
 
-        const path = 'ProductReview/' + filename;
-        const response = await fetch(pictures[index]?.path);
+        const path = 'ProductReview/' + name;
+        const response = await fetch(filename[index]?.path);
         const file = await response.blob();
         let upload = await storage().ref(path).put(file);
         const url = await storage().ref(path).getDownloadURL();
@@ -84,16 +109,16 @@ const WritingReviews = ({_id, check, isClosed}) => {
   const onEdit = async () => {
     if (rating < 1) {
       Toast('Vui lòng chọn thang điểm đánh giá');
-    } else if (pictures) {
+    } else if (files) {
       let multiline = [];
 
-      for (let index = 0; index < pictures?.length; index++) {
-        const filename = pictures[index]?.path.substring(
-          pictures[index]?.path.lastIndexOf('/') + 1,
+      for (let index = 0; index < filename?.length; index++) {
+        const name = filename[index]?.path.substring(
+          filename[index]?.path.lastIndexOf('/') + 1,
         );
 
-        const path = 'ProductReview/' + filename;
-        const response = await fetch(pictures[index]?.path);
+        const path = 'ProductReview/' + name;
+        const response = await fetch(filename[index]?.path);
         const file = await response.blob();
         let upload = await storage().ref(path).put(file);
         const url = await storage().ref(path).getDownloadURL();
@@ -140,16 +165,43 @@ const WritingReviews = ({_id, check, isClosed}) => {
 
   const _renderMapImages = (item, index) => {
     return (
-      <Block key={index} marginRight={12}>
-        <Image source={{uri: item.path}} style={styles.imgReviews} />
-      </Block>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        {files
+          ? files.map((file, index) => (
+              <Pressable
+                style={styles.wrapper}
+                key={file.path}
+                onPress={() => setViewingIndex(index)}>
+                <Image source={{uri: file.path}} style={styles.imgShow} />
+                <Block absolute top={15} right={10}>
+                  <Pressable
+                    onPress={() =>
+                      ImagePicker.cleanSingle(file.path)
+                        .then(() =>
+                          setFiles(files.filter(f => f.path !== file.path)),
+                        )
+                        .catch(e => {})
+                    }>
+                    <Close
+                      width={15}
+                      height={15}
+                      backgroundColor={theme.colors.lightGray}
+                      color={theme.colors.white}
+                    />
+                  </Pressable>
+                </Block>
+              </Pressable>
+            ))
+          : null}
+        <_renderCamering />
+      </ScrollView>
     );
   };
 
   const _renderCamering = () => {
     return (
       <Block marginTop={16} radius={4} alignCenter justifyCenter>
-        <Pressable onPress={openMultiPicker} style={styles.wrapperCamera}>
+        <Pressable onPress={selectFromGallery} style={styles.wrapperCamera}>
           <Camering />
         </Pressable>
         <Text fontType="semibold" size={12}>
@@ -185,7 +237,7 @@ const WritingReviews = ({_id, check, isClosed}) => {
           backgroundColor={theme.colors.white}
           radius={8}
           paddingHorizontal={12}
-          marginBottom={32}>
+          marginBottom={12}>
           <TextInput
             style={styles.input}
             placeholder="Nhập nội dung đánh giá"
@@ -194,15 +246,26 @@ const WritingReviews = ({_id, check, isClosed}) => {
             multiline
           />
         </Block>
-        <ScrollView
-          keyboardShouldPersistTaps="handled"
-          showsHorizontalScrollIndicator={false}
-          horizontal>
-          <Block row wrap alignCenter>
-            {pictures?.map(_renderMapImages)}
-            <_renderCamering />
+        <Fragment>
+          {!!ImageViwerIsVisible && (
+            <Modal
+              transparent={true}
+              onRequestClose={() => showImageViwer(false)}>
+              <ImageViewer
+                imageUrls={files.map(f => ({url: f.path}))}
+                index={viewingIndex}
+              />
+            </Modal>
+          )}
+          <Block
+            row
+            alignCenter
+            width={width}
+            paddingRight={15}
+            paddingBottom={20}>
+            <_renderMapImages />
           </Block>
-        </ScrollView>
+        </Fragment>
         <Button
           disabled={check ? isLoadingUpdate : isLoading}
           onPress={check ? onEdit : onSubmit}
