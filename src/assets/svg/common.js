@@ -16,6 +16,8 @@ import Svg, {
   Mask,
   Ellipse,
 } from 'react-native-svg';
+import {useSelector} from 'react-redux';
+
 export const LineHorizontal = ({width = 309, height = 1}) => {
   return (
     <Svg
@@ -3305,19 +3307,23 @@ export const BackgroundColorShop = ({
   color = '#FFFFFF',
   strokeWidth = 1.5,
   ...rest
-}) => (
-  <Svg
-    width={width}
-    height={height}
-    viewBox="0 0 375 241"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg">
-    <Path
-      d="M534 -109C534 84.2997 377.3 241 184 241C-9.29967 241 -166 84.2997 -166 -109C-166 -302.3 -9.29967 -459 184 -459C377.3 -459 534 -302.3 534 -109Z"
-      fill="#FFB740"
-    />
-  </Svg>
-);
+}) => {
+  const config = useSelector(state => state.config?.data);
+
+  return (
+    <Svg
+      width={width}
+      height={height}
+      viewBox="0 0 375 241"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <Path
+        d="M534 -109C534 84.2997 377.3 241 184 241C-9.29967 241 -166 84.2997 -166 -109C-166 -302.3 -9.29967 -459 184 -459C377.3 -459 534 -302.3 534 -109Z"
+        fill={config?.backgroundcolor}
+      />
+    </Svg>
+  );
+};
 
 export const CameraIcon = ({width = 35, height = 35, color = '#FFFFFF'}) => (
   <Svg
