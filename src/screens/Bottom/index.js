@@ -17,6 +17,7 @@ import MyselfInformation from './ProfileScreens/navigation/ProgrammingAccountScr
 import FavoriteScreen from './ProfileScreens/navigation/FavoriteScreen';
 import ViewedProductScreen from './ProfileScreens/navigation/ViewedProductScreen';
 import MyRating from './ProfileScreens/navigation/MyRating';
+import DetailedNotice from './NotificationScreens/navigation/DetailedNotice';
 
 export const bottom = {
   HOMESCREENS: HomeScreens,
@@ -38,4 +39,5 @@ export const bottom = {
   FAVORITE_SCREEN: FavoriteScreen,
   VIEW_PRODUCTS: ViewedProductScreen,
   MY_RATING: MyRating,
+  DETAILED_NOTICE: DetailedNotice,
 };

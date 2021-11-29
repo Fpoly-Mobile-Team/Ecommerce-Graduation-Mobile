@@ -13,6 +13,7 @@ import OTPCodeScreens from './OTPScreens/navigation/OTPCodeScreen';
 import ChooseADeliveryAddressScreen from './AddressScreen/navigation/ChooseADeliveryAddressScreen';
 import InformationDetails from './ProductDetails/navigation/InformationDetails';
 import AllStore from './AllStore';
+
 export const common = {
   PRODUCT_DETAILS: ProductDetails,
   CARTSCREENS: CartScreens,
