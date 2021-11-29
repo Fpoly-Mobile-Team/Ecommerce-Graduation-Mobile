@@ -176,6 +176,10 @@ const RootStack = () => {
             name={routes.MY_RATING}
             component={bottom.MY_RATING}
           />
+          <Stack.Screen
+            name={routes.DETAILED_NOTICE}
+            component={bottom.DETAILED_NOTICE}
+          />
         </Stack.Navigator>
       )}
     </NavigationContainer>
