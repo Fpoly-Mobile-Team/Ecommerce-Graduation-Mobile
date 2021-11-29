@@ -27,7 +27,7 @@ const AddressScreen = () => {
       />
     );
   };
-
+  console.log('dtaaa------', userInfo?.address);
   return (
     <Block flex>
       <Header checkBackground canGoBack title="Địa chỉ giao hàng" />
@@ -35,7 +35,7 @@ const AddressScreen = () => {
         <FlatList
           data={userInfo?.address}
           renderItem={renderItem}
-          keyExtractor={item => item._id.toString()}
+          keyExtractor={(item, index) => String(item._id)}
           showsVerticalScrollIndicator={false}
         />
       ) : (

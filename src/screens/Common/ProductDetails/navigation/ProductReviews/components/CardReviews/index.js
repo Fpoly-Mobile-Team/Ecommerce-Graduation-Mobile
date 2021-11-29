@@ -1,12 +1,13 @@
 import {Block, Text} from '@components';
-import React from 'react';
-import {Image, Pressable} from 'react-native';
+import React, {useState, useEffect, Fragment} from 'react';
+import {Image, Pressable, Modal} from 'react-native';
 import {theme} from '@theme';
 import styles from './styles';
 import {ScrollView} from 'react-native-gesture-handler';
 import StarRating from '../StarRating';
 import {getSize, width} from '@utils/responsive';
 import OptionsMenu from 'react-native-option-menu';
+import ImageViewer from 'react-native-image-zoom-viewer';
 import {icons} from '@assets';
 
 const CardReviews = ({
@@ -21,19 +22,33 @@ const CardReviews = ({
   onEdit,
   onDelete,
 }) => {
+  const [ImageViwerIsVisible, showImageViwer] = useState(false);
+  let [viewingIndex, setViewingIndex] = useState(-1);
+  useEffect(() => {
+    viewingIndex !== -1 && showImageViwer(true);
+  }, [viewingIndex]);
+  useEffect(() => {
+    !ImageViwerIsVisible && setViewingIndex(-1);
+  }, [ImageViwerIsVisible]);
+
   const _renderImage = (item, index) => {
     return (
-      <Image
-        key={index}
-        source={{uri: item}}
-        style={{
-          ...styles.imgReviews,
-          marginLeft: index === 0 ? 0 : getSize.m(12),
-        }}
-      />
+      <Pressable
+        style={styles.wrapper}
+        key={item}
+        onPress={() => setViewingIndex(index)}>
+        <Image
+          key={index}
+          source={{uri: item}}
+          style={{
+            ...styles.imgReviews,
+            marginLeft: index === 0 ? 0 : getSize.m(12),
+          }}
+        />
+      </Pressable>
     );
   };
-  // console.log('image', image);
+
   return (
     <Block
       backgroundColor={theme.colors.white}
@@ -87,13 +102,24 @@ const CardReviews = ({
         fontType="medium">
         {description}
       </Text>
-
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        style={styles.scrReview}>
-        {image?.map(_renderImage)}
-      </ScrollView>
+      <Fragment>
+        {!!ImageViwerIsVisible && (
+          <Modal
+            transparent={true}
+            onRequestClose={() => showImageViwer(false)}>
+            <ImageViewer
+              imageUrls={image.map(f => ({url: f}))}
+              index={viewingIndex}
+            />
+          </Modal>
+        )}
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          style={styles.scrReview}>
+          {image?.map(_renderImage)}
+        </ScrollView>
+      </Fragment>
     </Block>
   );
 };

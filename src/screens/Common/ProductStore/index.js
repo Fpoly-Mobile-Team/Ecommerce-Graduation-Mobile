@@ -2,7 +2,7 @@ import {BackgroundColorShop, IconForward} from '@assets/svg/common';
 import {Block, Carousel, Text} from '@components';
 import ItemVoucherFromShop from '@components/Common/ItemList/ItemVoucherFromShop';
 import {routes} from '@navigation/routes';
-import {useNavigation} from '@react-navigation/native';
+import {useIsFocused, useNavigation} from '@react-navigation/native';
 import actions from '@redux/actions';
 import SellingProduct from '@screens/Bottom/HomeScreens/components/SellingProduct';
 import {theme} from '@theme';
@@ -26,28 +26,57 @@ const ProductStore = ({route}) => {
 
   const {id} = route.params || {};
 
+  const focus = useIsFocused();
+
   useEffect(() => {
     if (id) {
-      dispatch({
-        type: actions.GET_SHOP_USERS_BY_ID,
-        body: {
-          shopId: id,
-        },
-      });
-      dispatch({
-        type: actions.GET_PRODUCT_DETAILS_BY_SHOP,
-        params: {
-          shopId: id,
-        },
-      });
-      dispatch({
-        type: actions.GET_SHOP_VOUCHERS,
-        params: {
-          shopId: id,
-        },
-      });
+      if (focus) {
+        dispatch({
+          type: actions.GET_SHOP_USERS_BY_ID,
+          body: {
+            shopId: id,
+          },
+        });
+        dispatch({
+          type: actions.GET_PRODUCT_DETAILS_BY_SHOP,
+          params: {
+            shopId: id,
+          },
+        });
+        dispatch({
+          type: actions.GET_SHOP_VOUCHERS,
+          params: {
+            shopId: id,
+          },
+        });
+      }
     }
-  }, [id, dispatch]);
+  }, [id, dispatch, focus]);
+  useEffect(() => {
+    if (id) {
+      if (focus) {
+        dispatch({
+          type: actions.GET_PRODUCT_DETAILS_BY_SHOP,
+          params: {
+            shopId: id,
+          },
+        });
+      }
+    }
+  }, [id, dispatch, focus]);
+
+  useEffect(() => {
+    if (id) {
+      if (focus) {
+        dispatch({
+          type: actions.GET_SHOP_VOUCHERS,
+          params: {
+            shopId: id,
+          },
+        });
+      }
+    }
+  }, [id, dispatch, focus]);
 
   const _renderBanner = () => {
     return (
@@ -76,21 +105,23 @@ const ProductStore = ({route}) => {
           color={theme.colors.black}>
           Mã giảm giá
         </Text>
-        <Pressable
-          style={styles.wrapperTextVoucher}
-          onPress={() =>
-            navigation.navigate(routes.PROMO_SCREEN, {
-              id: shop?._id,
-              shopName: shop?.shopName,
-            })
-          }>
-          <Text color={config?.backgroundcolor} lineHeight={18}>
-            Xem thêm
-          </Text>
-          <Block alignCenter justifyCenter paddingLeft={4}>
-            <IconForward />
-          </Block>
-        </Pressable>
+        {shopVoucher?.length != 0 ? (
+          <Pressable
+            style={styles.wrapperTextVoucher}
+            onPress={() =>
+              navigation.navigate(routes.PROMO_SCREEN, {
+                id: shop?._id,
+                shopName: shop?.shopName,
+              })
+            }>
+            <Text color={config?.backgroundcolor} lineHeight={18}>
+              Xem thêm
+            </Text>
+            <Block alignCenter justifyCenter paddingLeft={4}>
+              <IconForward />
+            </Block>
+          </Pressable>
+        ) : null}
       </Block>
     );
   };
@@ -103,14 +134,22 @@ const ProductStore = ({route}) => {
         marginBottom={10}
         marginTop={-30}>
         <_renderTitleVoucher />
-        <FlatList
-          style={{marginLeft: getSize.s(12)}}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          data={shopVoucher}
-          renderItem={_renderVoucher}
-          keyExtractor={item => item._id.toString()}
-        />
+        {shopVoucher?.length != 0 ? (
+          <FlatList
+            style={{marginLeft: getSize.s(12)}}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            data={shopVoucher}
+            renderItem={_renderVoucher}
+            keyExtractor={item => item._id.toString()}
+          />
+        ) : (
+          <Block alignCenter justifyCenter paddingBottom={15}>
+            <Text size={12} color={theme.colors.gray}>
+              Hiện tại cửa hàng này chưa có mã giảm nào...
+            </Text>
+          </Block>
+        )}
       </Block>
     );
   };

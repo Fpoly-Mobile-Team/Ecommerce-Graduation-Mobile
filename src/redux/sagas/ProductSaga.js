@@ -39,7 +39,6 @@ function* getProductDetails(actions) {
     const body = queryString.stringify(actions.body);
 
     const res = yield API.post('product/getProductById', body);
-
     yield put({
       type: _onSuccess(Actions.GET_PRODUCT_BY_ID),
       data: res.product,

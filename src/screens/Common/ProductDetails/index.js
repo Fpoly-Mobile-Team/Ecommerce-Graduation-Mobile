@@ -22,7 +22,7 @@ const ProductDetails = ({route, navigation}) => {
   const {_id} = route.params;
   const data = useSelector(state => state.productDetails?.data);
   const user = useSelector(state => state.tokenUser?.data);
-
+  console.log('kakakaka----', data);
   const isLoadingDetails = useSelector(
     state => state.productDetails?.isLoading,
   );
@@ -89,8 +89,6 @@ const ProductDetails = ({route, navigation}) => {
     }
 
     return () => {
-      dispatch({type: _onUnmount(actions.GET_SHOP_USERS_BY_ID)});
-      dispatch({type: _onUnmount(actions.GET_PRODUCT_DETAILS_BY_SHOP)});
       dispatch({type: _onUnmount(actions.GET_PRODUCT_BY_CATEGORY)});
     };
   }, [_id, data, dispatch]);
@@ -148,6 +146,7 @@ const ProductDetails = ({route, navigation}) => {
               backgroundColor={theme.colors.smoke}
             />
             <ProductReviews
+              parseRating={data?.avgProductRating}
               _id={_id}
               onPress={() =>
                 navigation.navigate(routes.PRODUCT_REVIEWS, {_id: _id})
