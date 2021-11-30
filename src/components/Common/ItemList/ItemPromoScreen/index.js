@@ -1,13 +1,28 @@
 import {Button, Text} from '@components';
+import {routes} from '@navigation/routes';
+import {useNavigation} from '@react-navigation/core';
+import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
 import React from 'react';
 import {Image, View} from 'react-native';
 import DashedLine from 'react-native-dashed-line';
 import styles from './styles';
 
-const ItemPromoScreen = ({name, title, date, image, index, isCheck}) => {
+const ItemPromoScreen = ({
+  check,
+  name,
+  title,
+  date,
+  image,
+  index,
+  isCheck,
+  addVoucher,
+  save,
+}) => {
   const marginTop = index === 0 ? getSize.s(10) : 0;
   const marginBottom = isCheck ? getSize.s(20) : 0;
+  const navigation = useNavigation();
+
   return (
     <View style={[styles.ItemContainer, {marginTop, marginBottom}]}>
       <View style={styles.ItemCart}>
@@ -39,7 +54,26 @@ const ItemPromoScreen = ({name, title, date, image, index, isCheck}) => {
           <View style={styles.ItemText}>
             <Text style={styles.textDate}>HSD: {date}</Text>
           </View>
-          <Button title="Lưu" height={28} width={46} style={styles.button} />
+
+          {save ? (
+            <Button
+              onPress={check ? addVoucher : null}
+              title="Lưu"
+              height={check ? 28 : 30}
+              width={check ? 46 : 72}
+              style={styles.button}
+            />
+          ) : (
+            <Button
+              title={check ? 'Đã lưu' : 'Sử dụng'}
+              backgroundColor={
+                check ? theme.colors.bgiconheader : theme.colors.pink
+              }
+              height={30}
+              width={72}
+              style={styles.button}
+            />
+          )}
         </View>
 
         <View style={styles.ItemIconRight} />

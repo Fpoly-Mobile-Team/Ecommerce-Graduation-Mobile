@@ -21,6 +21,7 @@ const ProductStore = ({route}) => {
   const dispatch = useDispatch();
   const shop = useSelector(state => state.infoShop?.data);
   const productShop = useSelector(state => state.productDetailsShop?.data);
+  const user = useSelector(state => state.tokenUser?.data);
   const config = useSelector(state => state.config?.data);
   const shopVoucher = useSelector(state => state.shopVoucher?.data);
 
@@ -47,6 +48,7 @@ const ProductStore = ({route}) => {
           type: actions.GET_SHOP_VOUCHERS,
           params: {
             shopId: id,
+            user,
           },
         });
       }

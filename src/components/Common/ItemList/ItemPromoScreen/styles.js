@@ -1,6 +1,7 @@
 import {getSize} from '@utils/responsive';
 import {StyleSheet} from 'react-native';
 import {theme} from '@theme';
+import {get} from 'lodash';
 
 export default StyleSheet.create({
   ItemContainer: {
@@ -73,9 +74,7 @@ export default StyleSheet.create({
   txtTitle: {fontWeight: '500', fontSize: 14, marginTop: 5},
   dash: {marginHorizontal: 22},
   button: {
-    backgroundColor: theme.colors.pink,
-    borderRadius: getSize.s(4),
+    borderRadius: getSize.s(6),
     marginRight: getSize.s(16),
-    marginBottom: getSize.s(16),
   },
 });
