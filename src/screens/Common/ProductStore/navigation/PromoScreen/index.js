@@ -8,7 +8,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import moment from 'moment';
 import actions from '@redux/actions';
 import OptionsMenu from 'react-native-option-menu';
-import {SelectCircle} from '../../../../../assets/svg/common';
+import {SelectCircle} from '@assets/svg/common';
 import styles from './styles';
 import {Modal, FlatList} from 'react-native';
 import {height, width} from '@utils/responsive';
