@@ -177,6 +177,10 @@ const RootStack = () => {
             name={routes.MY_VOUCHERS}
             component={bottom.MY_VOUCHERS}
           />
+          <Stack.Screen
+            name={routes.DETAILED_NOTICE}
+            component={bottom.DETAILED_NOTICE}
+          />
         </Stack.Navigator>
       )}
     </NavigationContainer>

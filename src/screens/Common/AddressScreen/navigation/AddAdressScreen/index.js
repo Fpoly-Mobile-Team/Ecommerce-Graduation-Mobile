@@ -80,7 +80,6 @@ const AddAddressScreen = ({route}) => {
             containerInputStyle={styles.containerInputStyle}
             labelStyle={styles.label}
             inputStyle={styles.inputStyle}
-            keyboardType="email-address"
             placeholder="Nhập họ và tên"
             onChangeText={() => {}}
           />
