@@ -21,6 +21,7 @@ const ProductStore = ({route}) => {
   const dispatch = useDispatch();
   const shop = useSelector(state => state.infoShop?.data);
   const productShop = useSelector(state => state.productDetailsShop?.data);
+  const user = useSelector(state => state.tokenUser?.data);
   const config = useSelector(state => state.config?.data);
   const shopVoucher = useSelector(state => state.shopVoucher?.data);
 
@@ -47,29 +48,17 @@ const ProductStore = ({route}) => {
           type: actions.GET_SHOP_VOUCHERS,
           params: {
             shopId: id,
+            user,
           },
         });
       }
     }
-  }, [id, dispatch, focus]);
+  }, [id, dispatch, focus, user]);
   useEffect(() => {
     if (id) {
       if (focus) {
         dispatch({
           type: actions.GET_PRODUCT_DETAILS_BY_SHOP,
-          params: {
-            shopId: id,
-          },
-        });
-      }
-    }
-  }, [id, dispatch, focus]);
-
-  useEffect(() => {
-    if (id) {
-      if (focus) {
-        dispatch({
-          type: actions.GET_SHOP_VOUCHERS,
           params: {
             shopId: id,
           },
@@ -105,7 +94,7 @@ const ProductStore = ({route}) => {
           color={theme.colors.black}>
           Mã giảm giá
         </Text>
-        {shopVoucher?.length != 0 ? (
+        {shopVoucher?.length !== 0 ? (
           <Pressable
             style={styles.wrapperTextVoucher}
             onPress={() =>
@@ -117,8 +106,8 @@ const ProductStore = ({route}) => {
             <Text color={config?.backgroundcolor} lineHeight={18}>
               Xem thêm
             </Text>
-            <Block alignCenter justifyCenter paddingLeft={4}>
-              <IconForward />
+            <Block alignCenter justifyCenter paddingLeft={4} paddingTop={4}>
+              <IconForward color={config?.backgroundcolor} />
             </Block>
           </Pressable>
         ) : null}
@@ -134,7 +123,7 @@ const ProductStore = ({route}) => {
         marginBottom={10}
         marginTop={-30}>
         <_renderTitleVoucher />
-        {shopVoucher?.length != 0 ? (
+        {shopVoucher?.length !== 0 ? (
           <FlatList
             style={{marginLeft: getSize.s(12)}}
             horizontal

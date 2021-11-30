@@ -8,8 +8,10 @@ import React from 'react';
 import {Image, Pressable} from 'react-native';
 import {Rating} from 'react-native-elements';
 import styles from './styles';
+import {useDispatch, useSelector} from 'react-redux';
+import actions from '@redux/actions';
 
-const ItemShop = ({item, index}) => {
+const ItemShop = ({item, index, id}) => {
   const navigation = useNavigation();
 
   return (

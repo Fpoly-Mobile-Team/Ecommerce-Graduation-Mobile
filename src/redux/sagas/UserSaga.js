@@ -151,6 +151,38 @@ function* getMyReview(actions) {
   }
 }
 
+function* addmyVoucher(actions) {
+  try {
+    const body = queryString.stringify(actions.body);
+    const res = yield API.post('getUser/AddVoucherMyVoucher', body);
+    yield put({type: _onSuccess(Actions.ADD_MY_VOUCHER), data: res.data});
+    yield put({
+      type: Actions.GET_SHOP_VOUCHERS,
+      params: {
+        user: actions.body.user,
+        shopId: actions.shopId,
+      },
+    });
+    Toast(res.message);
+  } catch (error) {
+    yield put({type: _onFail(Actions.ADD_MY_VOUCHER)});
+  }
+}
+
+function* getmyVoucher(actions) {
+  try {
+    const res = yield API.get(
+      `getUser/GetVoucherMyVoucher?user=${actions.user}`,
+    );
+
+    yield put({
+      type: _onSuccess(Actions.GET_MY_VOUCHER),
+      data: res.data,
+    });
+  } catch (error) {
+    yield put({type: _onFail(Actions.GET_MY_VOUCHER)});
+  }
+}
 export function* watchUserSagas() {
   yield takeLatest(Actions.LOGIN_ACCOUNT, login);
   yield takeLatest(Actions.SIGNUP_ACCOUNT, register);
@@ -161,4 +193,6 @@ export function* watchUserSagas() {
   yield takeLatest(Actions.LOGIN_FACEBOOK, loginFb);
   yield takeLatest(Actions.LOGIN_GOOGLE, loginGg);
   yield takeLatest(Actions.GET_MY_REVIEW, getMyReview);
+  yield takeLatest(Actions.ADD_MY_VOUCHER, addmyVoucher);
+  yield takeLatest(Actions.GET_MY_VOUCHER, getmyVoucher);
 }

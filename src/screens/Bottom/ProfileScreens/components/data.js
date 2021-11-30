@@ -11,7 +11,7 @@ export const DATA = [
     id: '2',
     image: icons.vouncher,
     title: 'Vouncher của tôi',
-    navigation: null,
+    navigation: routes.MY_VOUCHERS,
   },
   {
     id: '3',
