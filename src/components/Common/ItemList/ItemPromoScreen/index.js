@@ -22,6 +22,7 @@ const ItemPromoScreen = ({
   const marginTop = index === 0 ? getSize.s(10) : 0;
   const marginBottom = isCheck ? getSize.s(20) : 0;
   const navigation = useNavigation();
+  console.log('AAAAAAA', save);
 
   return (
     <View style={[styles.ItemContainer, {marginTop, marginBottom}]}>
@@ -54,23 +55,24 @@ const ItemPromoScreen = ({
           <View style={styles.ItemText}>
             <Text style={styles.textDate}>HSD: {date}</Text>
           </View>
-
-          {save ? (
+          {check ? (
             <Button
-              onPress={check ? addVoucher : null}
-              title="Lưu"
-              height={check ? 28 : 30}
-              width={check ? 46 : 72}
+              onPress={!save ? addVoucher : null}
+              title={!save ? 'Lưu' : 'Đã lưu'}
+              height={!save ? 28 : 30}
+              width={!save ? 46 : 72}
+              backgroundColor={
+                !save ? theme.colors.pink : theme.colors.bgiconheader
+              }
               style={styles.button}
             />
           ) : (
             <Button
-              title={check ? 'Đã lưu' : 'Sử dụng'}
-              backgroundColor={
-                check ? theme.colors.bgiconheader : theme.colors.pink
-              }
+              title="Sử dụng"
+              onPress={() => navigation.navigate(routes.CARTSCREENS)}
               height={30}
               width={72}
+              backgroundColor={theme.colors.pink}
               style={styles.button}
             />
           )}

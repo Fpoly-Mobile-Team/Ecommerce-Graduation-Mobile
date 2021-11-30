@@ -40,12 +40,13 @@ const MyVouchers = ({route}) => {
     const isCheck = index === myvoucher?.length - 1;
     return (
       <ItemPromoScreen
-        name={item._id}
+        name={item.shopName}
         title={item.content}
         date={moment(item.expireDate).format('DD/MM/YYYY')}
         image={item.image}
         index={index}
         isCheck={isCheck}
+        save={item.save}
       />
     );
   };

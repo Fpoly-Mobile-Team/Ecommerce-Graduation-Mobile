@@ -67,19 +67,6 @@ const ProductStore = ({route}) => {
     }
   }, [id, dispatch, focus]);
 
-  useEffect(() => {
-    if (id) {
-      if (focus) {
-        dispatch({
-          type: actions.GET_SHOP_VOUCHERS,
-          params: {
-            shopId: id,
-          },
-        });
-      }
-    }
-  }, [id, dispatch, focus]);
-
   const _renderBanner = () => {
     return (
       <Block marginTop={-18}>
