@@ -106,8 +106,8 @@ const ProductStore = ({route}) => {
             <Text color={config?.backgroundcolor} lineHeight={18}>
               Xem thêm
             </Text>
-            <Block alignCenter justifyCenter paddingLeft={4}>
-              <IconForward />
+            <Block alignCenter justifyCenter paddingLeft={4} paddingTop={4}>
+              <IconForward color={config?.backgroundcolor} />
             </Block>
           </Pressable>
         ) : null}

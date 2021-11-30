@@ -3,7 +3,7 @@ import {Block, Header, Text} from '@components';
 import ItemPromoScreen from '@components/Common/ItemList/ItemPromoScreen';
 import {theme} from '@theme';
 import {Toast} from '@utils/helper';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import moment from 'moment';
 import actions from '@redux/actions';

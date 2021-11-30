@@ -154,7 +154,7 @@ function* getMyReview(actions) {
 function* addmyVoucher(actions) {
   try {
     const body = queryString.stringify(actions.body);
-    const res = yield API.post(`getUser/AddVoucherMyVoucher`, body);
+    const res = yield API.post('getUser/AddVoucherMyVoucher', body);
     yield put({type: _onSuccess(Actions.ADD_MY_VOUCHER), data: res.data});
     yield put({
       type: Actions.GET_SHOP_VOUCHERS,
@@ -163,7 +163,6 @@ function* addmyVoucher(actions) {
         shopId: actions.shopId,
       },
     });
-    console.log('jasdjasd', actions.body.user, actions.shopId);
     Toast(res.message);
   } catch (error) {
     yield put({type: _onFail(Actions.ADD_MY_VOUCHER)});
