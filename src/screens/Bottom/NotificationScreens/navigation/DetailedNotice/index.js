@@ -17,7 +17,7 @@ const DetailedNotice = ({route}) => {
       <Block>
         <Block
           backgroundColor={coloring}
-          height={height / (4.4 / 2)}
+          height={height / (6.4 / 2)}
           alignCenter
           justifyCenter>
           <Block

@@ -33,7 +33,7 @@ export const theme = {
     paleGreen: '#08978E',
     textSecond: '#223263',
     border: '#EBF0FF',
-  
+    holder: '#848181',
   },
 
   fonts: {

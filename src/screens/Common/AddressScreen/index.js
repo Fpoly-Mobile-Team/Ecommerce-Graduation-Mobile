@@ -27,7 +27,7 @@ const AddressScreen = () => {
       />
     );
   };
-  console.log('dtaaa------', userInfo?.address);
+
   return (
     <Block flex>
       <Header checkBackground canGoBack title="Địa chỉ giao hàng" />

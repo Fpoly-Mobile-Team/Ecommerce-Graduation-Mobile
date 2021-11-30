@@ -72,8 +72,8 @@ const StoreDenounce = ({route}) => {
     <Block flex>
       <Header checkBackground canGoBack title="Tố cáo cửa hàng này" />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Block>
-          {isLoading ? (
+        <>
+          {isLoading && (
             <Modal
               animationType="fade"
               transparent={true}
@@ -90,8 +90,8 @@ const StoreDenounce = ({route}) => {
                 <Text color={theme.colors.white}>Chờ vài giây...</Text>
               </Block>
             </Modal>
-          ) : null}
-        </Block>
+          )}
+        </>
         <Block backgroundColor={theme.colors.white} marginTop={5} row>
           <Block alignCenter justifyCenter width={80} height={80}>
             <LazyImage

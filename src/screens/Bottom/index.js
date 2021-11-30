@@ -18,6 +18,9 @@ import FavoriteScreen from './ProfileScreens/navigation/FavoriteScreen';
 import ViewedProductScreen from './ProfileScreens/navigation/ViewedProductScreen';
 import MyRating from './ProfileScreens/navigation/MyRating';
 import DetailedNotice from './NotificationScreens/navigation/DetailedNotice';
+import SalesInformationSettings from './ProfileScreens/navigation/StartSelling/navigation/SalesInformationSettings';
+import StartSelling from './ProfileScreens/navigation/StartSelling';
+import Addressing from './ProfileScreens/navigation/StartSelling/navigation/Addressing';
 
 export const bottom = {
   HOMESCREENS: HomeScreens,
@@ -40,4 +43,7 @@ export const bottom = {
   VIEW_PRODUCTS: ViewedProductScreen,
   MY_RATING: MyRating,
   DETAILED_NOTICE: DetailedNotice,
+  START_SELLING: StartSelling,
+  SALE_INFORMATION_SETTINGS: SalesInformationSettings,
+  ADDRESSING: Addressing,
 };
