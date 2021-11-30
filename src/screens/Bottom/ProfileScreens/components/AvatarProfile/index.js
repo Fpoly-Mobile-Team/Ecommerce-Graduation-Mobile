@@ -28,6 +28,7 @@ const AvatarProfile = () => {
   useEffect(() => {
     if (picture) {
       const path = 'AvatarProfile/' + picture?.name;
+
       return new Promise(async (res, rej) => {
         const response = await fetch(picture?.uri);
         const file = await response.blob();

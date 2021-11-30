@@ -10,6 +10,7 @@ const _renderItem = ({item}) => (
   <ItemProduct
     _id={item._id}
     left={-0.75}
+    review={item.reviews}
     style={styles.styleitem}
     images={item.images[0]}
     nameProduct={item.name}

@@ -19,8 +19,14 @@ export default StyleSheet.create({
     height: getSize.v(104),
     borderRadius: getSize.s(4),
     marginBottom: getSize.m(16),
-    marginTop: getSize.m(12)
-
+    marginTop: getSize.m(12),
+  },
+  imgRound: {
+    width: getSize.s(96),
+    height: getSize.v(104),
+    borderRadius: getSize.s(4),
+    marginBottom: getSize.m(16),
+    marginTop: getSize.m(12),
   },
   buttonStyle: {
     width: getSize.s(44 / 2),

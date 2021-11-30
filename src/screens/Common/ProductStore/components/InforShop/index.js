@@ -4,8 +4,11 @@ import {theme} from '@theme';
 import React from 'react';
 import {Pressable, Image} from 'react-native';
 import styles from './styles';
+import {useNavigation} from '@react-navigation/native';
+import {routes} from '@navigation/routes';
 
 const InforShop = ({data}) => {
+  const navigation = useNavigation();
   return (
     <Block row space="between" alignCenter marginVertical={24}>
       <Pressable>
@@ -38,29 +41,28 @@ const InforShop = ({data}) => {
           </Text>
         </Block>
       </Block>
-      <Block paddingRight={16} justifyCenter alignCenter>
-        <IconMore />
-      </Block>
+      <Pressable
+        onPress={() =>
+          navigation.navigate(routes.STORE_INFORMATION, {id: data?._id})
+        }>
+        <Block paddingRight={16} justifyCenter alignCenter>
+          <IconMore />
+        </Block>
+      </Pressable>
       <Block
         backgroundColor={
-          data?.currentStatus === 'Online'
+          data?.currentStatus === 'Online' && 'Idle'
             ? theme.colors.green
             : theme.colors.pink
         }
         radius={4}
         alignCenter
         justifyCenter>
-        <Text paddingVertical={6} paddingHorizontal={12}>
-          {data?.currentStatus === 'Online' ? (
-            <Text fontType="bold" color={theme.colors.white}>
-              {data?.currentStatus}
-            </Text>
-          ) : (
-            <Text fontType="bold" color={theme.colors.white}>
-              {data?.currentStatus}
-            </Text>
-          )}
-        </Text>
+        <Block paddingVertical={6} paddingHorizontal={12}>
+          <Text fontType="bold" color={theme.colors.white}>
+            {data?.currentStatus}
+          </Text>
+        </Block>
       </Block>
     </Block>
   );
