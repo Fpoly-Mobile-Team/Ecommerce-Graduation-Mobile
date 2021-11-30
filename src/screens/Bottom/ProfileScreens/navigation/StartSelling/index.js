@@ -1,15 +1,12 @@
-import {lottie} from '@assets';
-import {Block, Button, Empty, Header, Text} from '@components';
-import actions from '@redux/actions';
+import {Block, Button, Header, Text} from '@components';
+import {routes} from '@navigation/routes';
+import {useNavigation} from '@react-navigation/core';
 import {theme} from '@theme';
-import {height, width} from '@utils/responsive';
-import moment from 'moment';
-import React, {useEffect} from 'react';
-import {FlatList, Image, Pressable, ScrollView} from 'react-native';
+import {height} from '@utils/responsive';
+import React from 'react';
+import {Image, ScrollView} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import styles from './styles';
-import {useNavigation} from '@react-navigation/core';
-import {routes} from '@navigation/routes';
 
 const StartSelling = () => {
   const navigation = useNavigation();

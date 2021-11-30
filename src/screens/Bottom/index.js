@@ -17,6 +17,7 @@ import MyselfInformation from './ProfileScreens/navigation/ProgrammingAccountScr
 import FavoriteScreen from './ProfileScreens/navigation/FavoriteScreen';
 import ViewedProductScreen from './ProfileScreens/navigation/ViewedProductScreen';
 import MyRating from './ProfileScreens/navigation/MyRating';
+import MyVouchers from './ProfileScreens/navigation/MyVouchers';
 import DetailedNotice from './NotificationScreens/navigation/DetailedNotice';
 import SalesInformationSettings from './ProfileScreens/navigation/StartSelling/navigation/SalesInformationSettings';
 import StartSelling from './ProfileScreens/navigation/StartSelling';
@@ -42,6 +43,7 @@ export const bottom = {
   FAVORITE_SCREEN: FavoriteScreen,
   VIEW_PRODUCTS: ViewedProductScreen,
   MY_RATING: MyRating,
+  MY_VOUCHERS: MyVouchers,
   DETAILED_NOTICE: DetailedNotice,
   START_SELLING: StartSelling,
   SALE_INFORMATION_SETTINGS: SalesInformationSettings,

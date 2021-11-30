@@ -14,12 +14,6 @@ export const DATA = [
     navigation: routes.START_SELLING,
   },
   {
-    id: '3',
-    image: icons.vouncher,
-    title: 'Vouncher của tôi',
-    navigation: null,
-  },
-  {
     id: '4',
     image: icons.favoriteprofile,
     title: 'Yêu thích',

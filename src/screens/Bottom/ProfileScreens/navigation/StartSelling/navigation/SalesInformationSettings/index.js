@@ -117,7 +117,7 @@ const SalesInformationSettings = ({route}) => {
           <Text
             size={16}
             fontType="semibold"
-            color={theme.colors.holder}
+            color={theme.colors.black}
             paddingHorizontal={12}
             marginBottom={8}>
             Liên hệ
@@ -141,6 +141,7 @@ const SalesInformationSettings = ({route}) => {
             onChangeText={text => setEmail(text)}
           />
           <ItemEvent
+            style={styles.marginInput}
             placeholder="Số điện thoại"
             keyboardType="phone-pad"
             onChangeText={text => setPhoneNumber(text)}
@@ -152,7 +153,7 @@ const SalesInformationSettings = ({route}) => {
           <Text
             size={16}
             fontType="semibold"
-            color={theme.colors.holder}
+            color={theme.colors.black}
             paddingHorizontal={12}
             marginBottom={8}>
             Địa chỉ lấy hàng

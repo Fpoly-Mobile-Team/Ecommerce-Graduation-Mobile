@@ -174,6 +174,10 @@ const RootStack = () => {
           />
           <Stack.Screen name={routes.MY_RATING} component={bottom.MY_RATING} />
           <Stack.Screen
+            name={routes.MY_VOUCHERS}
+            component={bottom.MY_VOUCHERS}
+          />
+          <Stack.Screen
             name={routes.DETAILED_NOTICE}
             component={bottom.DETAILED_NOTICE}
           />

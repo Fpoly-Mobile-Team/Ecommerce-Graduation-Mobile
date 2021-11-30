@@ -53,6 +53,7 @@ const DetailedNotice = ({route}) => {
   const _renderImages = (item, index) => {
     return (
       <Block
+        key={index}
         width={width / 2 - 18}
         height={width / 2 - 18}
         marginBottom={12}

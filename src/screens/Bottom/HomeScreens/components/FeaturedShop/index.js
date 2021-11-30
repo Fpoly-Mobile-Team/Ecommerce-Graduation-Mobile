@@ -10,6 +10,7 @@ import React from 'react';
 
 const FeaturedShop = ({data}) => {
   const navigation = useNavigation();
+
   const _renderItem = React.useCallback(({item, index}) => {
     return <ItemShop item={item} index={index} />;
   }, []);
