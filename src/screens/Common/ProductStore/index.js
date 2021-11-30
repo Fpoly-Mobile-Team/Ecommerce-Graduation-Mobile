@@ -53,7 +53,7 @@ const ProductStore = ({route}) => {
         });
       }
     }
-  }, [id, dispatch, focus]);
+  }, [id, dispatch, focus, user]);
   useEffect(() => {
     if (id) {
       if (focus) {
@@ -94,7 +94,7 @@ const ProductStore = ({route}) => {
           color={theme.colors.black}>
           Mã giảm giá
         </Text>
-        {shopVoucher?.length != 0 ? (
+        {shopVoucher?.length !== 0 ? (
           <Pressable
             style={styles.wrapperTextVoucher}
             onPress={() =>

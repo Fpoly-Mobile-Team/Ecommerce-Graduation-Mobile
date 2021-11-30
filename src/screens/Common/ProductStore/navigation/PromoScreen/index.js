@@ -35,18 +35,8 @@ const PromoScreen = ({route}) => {
         user,
         idVoucher: _id,
       },
-
       shopId: id,
     });
-    if (id) {
-      dispatch({
-        type: actions.GET_SHOP_VOUCHERS,
-        params: {
-          user,
-          shopId: id,
-        },
-      });
-    }
   };
 
   const renderItem = ({item, index}) => {
