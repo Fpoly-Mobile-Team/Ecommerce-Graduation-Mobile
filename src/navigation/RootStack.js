@@ -181,6 +181,18 @@ const RootStack = () => {
             name={routes.DETAILED_NOTICE}
             component={bottom.DETAILED_NOTICE}
           />
+          <Stack.Screen
+            name={routes.START_SELLING}
+            component={bottom.START_SELLING}
+          />
+          <Stack.Screen
+            name={routes.SALE_INFORMATION_SETTINGS}
+            component={bottom.SALE_INFORMATION_SETTINGS}
+          />
+          <Stack.Screen
+            name={routes.ADDRESSING}
+            component={bottom.ADDRESSING}
+          />
         </Stack.Navigator>
       )}
     </NavigationContainer>

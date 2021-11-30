@@ -9,15 +9,9 @@ export const DATA = [
   },
   {
     id: '2',
-    image: icons.vouncher,
-    title: 'Vouncher của tôi',
-    navigation: routes.MY_VOUCHERS,
-  },
-  {
-    id: '3',
-    image: icons.shopping,
-    title: 'Mua sau',
-    navigation: null,
+    image: icons.start_selling,
+    title: 'Bắt đầu bán',
+    navigation: routes.START_SELLING,
   },
   {
     id: '4',

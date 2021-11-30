@@ -49,6 +49,7 @@ export const icons = {
   close: require('./icons/close.png'),
   favoritefill: require('./icons/favoritefill.png'),
   mening: require('./icons/mening.png'),
+  start_selling: require('./icons/start_selling.png'),
 };
 
 export const images = {
