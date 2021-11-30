@@ -4,7 +4,7 @@ import {useNavigation} from '@react-navigation/core';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
 import React from 'react';
-import {Image, View, Pressable, TouchableOpacity} from 'react-native';
+import {Image, Pressable, View} from 'react-native';
 import DashedLine from 'react-native-dashed-line';
 import styles from './styles';
 

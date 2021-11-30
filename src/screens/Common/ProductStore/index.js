@@ -123,7 +123,7 @@ const ProductStore = ({route}) => {
         marginBottom={10}
         marginTop={-30}>
         <_renderTitleVoucher />
-        {shopVoucher?.length != 0 ? (
+        {shopVoucher?.length !== 0 ? (
           <FlatList
             style={{marginLeft: getSize.s(12)}}
             horizontal
