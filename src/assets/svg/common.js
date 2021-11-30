@@ -329,7 +329,7 @@ export const IconForward = ({width = 50, height = 50, color = 'black'}) => {
       xmlns="http://www.w3.org/2000/svg">
       <Path
         d="M1 9L5 5L1 1"
-        stroke="#08978E"
+        stroke={color}
         stroke-linecap="round"
         stroke-linejoin="round"
       />

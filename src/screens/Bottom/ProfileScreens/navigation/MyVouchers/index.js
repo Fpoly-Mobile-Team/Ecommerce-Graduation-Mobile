@@ -34,7 +34,6 @@ const MyVouchers = ({route}) => {
       user,
     });
   }, [user, dispatch]);
-  console.log('aaaaaa', myvoucher);
 
   const renderItem = ({item, index}) => {
     const isCheck = index === myvoucher?.length - 1;
@@ -47,6 +46,7 @@ const MyVouchers = ({route}) => {
         index={index}
         isCheck={isCheck}
         save={item.save}
+        idShop={item.shopId}
       />
     );
   };

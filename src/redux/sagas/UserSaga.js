@@ -156,13 +156,13 @@ function* addmyVoucher(actions) {
     const body = queryString.stringify(actions.body);
     const res = yield API.post(`getUser/AddVoucherMyVoucher`, body);
     yield put({type: _onSuccess(Actions.ADD_MY_VOUCHER), data: res.data});
-    // yield put({
-    //   type: Actions.GET_SHOP_VOUCHERS,
-    //   params: {
-    //     user: body?.user,
-    //     shopId: actions.shopId,
-    //   },
-    // });
+    yield put({
+      type: Actions.GET_SHOP_VOUCHERS,
+      params: {
+        user: actions.body.user,
+        shopId: actions.shopId,
+      },
+    });
     Toast(res.message);
   } catch (error) {
     yield put({type: _onFail(Actions.ADD_MY_VOUCHER)});
