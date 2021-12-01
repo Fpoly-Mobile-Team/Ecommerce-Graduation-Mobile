@@ -44,6 +44,8 @@ const ProductDetails = ({route, navigation}) => {
     isLoadingproductShop ||
     isLoadingproductCategory;
 
+  const parseRating = Number(data?.avgProductRating).toFixed(1) || 0;
+
   useEffect(() => {
     dispatch({
       type: actions.ADD_PRODUCT_VIEWED,
@@ -145,8 +147,9 @@ const ProductDetails = ({route, navigation}) => {
               marginTop={10}
               backgroundColor={theme.colors.smoke}
             />
+
             <ProductReviews
-              parseRating={data?.avgProductRating}
+              parseRating={parseRating}
               _id={_id}
               onPress={() =>
                 navigation.navigate(routes.PRODUCT_REVIEWS, {_id: _id})

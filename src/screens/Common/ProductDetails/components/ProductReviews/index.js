@@ -21,7 +21,7 @@ const ProductReviews = ({onPress, _id, parseRating}) => {
   const _renderItem = (item, index) => (
     <ItemFeedBack
       key={index}
-      name={!user ? '*****' + item?.name?.slice(6) : item?.name}
+      name={!user ? '••••••' + item?.name?.slice(6) : item?.name}
       avatar={user ? item.avatar : noPhoto}
       star={item.rating}
       time={moment(item.reviewDate).format('DD/MM/YYYY, hh:mm')}

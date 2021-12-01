@@ -21,6 +21,7 @@ const ProductStore = ({route}) => {
   const dispatch = useDispatch();
   const shop = useSelector(state => state.infoShop?.data);
   const productShop = useSelector(state => state.productDetailsShop?.data);
+  const user = useSelector(state => state.tokenUser?.data);
   const config = useSelector(state => state.config?.data);
   const shopVoucher = useSelector(state => state.shopVoucher?.data);
 
@@ -47,29 +48,17 @@ const ProductStore = ({route}) => {
           type: actions.GET_SHOP_VOUCHERS,
           params: {
             shopId: id,
+            user,
           },
         });
       }
     }
-  }, [id, dispatch, focus]);
+  }, [id, dispatch, focus, user]);
   useEffect(() => {
     if (id) {
       if (focus) {
         dispatch({
           type: actions.GET_PRODUCT_DETAILS_BY_SHOP,
-          params: {
-            shopId: id,
-          },
-        });
-      }
-    }
-  }, [id, dispatch, focus]);
-
-  useEffect(() => {
-    if (id) {
-      if (focus) {
-        dispatch({
-          type: actions.GET_SHOP_VOUCHERS,
           params: {
             shopId: id,
           },
@@ -105,21 +94,23 @@ const ProductStore = ({route}) => {
           color={theme.colors.black}>
           Mã giảm giá
         </Text>
-        <Pressable
-          style={styles.wrapperTextVoucher}
-          onPress={() =>
-            navigation.navigate(routes.PROMO_SCREEN, {
-              id: shop?._id,
-              shopName: shop?.shopName,
-            })
-          }>
-          <Text color={config?.backgroundcolor} lineHeight={18}>
-            Xem thêm
-          </Text>
-          <Block alignCenter justifyCenter paddingLeft={4}>
-            <IconForward />
-          </Block>
-        </Pressable>
+        {shopVoucher?.length !== 0 ? (
+          <Pressable
+            style={styles.wrapperTextVoucher}
+            onPress={() =>
+              navigation.navigate(routes.PROMO_SCREEN, {
+                id: shop?._id,
+                shopName: shop?.shopName,
+              })
+            }>
+            <Text color={config?.backgroundcolor} lineHeight={18}>
+              Xem thêm
+            </Text>
+            <Block alignCenter justifyCenter paddingLeft={4} paddingTop={4}>
+              <IconForward color={config?.backgroundcolor} />
+            </Block>
+          </Pressable>
+        ) : null}
       </Block>
     );
   };
@@ -132,14 +123,22 @@ const ProductStore = ({route}) => {
         marginBottom={10}
         marginTop={-30}>
         <_renderTitleVoucher />
-        <FlatList
-          style={{marginLeft: getSize.s(12)}}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          data={shopVoucher}
-          renderItem={_renderVoucher}
-          keyExtractor={item => item._id.toString()}
-        />
+        {shopVoucher?.length !== 0 ? (
+          <FlatList
+            style={{marginLeft: getSize.s(12)}}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            data={shopVoucher}
+            renderItem={_renderVoucher}
+            keyExtractor={item => item._id.toString()}
+          />
+        ) : (
+          <Block alignCenter justifyCenter paddingBottom={15}>
+            <Text size={12} color={theme.colors.gray}>
+              Hiện tại cửa hàng này chưa có mã giảm nào...
+            </Text>
+          </Block>
+        )}
       </Block>
     );
   };

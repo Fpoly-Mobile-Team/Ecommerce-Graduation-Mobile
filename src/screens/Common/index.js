@@ -15,6 +15,7 @@ import InformationDetails from './ProductDetails/navigation/InformationDetails';
 import StoreInformation from './ProductStore/navigation/StoreInformation';
 import StoreDenounce from './ProductStore/navigation/StoreDenounce';
 import AllStore from './AllStore';
+
 export const common = {
   PRODUCT_DETAILS: ProductDetails,
   CARTSCREENS: CartScreens,

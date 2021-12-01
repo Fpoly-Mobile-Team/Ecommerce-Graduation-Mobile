@@ -90,7 +90,9 @@ const StoreInformation = ({route}) => {
         </Block>
         {!isLoading && averageRating && productShop && (
           <ListItemStoreInformation
-            averageRating={averageRating[0]?.shopInfo?.avgRating?.toFixed(1)}
+            averageRating={
+              averageRating[0]?.shopInfo?.avgRating?.toFixed(1) || 0
+            }
             data={shop}
             countFeedback={sumArray(array)}
             productStore={productShop}

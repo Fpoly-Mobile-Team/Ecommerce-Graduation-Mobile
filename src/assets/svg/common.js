@@ -319,17 +319,17 @@ export const IconMore = ({width = 50, height = 50, color = 'black'}) => {
   );
 };
 
-export const IconForward = ({width = 50, height = 50, color = 'black'}) => {
+export const IconForward = ({width = 24, height = 24, color = 'black'}) => {
   return (
     <Svg
-      width="6"
-      height="10"
+      width={width}
+      height={height}
       viewBox="0 0 6 10"
       fill="none"
       xmlns="http://www.w3.org/2000/svg">
       <Path
         d="M1 9L5 5L1 1"
-        stroke="#08978E"
+        stroke={color}
         stroke-linecap="round"
         stroke-linejoin="round"
       />

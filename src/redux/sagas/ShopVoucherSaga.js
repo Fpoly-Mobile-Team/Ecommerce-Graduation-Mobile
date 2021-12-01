@@ -4,7 +4,10 @@ import Actions, {_onFail, _onSuccess} from '../actions';
 
 function* getShopVoucher(actions) {
   try {
-    const res = yield API.get('shopVoucher', actions.params);
+    const res = yield API.get(
+      'shopVoucher/getShopVouchersFilter',
+      actions.params,
+    );
 
     yield put({
       type: _onSuccess(Actions.GET_SHOP_VOUCHERS),
