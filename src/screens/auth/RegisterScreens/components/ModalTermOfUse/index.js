@@ -34,7 +34,7 @@ const ModalTermOfUse = ({isVisible, setIsVisible, isAccept, setIsAccept}) => {
           <UIActivityIndicator size={getSize.s(20)} color={theme.colors.pink} />
         ) : (
           <>
-            {data && data.length && (
+            {data && data?.length && (
               <WebView data={data[0]?.rule} style={styles.container} />
             )}
           </>

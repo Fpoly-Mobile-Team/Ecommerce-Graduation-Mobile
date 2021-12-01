@@ -29,7 +29,7 @@ export const theme = {
     switchOff: '#f3adad',
     bgSwitch: '#f3f3f3',
     blueShop: '#3B5998',
-    primaryColor: '#08978E',
+    primaryColor: '#FFB740',
     paleGreen: '#08978E',
     textSecond: '#223263',
     border: '#EBF0FF',

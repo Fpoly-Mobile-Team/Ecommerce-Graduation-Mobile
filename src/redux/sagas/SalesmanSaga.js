@@ -22,7 +22,7 @@ function* createSalesRequisition(actions) {
         [
           {
             text: 'Về trang chủ',
-            onPress: () => navigate(routes.HOMESCREENS),
+            onPress: () => navigate(routes.BOTTOMTABBAR),
           },
         ],
       );

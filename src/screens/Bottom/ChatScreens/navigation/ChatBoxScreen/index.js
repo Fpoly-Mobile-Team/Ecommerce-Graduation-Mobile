@@ -34,6 +34,7 @@ const ChatBox = () => {
       GiftedChat.append(previousMessages, messages),
     );
   }, []);
+  
   const navigation = useNavigation();
   return (
     <Block flex backgroundColor={theme.colors.background}>
@@ -41,7 +42,7 @@ const ChatBox = () => {
         alignCenter
         row
         space="between"
-        backgroundColor={theme.colors.pink}
+        backgroundColor={theme.colors.primaryColor}
         paddingTop={top + 10}
         paddingVertical={15}>
         <Block paddingHorizontal={12} alignCenter row>
@@ -51,7 +52,7 @@ const ChatBox = () => {
           <Block marginLeft={17}>
             <Avatar.Image size={35} source={images.avatar} />
           </Block>
-          <Text color={theme.colors.white} marginLeft={8}>
+          <Text fontType="medium" color={theme.colors.white} marginLeft={8}>
             FM Style
           </Text>
         </Block>
@@ -71,7 +72,7 @@ const ChatBox = () => {
           <Image style={styles.avatar} source={images.thumnail} />
           <Block paddingLeft={10}>
             <Text paddingBottom={5}>Áo flannel xám form rộng</Text>
-            <Text fontType={'bold'} color={theme.colors.red} size={15}>
+            <Text fontType={'bold'} color={theme.colors.primaryColor} size={15}>
               700.000 đ
             </Text>
           </Block>

@@ -78,14 +78,14 @@ const HomeScreens = ({route}) => {
             refreshing={refresh}
           />
         }>
-        <Block
+        {/* <Block
           height={60 + height}
           marginTop={-height - 60}
-          backgroundColor={config?.backgroundcolor || theme.colors.pink}
-        />
+          backgroundColor={config?.backgroundcolor || theme.colors.primaryColor}
+        /> */}
         <Block
           paddingHorizontal={12}
-          backgroundColor={config?.backgroundcolor || theme.colors.pink}>
+          backgroundColor={config?.backgroundcolor || theme.colors.primaryColor}>
           {banner && <Carousel data={banner} />}
         </Block>
         <CategoryHighlights />

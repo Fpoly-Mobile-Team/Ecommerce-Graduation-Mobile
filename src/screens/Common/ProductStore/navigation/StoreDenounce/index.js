@@ -1,16 +1,15 @@
-import {Block, Header, LazyImage, Text, Button} from '@components';
-import {ScrollView, TextInput, Modal} from 'react-native';
+import {Block, Header, LazyImage, Text, Button, Dialoading} from '@components';
+import {ScrollView, TextInput} from 'react-native';
 import styles from './styles';
 import actions, {_onFail} from '@redux/actions';
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {theme} from '@theme';
 import CheckBox from './components/Checkbox';
-import {height, width} from '@utils/responsive';
+import {width} from '@utils/responsive';
 import SelectImage from './components/SelectImage';
 import storage from '@react-native-firebase/storage';
 import {val} from './components/data';
-import {SkypeIndicator} from 'react-native-indicators';
 
 const StoreDenounce = ({route}) => {
   const dispatch = useDispatch();
@@ -74,22 +73,10 @@ const StoreDenounce = ({route}) => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <>
           {isLoading && (
-            <Modal
-              animationType="fade"
-              transparent={true}
-              onShow={() => setModalVisible(modalVisible)}>
-              <Block
-                backgroundColor={theme.colors.black}
-                paddingVertical={15}
-                paddingHorizontal={10}
-                radius={10}
-                absolute
-                top={height / 3}
-                left={width / 3}>
-                <SkypeIndicator size={50} color={theme.colors.paleGreen} />
-                <Text color={theme.colors.white}>Chờ vài giây...</Text>
-              </Block>
-            </Modal>
+            <Dialoading
+              Modaling={[modalVisible, setModalVisible]}
+              title="Chờ trong giây lát..."
+            />
           )}
         </>
         <Block backgroundColor={theme.colors.white} marginTop={5} row>
