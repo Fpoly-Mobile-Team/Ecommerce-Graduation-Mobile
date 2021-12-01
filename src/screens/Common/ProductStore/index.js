@@ -107,7 +107,11 @@ const ProductStore = ({route}) => {
               Xem thêm
             </Text>
             <Block alignCenter justifyCenter paddingLeft={4} paddingTop={4}>
-              <IconForward color={config?.backgroundcolor} />
+              <IconForward
+                height={12}
+                width={12}
+                color={config?.backgroundcolor}
+              />
             </Block>
           </Pressable>
         ) : null}
