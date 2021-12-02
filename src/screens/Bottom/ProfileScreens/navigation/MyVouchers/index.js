@@ -3,7 +3,6 @@ import {Block, Empty, Header, Text} from '@components';
 import ItemPromoScreen from '@components/Common/ItemList/ItemPromoScreen';
 import {lottie} from '@assets';
 import {theme} from '@theme';
-import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/core';
 import {Toast} from '@utils/helper';
 import React, {useEffect} from 'react';
@@ -17,11 +16,11 @@ import {SelectCircle} from '@assets/svg/common';
 
 const MyVouchers = ({route}) => {
   const navigation = useNavigation();
-  const editPost = () => {
-    Toast('Edit Post');
+  const expiry = () => {
+    Toast('Hạn sử dụng mã giảm giá');
   };
-  const deletePost = () => {
-    Toast('Delete Post');
+  const allPromotion = () => {
+    Toast('Tất cả mã giảm giá');
   };
 
   const dispatch = useDispatch();
@@ -89,8 +88,8 @@ const MyVouchers = ({route}) => {
                 button={icons.caret_down}
                 buttonStyle={styles.buttonStyle}
                 destructiveIndex={1}
-                options={['Hạn sử dụng', 'Tất cả']}
-                actions={[editPost, deletePost]}
+                options={['Tất cả', 'Hạn sử dụng', 'Hủy thao tác']}
+                actions={[allPromotion, expiry]}
               />
             </Block>
           </Block>

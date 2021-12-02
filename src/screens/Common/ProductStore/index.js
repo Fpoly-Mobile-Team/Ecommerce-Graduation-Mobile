@@ -24,9 +24,7 @@ const ProductStore = ({route}) => {
   const user = useSelector(state => state.tokenUser?.data);
   const config = useSelector(state => state.config?.data);
   const shopVoucher = useSelector(state => state.shopVoucher?.data);
-
   const {id} = route.params || {};
-
   const focus = useIsFocused();
 
   useEffect(() => {
@@ -54,6 +52,7 @@ const ProductStore = ({route}) => {
       }
     }
   }, [id, dispatch, focus, user]);
+
   useEffect(() => {
     if (id) {
       if (focus) {
@@ -94,7 +93,7 @@ const ProductStore = ({route}) => {
           color={theme.colors.black}>
           Mã giảm giá
         </Text>
-        {shopVoucher?.length !== 0 ? (
+        {shopVoucher?.length !== 0 && (
           <Pressable
             style={styles.wrapperTextVoucher}
             onPress={() =>
@@ -107,10 +106,10 @@ const ProductStore = ({route}) => {
               Xem thêm
             </Text>
             <Block alignCenter justifyCenter paddingLeft={4} paddingTop={4}>
-              <IconForward color={config?.backgroundcolor} />
+              <IconForward width={15} height={15} color={config?.backgroundcolor} />
             </Block>
           </Pressable>
-        ) : null}
+        )}
       </Block>
     );
   };

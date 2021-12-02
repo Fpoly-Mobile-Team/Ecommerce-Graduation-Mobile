@@ -1,5 +1,5 @@
 import {icons} from '@assets';
-import {Block, Header, Text} from '@components';
+import {Block, Dialoading, Header, Text} from '@components';
 import ItemPromoScreen from '@components/Common/ItemList/ItemPromoScreen';
 import {theme} from '@theme';
 import {Toast} from '@utils/helper';
@@ -10,17 +10,16 @@ import actions from '@redux/actions';
 import OptionsMenu from 'react-native-option-menu';
 import {SelectCircle} from '@assets/svg/common';
 import styles from './styles';
-import {Modal, FlatList} from 'react-native';
-import {height, width} from '@utils/responsive';
-import {SkypeIndicator} from 'react-native-indicators';
+import {FlatList} from 'react-native';
 
 const PromoScreen = ({route}) => {
-  const editPost = () => {
-    Toast('Edit Post');
+  const expiry = () => {
+    Toast('Hạn sử dụng mã giảm giá');
   };
-  const deletePost = () => {
-    Toast('Delete Post');
+  const allPromotion = () => {
+    Toast('Tất cả mã giảm giá');
   };
+
   const {id, shopName} = route.params || {};
   const [modalVisible, setModalVisible] = useState(false);
   const dispatch = useDispatch();
@@ -60,24 +59,12 @@ const PromoScreen = ({route}) => {
     <Block flex backgroundColor="#E9EAEB">
       <Header checkBackground canGoBack title="Mã khuyến mãi" />
       <Block>
-        {isLoading ? (
-          <Modal
-            animationType="fade"
-            transparent={true}
-            onShow={() => setModalVisible(modalVisible)}>
-            <Block
-              backgroundColor={theme.colors.black}
-              paddingVertical={15}
-              paddingHorizontal={10}
-              radius={10}
-              absolute
-              top={height / 3}
-              left={width / 3}>
-              <SkypeIndicator size={50} color={theme.colors.paleGreen} />
-              <Text color={theme.colors.white}>Chờ vài giây...</Text>
-            </Block>
-          </Modal>
-        ) : null}
+        {isLoading && (
+          <Dialoading
+            Modaling={[modalVisible, setModalVisible]}
+            title="Chờ trong giây lát..."
+          />
+        )}
       </Block>
       <Block
         paddingHorizontal={12}
@@ -101,8 +88,8 @@ const PromoScreen = ({route}) => {
             button={icons.caret_down}
             buttonStyle={styles.buttonStyle}
             destructiveIndex={1}
-            options={['Hạn sử dụng', 'Tất cả']}
-            actions={[editPost, deletePost]}
+            options={['Tất cả', 'Hạn sử dụng', 'Hủy thao tác']}
+            actions={[allPromotion, expiry]}
           />
         </Block>
       </Block>

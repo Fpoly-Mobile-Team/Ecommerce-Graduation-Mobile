@@ -15,12 +15,12 @@ function* addReportshop(actions) {
     yield put({type: _onSuccess(Actions.ADD_REPORT_SHOP), data: res.data});
     if (res.success) {
       Alert.alert(
-        'Thành công!',
-        'Cảm ơn bạn đã đóng góp! Yêu cầu của bạn sẽ được chúng tôi điều tra làm rõ sớm nhất để bạn có thể trải nghiệm tốt hơn với Ants... ',
+        'Tố cáo thành công',
+        'Cảm ơn bạn đã đóng góp, yêu cầu của bạn đã được gởi lên hệ thống.',
         [
           {
             text: 'Về trang chủ',
-            onPress: () => navigate(routes.HOMESCREENS),
+            onPress: () => navigate(routes.BOTTOMTABBAR),
           },
         ],
       );
