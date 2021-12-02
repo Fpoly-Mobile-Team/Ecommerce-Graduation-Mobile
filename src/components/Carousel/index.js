@@ -2,7 +2,7 @@
 import {Block, LazyImage} from '@components';
 import {getSize} from '@utils/responsive';
 import React from 'react';
-import {Image, Platform} from 'react-native';
+import {Platform} from 'react-native';
 import {SwiperFlatList} from 'react-native-swiper-flatlist';
 import styles from './styles';
 

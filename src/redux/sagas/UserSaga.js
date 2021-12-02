@@ -70,7 +70,7 @@ function* update_user(actions) {
       type: Actions.GET_USER_INFORMATION,
       params: {user: actions.user},
     });
-    if (res.message === 'Cập Nhật Thành Công') {
+    if (res.success) {
       goBack();
     }
     Toast(res.message);
@@ -91,7 +91,7 @@ function* update_password(actions) {
       type: Actions.GET_USER_INFORMATION,
       params: {user: actions.user},
     });
-    if (res.message === 'Cập Nhật Thành Công') {
+    if (res.success) {
       goBack();
     }
 

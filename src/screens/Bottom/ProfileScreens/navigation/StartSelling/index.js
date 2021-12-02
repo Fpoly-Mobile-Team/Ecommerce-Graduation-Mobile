@@ -5,13 +5,11 @@ import {theme} from '@theme';
 import {height} from '@utils/responsive';
 import React from 'react';
 import {Image, ScrollView} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 import styles from './styles';
 
 const StartSelling = () => {
   const navigation = useNavigation();
-  const dispatch = useDispatch();
-  const user = useSelector(state => state.tokenUser?.data);
   const config = useSelector(state => state.config?.data);
   const coloring = `${config?.backgroundcolor}75`;
   const photos = 'https://i.imgur.com/H8UN4zR.png';

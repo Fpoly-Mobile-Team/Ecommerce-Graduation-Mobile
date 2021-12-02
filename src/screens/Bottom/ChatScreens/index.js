@@ -12,11 +12,12 @@ const ChatScreens = () => {
   const onChangeSearch = query => {
     setSearchQuery(query);
   };
+  
   const user = useSelector(state => state.tokenUser?.data);
   return (
     <Block flex backgroundColor={theme.colors.background}>
       <Header title="Tin nhắn" />
-      {user ? (
+      {user && (
         <Searchbar
           icon={Search}
           style={styles.searchStyle}
@@ -25,7 +26,7 @@ const ChatScreens = () => {
           onChangeText={onChangeSearch}
           value={searchQuery}
         />
-      ) : null}
+      )}
 
       <ListMess />
     </Block>

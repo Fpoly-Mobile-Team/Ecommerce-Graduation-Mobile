@@ -7,6 +7,7 @@ import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import React from 'react';
 import {Avatar} from 'react-native-paper';
+import {width} from '@utils/responsive';
 
 const ItemMessage = ({name, mess, status, isCheck}) => {
   const navigation = useNavigation();
@@ -22,24 +23,29 @@ const ItemMessage = ({name, mess, status, isCheck}) => {
           <Block paddingLeft={10} column>
             <Text
               //nếu tin chưa đọc thì tên in đậm
-              fontType={isCheck ? 'bold' : 'regular'}
-              color={theme.colors.black}
-              size={15}>
+              size={15}
+              fontType={isCheck ? 'bold' : 'medium'}
+              color={theme.colors.black}>
               {name}
             </Text>
-            <Block alignCenter row>
+            <Block alignCenter row space="between">
               <Text
                 //nếu tin chưa đọc thì mess màu đen và ngược lại
+                width={width / 1.65}
+                numberOfLines={1}
                 color={isCheck ? theme.colors.black : theme.colors.lightGray}
-                size={15}>
+                size={14}>
                 {mess}
               </Text>
-              <Block paddingHorizontal={5}>
+              <Block row alignCenter>
                 <ADot />
+                <Text
+                  color={theme.colors.lightGray}
+                  size={13}
+                  paddingHorizontal={5}>
+                  {status}
+                </Text>
               </Block>
-              <Text color={theme.colors.lightGray} size={14}>
-                {status}
-              </Text>
             </Block>
           </Block>
         </Block>

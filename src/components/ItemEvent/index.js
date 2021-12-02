@@ -39,7 +39,7 @@ const ItemEvent = ({
         />
         {iconForward ? (
           <IconForward width={12} height={12} />
-        ) : characterCount ? (
+        ) : characterCount && (
           <Text
             color={theme.colors.holder}
             size={12}
@@ -47,7 +47,7 @@ const ItemEvent = ({
             marginTop={-17.5}>
             {characterCount}
           </Text>
-        ) : null}
+        )}
       </Block>
     </Pressable>
   );

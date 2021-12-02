@@ -33,6 +33,10 @@ const Typography = props => {
     fontType = 'regular',
     lineHeight,
     animated,
+    backgroundColor,
+    width,
+    height,
+    maxWidth,
     ...textProps
   } = props;
 
@@ -42,6 +46,10 @@ const Typography = props => {
     flexGrow && {flexGrow: 1},
     {fontWeight: theme.fonts.fontWeight[fontType]},
     {color: theme.colors[color] || color},
+    backgroundColor && {backgroundColor: backgroundColor},
+    width && {width: width},
+    height && {height: height},
+    maxWidth && {maxWidth: maxWidth},
     center && {textAlign: 'center'},
     right && {textAlign: 'right'},
     justify && {textAlign: 'justify'},

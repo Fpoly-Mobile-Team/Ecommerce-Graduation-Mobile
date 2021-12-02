@@ -13,7 +13,7 @@ const DATA = [
     id: '1',
     name: 'Gucci',
     img: 'assets/images/avatar.jpg',
-    mess: 'This message to customer service...',
+    mess: 'This message to customer service landing crental',
     status: 'Vừa xong',
   },
   {

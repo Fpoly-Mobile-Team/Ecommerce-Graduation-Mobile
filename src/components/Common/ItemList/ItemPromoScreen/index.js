@@ -23,7 +23,6 @@ const ItemPromoScreen = ({
   const marginTop = index === 0 ? getSize.s(10) : 0;
   const marginBottom = isCheck ? getSize.s(20) : 0;
   const navigation = useNavigation();
-  console.log('AAAAAAA', save);
 
   return (
     <View style={[styles.ItemContainer, {marginTop, marginBottom}]}>
