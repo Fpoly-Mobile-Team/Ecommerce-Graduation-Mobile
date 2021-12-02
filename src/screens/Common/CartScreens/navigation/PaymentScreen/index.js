@@ -13,6 +13,8 @@ import {routes} from '@navigation/routes';
 const PaymentScreen = ({route}) => {
   const navigation = useNavigation();
   const {refRBSheet} = route.params || {};
+  const {data} = route.params || {};
+  console.log('data-------', data);
   LogBox.ignoreLogs([
     'Non-serializable values were found in the navigation state',
   ]);
@@ -22,7 +24,7 @@ const PaymentScreen = ({route}) => {
       <Header canGoBack checkBackground title="Thanh toán" />
       <ScrollView showsVerticalScrollIndicator={false}>
         <DeliveryAddress />
-        <PaymentProduct />
+        <PaymentProduct data={data} />
         <VoucherShop onPress={() => refRBSheet.current.open()} />
         <ShippingMethod />
         <PaymentMethod />

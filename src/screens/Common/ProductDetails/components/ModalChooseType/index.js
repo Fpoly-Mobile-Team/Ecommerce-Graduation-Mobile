@@ -6,6 +6,8 @@ import React, {useState} from 'react';
 import {Image, Pressable} from 'react-native';
 import {Currency} from '@utils/helper';
 import styles from './styles';
+import {useNavigation} from '@react-navigation/native';
+import {routes} from '@navigation/routes';
 
 const ModalChooseType = ({
   isVisible,
@@ -15,9 +17,12 @@ const ModalChooseType = ({
   price,
   options,
   title,
+  item,
 }) => {
   const [option, setOption] = useState({});
   const [quantity, setQuantity] = useState(1);
+
+  const navigation = useNavigation();
 
   const _onPressAddCart = type => {
     if (options?.length) {
@@ -42,7 +47,28 @@ const ModalChooseType = ({
   };
 
   const onPressBuy = () => {
-    console.log('onPressBuy');
+    if (options.length > 0) {
+      if (title === 'MUA HÀNG') {
+        const data = [
+          {
+            product: item,
+            quantity,
+            option,
+            price: price * quantity,
+          },
+        ];
+        navigation.navigate(routes.PAYMENTSCREEN, {data});
+        setIsVisible(false);
+      } else {
+        console.log('onPressBuy');
+      }
+    } else {
+      if (title === 'MUA HÀNG') {
+        console.log('kh co option1');
+      } else {
+        console.log('kh co option2');
+      }
+    }
   };
 
   const _renderButton = ({title, onPress}) => {
@@ -77,9 +103,7 @@ const ModalChooseType = ({
           paddingHorizontal={12}
           height={40}
           borderWidth={1}
-          borderColor={
-            item._id === option?._id ? theme.colors.pink : theme.colors.white
-          }
+          borderColor={item._id === option?._id ? 'pink' : 'white'}
           backgroundColor={
             item._id === option?._id ? theme.colors.white : theme.colors.smoke
           }>
@@ -177,14 +201,17 @@ const ModalChooseType = ({
             titleStyle={{
               color: option?._id ? theme.colors.white : theme.colors.lightGray,
             }}
-          />
-        ) : (
-          <Button
-            title="MUA HÀNG"
-            height={45}
-            style={styles.buttonAdd}
             onPress={onPressBuy}
           />
+        ) : (
+          <>
+            <Button
+              title={title}
+              height={45}
+              style={styles.buttonAdd}
+              onPress={onPressBuy}
+            />
+          </>
         )}
       </Block>
     </ModalBox>

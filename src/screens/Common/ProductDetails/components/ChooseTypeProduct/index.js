@@ -10,7 +10,7 @@ import {useSelector} from 'react-redux';
 import ModalChooseType from '../ModalChooseType';
 import styles from './styles';
 
-const ChooseTypeProduct = ({option, image, productStock, price}) => {
+const ChooseTypeProduct = ({option, image, productStock, price, item}) => {
   const user = useSelector(state => state.tokenUser?.data);
   const [isVisible, setIsVisible] = useState(false);
   const [title, setTitle] = useState('');
@@ -93,6 +93,7 @@ const ChooseTypeProduct = ({option, image, productStock, price}) => {
         price={price}
         options={option}
         title={title}
+        item={item}
       />
     </Block>
   );

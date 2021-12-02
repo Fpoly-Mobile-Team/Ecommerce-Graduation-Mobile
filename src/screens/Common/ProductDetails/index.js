@@ -22,7 +22,6 @@ const ProductDetails = ({route, navigation}) => {
   const {_id} = route.params;
   const data = useSelector(state => state.productDetails?.data);
   const user = useSelector(state => state.tokenUser?.data);
-  console.log('kakakaka----', data);
   const isLoadingDetails = useSelector(
     state => state.productDetails?.isLoading,
   );
@@ -169,6 +168,7 @@ const ProductDetails = ({route, navigation}) => {
             price={
               data?.sellOff === 0 ? data?.price : data?.price * data?.sellOff
             }
+            item={data}
           />
         </>
       )}
