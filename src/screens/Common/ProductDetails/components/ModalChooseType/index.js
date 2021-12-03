@@ -82,7 +82,7 @@ const ModalChooseType = ({
           height={30}
           borderWidth={0.5}
           borderColor={theme.colors.lightGray}>
-          <Text fontType="bold" color={theme.colors.lightGray}>
+          <Text size={16} fontType="bold" color={theme.colors.lightGray}>
             {title}
           </Text>
         </Block>
@@ -144,7 +144,7 @@ const ModalChooseType = ({
                 <Text
                   color={theme.colors.pink}
                   fontType="medium"
-                  size={15}
+                  size={17}
                   style={styles.text}>
                   {Currency(price)}
                 </Text>

@@ -58,17 +58,11 @@ const ItemProductCart = ({
     }
   };
 
-  console.log(findChecked(data, datatotalPrice[indexSlice]?.productArray));
-  console.log(
-    '====================================',
-    datatotalPrice[indexSlice]?.productArray,
-  );
-
   const _renderItem = (item, index) => {
     return (
       <Pressable
         key={index}
-        onPress={() => navigation.navigate(routes.PRODUCT_DETAILS)}>
+        onPress={() => navigation.navigate(routes.PRODUCT_DETAILS, {})}>
         <Block row paddingHorizontal={16} marginBottom={16} space="between">
           <Block row width="36%">
             <CheckBox

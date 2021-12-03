@@ -85,7 +85,9 @@ const HomeScreens = ({route}) => {
         /> */}
         <Block
           paddingHorizontal={12}
-          backgroundColor={config?.backgroundcolor || theme.colors.primaryColor}>
+          backgroundColor={
+            config?.backgroundcolor || theme.colors.primaryColor
+          }>
           {banner && <Carousel data={banner} />}
         </Block>
         <CategoryHighlights />

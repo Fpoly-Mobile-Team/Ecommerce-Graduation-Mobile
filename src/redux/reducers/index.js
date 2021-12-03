@@ -14,6 +14,7 @@ import {ReportShopReducer} from './ReportShopReducer';
 import {ShopVoucherReducer} from './ShopVoucherReducer';
 import {SystemNotification} from './SystemNotification';
 import {Salesman} from './Salesman';
+import {OrderReducer} from './OrderReducer';
 
 const rootReducer = combineReducers({
   ...TokenReducer,
@@ -31,6 +32,7 @@ const rootReducer = combineReducers({
   ...ShopVoucherReducer,
   ...SystemNotification,
   ...Salesman,
+  ...OrderReducer,
 });
 
 export default rootReducer;

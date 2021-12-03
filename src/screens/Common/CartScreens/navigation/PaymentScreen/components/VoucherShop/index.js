@@ -3,7 +3,7 @@ import {theme} from '@theme';
 import React from 'react';
 import {Pressable} from 'react-native';
 
-const VoucherShop = ({onPress}) => {
+const VoucherShop = ({onPress, title}) => {
   return (
     <Block marginTop={10} paddingHorizontal={16}>
       <Text size={16} fontType="semibold">
@@ -20,7 +20,7 @@ const VoucherShop = ({onPress}) => {
           paddingHorizontal={28}
           backgroundColor={theme.colors.white}
           space="between">
-          <Text>Áp dụng voucher</Text>
+          <Text>{title ? title : 'Áp dụng voucher'}</Text>
           <Text fontType="bold" color={theme.colors.pink}>
             Thay đổi
           </Text>
