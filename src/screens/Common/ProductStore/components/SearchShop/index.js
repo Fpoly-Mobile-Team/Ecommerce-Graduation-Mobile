@@ -1,15 +1,16 @@
 import {IconBack, IconMessages, IconSearch} from '@assets/svg/common';
-import {Block} from '@components';
+import {Block, Text} from '@components';
 import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import React from 'react';
-import {Pressable, TextInput, TouchableOpacity} from 'react-native';
+import {Pressable} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+
 import {useSelector} from 'react-redux';
 import styles from './styles';
 
-const SearchShop = () => {
+const SearchShop = ({idShop}) => {
   const {top} = useSafeAreaInsets();
   const navigation = useNavigation();
   const config = useSelector(state => state.config?.data);
@@ -39,11 +40,13 @@ const SearchShop = () => {
         <Pressable style={styles.iconSearch}>
           <IconSearch />
         </Pressable>
-        <TextInput
-          placeholder="Tìm kiếm trong cửa hàng"
-          placeholderTextColor={theme.colors.white}
-          style={styles.inputStyle}
-        />
+        <Pressable
+          onPress={() =>
+            navigation.navigate(routes.SEARCH_PRODUCT_SHOP, {id: idShop})
+          }
+          style={styles.inputStyle}>
+          <Text color={theme.colors.white}>Tìm kiếm trong cửa hàng</Text>
+        </Pressable>
       </Block>
 
       <Block>

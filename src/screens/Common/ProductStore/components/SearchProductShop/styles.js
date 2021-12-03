@@ -6,17 +6,14 @@ export default StyleSheet.create({
   iconSearch: {
     width: getSize.s(20),
     height: getSize.s(20),
-    tintColor: theme.colors.white,
-    alignItems: 'center',
-    justifyContent: 'center',
+    tintColor: theme.colors.placeholder,
   },
   inputStyle: {
     fontSize: getSize.s(14),
     marginHorizontal: 5,
-    flex: 1,
-    justifyContent: 'center',
-    height: getSize.s(40),
-    color: theme.colors.white,
+    alignItems: 'center',
+    height: getSize.s(35),
+    color: theme.colors.black,
     fontFamily: theme.fonts.fontFamily.regular,
   },
 });
