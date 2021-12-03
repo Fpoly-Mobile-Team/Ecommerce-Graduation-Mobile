@@ -251,6 +251,23 @@ function* searchProduct(actions) {
   }
 }
 
+function* searchProductShop(actions) {
+  try {
+    const res = yield API.get(
+      'product/getProductsByNameOfShop',
+      actions.params,
+    );
+
+    yield put({
+      type: _onSuccess(Actions.SEARCH_PRODUCT_SHOP),
+      data: res.data,
+      isLoadMore: actions.isLoadMore,
+    });
+  } catch (error) {
+    yield put({type: _onFail(Actions.SEARCH_PRODUCT_SHOP)});
+  }
+}
+
 export function* watchProductSagas() {
   yield takeLatest(Actions.GET_PRODUCT, getProduct);
   yield takeLatest(Actions.GET_PRODUCT_SALE, getProductSale);
@@ -270,4 +287,5 @@ export function* watchProductSagas() {
   yield takeLatest(Actions.DELETE_PRODUCT_REVIEW, deleteProductReview);
   yield takeLatest(Actions.GET_PRODUCT_REVIEW, getProductReview);
   yield takeLatest(Actions.SEARCH_KEYWORD_PRODUCT, searchProduct);
+  yield takeLatest(Actions.SEARCH_PRODUCT_SHOP, searchProductShop);
 }

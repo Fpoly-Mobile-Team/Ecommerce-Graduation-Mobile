@@ -48,6 +48,7 @@ export default {
   SELLER_SEND_INQUIRY: 'SELLER_SEND_INQUIRY',
   ADD_MY_VOUCHER: 'ADD_MY_VOUCHER',
   GET_MY_VOUCHER: 'GET_MY_VOUCHER',
+  SEARCH_PRODUCT_SHOP: 'SEARCH_PRODUCT_SHOP',
 };
 
 export function _onSuccess(action) {
