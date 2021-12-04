@@ -24,9 +24,11 @@ const CardReviews = ({
 }) => {
   const [ImageViwerIsVisible, showImageViwer] = useState(false);
   let [viewingIndex, setViewingIndex] = useState(-1);
+
   useEffect(() => {
     viewingIndex !== -1 && showImageViwer(true);
   }, [viewingIndex]);
+
   useEffect(() => {
     !ImageViwerIsVisible && setViewingIndex(-1);
   }, [ImageViwerIsVisible]);
@@ -102,13 +104,14 @@ const CardReviews = ({
         fontType="medium">
         {description}
       </Text>
+
       <Fragment>
         {!!ImageViwerIsVisible && (
           <Modal
             transparent={true}
             onRequestClose={() => showImageViwer(false)}>
             <ImageViewer
-              imageUrls={image.map(f => ({url: f}))}
+              imageUrls={image?.map(f => ({url: f}))}
               index={viewingIndex}
             />
           </Modal>

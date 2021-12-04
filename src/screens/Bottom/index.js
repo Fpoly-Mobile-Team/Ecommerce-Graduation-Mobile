@@ -22,6 +22,8 @@ import DetailedNotice from './NotificationScreens/navigation/DetailedNotice';
 import SalesInformationSettings from './ProfileScreens/navigation/StartSelling/navigation/SalesInformationSettings';
 import StartSelling from './ProfileScreens/navigation/StartSelling';
 import Addressing from './ProfileScreens/navigation/StartSelling/navigation/Addressing';
+import SystemNotifications from './NotificationScreens/components/TopTabScreens/SystemNotifications';
+import PurchaseNotice from './NotificationScreens/components/TopTabScreens/PurchaseNotice';
 
 export const bottom = {
   HOMESCREENS: HomeScreens,
@@ -48,4 +50,6 @@ export const bottom = {
   START_SELLING: StartSelling,
   SALE_INFORMATION_SETTINGS: SalesInformationSettings,
   ADDRESSING: Addressing,
+  SYSTEM_NOTIFICATIONS: SystemNotifications,
+  PURCHASE_NOTICE: PurchaseNotice,
 };
