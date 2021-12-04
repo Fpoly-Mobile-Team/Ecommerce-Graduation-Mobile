@@ -26,7 +26,7 @@ const PurchaseNotice = () => {
 
   const renderItem = ({item, index}) => (
     <ItemNotification
-      title={item.title}
+      title={'#' + item._id?.substring(0, 6)?.toUpperCase() + ' - ' + item.title}
       content={item.content}
       time={moment(item.sendDate).format('hh: mm, DD/MM/YYYY')}
       images={item.images}
