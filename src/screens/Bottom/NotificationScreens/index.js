@@ -16,7 +16,7 @@ const NotificationScreens = () => {
         optimizationsEnabled={true}
         tabBar={props => <Customing {...props} />}>
         <Tab.Screen name="Hệ thống" component={bottom.SYSTEM_NOTIFICATIONS} />
-        <Tab.Screen name="Mua hàng" component={bottom.PURCHASE_NOTICE} />
+        <Tab.Screen name="Đơn hàng" component={bottom.PURCHASE_NOTICE} />
       </Tab.Navigator>
     </Block>
   );
