@@ -20,6 +20,21 @@ function* getNotifications(actions) {
   }
 }
 
+function* getNotifOrder(actions) {
+  try {
+    const res = yield API.get(
+      `getUser/getNotificationMyOrder?user=${actions.user}`,
+    );
+    yield put({
+      type: _onSuccess(Actions.GET_NOTIF_ORDER),
+      data: res.data,
+    });
+  } catch (error) {
+    yield put({type: _onFail(Actions.GET_NOTIF_ORDER)});
+  }
+}
+
 export function* watchNotificationSagas() {
   yield takeLatest(Actions.GET_NOTIFICATIONS, getNotifications);
+  yield takeLatest(Actions.GET_NOTIF_ORDER, getNotifOrder);
 }

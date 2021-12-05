@@ -1,8 +1,7 @@
 import {Block, Carousel, Header} from '@components';
 import actions from '@redux/actions';
 import {theme} from '@theme';
-import {height} from '@utils/responsive';
-import React, {useRef, useState, useEffect} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Animated, RefreshControl} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import CategoryHighlights from './components/CategoryHighlights';
@@ -58,7 +57,6 @@ const HomeScreens = ({route}) => {
       type: actions.GET_SHOP_USERS,
     });
   }, [dispatch]);
-
   return (
     <Block flex backgroundColor="white">
       <Header type="Home" scroll={scrollY} />

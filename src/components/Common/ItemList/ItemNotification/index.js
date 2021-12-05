@@ -13,6 +13,7 @@ const ItemNotification = ({index, title, content, images, time, onPress}) => {
     <Pressable onPress={onPress}>
       <Block row paddingVertical={12} paddingHorizontal={12} alignCenter>
         <Block
+          key={index}
           width={32}
           height={32}
           alignCenter
@@ -32,7 +33,7 @@ const ItemNotification = ({index, title, content, images, time, onPress}) => {
           <Text fontType="bold" marginBottom={1}>
             {title}
           </Text>
-          <Text size={13}>{content}</Text>
+          <Text size={13} justify>{content}</Text>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <Block row alignCenter wrap marginVertical={6}>
               {images?.map(renderImage)}

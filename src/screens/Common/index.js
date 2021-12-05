@@ -15,6 +15,7 @@ import InformationDetails from './ProductDetails/navigation/InformationDetails';
 import StoreInformation from './ProductStore/navigation/StoreInformation';
 import StoreDenounce from './ProductStore/navigation/StoreDenounce';
 import AllStore from './AllStore';
+import SearchProductShop from './ProductStore/components/SearchProductShop';
 
 export const common = {
   PRODUCT_DETAILS: ProductDetails,
@@ -34,4 +35,5 @@ export const common = {
   STORE_INFORMATION: StoreInformation,
   STORE_DENOUNCE: StoreDenounce,
   ALL_STORE: AllStore,
+  SEARCH_PRODUCT_SHOP: SearchProductShop,
 };

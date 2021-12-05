@@ -8,8 +8,6 @@ import React from 'react';
 import {Image, Pressable} from 'react-native';
 import {Rating} from 'react-native-elements';
 import styles from './styles';
-import {useDispatch, useSelector} from 'react-redux';
-import actions from '@redux/actions';
 
 const ItemShop = ({item, index, id}) => {
   const navigation = useNavigation();
@@ -17,7 +15,9 @@ const ItemShop = ({item, index, id}) => {
   return (
     <Pressable
       key={index}
-      onPress={() => navigation.navigate(routes.PRODUCT_STORE, {id: item._id})}>
+      onPress={() =>
+        navigation.navigate(routes.PRODUCT_STORE, {id: item?.shopInfo._id})
+      }>
       <Block
         row
         shadow
@@ -30,7 +30,7 @@ const ItemShop = ({item, index, id}) => {
         margin={3}
         backgroundColor={theme.colors.white}>
         <Image
-          source={{uri: item.profilePicture}}
+          source={{uri: item?.shopInfo?.profilePicture}}
           style={{
             width: getSize.s(50),
             height: getSize.s(50),
@@ -40,7 +40,7 @@ const ItemShop = ({item, index, id}) => {
         <Block marginHorizontal={14}>
           <Block row alignCenter>
             <Text size={12} marginRight={5} fontType="bold">
-              {item.shopName}
+              {item?.shopInfo?.shopName}
             </Text>
             <Image
               source={icons.tick}
@@ -49,18 +49,15 @@ const ItemShop = ({item, index, id}) => {
             />
           </Block>
           <Text fontType="medium" size={10} color={theme.colors.placeholder}>
-            {item.currentStatus}
+            {item?.shopInfo?.currentStatus}
           </Text>
           <Block row alignCenter>
             <Rating
               imageSize={getSize.s(8)}
               readonly
-              startingValue={4}
+              startingValue={item?.shopInfo?.avgRating}
               style={{paddingVertical: getSize.m(5)}}
             />
-            <Text size={9} marginLeft={getSize.m(5)}>
-              (25)
-            </Text>
           </Block>
         </Block>
       </Block>

@@ -5,6 +5,11 @@ export const notifications = (...props) => {
   return reducerDefault(...props, Actions.GET_NOTIFICATIONS);
 };
 
-export const SystemNotification = {
+export const notificationsOrder = (...props) => {
+  return reducerDefault(...props, Actions.GET_NOTIF_ORDER);
+};
+
+export const NotificationsReducer = {
   notifications,
+  notificationsOrder,
 };

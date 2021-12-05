@@ -24,7 +24,9 @@ const ProductStore = ({route}) => {
   const user = useSelector(state => state.tokenUser?.data);
   const config = useSelector(state => state.config?.data);
   const shopVoucher = useSelector(state => state.shopVoucher?.data);
+
   const {id} = route.params || {};
+
   const focus = useIsFocused();
 
   useEffect(() => {
@@ -53,19 +55,6 @@ const ProductStore = ({route}) => {
     }
   }, [id, dispatch, focus, user]);
 
-  useEffect(() => {
-    if (id) {
-      if (focus) {
-        dispatch({
-          type: actions.GET_PRODUCT_DETAILS_BY_SHOP,
-          params: {
-            shopId: id,
-          },
-        });
-      }
-    }
-  }, [id, dispatch, focus]);
-
   const _renderBanner = () => {
     return (
       <Block marginTop={-18}>
@@ -93,7 +82,7 @@ const ProductStore = ({route}) => {
           color={theme.colors.black}>
           Mã giảm giá
         </Text>
-        {shopVoucher?.length !== 0 && (
+        {shopVoucher?.length != 0 ? (
           <Pressable
             style={styles.wrapperTextVoucher}
             onPress={() =>
@@ -113,7 +102,7 @@ const ProductStore = ({route}) => {
               />
             </Block>
           </Pressable>
-        )}
+        ) : null}
       </Block>
     );
   };
@@ -126,7 +115,7 @@ const ProductStore = ({route}) => {
         marginBottom={10}
         marginTop={-30}>
         <_renderTitleVoucher />
-        {shopVoucher?.length !== 0 ? (
+        {shopVoucher?.length != 0 ? (
           <FlatList
             style={{marginLeft: getSize.s(12)}}
             horizontal
@@ -155,7 +144,7 @@ const ProductStore = ({route}) => {
           width={width}
           style={{zIndex: getSize.s(99)}}
           paddingHorizontal={12}>
-          <SearchShop />
+          <SearchShop idShop={id} />
           <InforShop data={shop} />
           <_renderBanner />
         </Block>

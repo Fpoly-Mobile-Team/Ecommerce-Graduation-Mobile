@@ -57,6 +57,9 @@ export const productReview = (...props) => {
 export const searchProduct = (...props) => {
   return reducerAdvance(...props, Actions.SEARCH_KEYWORD_PRODUCT);
 };
+export const searchProductShop = (...props) => {
+  return reducerAdvance(...props, Actions.SEARCH_PRODUCT_SHOP);
+};
 
 export const ProductReducer = {
   product,
@@ -74,4 +77,5 @@ export const ProductReducer = {
   deleteProductReview,
   productReview,
   searchProduct,
+  searchProductShop,
 };

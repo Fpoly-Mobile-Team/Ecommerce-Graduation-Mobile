@@ -92,6 +92,10 @@ const RootStack = () => {
             name={routes.PRODUCT_STORE}
             component={common.PRODUCT_STORE}
           />
+          <Stack.Screen
+            name={routes.SEARCH_PRODUCT_SHOP}
+            component={common.SEARCH_PRODUCT_SHOP}
+          />
           <Stack.Screen name={routes.ALL_STORE} component={common.ALL_STORE} />
           <Stack.Screen
             name={routes.STORE_INFORMATION}

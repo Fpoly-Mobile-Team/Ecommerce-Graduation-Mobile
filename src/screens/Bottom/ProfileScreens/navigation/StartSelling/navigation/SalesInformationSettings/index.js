@@ -39,7 +39,7 @@ const SalesInformationSettings = ({route}) => {
       Toast('Email không hợp lệ');
     } else if (!validPhone(phoneNumber)) {
       Toast('Số điện thoại không đúng định dạng');
-    } else if (street?.length <= 8) {
+    } else if (street?.length < 6) {
       Toast('Vui lòng nhập chính xác tên đường');
     } else {
       const request = {
