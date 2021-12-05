@@ -8,6 +8,7 @@ import {Currency} from '@utils/helper';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 import {routes} from '@navigation/routes';
+import Storage from '@utils/storage';
 
 const ModalChooseType = ({
   isVisible,
@@ -60,13 +61,93 @@ const ModalChooseType = ({
         navigation.navigate(routes.PAYMENTSCREEN, {data});
         setIsVisible(false);
       } else {
-        console.log('onPressBuy');
+        const data = [
+          {
+            _id: item?.shopId,
+            productArray: [
+              {
+                product: item,
+                quantity,
+                option,
+                price: price * quantity,
+              },
+            ],
+          },
+        ];
+        // Storage.getItem('CART').then(value => {
+        //   if (value) {
+        //     for (let index = 0; index < value.length; index++) {
+        //       const element = value[index];
+        //       if (element._id === item?.shopId) {
+        //         const dataPush = element?.productArray.push({
+        //           product: item,
+        //           quantity,
+        //           option,
+        //           price: price * quantity,
+        //         });
+        //         console.log('data', dataPush);
+        //         // Storage.setItem('CART', dataPush);
+        //       } else {
+        //         console.log('data');
+        //         Storage.setItem('CART', data);
+        //       }
+        //     }
+        //   }
+        // });
+        Storage.setItem('CART', data);
+        navigation.navigate(routes.CARTSCREENS);
+        setIsVisible(false);
       }
     } else {
       if (title === 'MUA HÀNG') {
-        console.log('kh co option1');
+        const data = [
+          {
+            product: item,
+            quantity,
+            option: null,
+            price: price * quantity,
+          },
+        ];
+        navigation.navigate(routes.PAYMENTSCREEN, {data});
+        setIsVisible(false);
       } else {
-        console.log('kh co option2');
+        const data = [
+          {
+            _id: item?.shopId,
+            productArray: [
+              {
+                product: item,
+                quantity,
+                option,
+                price: price * quantity,
+              },
+            ],
+          },
+        ];
+        Storage.getItem('CART').then(value => {
+          if (value) {
+            // console.log(value);
+            for (let index = 0; index < value.length; index++) {
+              const element = value[index];
+              if (element._id === item?.shopId) {
+                element?.productArray.push({
+                  product: item,
+                  quantity,
+                  option,
+                  price: price * quantity,
+                }),
+                  console.log('jaja', [...value]);
+                Storage.setItem('CART', [...value]);
+              } else {
+                console.log('haha');
+                // Storage.setItem('CART', {...value, data});
+              }
+            }
+          }
+        });
+
+        navigation.navigate(routes.CARTSCREENS);
+        setIsVisible(false);
       }
     }
   };

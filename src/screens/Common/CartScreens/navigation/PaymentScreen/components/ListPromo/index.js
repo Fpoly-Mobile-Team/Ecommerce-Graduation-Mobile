@@ -43,20 +43,24 @@ const ListItem = ({isClosed, selectedIdVouchers, idShop}) => {
       />
     );
   };
-
+  console.log('voucherPromo', voucherPromo);
   return (
     <Block flex paddingHorizontal={12} paddingTop={15}>
-      {!isLoading ? (
-        <FlatList
-          data={voucherPromo}
-          renderItem={renderItem}
-          keyExtractor={(_, index) => String(index)}
-          showsVerticalScrollIndicator={false}
-        />
+      {!isLoading && voucherPromo ? (
+        <>
+          {voucherPromo?.length > 0 && (
+            <FlatList
+              data={voucherPromo}
+              renderItem={renderItem}
+              keyExtractor={(_, index) => String(index)}
+              showsVerticalScrollIndicator={false}
+            />
+          )}
+        </>
       ) : (
         <SkypeIndicator size={50} color={theme.colors.pink} />
       )}
-      {voucherPromo?.length < 0 && (
+      {voucherPromo?.length <= 0 && (
         <Block flex alignCenter justifyCenter>
           <Text>Bạn chưa lưu voucher của cửa hàng này</Text>
           <Text>Hãy đến cửa hàng săn nha</Text>

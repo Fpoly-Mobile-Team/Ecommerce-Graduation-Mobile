@@ -13,7 +13,7 @@ function* createOrder(actions) {
     const res = yield API.post('order/createOrder', body);
     yield put({type: _onSuccess(Actions.CREATE_ORDER), data: res.data});
     if (res.success) {
-      navigate(routes.PURCHASE_SCREEN);
+      navigate(routes.PURCHASE_SCREEN, {price: actions.price});
     }
     Toast(res.message);
   } catch (error) {
@@ -27,8 +27,6 @@ function* deleteVoucher(actions) {
   try {
     const res = yield API.post('getUser/deleteMyVouchers', body);
     yield put({type: _onSuccess(Actions.DELETE_MY_VOUCHER), data: res.data});
-
-    Toast(res.message);
   } catch (error) {
     yield put({type: _onFail(Actions.DELETE_MY_VOUCHER)});
   }

@@ -1,20 +1,19 @@
 import {Block, Button, Header} from '@components';
+import {useNavigation} from '@react-navigation/native';
+import actions from '@redux/actions';
 import {theme} from '@theme';
+import {getSize} from '@utils/responsive';
+import moment from 'moment';
+import 'moment/locale/vi';
 import React, {useRef, useState} from 'react';
-import {ScrollView, LogBox} from 'react-native';
+import {LogBox, ScrollView} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import BottomSheet from './components/BottomSheet';
 import DeliveryAddress from './components/DeliveryAddress';
+import PaymentMethod from './components/PaymentMethod';
 import PaymentProduct from './components/PaymentProduct';
 import ShippingMethod from './components/ShippingMethod';
-import PaymentMethod from './components/PaymentMethod';
 import VoucherShop from './components/VoucherShop';
-import {useNavigation} from '@react-navigation/native';
-import BottomSheet from './components/BottomSheet';
-import {routes} from '@navigation/routes';
-import {getSize} from '@utils/responsive';
-import {useSelector, useDispatch} from 'react-redux';
-import actions from '@redux/actions';
-import 'moment/locale/vi';
-import moment from 'moment';
 
 moment.locale('vi');
 var date = new Date();
@@ -49,7 +48,6 @@ const PaymentScreen = ({route}) => {
 
   const userInfo = useSelector(state => state.userInfo?.data);
 
-  console.log('data-------', data);
   LogBox.ignoreLogs([
     'Non-serializable values were found in the navigation state',
   ]);
@@ -72,6 +70,7 @@ const PaymentScreen = ({route}) => {
             color: data[0]?.option ? data[0]?.option?.color : null,
           },
         ],
+        shopId: data[0]?.product?.shopId,
         userId: user,
         totalPrice: total,
         deliveryAddress: {
@@ -91,12 +90,12 @@ const PaymentScreen = ({route}) => {
       dispatch({
         type: actions.CREATE_ORDER,
         body: {orderInfo: JSON.stringify(dataOrder)},
+        price: total,
       });
       dispatch({
-        type: actions.CREATE_ORDER,
+        type: actions.DELETE_MY_VOUCHER,
         body: {voucherId: selectedIdVoucher?._id, user},
       });
-      console.log('jaja', selectedMethodShip);
     } else {
       const dataOrder = {
         product: [
@@ -107,6 +106,7 @@ const PaymentScreen = ({route}) => {
           },
         ],
         userId: user,
+        shopId: data[0]?.product?.shopId,
         totalPrice: total,
         deliveryAddress: {
           receiverName: userInfo?.address?.filter(v => v.isDefault === true)[0]
@@ -125,6 +125,7 @@ const PaymentScreen = ({route}) => {
       dispatch({
         type: actions.CREATE_ORDER,
         body: {orderInfo: JSON.stringify(dataOrder)},
+        price: total,
       });
     }
   };

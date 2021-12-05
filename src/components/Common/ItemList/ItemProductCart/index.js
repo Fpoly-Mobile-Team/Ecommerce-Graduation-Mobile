@@ -1,4 +1,5 @@
-import {Block, CheckBox, Text} from '@components';
+import {icons} from '@assets';
+import {Block, Text} from '@components';
 import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
@@ -19,91 +20,59 @@ const ItemProductCart = ({
   const navigation = useNavigation();
   const [valueall, setValueAll] = useState(false);
   const [datatotalPrice, setDataTotalPrice] = dataselected;
-  const findChecked = (a, b) => {
-    if (a?.length !== b?.length) {
-      return false;
-    } else {
-      for (let i = 0; i < a.length; i++) {
-        if (a[i] !== b[i]) {
-          return false;
-        }
-      }
-      return true;
-    }
-  };
 
   const [valueitem, setValueItem] = useState(false);
 
   const priceAll = data
     ? data.reduce(
         (accumulator, currentValue) =>
-          accumulator + currentValue.price * currentValue.amount,
+          accumulator + currentValue.price * currentValue.quantity,
         0,
       )
     : '0';
 
-  const _onPress = value => {
-    const arr = [];
-    if (!valueall) {
-      if (datatotalPrice.length === 0) {
-        arr.push(items);
-        setDataTotalPrice(arr);
-      } else {
-        datatotalPrice.push(items);
-        setDataTotalPrice(datatotalPrice);
-      }
-    } else {
-      const datatotalPrices = datatotalPrice.filter(item => item.id !== value);
-      setDataTotalPrice(datatotalPrices);
-    }
-  };
+  const _onPress = value => {};
 
   const _renderItem = (item, index) => {
+    const pricePromo = item.product?.sellOff === 0 ? 0 : item.product?.price;
     return (
       <Pressable
         key={index}
         onPress={() => navigation.navigate(routes.PRODUCT_DETAILS, {})}>
         <Block row paddingHorizontal={16} marginBottom={16} space="between">
           <Block row width="36%">
-            <CheckBox
-              width={20}
-              setValue={setValueItem}
-              value={findChecked(
-                data,
-                datatotalPrice[indexSlice]?.productArray,
-              )}
-            />
-            <Image source={{uri: item.img}} style={styles.img} />
+            <CheckBox width={20} setValue={setValueItem} value={valueitem} />
+            <Image source={{uri: item.product.images[0]}} style={styles.img} />
           </Block>
           <Block width="64%">
             <Block row space="between">
               <Block row space="between">
                 <Block>
                   <Text numberOfLines={2} marginBottom={5}>
-                    {item.title}
+                    {item.product.name}
                   </Text>
-                  <Block row alignCenter marginBottom={5}>
-                    <Text size={12} color="gray">
-                      Color:{' '}
-                      <Text size={12} fontType="bold">
-                        {item.color}
+                  {item?.option?.color && (
+                    <Block row alignCenter marginBottom={5}>
+                      <Text size={12} color="gray">
+                        Color:{' '}
+                        <Text size={12} fontType="bold">
+                          {item.option.color}
+                        </Text>
                       </Text>
-                    </Text>
-                    <Text marginLeft={10} size={12} color="gray">
-                      Size:{' '}
-                      <Text size={12} fontType="bold">
-                        {item.size}
-                      </Text>
-                    </Text>
-                  </Block>
+                    </Block>
+                  )}
+
                   <Block row alignCenter>
-                    <Text
-                      marginHorizontal={6}
-                      size={13}
-                      color={theme.colors.lightGray}
-                      style={styles.txtunderprice}>
-                      {Currency(item.price)}
-                    </Text>
+                    {pricePromo ? (
+                      <Text
+                        marginHorizontal={6}
+                        size={13}
+                        color={theme.colors.lightGray}
+                        style={styles.txtunderprice}>
+                        {Currency(pricePromo)}
+                      </Text>
+                    ) : null}
+
                     <Text size={15} fontType="bold" color={theme.colors.pink}>
                       {Currency(item.price)}
                     </Text>
@@ -112,7 +81,7 @@ const ItemProductCart = ({
                   <Block row alignCenter marginTop={5}>
                     <_renderButton title="-" />
                     <Text marginHorizontal={20} color={theme.colors.black}>
-                      {item.amount}
+                      {item.quantity}
                     </Text>
                     <_renderButton title="+" />
                   </Block>
@@ -188,6 +157,29 @@ const _renderButton = ({title, onPress}) => {
         <Text fontType="bold" color={theme.colors.lightGray}>
           {title}
         </Text>
+      </Block>
+    </Pressable>
+  );
+};
+
+const CheckBox = ({width, value, setValue}) => {
+  return (
+    <Pressable
+      onPress={() => {
+        setValue(value => !value);
+      }}>
+      <Block row alignCenter marginRight={5}>
+        <Block
+          alignCenter
+          justifyCenter
+          radius={5}
+          height={width}
+          width={width}
+          backgroundColor={value ? 'green' : 'white'}
+          borderWidth={1}
+          borderColor={theme.colors.placeholder}>
+          <Image style={styles.icon(width)} source={icons.check_blank} />
+        </Block>
       </Block>
     </Pressable>
   );

@@ -4,23 +4,30 @@ import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
-import React, {useRef} from 'react';
+import React, {useRef, useState, useEffect} from 'react';
 import {Image, Platform, Pressable} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import BottomSheet from './components/BottomSheet';
 import ListCart from './components/ListItem';
 import styles from './styles';
 import {useSelector, useDispatch} from 'react-redux';
+import Storage from '@utils/storage';
 
 const CartScreen = () => {
   const refRBSheet = useRef();
   const navigation = useNavigation();
   const {bottom} = useSafeAreaInsets();
+  const [dataCart, setDataCart] = useState([]);
+  useEffect(() => {
+    Storage.getItem('CART').then(value => {
+      setDataCart(value);
+    });
+  }, []);
 
   return (
     <Block flex>
       <Header checkBackground canGoBack title="Giỏ hàng của tôi" />
-      <ListCart />
+      <ListCart data={dataCart} />
       <Block
         paddingHorizontal={12}
         paddingBottom={Platform.OS === 'ios' ? bottom : 20}>
