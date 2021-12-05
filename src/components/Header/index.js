@@ -184,12 +184,14 @@ const Cart = ({colorimg}) => {
         navigation.navigate(user ? routes.CARTSCREENS : routes.AUTHFORSCREEN)
       }>
       <Block marginHorizontal={10}>
-        <Badge
-          status="warning"
-          value={quantity}
-          containerStyle={styles.containerStyle}
-          textProps={{allowFontScaling: false}}
-        />
+        {quantity && (
+          <Badge
+            status="warning"
+            value={quantity}
+            containerStyle={styles.containerStyle}
+            textProps={{allowFontScaling: false}}
+          />
+        )}
         <Animated.Image
           source={icons.cart}
           style={{...styles.iconcard, tintColor: colorimg}}

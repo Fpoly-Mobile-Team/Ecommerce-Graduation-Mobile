@@ -26,7 +26,12 @@ const ItemProductCart = ({
   const priceAll = data
     ? data.reduce(
         (accumulator, currentValue) =>
-          accumulator + currentValue.price * currentValue.quantity,
+          accumulator + currentValue.product.sellOff === 0
+            ? currentValue.product.price * currentValue.quantity
+            : currentValue.product.price *
+              currentValue.quantity *
+              currentValue.product.sellOff,
+
         0,
       )
     : '0';
@@ -34,15 +39,24 @@ const ItemProductCart = ({
   const _onPress = value => {};
 
   const _renderItem = (item, index) => {
-    const pricePromo = item.product?.sellOff === 0 ? 0 : item.product?.price;
+    const pricePromo =
+      item.product?.sellOff === 0
+        ? 0
+        : item.product?.price * item.product?.sellOff;
     return (
       <Pressable
         key={index}
-        onPress={() => navigation.navigate(routes.PRODUCT_DETAILS, {})}>
+        onPress={() =>
+          navigation.navigate(routes.PRODUCT_DETAILS, {_id: item.product._id})
+        }>
         <Block row paddingHorizontal={16} marginBottom={16} space="between">
           <Block row width="36%">
             <CheckBox width={20} setValue={setValueItem} value={valueitem} />
-            <Image source={{uri: item.product.images[0]}} style={styles.img} />
+
+            <Image
+              source={{uri: item?.product?.images[0]}}
+              style={styles.img}
+            />
           </Block>
           <Block width="64%">
             <Block row space="between">
@@ -69,12 +83,12 @@ const ItemProductCart = ({
                         size={13}
                         color={theme.colors.lightGray}
                         style={styles.txtunderprice}>
-                        {Currency(pricePromo)}
+                        {Currency(item.product.price)}
                       </Text>
                     ) : null}
 
                     <Text size={15} fontType="bold" color={theme.colors.pink}>
-                      {Currency(item.price)}
+                      {Currency(pricePromo)}
                     </Text>
                   </Block>
 
@@ -105,12 +119,12 @@ const ItemProductCart = ({
           marginBottom={2}
           backgroundColor={theme.colors.white}>
           <CheckBox
-            title={data[0]?.nameshop}
             width={20}
             value={valueall}
             setValue={setValueAll}
             onPress={() => _onPress(id)}
           />
+          <Text>{'jaja'}</Text>
         </Block>
         <Block
           style={styles.box_end}

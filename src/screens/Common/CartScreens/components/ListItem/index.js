@@ -26,7 +26,7 @@ const ListItem = ({data}) => {
       <FlatList
         data={data}
         renderItem={renderItem}
-        keyExtractor={item => item._id.toString()}
+        keyExtractor={item => String(item._id)}
         extraData={selectedId}
         showsVerticalScrollIndicator={false}
       />

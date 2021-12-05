@@ -126,25 +126,59 @@ const ModalChooseType = ({
         Storage.getItem('CART').then(value => {
           if (value) {
             for (let index = 0; index < value.length; index++) {
-              const element = value[index];
+              let element = value[index];
               if (element._id === item?.shopId) {
                 for (let i = 0; i < element?.productArray.length; i++) {
                   if (element?.productArray[i]?.product?._id === item?._id) {
-                    console.log('quanti', element?.productArray[i]?.quantity);
+                    element.productArray[i].quantity += quantity;
+
+                    element.productArray[i].price =
+                      element.productArray[i].quantity *
+                      element.productArray[i].product.price;
+
+                    let elements = value;
+                    elements.map(e => {
+                      if (e.shopId === element.shopId) {
+                        return element;
+                      }
+                      return e;
+                    });
+                    Storage.setItem('CART', elements);
+                    break;
+                  }
+                  if (i === element.productArray.length - 1) {
+                    element?.productArray.push({
+                      product: item,
+                      quantity,
+                      option,
+                      price: price * quantity,
+                    });
+                    let elements = value;
+                    elements.map(e => {
+                      if (e.shopId === element.shopId) {
+                        return element;
+                      }
+                      return e;
+                    });
+                    Storage.setItem('CART', elements);
+                    console.log('haha');
                   }
                 }
-                // element?.productArray.push({
-                //   product: item,
-                //   quantity,
-                //   option,
-                //   price: price * quantity,
-                // });
-                // Storage.setItem('CART', [...value]);
               } else {
-                console.log('haha');
+                element?.productArray.push({
+                  product: item,
+                  quantity,
+                  option,
+                  price: price * quantity,
+                });
+                Storage.setItem('CART', [...value, element]);
+                console.log('kakak');
                 // Storage.setItem('CART', {...value, data});
               }
             }
+          } else {
+            Storage.setItem('CART', data);
+            console.log('ahaha');
           }
         });
 
