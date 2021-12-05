@@ -23,9 +23,11 @@ const WritingReviews = ({_id, check, isClosed}) => {
   const [files, setFiles] = useState([]);
   const [ImageViwerIsVisible, showImageViwer] = useState(false);
   let [viewingIndex, setViewingIndex] = useState(-1);
+
   useEffect(() => {
     viewingIndex !== -1 && showImageViwer(true);
   }, [viewingIndex]);
+  
   useEffect(() => {
     !ImageViwerIsVisible && setViewingIndex(-1);
   }, [ImageViwerIsVisible]);

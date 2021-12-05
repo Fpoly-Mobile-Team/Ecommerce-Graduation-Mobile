@@ -22,7 +22,7 @@ const IntroduceScreen = () => {
       <Block
         style={styles.container}
         marginHorizontal={10}
-        marginTop={5}
+        marginTop={10}
         backgroundColor={theme.colors.white}>
         <Block style={styles.box} paddingVertical={30} alignCenter>
           <Image style={styles.image} source={images.logo} />
