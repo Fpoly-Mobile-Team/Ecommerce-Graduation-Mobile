@@ -1,10 +1,10 @@
-import {DownArrowFill, Fillter, Sort} from '@assets/svg/common';
+import {Correct, DownArrowFill, Fillter, Sort} from '@assets/svg/common';
 import {Block, Text} from '@components';
 import {theme} from '@theme';
 import React, {useState} from 'react';
 import {LayoutAnimation, Platform, Pressable, UIManager} from 'react-native';
 import CheckBoxCustom from '../CheckBoxCustom';
-
+import {useSelector} from 'react-redux';
 const val = [
   {
     key: '1',
@@ -21,8 +21,9 @@ if (Platform.OS === 'android') {
     UIManager.setLayoutAnimationEnabledExperimental(true);
   }
 }
-const SortComponent = ({refRBSheet}) => {
+const SortComponent = ({refRBSheet, idProvince, idCate, price}) => {
   const [show, setShow] = useState(false);
+  const config = useSelector(state => state.config?.data);
   const [value, setValue] = useState(' ');
 
   return (
@@ -60,6 +61,17 @@ const SortComponent = ({refRBSheet}) => {
           <Pressable onPress={() => refRBSheet.current.open()}>
             <Fillter />
           </Pressable>
+          {idProvince || idCate || price ? (
+            <Block
+              backgroundColor={config?.backgroundcolor}
+              absolute
+              padding={1.5}
+              top={-6}
+              right={-4}
+              radius={10}>
+              <Correct width={10} height={10} color={theme.colors.white} />
+            </Block>
+          ) : null}
         </Block>
       </Block>
       {show && (

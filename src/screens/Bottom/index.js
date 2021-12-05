@@ -16,7 +16,8 @@ import ListProducts from './HomeScreens/navigation/ListProducts';
 import MyselfInformation from './ProfileScreens/navigation/ProgrammingAccountScreen/navigation/MyselfInformation';
 import FavoriteScreen from './ProfileScreens/navigation/FavoriteScreen';
 import ViewedProductScreen from './ProfileScreens/navigation/ViewedProductScreen';
-
+import ChooseProvince from './HomeScreens/navigation/ListProducts/navigation/ChooseProvince';
+import ChooseCategory from './HomeScreens/navigation/ListProducts/navigation/ChooseCategory';
 export const bottom = {
   HOMESCREENS: HomeScreens,
   CATEGORYSCREENS: CategoryScreens,
@@ -36,4 +37,6 @@ export const bottom = {
   MYSELFINFOMATION: MyselfInformation,
   FAVORITE_SCREEN: FavoriteScreen,
   VIEW_PRODUCTS: ViewedProductScreen,
+  CHOOSE_PROVICE: ChooseProvince,
+  CHOOSE_CATEGORY: ChooseCategory,
 };

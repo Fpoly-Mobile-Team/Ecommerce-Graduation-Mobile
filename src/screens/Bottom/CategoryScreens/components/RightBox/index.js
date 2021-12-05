@@ -8,6 +8,7 @@ import {Image, Pressable, ScrollView} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {UIActivityIndicator} from 'react-native-indicators';
 import styles from './styles';
+import ItemProductCateSub from '@components/Common/ItemList/ItemProduct copy';
 
 const RightBox = ({title}) => {
   const dispatch = useDispatch();
@@ -24,21 +25,21 @@ const RightBox = ({title}) => {
     });
   }, [dispatch, title?._id]);
 
-  const _renderItemImage = index => (
-    <Pressable key={index}>
-      <Block width={(width * 0.7 - 24.2) / 3} marginTop={10}>
-        <Image
-          source={{uri: 'https://media3.scdn.vn/images/ecom/category/1580.jpg'}}
-          style={styles.styleimg}
-          resizeMode="contain"
-        />
-        <Text center size={12} numberOfLines={3}>
-          Tã giấy
-        </Text>
-      </Block>
-    </Pressable>
+  const renderItem = (item, index) => (
+    <ItemProductCateSub
+      _id={item._id}
+      key={index}
+      style={{...styles.box(index)}}
+      images={item.images[0]}
+      nameProduct={item.name}
+      price={item.price}
+      productSold={item.productSold}
+      sellOff={item.sellOff}
+    />
   );
+
   const _renderItem = (item, index) => {
+    console.log('AAA', item.product);
     return (
       <Block
         key={item._id}
@@ -58,8 +59,8 @@ const RightBox = ({title}) => {
           </Block>
         </Pressable>
 
-        <Block row wrap>
-          {[1, 3, 4].map(_renderItemImage)}
+        <Block row wrap paddingTop={10}>
+          {item.product?.map(renderItem)}
         </Block>
       </Block>
     );
@@ -89,7 +90,7 @@ const RightBox = ({title}) => {
         </Block>
         <Block flex>
           {!isLoading && data?.length ? (
-            <>{data[0]?.subCategory?.map(_renderItem)}</>
+            <>{data?.map(_renderItem)}</>
           ) : (
             <Block flex alignCenter justifyCenter height={height - 300}>
               <UIActivityIndicator

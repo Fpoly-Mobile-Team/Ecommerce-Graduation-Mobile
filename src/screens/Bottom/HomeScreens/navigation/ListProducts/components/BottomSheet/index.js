@@ -1,12 +1,25 @@
 import React, {useState} from 'react';
 import {Block, Text} from '@components';
 import {theme} from '@theme';
-import {Animated} from 'react-native';
+import {Animated, Pressable} from 'react-native';
 import {Slider} from 'react-native-elements';
+import {routes} from '@navigation/routes';
+import {useNavigation} from '@react-navigation/core';
 import {ChevronRight} from '@assets/svg/common';
+import {useSelector} from 'react-redux';
 
-const BottomSheet = () => {
-  const [value, setValue] = useState(0);
+const BottomSheet = ({
+  idProvince,
+  name,
+  idCate,
+  nameCate,
+  refRBSheet,
+  value,
+  setValue,
+}) => {
+  const navigation = useNavigation();
+  const config = useSelector(state => state.config?.data);
+
   return (
     <Block flex paddingVertical={10} paddingLeft={20}>
       <Block paddingTop={10}>
@@ -28,7 +41,7 @@ const BottomSheet = () => {
             maximumValue={100}
             minimumValue={0}
             step={1}
-            minimumTrackTintColor={theme.colors.paleGreen}
+            minimumTrackTintColor={config?.backgroundcolor}
             maximumTrackTintColor={theme.colors.black}
             trackStyle={{
               height: 5,
@@ -43,7 +56,7 @@ const BottomSheet = () => {
             thumbStyle={{
               height: 15,
               width: 15,
-              backgroundColor: theme.colors.paleGreen,
+              backgroundColor: config?.backgroundcolor,
             }}
             style={{
               paddingHorizontal: 10,
@@ -65,27 +78,76 @@ const BottomSheet = () => {
         <Text fontType={'bold'} size={15}>
           Khu Vực
         </Text>
-        <Block row alignCenter paddingHorizontal={10}>
-          <Text size={12} color={theme.colors.lightGray}>
-            Chọn ngay
-          </Text>
-          <Block paddingTop={4}>
-            <ChevronRight width={15} height={15} />
-          </Block>
-        </Block>
+
+        {idProvince ? (
+          <Pressable
+            onPress={() => {
+              refRBSheet.current.close();
+              setTimeout(() => {
+                navigation.navigate(routes.CHOOSE_PROVICE);
+              }, 500);
+            }}>
+            <Block row alignCenter paddingHorizontal={10}>
+              <Text size={14} color={theme.colors.black} fontType="medium">
+                {name}
+              </Text>
+            </Block>
+          </Pressable>
+        ) : (
+          <Pressable
+            onPress={() => {
+              refRBSheet.current.close();
+              setTimeout(() => {
+                navigation.navigate(routes.CHOOSE_PROVICE);
+              }, 500);
+            }}>
+            <Block row alignCenter paddingHorizontal={10}>
+              <Text size={12} color={theme.colors.lightGray}>
+                Chọn ngay
+              </Text>
+              <Block paddingTop={4}>
+                <ChevronRight width={15} height={15} />
+              </Block>
+            </Block>
+          </Pressable>
+        )}
       </Block>
       <Block row space={'between'} paddingTop={30} alignCenter>
         <Text fontType={'bold'} size={15}>
           Danh mục
         </Text>
-        <Block row alignCenter paddingHorizontal={10}>
-          <Text size={12} color={theme.colors.lightGray}>
-            Chọn ngay
-          </Text>
-          <Block paddingTop={4}>
-            <ChevronRight width={15} height={15} />
-          </Block>
-        </Block>
+        {idCate ? (
+          <Pressable
+            onPress={() => {
+              refRBSheet.current.close();
+              setTimeout(() => {
+                navigation.navigate(routes.CHOOSE_CATEGORY);
+              }, 500);
+            }}>
+            <Block row alignCenter paddingHorizontal={10}>
+              <Text size={14} color={theme.colors.black} fontType="medium">
+                {nameCate}
+              </Text>
+            </Block>
+          </Pressable>
+        ) : (
+          <Pressable
+            onPress={() => {
+              refRBSheet.current.close();
+              setTimeout(() => {
+                navigation.navigate(routes.CHOOSE_CATEGORY);
+              }, 500);
+            }}>
+            <Block row alignCenter paddingHorizontal={10}>
+              <Text size={12} color={theme.colors.lightGray}>
+                Chọn ngay
+              </Text>
+              <Block paddingTop={4}>
+                <ChevronRight width={15} height={15} />
+              </Block>
+            </Block>
+          </Pressable>
+        )}
       </Block>
     </Block>
   );

@@ -4,12 +4,14 @@ import ItemSaleProducts from '@components/Common/ItemList/ItemSaleProducts';
 import actions, {_onUnmount} from '@redux/actions';
 import moment from 'moment';
 import React, {useEffect, useState, useRef} from 'react';
-import {FlatList} from 'react-native';
+import {Alert, FlatList} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useDispatch, useSelector} from 'react-redux';
 import styles from './styles';
 import RBSheetEvent from './components/BottomEvent';
 import SortComponent from './components/SortComponent';
+import {routes} from '@navigation/routes';
+import {useNavigation} from '@react-navigation/core';
 
 const keyExtractor = (item, index) => item._id.toString();
 
@@ -19,12 +21,19 @@ const ListProducts = ({route}) => {
   const dispatch = useDispatch();
   const product = useSelector(state => state.productSale?.data);
   const totalPage = useSelector(state => state.productSale?.totalPage);
+  const navigation = useNavigation();
 
   const [refreshing, setRefreshing] = useState(false);
   const [page, setPage] = useState(1);
 
-  const {tag, title} = route.params || {};
+  const {tag, title, idProvince, name, idCate, nameCate} = route.params || {};
+  const [value, setValue] = useState(0);
 
+  useEffect(() => {
+    if (idProvince || idCate) {
+      refRBSheet.current.open();
+    }
+  }, [idProvince, idCate]);
   useEffect(() => {
     dispatch({
       type: actions.GET_PRODUCT_SALE,
@@ -34,6 +43,13 @@ const ListProducts = ({route}) => {
       },
     });
   }, [dispatch]);
+
+  const onRefresh = () => {
+    navigation.navigate(routes.LIST_PRODUCTS);
+    setValue(0);
+    route.params.idProvince = null;
+    route.params.idCate = null;
+  };
 
   const saleProducts = product?.filter(
     v => moment(v?.saleStart) <= Date.now() && Date.now() <= moment(v?.saleEnd),
@@ -116,7 +132,12 @@ const ListProducts = ({route}) => {
   return (
     <Block flex>
       <Header title={title} canGoBack checkBackground />
-      <SortComponent refRBSheet={refRBSheet} />
+      <SortComponent
+        idProvince={idProvince}
+        idCate={idCate}
+        price={value}
+        refRBSheet={refRBSheet}
+      />
 
       <FlatList
         numColumns={2}
@@ -132,7 +153,16 @@ const ListProducts = ({route}) => {
         refreshing={refreshing}
       />
       {/* {isLoading && page > 1 && <LoadMore />} */}
-      <RBSheetEvent refRBSheet={refRBSheet} />
+      <RBSheetEvent
+        idProvince={idProvince}
+        nameProvice={name}
+        idCate={idCate}
+        nameCate={nameCate}
+        refRBSheet={refRBSheet}
+        value={value}
+        setValue={setValue}
+        onPress={onRefresh}
+      />
     </Block>
   );
 };
