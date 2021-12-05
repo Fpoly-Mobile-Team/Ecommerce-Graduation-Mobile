@@ -49,6 +49,7 @@ export default {
   ADD_MY_VOUCHER: 'ADD_MY_VOUCHER',
   GET_MY_VOUCHER: 'GET_MY_VOUCHER',
   GET_NOTIF_ORDER: 'GET_NOTIF_ORDER',
+  SEARCH_PRODUCT_SHOP: 'SEARCH_PRODUCT_SHOP',
 };
 
 export function _onSuccess(action) {
