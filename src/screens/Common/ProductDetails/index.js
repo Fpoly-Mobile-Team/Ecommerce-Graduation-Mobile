@@ -162,11 +162,14 @@ const ProductDetails = ({route, navigation}) => {
             <ProductRelated productCategory={productCategory} />
           </Animated.ScrollView>
           <ChooseTypeProduct
+            nameShop={shop?.shopName}
             option={data?.options}
             image={data?.images[0]}
             productStock={data?.productStock}
             price={
-              data?.sellOff === 0 ? data?.price : data?.price * data?.sellOff
+              data?.sellOff === 0
+                ? data?.price
+                : data?.price * (1 - data?.sellOff)
             }
             item={data}
           />

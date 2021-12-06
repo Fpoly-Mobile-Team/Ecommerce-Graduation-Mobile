@@ -15,6 +15,7 @@ const ItemProductCart = ({
   items,
   dataselected,
   indexSlice,
+  nameShop,
   id,
 }) => {
   const navigation = useNavigation();
@@ -23,22 +24,23 @@ const ItemProductCart = ({
   const [valueitem, setValueItem] = useState(false);
   const chkboxRef = useRef();
   const chkboxAllRef = useRef();
-
+  const [array, setArray] = useState([]);
   const priceAll = () => {
     let sum = 0;
-    data.forEach((p) => {
-      sum += p.price * p.quantity * (1-p.product.sellOff)
+    data.forEach(p => {
+      sum += p.price * p.quantity * (1 - p.product.sellOff);
     });
     return sum;
-  }
-
+  };
+  // console.log('data', data);
   const _onPress = value => {};
 
   const _renderItem = (item, index) => {
     const pricePromo =
       item.product?.sellOff === 0
         ? item.product.price
-        : item.product?.price * (1-item.product?.sellOff);
+        : item.product?.price * (1 - item.product?.sellOff);
+    console.log('array', array);
     return (
       <Pressable
         key={index}
@@ -47,7 +49,33 @@ const ItemProductCart = ({
         }>
         <Block row paddingHorizontal={16} marginBottom={16} space="between">
           <Block row width="36%">
-            <CheckBox ref={chkboxRef} width={20}/>
+            <CheckBox
+              // ref={chkboxRef}
+              width={20}
+              value={array.some(v => v.product._id === item.product._id)}
+              onPress={() => {
+                if (array.some(v => v.product._id === item.product._id)) {
+                  const arr = array.filter(v => {
+                    console.log(v, item);
+                    if (
+                      v.product._id === item.product._id &&
+                      v.color !== item.color
+                    ) {
+                      return false;
+                    } else {
+                      return true;
+                    }
+                  });
+                  setArray(arr);
+                } else {
+                  // console.log(array);
+                  // array.product.push(item);
+                  array.push(item);
+                  console.log(array);
+                  setArray(array);
+                }
+              }}
+            />
 
             <Image
               source={{uri: item?.product?.images[0]}}
@@ -61,7 +89,7 @@ const ItemProductCart = ({
                   <Text numberOfLines={2} marginBottom={5}>
                     {item.product?.name}
                   </Text>
-                  {item?.color && (
+                  {item?.color ? (
                     <Block row alignCenter marginBottom={5}>
                       <Text size={12} color="gray">
                         Color:{' '}
@@ -70,7 +98,7 @@ const ItemProductCart = ({
                         </Text>
                       </Text>
                     </Block>
-                  )}
+                  ) : null}
 
                   <Block row alignCenter>
                     {pricePromo !== item.product.price ? (
@@ -115,16 +143,24 @@ const ItemProductCart = ({
           marginBottom={2}
           backgroundColor={theme.colors.white}>
           <CheckBox
-            ref={chkboxAllRef}
+            // ref={chkboxAllRef}
             width={20}
+            value={
+              array?.length > 0 && array?.length === data?.length ? true : false
+            }
             // value={valueall}
             // setValue={setValueAll}
             onPress={() => {
-              console.log(chkboxRef.current);
-              chkboxRef.current?.setNativeProps({ style: [{backgroundColor: "green"}] });
+              if (array?.length > 0) {
+                setArray([]);
+              } else {
+                setArray(data);
+              }
+
+              // console.log(chkboxRef.current);
             }}
           />
-          <Text>{'jaja'}</Text>
+          <Text>{nameShop}</Text>
         </Block>
         <Block
           style={styles.box_end}
@@ -176,19 +212,24 @@ const _renderButton = ({title, onPress}) => {
   );
 };
 
-const CheckBox = ({ref, width, value = false, onPress}) => {
+const CheckBox = ({ref, width, value, onPress}) => {
+  const [isCheck, setIsCheck] = useState(value);
+
+  const onCheckBoxPress = () => {
+    setIsCheck(v => !v);
+    onPress();
+  };
+
   return (
-    <Pressable
-      onPress={onPress}>
+    <Pressable ref={ref} onPress={onCheckBoxPress}>
       <Block row alignCenter marginRight={5}>
         <Block
-          ref={ref}
           alignCenter
           justifyCenter
           radius={5}
           height={width}
           width={width}
-          backgroundColor={value ? 'green' : 'white'}
+          backgroundColor={isCheck ? 'green' : 'white'}
           borderWidth={1}
           borderColor="black">
           <Image style={styles.icon(width)} source={icons.check_blank} />

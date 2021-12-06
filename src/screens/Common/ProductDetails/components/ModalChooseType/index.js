@@ -19,6 +19,7 @@ const ModalChooseType = ({
   options,
   title,
   item,
+  nameShop,
 }) => {
   const [option, setOption] = useState({});
   const [quantity, setQuantity] = useState(1);
@@ -48,83 +49,87 @@ const ModalChooseType = ({
   };
 
   const onPressBuy = () => {
-      if (title === 'MUA HÀNG') {
-        const data = [
+    if (title === 'MUA HÀNG') {
+      const data = [
+        {
+          product: item,
+          quantity,
+          option: option || {},
+          price: price * quantity,
+        },
+      ];
+      navigation.navigate(routes.PAYMENTSCREEN, {data});
+      setIsVisible(false);
+    } else {
+      const data = {
+        _id: item?.shopId,
+        nameShop: nameShop,
+        productArray: [
           {
             product: item,
             quantity,
-            option: option || {},
-            price: price * quantity,
+            color: option.color || '',
+            price: item.price,
           },
-        ];
-        navigation.navigate(routes.PAYMENTSCREEN, {data});
-        setIsVisible(false);
-      } else {
-        const data = {
-            _id: item?.shopId,
-            productArray: [
-              {
-                product: item,
-                quantity,
-                color: option.color || "",
-                price: item.price,
-              },
-            ],
-        };
-        Storage.getItem('CART').then(value => {
-          if (value) {
-            let shopIds = value.map((productGroup) => productGroup._id);
-            if(shopIds.includes(item.shopId)){
-              let groupIndex = shopIds.indexOf(item.shopId);
-              let newProductGroups = value.map((productGroup, index) => {
-                if(groupIndex === index){
-                  let productIds = productGroup.productArray.map((p) => {
-                    return `${p.product._id}${p.color}`
+        ],
+      };
+      Storage.getItem('CART').then(value => {
+        if (value) {
+          let shopIds = value.map(productGroup => productGroup._id);
+          if (shopIds.includes(item.shopId)) {
+            let groupIndex = shopIds.indexOf(item.shopId);
+            let newProductGroups = value.map((productGroup, index) => {
+              if (groupIndex === index) {
+                let productIds = productGroup.productArray.map(p => {
+                  return `${p.product._id}${p.color}`;
+                });
+                console.log(productIds);
+                console.log(`${item._id}${option.color}`);
+                if (productIds.includes(`${item._id}${option.color}`)) {
+                  return {
+                    ...productGroup,
+                    productArray: productGroup.productArray.map((p, index) => {
+                      if (
+                        p.product._id === item._id &&
+                        p.color === option.color
+                      ) {
+                        return {
+                          ...p,
+                          quantity: p.quantity + quantity,
+                          price: p.price,
+                        };
+                      }
+                      return p;
+                    }),
+                  };
+                } else {
+                  let newArray = productGroup.productArray;
+                  newArray.push({
+                    quantity: quantity,
+                    color: option.color || '',
+                    price: item.price,
+                    product: item,
                   });
-                  console.log(productIds);
-                  console.log(`${item._id}${option.color}`);
-                  if(productIds.includes(`${item._id}${option.color}`)){
-                    return {
-                      ...productGroup,
-                      productArray: productGroup.productArray.map((p, index) => {
-                        if(p.product._id === item._id && p.color === option.color){
-                          return {
-                            ...p,
-                            quantity: p.quantity + quantity,
-                            price: p.price,
-                          }
-                        }
-                        return p;
-                      })
-                    }
-                  }else{
-                    let newArray = productGroup.productArray;
-                    newArray.push({
-                      quantity: quantity,
-                      color: option.color || "",
-                      price: item.price,
-                      product: item,
-                    });
-                    return {
-                      ...productGroup,
-                      productArray: newArray,
-                    }
-                  }
+                  return {
+                    ...productGroup,
+                    productArray: newArray,
+                  };
                 }
-                return productGroup;
-              });
-              Storage.setItem('CART', newProductGroups);
-            }else{
-              Storage.setItem('CART', [...value, data]);
-            }
+              }
+              return productGroup;
+            });
+            Storage.setItem('CART', newProductGroups);
           } else {
-            Storage.setItem('CART', [data]);
-            console.log("data2:", data);
+            Storage.setItem('CART', [...value, data]);
           }
-        });
-        navigation.navigate(routes.CARTSCREENS);
-        setIsVisible(false);
-      }
+        } else {
+          Storage.setItem('CART', [data]);
+          console.log('data2:', data);
+        }
+      });
+      navigation.navigate(routes.CARTSCREENS);
+      setIsVisible(false);
+    }
   };
 
   const _renderButton = ({title, onPress}) => {
