@@ -5,11 +5,11 @@ import Actions, {_onFail, _onSuccess} from '../actions';
 
 function* getListShop(actions) {
   try {
-    const res = yield API.get('shopUser', actions.params);
+    const res = yield API.get('shopUser/getShopUserInfos', actions.params);
 
     yield put({
       type: _onSuccess(Actions.GET_SHOP_USERS),
-      data: res.data,
+      data: res.shopInfos,
     });
   } catch (error) {
     yield put({type: _onFail(Actions.GET_SHOP_USERS)});

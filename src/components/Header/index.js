@@ -6,7 +6,8 @@ import {useNavigation} from '@react-navigation/core';
 import {useIsFocused} from '@react-navigation/native';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
-import React, {useState} from 'react';
+import Storage from '@utils/storage';
+import React, {useState, useEffect} from 'react';
 import {Animated, Image, Pressable, StatusBar} from 'react-native';
 import {Badge} from 'react-native-elements';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
@@ -163,16 +164,34 @@ const HeaderCommon = ({canGoBack, title, checkBackground}) => {
 };
 
 const Cart = ({colorimg}) => {
+  const user = useSelector(state => state.tokenUser?.data);
+  const [quantity, setQuantity] = useState();
+
+  useEffect(() => {
+    Storage.getItem('CART').then(value => {
+      let data = [];
+      for (let index = 0; index < value.length; index++) {
+        const element = value[index];
+        data.push(element?.productArray);
+        setQuantity(data[0]?.length);
+      }
+    });
+  }, []);
   const navigation = useNavigation();
   return (
-    <Pressable onPress={() => navigation.navigate(routes.CARTSCREENS)}>
+    <Pressable
+      onPress={() =>
+        navigation.navigate(user ? routes.CARTSCREENS : routes.AUTHFORSCREEN)
+      }>
       <Block marginHorizontal={10}>
-        <Badge
-          status="warning"
-          value="1"
-          containerStyle={styles.containerStyle}
-          textProps={{allowFontScaling: false}}
-        />
+        {quantity && (
+          <Badge
+            status="warning"
+            value={quantity}
+            containerStyle={styles.containerStyle}
+            textProps={{allowFontScaling: false}}
+          />
+        )}
         <Animated.Image
           source={icons.cart}
           style={{...styles.iconcard, tintColor: colorimg}}

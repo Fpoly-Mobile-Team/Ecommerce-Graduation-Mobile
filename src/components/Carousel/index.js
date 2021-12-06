@@ -2,7 +2,7 @@
 import {Block, LazyImage} from '@components';
 import {getSize} from '@utils/responsive';
 import React from 'react';
-import {Image, Platform} from 'react-native';
+import {Platform} from 'react-native';
 import {SwiperFlatList} from 'react-native-swiper-flatlist';
 import styles from './styles';
 
@@ -19,7 +19,7 @@ const Carousel = ({data, shop}) => {
     );
   }, []);
 
-  const keyExtractor = React.useCallback((item, index) => item._id, []);
+  const keyExtractor = React.useCallback((item, index) => index, []);
 
   const memoizedValue = React.useMemo(() => _renderItem, [data]);
 

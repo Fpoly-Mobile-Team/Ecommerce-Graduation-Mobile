@@ -54,18 +54,6 @@ const ProductStore = ({route}) => {
       }
     }
   }, [id, dispatch, focus, user]);
-  useEffect(() => {
-    if (id) {
-      if (focus) {
-        dispatch({
-          type: actions.GET_PRODUCT_DETAILS_BY_SHOP,
-          params: {
-            shopId: id,
-          },
-        });
-      }
-    }
-  }, [id, dispatch, focus]);
 
   const _renderBanner = () => {
     return (
@@ -94,7 +82,7 @@ const ProductStore = ({route}) => {
           color={theme.colors.black}>
           Mã giảm giá
         </Text>
-        {shopVoucher?.length !== 0 ? (
+        {shopVoucher?.length != 0 ? (
           <Pressable
             style={styles.wrapperTextVoucher}
             onPress={() =>
@@ -107,7 +95,11 @@ const ProductStore = ({route}) => {
               Xem thêm
             </Text>
             <Block alignCenter justifyCenter paddingLeft={4} paddingTop={4}>
-              <IconForward color={config?.backgroundcolor} />
+              <IconForward
+                width={15}
+                height={15}
+                color={config?.backgroundcolor}
+              />
             </Block>
           </Pressable>
         ) : null}
@@ -152,7 +144,7 @@ const ProductStore = ({route}) => {
           width={width}
           style={{zIndex: getSize.s(99)}}
           paddingHorizontal={12}>
-          <SearchShop />
+          <SearchShop idShop={id} />
           <InforShop data={shop} />
           <_renderBanner />
         </Block>

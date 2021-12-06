@@ -92,6 +92,10 @@ const RootStack = () => {
             name={routes.PRODUCT_STORE}
             component={common.PRODUCT_STORE}
           />
+          <Stack.Screen
+            name={routes.SEARCH_PRODUCT_SHOP}
+            component={common.SEARCH_PRODUCT_SHOP}
+          />
           <Stack.Screen name={routes.ALL_STORE} component={common.ALL_STORE} />
           <Stack.Screen
             name={routes.STORE_INFORMATION}
@@ -180,6 +184,18 @@ const RootStack = () => {
           <Stack.Screen
             name={routes.DETAILED_NOTICE}
             component={bottom.DETAILED_NOTICE}
+          />
+          <Stack.Screen
+            name={routes.START_SELLING}
+            component={bottom.START_SELLING}
+          />
+          <Stack.Screen
+            name={routes.SALE_INFORMATION_SETTINGS}
+            component={bottom.SALE_INFORMATION_SETTINGS}
+          />
+          <Stack.Screen
+            name={routes.ADDRESSING}
+            component={bottom.ADDRESSING}
           />
         </Stack.Navigator>
       )}

@@ -22,7 +22,6 @@ const ProductDetails = ({route, navigation}) => {
   const {_id} = route.params;
   const data = useSelector(state => state.productDetails?.data);
   const user = useSelector(state => state.tokenUser?.data);
-  console.log('kakakaka----', data);
   const isLoadingDetails = useSelector(
     state => state.productDetails?.isLoading,
   );
@@ -43,6 +42,8 @@ const ProductDetails = ({route, navigation}) => {
     isLoadingShop ||
     isLoadingproductShop ||
     isLoadingproductCategory;
+
+  const parseRating = Number(data?.avgProductRating).toFixed(1) || 0;
 
   useEffect(() => {
     dispatch({
@@ -145,8 +146,9 @@ const ProductDetails = ({route, navigation}) => {
               marginTop={10}
               backgroundColor={theme.colors.smoke}
             />
+
             <ProductReviews
-              parseRating={data?.avgProductRating}
+              parseRating={parseRating}
               _id={_id}
               onPress={() =>
                 navigation.navigate(routes.PRODUCT_REVIEWS, {_id: _id})
@@ -159,7 +161,15 @@ const ProductDetails = ({route, navigation}) => {
             />
             <ProductRelated productCategory={productCategory} />
           </Animated.ScrollView>
-          <ChooseTypeProduct />
+          <ChooseTypeProduct
+            option={data?.options}
+            image={data?.images[0]}
+            productStock={data?.productStock}
+            price={
+              data?.sellOff === 0 ? data?.price : data?.price * data?.sellOff
+            }
+            item={data}
+          />
         </>
       )}
     </Block>

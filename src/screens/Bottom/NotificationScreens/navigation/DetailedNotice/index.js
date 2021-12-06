@@ -11,13 +11,15 @@ const DetailedNotice = ({route}) => {
   const coloring = `${config?.backgroundcolor}60`;
   const photos = 'https://i.imgur.com/SfUNX8R.png';
   const {item: receive} = route.params;
+  const title =
+    '#' + receive._id?.substring(0, 6)?.toUpperCase() + ' - ' + receive.title;
 
   const _renderMainPhoto = () => {
     return (
       <Block>
         <Block
           backgroundColor={coloring}
-          height={height / (4.4 / 2)}
+          height={height / (6.4 / 2)}
           alignCenter
           justifyCenter>
           <Block
@@ -33,11 +35,12 @@ const DetailedNotice = ({route}) => {
       </Block>
     );
   };
+
   const _renderDetailed = () => {
     return (
       <Block paddingHorizontal={12} marginVertical={18}>
         <Text fontType="bold" size={16}>
-          {receive?.title}
+          {title}
         </Text>
         <Text fontType="medium" justify size={13}>
           {receive?.content}

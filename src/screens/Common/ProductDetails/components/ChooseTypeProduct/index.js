@@ -1,15 +1,39 @@
 import {icons} from '@assets';
 import {Block, Button} from '@components';
-import {theme} from '@theme';
-import {width} from '@utils/responsive';
-import React from 'react';
-import {Image, Pressable} from 'react-native';
-import styles from './styles';
 import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
+import {theme} from '@theme';
+import {width} from '@utils/responsive';
+import React, {useState} from 'react';
+import {Image, Pressable} from 'react-native';
+import {useSelector} from 'react-redux';
+import ModalChooseType from '../ModalChooseType';
+import styles from './styles';
 
-const ChooseTypeProduct = () => {
+const ChooseTypeProduct = ({option, image, productStock, price, item}) => {
+  const user = useSelector(state => state.tokenUser?.data);
+  const [isVisible, setIsVisible] = useState(false);
+  const [title, setTitle] = useState('');
   const navigation = useNavigation();
+
+  const onPressBuy = () => {
+    if (user) {
+      setIsVisible(true);
+      setTitle('MUA HÀNG');
+    } else {
+      navigation.navigate(routes.AUTHFORSCREEN);
+    }
+  };
+
+  const onPressAddCart = () => {
+    if (user) {
+      setIsVisible(true);
+      setTitle('THÊM VÀO GIỎ HÀNG');
+    } else {
+      navigation.navigate(routes.AUTHFORSCREEN);
+    }
+  };
+
   const ActionsButton = () => (
     <Pressable onPress={() => navigation.navigate(routes.CHATBOX)}>
       <Block
@@ -41,12 +65,11 @@ const ChooseTypeProduct = () => {
         <Block row alignCenter>
           <ActionsButton />
           <Button
+            onPress={onPressAddCart}
             height={45}
             style={{
               ...styles.btn,
-              width: (width - 24) * 0.5,
-              backgroundColor: theme.colors.smoke,
-              marginRight: 8,
+              ...styles.button,
             }}
             title="Thêm vào giỏ hàng"
             titleStyle={{color: '#3f4b53'}}
@@ -54,9 +77,24 @@ const ChooseTypeProduct = () => {
         </Block>
 
         <Block flex>
-          <Button height={45} style={styles.btn} title="Mua ngay" />
+          <Button
+            height={45}
+            style={styles.btn}
+            title="Mua ngay"
+            onPress={onPressBuy}
+          />
         </Block>
       </Block>
+      <ModalChooseType
+        isVisible={isVisible}
+        setIsVisible={setIsVisible}
+        image={image}
+        productStock={productStock}
+        price={price}
+        options={option}
+        title={title}
+        item={item}
+      />
     </Block>
   );
 };

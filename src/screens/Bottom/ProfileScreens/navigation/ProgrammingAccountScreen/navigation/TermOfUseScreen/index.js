@@ -16,16 +16,12 @@ const TermOfUseScreen = () => {
 
   return (
     <Block flex backgroundColor="white">
-      <Header
-        canGoBack
-        checkBackground
-        title={data ? data[0]?.title : 'Điều khoản sử dụng'}
-      />
+      <Header canGoBack checkBackground title={data && data[0]?.title}/>
       {isLoading ? (
         <UIActivityIndicator size={getSize.s(20)} color={theme.colors.pink} />
       ) : (
         <>
-          {data && data.length && (
+          {data && data?.length && (
             <WebView data={data[0]?.rule} style={styles.container} />
           )}
         </>
