@@ -5,7 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import {Currency} from '@utils/helper';
 import {width} from '@utils/responsive';
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {Image, Pressable} from 'react-native';
 import styles from './styles';
 
@@ -20,29 +20,25 @@ const ItemProductCart = ({
   const navigation = useNavigation();
   const [valueall, setValueAll] = useState(false);
   const [datatotalPrice, setDataTotalPrice] = dataselected;
-
   const [valueitem, setValueItem] = useState(false);
+  const chkboxRef = useRef();
+  const chkboxAllRef = useRef();
 
-  const priceAll = data
-    ? data.reduce(
-        (accumulator, currentValue) =>
-          accumulator + currentValue.product.sellOff === 0
-            ? currentValue.product.price * currentValue.quantity
-            : currentValue.product.price *
-              currentValue.quantity *
-              currentValue.product.sellOff,
-
-        0,
-      )
-    : '0';
+  const priceAll = () => {
+    let sum = 0;
+    data.forEach((p) => {
+      sum += p.price * p.quantity * (1-p.product.sellOff)
+    });
+    return sum;
+  }
 
   const _onPress = value => {};
 
   const _renderItem = (item, index) => {
     const pricePromo =
       item.product?.sellOff === 0
-        ? 0
-        : item.product?.price * item.product?.sellOff;
+        ? item.product.price
+        : item.product?.price * (1-item.product?.sellOff);
     return (
       <Pressable
         key={index}
@@ -51,7 +47,7 @@ const ItemProductCart = ({
         }>
         <Block row paddingHorizontal={16} marginBottom={16} space="between">
           <Block row width="36%">
-            <CheckBox width={20} setValue={setValueItem} value={valueitem} />
+            <CheckBox ref={chkboxRef} width={20}/>
 
             <Image
               source={{uri: item?.product?.images[0]}}
@@ -63,21 +59,21 @@ const ItemProductCart = ({
               <Block row space="between">
                 <Block>
                   <Text numberOfLines={2} marginBottom={5}>
-                    {item.product.name}
+                    {item.product?.name}
                   </Text>
-                  {item?.option?.color && (
+                  {item?.color && (
                     <Block row alignCenter marginBottom={5}>
                       <Text size={12} color="gray">
                         Color:{' '}
                         <Text size={12} fontType="bold">
-                          {item.option.color}
+                          {item.color}
                         </Text>
                       </Text>
                     </Block>
                   )}
 
                   <Block row alignCenter>
-                    {pricePromo ? (
+                    {pricePromo !== item.product.price ? (
                       <Text
                         marginHorizontal={6}
                         size={13}
@@ -119,10 +115,14 @@ const ItemProductCart = ({
           marginBottom={2}
           backgroundColor={theme.colors.white}>
           <CheckBox
+            ref={chkboxAllRef}
             width={20}
-            value={valueall}
-            setValue={setValueAll}
-            onPress={() => _onPress(id)}
+            // value={valueall}
+            // setValue={setValueAll}
+            onPress={() => {
+              console.log(chkboxRef.current);
+              chkboxRef.current?.setNativeProps({ style: [{backgroundColor: "green"}] });
+            }}
           />
           <Text>{'jaja'}</Text>
         </Block>
@@ -139,7 +139,7 @@ const ItemProductCart = ({
               color={theme.colors.lightGray}>
               Tổng cộng:{' '}
               <Text size={16} fontType="bold" color={theme.colors.pink}>
-                {Currency(priceAll)}
+                {Currency(priceAll())}
               </Text>
             </Text>
           </Block>
@@ -176,14 +176,13 @@ const _renderButton = ({title, onPress}) => {
   );
 };
 
-const CheckBox = ({width, value, setValue}) => {
+const CheckBox = ({ref, width, value = false, onPress}) => {
   return (
     <Pressable
-      onPress={() => {
-        setValue(value => !value);
-      }}>
+      onPress={onPress}>
       <Block row alignCenter marginRight={5}>
         <Block
+          ref={ref}
           alignCenter
           justifyCenter
           radius={5}
@@ -191,7 +190,7 @@ const CheckBox = ({width, value, setValue}) => {
           width={width}
           backgroundColor={value ? 'green' : 'white'}
           borderWidth={1}
-          borderColor={theme.colors.placeholder}>
+          borderColor="black">
           <Image style={styles.icon(width)} source={icons.check_blank} />
         </Block>
       </Block>

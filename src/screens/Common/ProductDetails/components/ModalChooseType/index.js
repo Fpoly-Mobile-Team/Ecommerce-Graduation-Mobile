@@ -3,7 +3,7 @@ import {Block, Button, ModalBox, Text} from '@components';
 import {theme} from '@theme';
 import {getSize, width} from '@utils/responsive';
 import React, {useState} from 'react';
-import {Image, Pressable} from 'react-native';
+import {Image, Pressable, View} from 'react-native';
 import {Currency} from '@utils/helper';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
@@ -48,144 +48,83 @@ const ModalChooseType = ({
   };
 
   const onPressBuy = () => {
-    if (options.length > 0) {
       if (title === 'MUA HÀNG') {
         const data = [
           {
             product: item,
             quantity,
-            option,
+            option: option || {},
             price: price * quantity,
           },
         ];
         navigation.navigate(routes.PAYMENTSCREEN, {data});
         setIsVisible(false);
       } else {
-        const data = [
-          {
+        const data = {
             _id: item?.shopId,
             productArray: [
               {
                 product: item,
                 quantity,
-                option,
-                price: price * quantity,
+                color: option.color || "",
+                price: item.price,
               },
             ],
-          },
-        ];
+        };
         Storage.getItem('CART').then(value => {
           if (value) {
-            for (let index = 0; index < value.length; index++) {
-              const element = value[index];
-              if (element._id === item?.shopId) {
-                element?.productArray.push({
-                  product: item,
-                  quantity,
-                  option,
-                  price: price * quantity,
-                });
-                Storage.setItem('CART', [...value]);
-              } else {
-                console.log('haha');
-                // Storage.setItem('CART', {...value, data});
-              }
-            }
-          }
-        });
-        Storage.setItem('CART', data);
-        navigation.navigate(routes.CARTSCREENS);
-        setIsVisible(false);
-      }
-    } else {
-      if (title === 'MUA HÀNG') {
-        const data = [
-          {
-            product: item,
-            quantity,
-            option: null,
-            price: price * quantity,
-          },
-        ];
-        navigation.navigate(routes.PAYMENTSCREEN, {data});
-        setIsVisible(false);
-      } else {
-        const data = [
-          {
-            _id: item?.shopId,
-            productArray: [
-              {
-                product: item,
-                quantity,
-                option,
-                price: price * quantity,
-              },
-            ],
-          },
-        ];
-        Storage.getItem('CART').then(value => {
-          if (value) {
-            for (let index = 0; index < value.length; index++) {
-              let element = value[index];
-              if (element._id === item?.shopId) {
-                for (let i = 0; i < element?.productArray.length; i++) {
-                  if (element?.productArray[i]?.product?._id === item?._id) {
-                    element.productArray[i].quantity += quantity;
-
-                    element.productArray[i].price =
-                      element.productArray[i].quantity *
-                      element.productArray[i].product.price;
-
-                    let elements = value;
-                    elements.map(e => {
-                      if (e.shopId === element.shopId) {
-                        return element;
-                      }
-                      return e;
-                    });
-                    Storage.setItem('CART', elements);
-                    break;
-                  }
-                  if (i === element.productArray.length - 1) {
-                    element?.productArray.push({
+            let shopIds = value.map((productGroup) => productGroup._id);
+            if(shopIds.includes(item.shopId)){
+              let groupIndex = shopIds.indexOf(item.shopId);
+              let newProductGroups = value.map((productGroup, index) => {
+                if(groupIndex === index){
+                  let productIds = productGroup.productArray.map((p) => {
+                    return `${p.product._id}${p.color}`
+                  });
+                  console.log(productIds);
+                  console.log(`${item._id}${option.color}`);
+                  if(productIds.includes(`${item._id}${option.color}`)){
+                    return {
+                      ...productGroup,
+                      productArray: productGroup.productArray.map((p, index) => {
+                        if(p.product._id === item._id && p.color === option.color){
+                          return {
+                            ...p,
+                            quantity: p.quantity + quantity,
+                            price: p.price,
+                          }
+                        }
+                        return p;
+                      })
+                    }
+                  }else{
+                    let newArray = productGroup.productArray;
+                    newArray.push({
+                      quantity: quantity,
+                      color: option.color || "",
+                      price: item.price,
                       product: item,
-                      quantity,
-                      option,
-                      price: price * quantity,
                     });
-                    let elements = value;
-                    elements.map(e => {
-                      if (e.shopId === element.shopId) {
-                        return element;
-                      }
-                      return e;
-                    });
-                    Storage.setItem('CART', elements);
-                    console.log('haha');
+                    return {
+                      ...productGroup,
+                      productArray: newArray,
+                    }
                   }
                 }
-              } else {
-                element?.productArray.push({
-                  product: item,
-                  quantity,
-                  option,
-                  price: price * quantity,
-                });
-                Storage.setItem('CART', [...value, element]);
-                console.log('kakak');
-                // Storage.setItem('CART', {...value, data});
-              }
+                return productGroup;
+              });
+              Storage.setItem('CART', newProductGroups);
+            }else{
+              Storage.setItem('CART', [...value, data]);
             }
           } else {
-            Storage.setItem('CART', data);
-            console.log('ahaha');
+            Storage.setItem('CART', [data]);
+            console.log("data2:", data);
           }
         });
-
         navigation.navigate(routes.CARTSCREENS);
         setIsVisible(false);
       }
-    }
   };
 
   const _renderButton = ({title, onPress}) => {
@@ -321,14 +260,14 @@ const ModalChooseType = ({
             onPress={onPressBuy}
           />
         ) : (
-          <>
+          <View>
             <Button
               title={title}
               height={45}
               style={styles.buttonAdd}
-              onPress={onPressBuy}
+              onPress={() => onPressBuy()}
             />
-          </>
+          </View>
         )}
       </Block>
     </ModalBox>
