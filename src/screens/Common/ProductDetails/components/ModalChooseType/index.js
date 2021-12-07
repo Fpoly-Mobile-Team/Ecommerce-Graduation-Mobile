@@ -83,8 +83,6 @@ const ModalChooseType = ({
                 let productIds = productGroup.productArray.map(p => {
                   return `${p.product._id}${p.color}`;
                 });
-                console.log(productIds);
-                console.log(`${item._id}${option.color}`);
                 if (productIds.includes(`${item._id}${option.color}`)) {
                   return {
                     ...productGroup,

@@ -12,7 +12,6 @@ import {
 import styles from './styles';
 
 const Block = ({
-  ref,
   flex,
   flexShrink,
   flexGrow,
@@ -128,7 +127,7 @@ const Block = ({
   ];
 
   return (
-    <View ref={ref} style={blockStyles} {...props}>
+    <View style={blockStyles} {...props}>
       {children}
     </View>
   );
