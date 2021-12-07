@@ -39,30 +39,33 @@ const RightBox = ({title}) => {
   );
 
   const _renderItem = (item, index) => {
-    console.log('AAA', item.product);
     return (
-      <Block
-        key={item._id}
-        radius={5}
-        paddingVertical={10}
-        paddingHorizontal={6}
-        marginVertical={10}
-        backgroundColor={theme.colors.white}>
-        <Pressable>
-          <Block row alignCenter space="between">
-            <Text size={13} numberOfLines={2} fontType="semibold">
-              {item.name}
-            </Text>
-            <Text size={11} color={theme.colors.pink}>
-              Xem tất cả
-            </Text>
-          </Block>
-        </Pressable>
+      <>
+        {item.productInfos?.length > 0 && (
+          <Block
+            key={item._id}
+            radius={5}
+            paddingVertical={10}
+            paddingHorizontal={6}
+            marginVertical={10}
+            backgroundColor={theme.colors.white}>
+            <Pressable>
+              <Block row alignCenter space="between">
+                <Text size={13} numberOfLines={2} fontType="semibold">
+                  {item.name}
+                </Text>
+                <Text size={11} color={theme.colors.pink}>
+                  Xem tất cả
+                </Text>
+              </Block>
+            </Pressable>
 
-        <Block row wrap paddingTop={10}>
-          {item.product?.map(renderItem)}
-        </Block>
-      </Block>
+            <Block row wrap paddingTop={10}>
+              {item.productInfos?.map(renderItem)}
+            </Block>
+          </Block>
+        )}
+      </>
     );
   };
 
@@ -90,7 +93,7 @@ const RightBox = ({title}) => {
         </Block>
         <Block flex>
           {!isLoading && data?.length ? (
-            <>{data?.map(_renderItem)}</>
+            <>{data[0]?.subCategories?.map(_renderItem)}</>
           ) : (
             <Block flex alignCenter justifyCenter height={height - 300}>
               <UIActivityIndicator
