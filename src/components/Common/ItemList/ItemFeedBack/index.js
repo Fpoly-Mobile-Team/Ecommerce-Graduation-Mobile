@@ -1,18 +1,46 @@
-import {images} from '@assets';
 import {Block, Text} from '@components';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
-import React from 'react';
-import {Image} from 'react-native';
+import React, {useState, useEffect, Fragment} from 'react';
+import {Image, Pressable, Modal} from 'react-native';
 import {Rating} from 'react-native-elements';
+import ImageViewer from 'react-native-image-zoom-viewer';
 import styles from './styles';
 
-const ItemFeedBack = () => {
+const ItemFeedBack = ({name, avatar, star, description, time, image}) => {
+  const [ImageViwerIsVisible, showImageViwer] = useState(false);
+  let [viewingIndex, setViewingIndex] = useState(-1);
+  useEffect(() => {
+    viewingIndex !== -1 && showImageViwer(true);
+  }, [viewingIndex]);
+  useEffect(() => {
+    !ImageViwerIsVisible && setViewingIndex(-1);
+  }, [ImageViwerIsVisible]);
+
+  const renderImage = (item, index) => {
+    return (
+      <Pressable
+        style={styles.wrapper}
+        key={item}
+        onPress={() => setViewingIndex(index)}>
+        <Image
+          key={index}
+          source={{uri: item}}
+          style={{
+            ...styles.imglogo,
+            marginBottom: getSize.m(5),
+            marginRight: getSize.m(5),
+          }}
+        />
+      </Pressable>
+    );
+  };
+
   return (
-    <Block marginBottom={10}>
+    <Block marginBottom={24}>
       <Block row space="between">
         <Image
-          source={images.thumnail}
+          source={{uri: avatar}}
           style={{
             width: getSize.s(40),
             height: getSize.s(40),
@@ -21,45 +49,40 @@ const ItemFeedBack = () => {
         />
         <Block flex paddingLeft={10}>
           <Block row space="between">
-            <Text fontType="medium">Tran Dinh Huy</Text>
-            <Text fontType="light" size={12} color={theme.colors.lightGray}>
-              18/03/2021
+            <Text fontType="semibold">{name}</Text>
+            <Text size={12} color={theme.colors.lightGray} fontType="medium">
+              {time}
             </Text>
           </Block>
           <Block row>
             <Rating
               imageSize={getSize.s(12)}
               readonly
-              startingValue={4}
+              startingValue={star}
               style={styles.ratings}
             />
           </Block>
-          <Text marginTop={5}>
-            I bought this product two weeks ago. I really really like it so
-            elegant.
+          <Text size={13} marginVertical={5} justify>
+            {description}
           </Text>
-          <Block flex wrap row marginTop={5}>
-            {[1, 2, 3, 4, 5, 6].map(renderImage)}
-          </Block>
+          <Fragment>
+            {!!ImageViwerIsVisible && (
+              <Modal
+                transparent={true}
+                onRequestClose={() => showImageViwer(false)}>
+                <ImageViewer
+                  imageUrls={image.map(f => ({url: f}))}
+                  index={viewingIndex}
+                />
+              </Modal>
+            )}
+            <Block flex wrap row>
+              {image?.map(renderImage)}
+            </Block>
+          </Fragment>
         </Block>
       </Block>
     </Block>
-  );
-};
-
-const renderImage = (item, index) => {
-  return (
-    <Image
-      key={index}
-      source={{
-        uri: 'https://cf.shopee.vn/file/28df06dd18d91071109d73cfdf08af18',
-      }}
-      style={{
-        ...styles.imglogo,
-        marginBottom: getSize.m(5),
-        marginLeft: getSize.m(3),
-      }}
-    />
   );
 };
 

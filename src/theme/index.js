@@ -2,7 +2,7 @@ export const theme = {
   colors: {
     text: '#242424',
     background: '#f9f9f9',
-    orange: '#FE930F',
+    orange: '#F46F2F',
     lightGray: '#A5A5A5',
     gray: '#424242',
     smoke: '#E6E6E6',
@@ -29,8 +29,11 @@ export const theme = {
     switchOff: '#f3adad',
     bgSwitch: '#f3f3f3',
     blueShop: '#3B5998',
-    primaryColor: '#08978E',
+    primaryColor: '#FFB740',
     paleGreen: '#08978E',
+    textSecond: '#223263',
+    border: '#EBF0FF',
+    holder: '#848181',
   },
 
   fonts: {

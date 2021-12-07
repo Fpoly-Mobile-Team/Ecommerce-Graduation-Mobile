@@ -131,9 +131,9 @@ const Security = () => {
 
   return (
     <Block flex backgroundColor="background">
+      <StatusBar barStyle="dark-content" translucent animated />
+      <Header canGoBack checkBackground title="Bảo mật" />
       <FormContainer>
-        <StatusBar barStyle="dark-content" translucent animated />
-        <Header canGoBack checkBackground title="Bảo mật" />
         <Block marginTop={20} paddingBottom={16} paddingHorizontal={12}>
           <Text size={16} fontType="semibold">
             Thông tin người dùng

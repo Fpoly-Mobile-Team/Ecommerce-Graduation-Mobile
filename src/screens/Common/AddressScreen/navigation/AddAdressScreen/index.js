@@ -80,9 +80,7 @@ const AddAddressScreen = ({route}) => {
             containerInputStyle={styles.containerInputStyle}
             labelStyle={styles.label}
             inputStyle={styles.inputStyle}
-            keyboardType="email-address"
             placeholder="Nhập họ và tên"
-            onChangeText={() => {}}
           />
           <FormInput
             name="phone"
@@ -93,7 +91,6 @@ const AddAddressScreen = ({route}) => {
             inputStyle={styles.inputStyle}
             keyboardType="phone-pad"
             placeholder="Nhập số điện thoại"
-            onChangeText={() => {}}
           />
           <Pressable onPress={onPress}>
             <TextInput
@@ -138,7 +135,6 @@ const AddAddressScreen = ({route}) => {
             labelStyle={styles.label}
             inputStyle={styles.inputStyle}
             placeholder="Tên đường, Toà nhà, Số nhà."
-            onChangeText={() => {}}
           />
         </Block>
         <Block paddingHorizontal={12}>

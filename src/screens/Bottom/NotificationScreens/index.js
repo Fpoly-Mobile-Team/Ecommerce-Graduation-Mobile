@@ -1,50 +1,23 @@
-import {lottie} from '@assets';
-import {Block, Empty, Header} from '@components';
-import ItemNotification from '@components/Common/ItemList/ItemNotification';
-import {routes} from '@navigation/routes';
-import {useNavigation} from '@react-navigation/core';
+import {Block, Header} from '@components';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {bottom} from '@screens/Bottom';
 import {theme} from '@theme';
 import React from 'react';
-import {FlatList} from 'react-native';
-import {useSelector} from 'react-redux';
-import {data} from './components/data';
+import Customing from './components/Customing';
 
 const NotificationScreens = () => {
-  const navigation = useNavigation();
-  const user = useSelector(state => state.tokenUser?.data);
-  const onPress = () => {
-    navigation.navigate(routes.AUTHFORSCREEN);
-  };
-  const renderItem = ({item}) => (
-    <ItemNotification
-      image={item.Image}
-      title={item.title}
-      content={item.content}
-      ingredients={item.ingredients}
-      time={item.time}
-    />
-  );
+  const Tab = createMaterialTopTabNavigator();
 
   return (
     <Block flex backgroundColor={theme.colors.white}>
       <Header title="Thông báo" />
-      {user ? (
-        <FlatList
-          data={data}
-          renderItem={renderItem}
-          keyExtractor={item => item.id.toString()}
-          showsVerticalScrollIndicator={false}
-        />
-      ) : (
-        <Empty
-          lottie={lottie.emptyNotification}
-          content="Vui lòng đăng nhập để nhận thông báo!"
-          contentMore="Đăng nhập ngay"
-          onPress={onPress}
-          // onPress={() => navigation.navigate(routes.PROFILESCREENS)}
-          // onPress={() => console.log('ádasdasdasd')}
-        />
-      )}
+      <Tab.Navigator
+        lazy={true}
+        optimizationsEnabled={true}
+        tabBar={props => <Customing {...props} />}>
+        <Tab.Screen name="Hệ thống" component={bottom.SYSTEM_NOTIFICATIONS} />
+        <Tab.Screen name="Đơn hàng" component={bottom.PURCHASE_NOTICE} />
+      </Tab.Navigator>
     </Block>
   );
 };

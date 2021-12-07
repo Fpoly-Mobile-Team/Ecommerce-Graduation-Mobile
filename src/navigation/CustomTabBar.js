@@ -2,15 +2,23 @@ import {icons} from '@assets';
 import {Block, Text} from '@components';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Image, Platform, Pressable, StyleSheet} from 'react-native';
 import {Badge} from 'react-native-elements';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import actions from '@redux/actions';
 
 const CustomTabBar = ({state, descriptors, navigation}) => {
   const {bottom} = useSafeAreaInsets();
   const config = useSelector(state => state.config?.data);
+  const notifications = useSelector(state => state.notifications?.data);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({type: actions.GET_NOTIFICATIONS});
+  }, [dispatch]);
 
   return (
     <Block
@@ -82,7 +90,7 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
                 containerStyle={styles.containerStyle}
                 badgeStyle={styles.badgeStyle}
                 textProps={{allowFontScaling: false}}
-                value="1"
+                value={notifications?.length}
               />
             )}
             <Image

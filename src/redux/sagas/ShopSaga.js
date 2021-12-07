@@ -5,11 +5,11 @@ import Actions, {_onFail, _onSuccess} from '../actions';
 
 function* getListShop(actions) {
   try {
-    const res = yield API.get('shopUser', actions.params);
+    const res = yield API.get('shopUser/getShopUserInfos', actions.params);
 
     yield put({
       type: _onSuccess(Actions.GET_SHOP_USERS),
-      data: res.data,
+      data: res.shopInfos,
     });
   } catch (error) {
     yield put({type: _onFail(Actions.GET_SHOP_USERS)});
@@ -28,7 +28,23 @@ function* getShop(actions) {
   }
 }
 
+function* averageRating(actions) {
+  const body = queryString.stringify(actions.body);
+
+  try {
+    const res = yield API.post('shopUser/getShopUserInfoById', body);
+
+    yield put({
+      type: _onSuccess(Actions.GET_AVERAGE_RATING_PRODUCT),
+      data: res.shopInfos,
+    });
+  } catch (error) {
+    yield put({type: _onFail(Actions.GET_AVERAGE_RATING_PRODUCT)});
+  }
+}
+
 export function* watchShopSagas() {
   yield takeLatest(Actions.GET_SHOP_USERS, getListShop);
   yield takeLatest(Actions.GET_SHOP_USERS_BY_ID, getShop);
+  yield takeLatest(Actions.GET_AVERAGE_RATING_PRODUCT, averageRating);
 }

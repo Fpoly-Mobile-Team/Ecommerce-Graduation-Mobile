@@ -14,7 +14,6 @@ export default StyleSheet.create({
     fontSize: getSize.s(14),
     marginHorizontal: 5,
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
     height: getSize.s(40),
     color: theme.colors.white,

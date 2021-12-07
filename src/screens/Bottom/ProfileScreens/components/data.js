@@ -9,15 +9,9 @@ export const DATA = [
   },
   {
     id: '2',
-    image: icons.vouncher,
-    title: 'Vouncher của tôi',
-    navigation: null,
-  },
-  {
-    id: '3',
-    image: icons.shopping,
-    title: 'Mua sau',
-    navigation: null,
+    image: icons.start_selling,
+    title: 'Bắt đầu bán',
+    navigation: routes.START_SELLING,
   },
   {
     id: '4',
@@ -27,18 +21,24 @@ export const DATA = [
   },
   {
     id: '5',
+    image: icons.vouncher,
+    title: 'Voucher của tôi',
+    navigation: routes.MY_VOUCHERS,
+  },
+  {
+    id: '6',
     image: icons.eyesview,
     title: 'Đã xem gần đây',
     navigation: routes.VIEW_PRODUCTS,
   },
   {
-    id: '6',
+    id: '7',
     image: icons.feedback,
     title: 'Đánh giá',
-    navigation: null,
+    navigation: routes.MY_RATING,
   },
   {
-    id: '7',
+    id: '8',
     image: icons.accountprofile,
     title: 'Thiết lập tài khoản',
     navigation: routes.PROGRAMMING_ACCOUNT_SCREEN,

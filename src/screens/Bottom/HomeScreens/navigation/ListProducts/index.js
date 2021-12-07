@@ -71,8 +71,10 @@ const ListProducts = ({route}) => {
         ) {
           return (
             <ItemSaleProducts
+              review={item.reviews}
               images={item.images[0]}
               nameProduct={item.name}
+              _id={item._id}
               left={-0.75}
               price={item.price}
               productSold={item.productSold}
@@ -89,7 +91,9 @@ const ListProducts = ({route}) => {
       return (
         <ItemProduct
           key={index}
+          review={item.reviews}
           style={styles.style_item(index)}
+          _id={item._id}
           images={item.images[0]}
           nameProduct={item.name}
           price={item.price}

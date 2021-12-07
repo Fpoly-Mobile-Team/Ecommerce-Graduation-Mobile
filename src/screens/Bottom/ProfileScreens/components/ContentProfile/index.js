@@ -12,7 +12,7 @@ import styles from './styles';
 
 const ContentProfile = () => {
   return (
-    <Block wrap marginTop={10}>
+    <Block wrap marginTop={0}>
       {DATA.map(ActionsButton)}
     </Block>
   );

@@ -8,7 +8,6 @@ export default StyleSheet.create({
     height: getSize.v(40),
     borderRadius: getSize.s(40 / 2),
   },
-
   scrReview: {
     flexDirection: 'row',
     flex: 1,
@@ -19,5 +18,18 @@ export default StyleSheet.create({
     width: getSize.s(104),
     height: getSize.v(104),
     borderRadius: getSize.s(4),
+    marginBottom: getSize.m(16),
+    marginTop: getSize.m(12),
+  },
+  imgRound: {
+    width: getSize.s(96),
+    height: getSize.v(104),
+    borderRadius: getSize.s(4),
+    marginBottom: getSize.m(16),
+    marginTop: getSize.m(12),
+  },
+  buttonStyle: {
+    width: getSize.s(44 / 2),
+    height: getSize.v(44 / 2),
   },
 });

@@ -1,45 +1,45 @@
 import {icons} from '@assets';
-import {Block, Header, Text} from '@components';
+import {Block, Dialoading, Header, Text} from '@components';
 import ItemPromoScreen from '@components/Common/ItemList/ItemPromoScreen';
-import {useNavigation} from '@react-navigation/core';
 import {theme} from '@theme';
 import {Toast} from '@utils/helper';
-import React, {useEffect} from 'react';
+import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import moment from 'moment';
 import actions from '@redux/actions';
-import {FlatList} from 'react-native-gesture-handler';
 import OptionsMenu from 'react-native-option-menu';
-import {SelectCircle} from '../../../../../assets/svg/common';
-import {data} from './components/data';
+import {SelectCircle} from '@assets/svg/common';
 import styles from './styles';
+import {FlatList} from 'react-native';
 
 const PromoScreen = ({route}) => {
-  const navigation = useNavigation();
-  const editPost = () => {
-    Toast('Edit Post');
+  const expiry = () => {
+    Toast('Hạn sử dụng mã giảm giá');
   };
-  const deletePost = () => {
-    Toast('Delete Post');
+  const allPromotion = () => {
+    Toast('Tất cả mã giảm giá');
   };
-  const dispatch = useDispatch();
-  const shopVoucher = useSelector(state => state.shopVoucher?.data);
 
   const {id, shopName} = route.params || {};
+  const [modalVisible, setModalVisible] = useState(false);
+  const dispatch = useDispatch();
+  const shopVoucher = useSelector(state => state.shopVoucher?.data);
+  const user = useSelector(state => state.tokenUser?.data);
+  const isLoading = useSelector(state => state.addmyVoucher?.isLoading);
 
-  useEffect(() => {
-    if (id) {
-      dispatch({
-        type: actions.GET_SHOP_VOUCHERS,
-        params: {
-          shopId: id,
-        },
-      });
-    }
-  }, [id, dispatch]);
+  const addVoucher = _id => {
+    dispatch({
+      type: actions.ADD_MY_VOUCHER,
+      body: {
+        user,
+        idVoucher: _id,
+      },
+      shopId: id,
+    });
+  };
 
   const renderItem = ({item, index}) => {
-    const isCheck = index === data.length - 1;
+    const isCheck = index === shopVoucher?.length - 1;
     return (
       <ItemPromoScreen
         name={shopName}
@@ -48,6 +48,9 @@ const PromoScreen = ({route}) => {
         image={item.image}
         index={index}
         isCheck={isCheck}
+        check={shopVoucher}
+        addVoucher={() => addVoucher(item._id)}
+        save={item.save}
       />
     );
   };
@@ -55,6 +58,14 @@ const PromoScreen = ({route}) => {
   return (
     <Block flex backgroundColor="#E9EAEB">
       <Header checkBackground canGoBack title="Mã khuyến mãi" />
+      <Block>
+        {isLoading && (
+          <Dialoading
+            Modaling={[modalVisible, setModalVisible]}
+            title="Chờ trong giây lát..."
+          />
+        )}
+      </Block>
       <Block
         paddingHorizontal={12}
         paddingVertical={12}
@@ -77,8 +88,8 @@ const PromoScreen = ({route}) => {
             button={icons.caret_down}
             buttonStyle={styles.buttonStyle}
             destructiveIndex={1}
-            options={['Hạn sử dụng', 'Tất cả']}
-            actions={[editPost, deletePost]}
+            options={['Tất cả', 'Hạn sử dụng', 'Hủy thao tác']}
+            actions={[allPromotion, expiry]}
           />
         </Block>
       </Block>

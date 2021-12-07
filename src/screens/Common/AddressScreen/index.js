@@ -35,7 +35,7 @@ const AddressScreen = () => {
         <FlatList
           data={userInfo?.address}
           renderItem={renderItem}
-          keyExtractor={item => item._id.toString()}
+          keyExtractor={(item, index) => String(item._id)}
           showsVerticalScrollIndicator={false}
         />
       ) : (

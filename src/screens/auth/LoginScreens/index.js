@@ -13,7 +13,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import LoginForm from './components/LoginForm';
 import {validation} from './components/LoginForm/validation';
 import SocialLogin from './components/SocialLogin';
-
 import styles from './styles';
 
 const INITIAL_VALUES = {
@@ -78,7 +77,7 @@ const Login = ({callBack}) => {
       </Block>
       <Block alignCenter justifyCenter>
         <Block marginTop={20}>
-          <Text color={theme.colors.black}>Hoặc Đăng nhập với </Text>
+          <Text color={theme.colors.black}>Hoặc Đăng nhập với</Text>
         </Block>
         <SocialLogin />
         <Block row marginTop={30} alignCenter justifyCenter>

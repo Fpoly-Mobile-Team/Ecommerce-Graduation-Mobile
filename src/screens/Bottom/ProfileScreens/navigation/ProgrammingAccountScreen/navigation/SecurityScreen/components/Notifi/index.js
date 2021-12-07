@@ -10,7 +10,7 @@ const Notifi = ({}) => {
   const [isSwitchEnabled, setSwitch] = useState(false);
 
   const thumbColorOn =
-    Platform.OS === 'android' ? config?.backgroundcolor : theme.colors.bgSwitch;
+    Platform.OS === 'android' ? theme.colors.bgSwitch : theme.colors.bgSwitch;
   const thumbColorOff =
     Platform.OS === 'android' ? theme.colors.bgSwitch : theme.colors.bgSwitch;
   const trackColorOn = config?.backgroundcolor;

@@ -18,6 +18,15 @@ import FavoriteScreen from './ProfileScreens/navigation/FavoriteScreen';
 import ViewedProductScreen from './ProfileScreens/navigation/ViewedProductScreen';
 import ChooseProvince from './HomeScreens/navigation/ListProducts/navigation/ChooseProvince';
 import ChooseCategory from './HomeScreens/navigation/ListProducts/navigation/ChooseCategory';
+import MyRating from './ProfileScreens/navigation/MyRating';
+import MyVouchers from './ProfileScreens/navigation/MyVouchers';
+import DetailedNotice from './NotificationScreens/navigation/DetailedNotice';
+import SalesInformationSettings from './ProfileScreens/navigation/StartSelling/navigation/SalesInformationSettings';
+import StartSelling from './ProfileScreens/navigation/StartSelling';
+import Addressing from './ProfileScreens/navigation/StartSelling/navigation/Addressing';
+import SystemNotifications from './NotificationScreens/components/TopTabScreens/SystemNotifications';
+import PurchaseNotice from './NotificationScreens/components/TopTabScreens/PurchaseNotice';
+
 export const bottom = {
   HOMESCREENS: HomeScreens,
   CATEGORYSCREENS: CategoryScreens,
@@ -39,4 +48,12 @@ export const bottom = {
   VIEW_PRODUCTS: ViewedProductScreen,
   CHOOSE_PROVICE: ChooseProvince,
   CHOOSE_CATEGORY: ChooseCategory,
+  MY_RATING: MyRating,
+  MY_VOUCHERS: MyVouchers,
+  DETAILED_NOTICE: DetailedNotice,
+  START_SELLING: StartSelling,
+  SALE_INFORMATION_SETTINGS: SalesInformationSettings,
+  ADDRESSING: Addressing,
+  SYSTEM_NOTIFICATIONS: SystemNotifications,
+  PURCHASE_NOTICE: PurchaseNotice,
 };

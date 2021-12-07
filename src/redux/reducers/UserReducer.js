@@ -60,6 +60,15 @@ export const loginFb = (...props) => {
 export const loginGg = (...props) => {
   return reducerDefault(...props, Actions.LOGIN_GOOGLE);
 };
+export const myReview = (...props) => {
+  return reducerDefault(...props, Actions.GET_MY_REVIEW);
+};
+export const addmyVoucher = (...props) => {
+  return reducerDefault(...props, Actions.ADD_MY_VOUCHER);
+};
+export const getmyVoucher = (...props) => {
+  return reducerDefault(...props, Actions.GET_MY_VOUCHER);
+};
 
 export const UserReducer = {
   login,
@@ -72,4 +81,7 @@ export const UserReducer = {
   update_password,
   loginFb,
   loginGg,
+  myReview,
+  addmyVoucher,
+  getmyVoucher,
 };

@@ -14,6 +14,8 @@ import ModalBox from './ModalBox';
 import Shimmer from './Shimmer';
 import LazyImage from './LazyImage';
 import LoadMore from './LoadMore';
+import Dialoading from './Dialoading';
+import ItemEvent from './ItemEvent';
 
 export {
   Block,
@@ -32,4 +34,6 @@ export {
   Shimmer,
   LazyImage,
   LoadMore,
+  Dialoading,
+  ItemEvent,
 };

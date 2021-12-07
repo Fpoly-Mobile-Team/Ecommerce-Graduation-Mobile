@@ -1,68 +1,122 @@
+import {lottie} from '@assets';
 import {Plus_Ants} from '@assets/svg/common';
-import {Block, Header, Text} from '@components';
-import {useNavigation} from '@react-navigation/native';
+import {Block, Empty, Header, Text} from '@components';
+import actions from '@redux/actions';
 import {theme} from '@theme';
-import {getSize} from '@utils/responsive';
-import React, {useRef} from 'react';
-import {FlatList, Pressable, ScrollView} from 'react-native';
+import moment from 'moment';
+import React, {useEffect, useRef, useState} from 'react';
+import {Pressable, ScrollView} from 'react-native';
 import RBSheet from 'react-native-raw-bottom-sheet';
+import {useDispatch, useSelector} from 'react-redux';
 import CardReviews from './components/CardReviews';
-import StarRating from './components/StarRating';
 import WritingReviews from './components/WritingReviews';
-import {data} from './data';
 import styles from './styles';
 
-const ProductReviews = () => {
-  const navigation = useNavigation();
+const ProductReviews = ({route}) => {
+  const dispatch = useDispatch();
   const refRBSheet = useRef();
+  const {_id} = route.params;
+  const productReview = useSelector(state => state.productReview?.data);
+  const user = useSelector(state => state.tokenUser?.data);
+  const [check, setCheck] = useState({});
+
+  const noPhoto =
+    'https://t-f20-zpg.zdn.vn/480/31373314168375588/1fd9c43dd0381b664229.jpg';
+
+  let userId;
+  for (let index = 0; index < productReview?.length; index++) {
+    if (productReview[index]?.userId === user) {
+      userId = productReview[index]?.userId;
+    }
+  }
+
+  useEffect(() => {
+    dispatch({
+      type: actions.GET_PRODUCT_REVIEW,
+      productId: _id,
+    });
+  }, [dispatch, _id]);
+
+  const editReview = item => {
+    setCheck(item);
+    refRBSheet.current.open();
+  };
+
+  const deleteReview = id => {
+    dispatch({
+      type: actions.DELETE_PRODUCT_REVIEW,
+      body: {
+        productId: _id,
+        reviewId: id,
+      },
+    });
+  };
 
   const _renderTop = () => {
     return (
-      <Block row space="between" marginTop={24}>
+      <Block row space="between" marginTop={24} marginBottom={18}>
         <Text size={24} fontType="bold">
-          2 đánh giá
+          {productReview?.length + ' đánh giá'}
         </Text>
-        <Pressable
-          onPress={() => refRBSheet.current.open()}
-          style={styles.wrapperEventAddReviews}>
-          <Plus_Ants />
-        </Pressable>
+        {user === userId
+          ? null
+          : user && (
+              <Pressable
+                onPress={() => {
+                  setCheck(0);
+                  refRBSheet.current.open();
+                }}
+                style={styles.wrapperEventAddReviews}>
+                <Plus_Ants />
+              </Pressable>
+            )}
       </Block>
     );
   };
 
-  const _renderCardReviews = ({item}) => {
+  const _renderCardReviews = (item, index) => {
     return (
       <CardReviews
-        name={item.name}
-        avatar={item.avatar}
-        star={item.star}
-        time={item.time}
-        image01={item.image01}
-        image02={item.image02}
-        image03={item.image03}
-        description={item.description}
+        key={item._id}
+        _id={item._id}
+        name={!user ? '••••••' + item?.name?.slice(6) : item?.name}
+        avatar={user ? item.avatar : noPhoto}
+        star={item.rating}
+        time={moment(item.reviewDate).format('DD/MM/YYYY, hh:mm')}
+        image={item.image}
+        description={item.review}
+        onEvent={item.userId === user ? true : false}
+        onEdit={() => editReview(item)}
+        onDelete={() => deleteReview(item._id)}
+      />
+    );
+  };
+
+  const _renderEmpty = () => {
+    return (
+      <Empty
+        lottie={lottie.relax}
+        content="Sản phẩm này chưa có đánh giá"
+        contentMore={user && 'Đánh giá ngay'}
+        onPress={() => {
+          setCheck(0);
+          refRBSheet.current.open();
+        }}
       />
     );
   };
 
   return (
-    <Block flex backgroundColor="#F9F9F9">
+    <Block flex backgroundColor={theme.colors.white}>
       <Header checkBackground canGoBack title="Đánh giá" />
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        style={styles.wrapperScroll}>
-        <_renderTop />
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={data}
-          contentContainerStyle={{
-            paddingTop: getSize.m(24),
-          }}
-          renderItem={_renderCardReviews}
-          keyExtractor={item => item.id.toString()}
-        />
-      </ScrollView>
+      {productReview && productReview?.length ? (
+        <ScrollView style={styles.wrapperScroll}>
+          <_renderTop />
+          {productReview?.map(_renderCardReviews)}
+        </ScrollView>
+      ) : (
+        _renderEmpty()
+      )}
 
       <RBSheet
         ref={refRBSheet}
@@ -75,37 +129,22 @@ const ProductReviews = () => {
             width: 100,
           },
           container: {
-            height: '70%',
+            height: '71%',
             backgroundColor: theme.colors.white,
             borderTopLeftRadius: 20,
             borderTopRightRadius: 20,
           },
         }}>
-        <Block marginBottom={0} marginTop={20}>
-          <Block alignCenter>
-            <Text
-              size={18}
-              fontType="bold"
-              paddingHorizontal={0}
-              center
-              marginBottom={20}>
-              Đánh giá của bạn
-            </Text>
-            <StarRating startingValue={0} imageSize={36} readonly />
-            <Text
-              size={18}
-              fontType="semibold"
-              paddingHorizontal={0}
-              center
-              marginTop={30}>
-              Hãy chia sẻ ý kiến của bạn về sản phẩm
+        <Block marginTop={10}>
+          <Block alignCenter marginBottom={16}>
+            <Text size={18} fontType="bold" center>
+              ĐÁNH GIÁ CỦA BẠN
             </Text>
           </Block>
         </Block>
-        <WritingReviews isClosed={refRBSheet} />
+        <WritingReviews _id={_id} check={check} isClosed={refRBSheet} />
       </RBSheet>
     </Block>
   );
 };
-
 export default ProductReviews;

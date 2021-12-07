@@ -27,6 +27,7 @@ const FlashSale = ({data}) => {
       ) {
         return (
           <ItemSaleProducts
+            review={item.reviews}
             images={item.images[0]}
             nameProduct={item.name}
             left={-0.75}

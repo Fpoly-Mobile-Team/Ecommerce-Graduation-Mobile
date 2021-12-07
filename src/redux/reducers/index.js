@@ -10,7 +10,10 @@ import {CategoryReducer} from './CategoryReducer';
 import {AddressReducer} from './AddressReducer';
 import {ProductReducer} from './ProductReducer';
 import {ShopReducer} from './ShopReducer';
+import {ReportShopReducer} from './ReportShopReducer';
 import {ShopVoucherReducer} from './ShopVoucherReducer';
+import {NotificationsReducer} from './NotificationsReducer';
+import {Salesman} from './Salesman';
 
 const rootReducer = combineReducers({
   ...TokenReducer,
@@ -24,7 +27,10 @@ const rootReducer = combineReducers({
   ...AddressReducer,
   ...ProductReducer,
   ...ShopReducer,
+  ...ReportShopReducer,
   ...ShopVoucherReducer,
+  ...NotificationsReducer,
+  ...Salesman,
 });
 
 export default rootReducer;

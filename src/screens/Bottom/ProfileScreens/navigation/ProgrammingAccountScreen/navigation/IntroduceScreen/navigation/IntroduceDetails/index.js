@@ -22,7 +22,9 @@ const IntroduceDetail = ({route}) => {
             <Block alignCenter marginVertical={20}>
               <LineHorizontal />
             </Block>
-            <Text size={15}>{data.content}</Text>
+            <Text justify size={15}>
+              {data.content}
+            </Text>
           </Block>
         </Block>
       </ScrollView>

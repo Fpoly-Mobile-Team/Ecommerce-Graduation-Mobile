@@ -16,6 +16,8 @@ import Svg, {
   Mask,
   Ellipse,
 } from 'react-native-svg';
+import {useSelector} from 'react-redux';
+
 export const LineHorizontal = ({width = 309, height = 1}) => {
   return (
     <Svg
@@ -317,17 +319,17 @@ export const IconMore = ({width = 50, height = 50, color = 'black'}) => {
   );
 };
 
-export const IconForward = ({width = 50, height = 50, color = 'black'}) => {
+export const IconForward = ({width = 24, height = 24, color = 'black'}) => {
   return (
     <Svg
-      width="6"
-      height="10"
+      width={width}
+      height={height}
       viewBox="0 0 6 10"
       fill="none"
       xmlns="http://www.w3.org/2000/svg">
       <Path
         d="M1 9L5 5L1 1"
-        stroke="#08978E"
+        stroke={color}
         stroke-linecap="round"
         stroke-linejoin="round"
       />
@@ -984,7 +986,12 @@ export const ChevronLeft = ({
   );
 };
 
-export const Close = ({width = 28, height = 28, color = 'black'}) => {
+export const Close = ({
+  width = 28,
+  height = 28,
+  color = 'black',
+  backgroundColor = 'white',
+}) => {
   return (
     <Svg
       width={width}
@@ -992,7 +999,7 @@ export const Close = ({width = 28, height = 28, color = 'black'}) => {
       viewBox="0 0 28 28"
       fill="none"
       xmlns="http://www.w3.org/2000/svg">
-      <Rect width="28" height="28" rx="14" fill="white" />
+      <Rect width="28" height="28" rx="14" fill={backgroundColor} />
       <Path
         d="M18 10L10 18"
         stroke={color}
@@ -3300,19 +3307,23 @@ export const BackgroundColorShop = ({
   color = '#FFFFFF',
   strokeWidth = 1.5,
   ...rest
-}) => (
-  <Svg
-    width={width}
-    height={height}
-    viewBox="0 0 375 241"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg">
-    <Path
-      d="M534 -109C534 84.2997 377.3 241 184 241C-9.29967 241 -166 84.2997 -166 -109C-166 -302.3 -9.29967 -459 184 -459C377.3 -459 534 -302.3 534 -109Z"
-      fill="#08978E"
-    />
-  </Svg>
-);
+}) => {
+  const config = useSelector(state => state.config?.data);
+
+  return (
+    <Svg
+      width={width}
+      height={height}
+      viewBox="0 0 375 241"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <Path
+        d="M534 -109C534 84.2997 377.3 241 184 241C-9.29967 241 -166 84.2997 -166 -109C-166 -302.3 -9.29967 -459 184 -459C377.3 -459 534 -302.3 534 -109Z"
+        fill={config?.backgroundcolor}
+      />
+    </Svg>
+  );
+};
 
 export const CameraIcon = ({width = 35, height = 35, color = '#FFFFFF'}) => (
   <Svg
@@ -3412,13 +3423,9 @@ export const Fillter = ({width = 20, height = 18, color = '#1C1C1C'}) => (
       fill-rule="evenodd"
       clip-rule="evenodd"
       d="M19.3333 1H1L8.33333 9.67167V15.6667L12 17.5V9.67167L19.3333 1Z"
-      stroke={color}
-      stroke-linecap="round"
-      stroke-linejoin="round"
     />
   </Svg>
 );
-
 export const Correct = ({width = 15, height = 12, color = '#000000'}) => (
   <Svg
     width={width}
@@ -3431,6 +3438,34 @@ export const Correct = ({width = 15, height = 12, color = '#000000'}) => (
       stroke={color}
       stroke-linecap="round"
       stroke-linejoin="round"
+    />
+  </Svg>
+);
+
+export const PlusOnly = ({width = 25, height = 25, color = '#000000'}) => (
+  <Svg
+    width={width}
+    height={height}
+    viewBox="0 0 18 18"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <Line
+      x1="8.90002"
+      y1="1.19995"
+      x2="8.90002"
+      y2="16.8"
+      stroke="#08978E"
+      stroke-width="2"
+      stroke-linecap="round"
+    />
+    <Line
+      x1="16.8"
+      y1="8.8999"
+      x2="1.20005"
+      y2="8.8999"
+      stroke="#08978E"
+      stroke-width="2"
+      stroke-linecap="round"
     />
   </Svg>
 );
