@@ -54,8 +54,8 @@ const ModalChooseType = ({
         {
           product: item,
           quantity,
-          option: option || {},
-          price: price * quantity,
+          option: option.color || '',
+          price: item.price,
         },
       ];
       navigation.navigate(routes.PAYMENTSCREEN, {data});
