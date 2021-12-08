@@ -12,13 +12,22 @@ import ListCart from './components/ListItem';
 import styles from './styles';
 import {useSelector, useDispatch} from 'react-redux';
 import Storage from '@utils/storage';
+import {Currency, Toast} from '@utils/helper';
 
 const CartScreen = () => {
   const refRBSheet = useRef();
   const navigation = useNavigation();
   const {bottom} = useSafeAreaInsets();
   const [dataCart, setDataCart] = useState([]);
+  const [dataselected, setDataSelected] = useState([]);
   const focus = useIsFocused();
+  const priceAll = () => {
+    let sum = 0;
+    dataselected.forEach(p => {
+      sum += p.price * p.quantity * (1 - p.product.sellOff);
+    });
+    return sum;
+  };
   useEffect(() => {
     if (focus) {
       setTimeout(() => {
@@ -32,11 +41,54 @@ const CartScreen = () => {
       // Storage.removeItem('CART');
     }
   }, [focus]);
+  const filterShop = () => {
+    let arr = [];
+    let check = [];
+    let shopId;
+    for (let index = 0; index < dataselected.length; index++) {
+      const element = dataselected[index];
+      shopId = dataselected[0].product.shopId;
+      arr.push(element.product.shopId);
+    }
+    if (arr) {
+      for (let i = 0; i < arr.length; i++) {
+        const element = arr[i];
+        if (element === shopId) {
+          check.push(element);
+
+          console.log('shop2', element);
+        }
+      }
+      if (arr.length === check.length) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  };
+  const onPress = () => {
+    if (dataselected.length === 0) {
+      Toast('Vui lòng chọn sản phẩm ');
+    } else {
+      if (filterShop()) {
+        navigation.navigate(routes.PAYMENTSCREEN, {
+          refRBSheet,
+          data: dataselected,
+        });
+      } else {
+        Toast('Bạn chỉ có thể thanh toán cùng một cửa hàng');
+      }
+    }
+  };
 
   return (
     <Block flex>
       <Header checkBackground canGoBack title="Giỏ hàng của tôi" />
-      <ListCart data={dataCart} />
+      <ListCart
+        data={dataCart}
+        dataselected={[dataselected, setDataSelected]}
+        setDataCart={setDataCart}
+      />
       {dataCart.length > 0 && (
         <Block
           paddingHorizontal={12}
@@ -80,17 +132,13 @@ const CartScreen = () => {
               </Text>
               <Block row alignCenter space="between">
                 <Text color={theme.colors.pink} size={18} fontType="bold">
-                  1.956.000 đ
+                  {Currency(priceAll())}
                 </Text>
                 <Button
                   height={35}
                   title="Thanh toán"
                   style={styles.btn}
-                  onPress={() =>
-                    navigation.navigate(routes.PAYMENTSCREEN, {
-                      refRBSheet,
-                    })
-                  }
+                  onPress={onPress}
                 />
               </Block>
             </Block>

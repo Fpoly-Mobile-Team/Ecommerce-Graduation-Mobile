@@ -5,8 +5,9 @@ import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import {Currency} from '@utils/helper';
 import {width} from '@utils/responsive';
+import Storage from '@utils/storage';
 import React, {useState, useEffect} from 'react';
-import {Image, Pressable} from 'react-native';
+import {Image, Pressable, Alert} from 'react-native';
 import styles from './styles';
 
 const ItemProductCart = ({
@@ -17,15 +18,13 @@ const ItemProductCart = ({
   indexSlice,
   nameShop,
   id,
+  setDataCart,
 }) => {
   const navigation = useNavigation();
-  const [valueall, setValueAll] = useState(false);
-  const [datatotalPrice, setDataTotalPrice] = dataselected;
-  const [valueitem, setValueItem] = useState(false);
-  const [selectedProducts, setSelectedProducts] = useState([]);
+  const [selectedProducts, setSelectedProducts] = dataselected;
   const priceAll = () => {
     let sum = 0;
-    data.forEach(p => {
+    data?.forEach(p => {
       sum += p.price * p.quantity * (1 - p.product.sellOff);
     });
     return sum;
@@ -41,15 +40,23 @@ const ItemProductCart = ({
     }
   };
 
-  const _onSelectProduct = (item) => {
-    if(selectedProducts.some((p) => p.product._id === item.product._id && p.color === item.color)){
-      setSelectedProducts(selectedProducts.filter((p) => p.product._id !== item.product._id || p.color !== item.color));
-    }else{
+  const _onSelectProduct = item => {
+    if (
+      selectedProducts.some(
+        p => p.product._id === item.product._id && p.color === item.color,
+      )
+    ) {
+      setSelectedProducts(
+        selectedProducts.filter(
+          p => p.product._id !== item.product._id || p.color !== item.color,
+        ),
+      );
+    } else {
       setSelectedProducts([...selectedProducts, item]);
     }
-  }
+  };
 
-  const CheckBox = ({ width, isCheck, onPress }) => {
+  const CheckBox = ({width, isCheck, onPress}) => {
     const onCheckBoxPress = () => {
       onPress();
     };
@@ -72,8 +79,68 @@ const ItemProductCart = ({
       </Pressable>
     );
   };
-
-
+  const onPressAddQuantity = (type, quantity, idProduct, color) => {
+    if (type === '-') {
+      if (quantity === 1) {
+        Alert.alert('Thông Báo', 'Bạn có chắc chắn xoá sản phẩm này không ?', [
+          {
+            text: 'Cancel',
+            onPress: () => console.log('Cancel Pressed'),
+            style: 'cancel',
+          },
+          {
+            text: 'OK',
+            onPress: () => {
+              Storage.getItem('CART').then(value => {
+                for (let index = 0; index < value.length; index++) {
+                  let element = value[index];
+                  if (element.nameShop === nameShop) {
+                    element = {
+                      ...element,
+                      productArray: element.productArray.filter(
+                        v => v.product._id !== idProduct || v.color !== color,
+                      ),
+                    };
+                    let elements = value;
+                    elements[index] = element;
+                    Storage.setItem('CART', elements);
+                    setDataCart(elements);
+                  }
+                }
+              });
+            },
+          },
+        ]);
+      } else {
+        Storage.getItem('CART').then(value => {
+          for (let index = 0; index < value.length; index++) {
+            let element = value[index];
+            if (element.nameShop === nameShop) {
+              element = {
+                ...element,
+                productArray: element.productArray.map((p, index) => {
+                  if (p.product._id === idProduct || p.color === color) {
+                    return {
+                      ...p,
+                      quantity: p.quantity - 1,
+                    };
+                  }
+                  return p;
+                }),
+              };
+              let elements = value;
+              elements[index] = element;
+              console.log('product', elements);
+              // Storage.setItem('CART', elements);
+              // setDataCart(elements);
+            }
+          }
+        });
+      }
+    } else {
+      console.log('jaha88', quantity);
+    }
+  };
   const _renderItem = (item, index) => {
     const pricePromo =
       item.product?.sellOff === 0
@@ -88,7 +155,10 @@ const ItemProductCart = ({
         <Block row paddingHorizontal={16} marginBottom={16} space="between">
           <Block row width="36%">
             <CheckBox
-              isCheck={selectedProducts.some((p) => p.product._id === item.product._id && p.color === item.color)}
+              isCheck={selectedProducts.some(
+                p =>
+                  p.product._id === item.product._id && p.color === item.color,
+              )}
               width={20}
               onPress={() => _onSelectProduct(item)}
             />
@@ -133,11 +203,31 @@ const ItemProductCart = ({
                   </Block>
 
                   <Block row alignCenter marginTop={5}>
-                    <_renderButton title="-" />
+                    <_renderButton
+                      title="-"
+                      onPress={() =>
+                        onPressAddQuantity(
+                          '-',
+                          item.quantity,
+                          item.product?._id,
+                          item.color,
+                        )
+                      }
+                    />
                     <Text marginHorizontal={20} color={theme.colors.black}>
                       {item.quantity}
                     </Text>
-                    <_renderButton title="+" />
+                    <_renderButton
+                      title="+"
+                      onPress={() =>
+                        onPressAddQuantity(
+                          '+',
+                          item.quantity,
+                          item.product?._id,
+                          item.color,
+                        )
+                      }
+                    />
                   </Block>
                 </Block>
               </Block>
@@ -159,7 +249,7 @@ const ItemProductCart = ({
           marginBottom={2}
           backgroundColor={theme.colors.white}>
           <CheckBox
-            isCheck={selectedProducts.length === data.length ? true : false}
+            isCheck={selectedProducts?.length === data?.length ? true : false}
             width={20}
             onPress={_onSelectingAllProducts}
           />

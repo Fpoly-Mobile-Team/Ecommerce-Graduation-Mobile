@@ -1,5 +1,4 @@
 import {Block, Button, Header} from '@components';
-import {useNavigation} from '@react-navigation/native';
 import actions from '@redux/actions';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
@@ -36,7 +35,6 @@ const dataShip = [
   },
 ];
 const PaymentScreen = ({route}) => {
-  const navigation = useNavigation();
   const refRBSheet = useRef();
   const dispatch = useDispatch();
   const user = useSelector(state => state.tokenUser?.data);
@@ -45,34 +43,47 @@ const PaymentScreen = ({route}) => {
   const {data} = route.params || {};
   const [selectedIdVoucher, setSelectedIdVoucher] = useState(null);
   const [selectedMethodShip, setselectedMethodShip] = useState(dataShip[0]);
-
+  console.log('voucher', selectedIdVoucher);
   const userInfo = useSelector(state => state.userInfo?.data);
 
   LogBox.ignoreLogs([
     'Non-serializable values were found in the navigation state',
   ]);
-  const priceShip = 32000;
+  const priceAll = () => {
+    let sum = 0;
+    data?.forEach(p => {
+      sum += p.price * p.quantity * (1 - p.product.sellOff);
+    });
+    return sum;
+  };
+  let priceVoucher = selectedIdVoucher
+    ? selectedIdVoucher?.discountType === 'Phần trăm'
+      ? (selectedIdVoucher?.discount * priceAll()) / 100
+      : selectedIdVoucher?.discount
+    : 0;
+  const total = priceVoucher
+    ? priceAll() - priceVoucher + selectedMethodShip?.priceShip
+    : priceAll() + selectedMethodShip?.priceShip;
 
-  const total = selectedIdVoucher
-    ? selectedIdVoucher?.discount * data[0]?.price
-    : 0
-    ? data[0]?.price + priceShip - selectedIdVoucher
-      ? selectedIdVoucher?.discount * data[0]?.price
-      : 0
-    : data[0]?.price + priceShip;
   const onPress = () => {
     if (selectedIdVoucher) {
       const dataOrder = {
-        product: [
-          {
-            productId: data[0]?.product?._id,
-            quantity: data[0]?.quantity,
-            color: data[0]?.option ? data[0]?.option?.color : null,
-          },
-        ],
+        product: data.map(v => {
+          return {
+            productId: v.product._id,
+            quantity: v.quantity,
+            color: v.option ? v.option : v.color ? v.color : '',
+            currentPrice: v.product.price,
+            currentDiscount: v.product.sellOff,
+          };
+        }),
         shopId: data[0]?.product?.shopId,
         userId: user,
         totalPrice: total,
+        orderDiscount: selectedIdVoucher ? selectedIdVoucher?.discount || 0 : 0,
+        orderDiscountType: selectedIdVoucher
+          ? selectedIdVoucher?.discountType || ''
+          : '',
         deliveryAddress: {
           receiverName: userInfo?.address?.filter(v => v.isDefault === true)[0]
             ?.full_name,
@@ -98,16 +109,22 @@ const PaymentScreen = ({route}) => {
       });
     } else {
       const dataOrder = {
-        product: [
-          {
-            productId: data[0]?.product?._id,
-            quantity: data[0]?.quantity,
-            color: data[0]?.option ? data[0]?.option?.color : null,
-          },
-        ],
+        product: data.map(v => {
+          return {
+            productId: v.product._id,
+            quantity: v.quantity,
+            color: v.option ? v.option : v.color ? v.color : '',
+            currentPrice: v.product.price,
+            currentDiscount: v.product.sellOff,
+          };
+        }),
         userId: user,
         shopId: data[0]?.product?.shopId,
         totalPrice: total,
+        orderDiscount: selectedIdVoucher ? selectedIdVoucher?.discount || 0 : 0,
+        orderDiscountType: selectedIdVoucher
+          ? selectedIdVoucher?.discountType || ''
+          : 'VNĐ',
         deliveryAddress: {
           receiverName: userInfo?.address?.filter(v => v.isDefault === true)[0]
             ?.full_name,
@@ -145,10 +162,14 @@ const PaymentScreen = ({route}) => {
           shipMethod={[selectedMethodShip, setselectedMethodShip]}
         />
         <PaymentMethod
-          priceProduct={data[0]?.price}
+          priceProduct={priceAll()}
           priceShip={selectedMethodShip?.priceShip}
           priceVoucher={
-            selectedIdVoucher ? selectedIdVoucher?.discount * data[0]?.price : 0
+            selectedIdVoucher
+              ? selectedIdVoucher?.discountType === 'Phần trăm'
+                ? (selectedIdVoucher?.discount * priceAll()) / 100
+                : selectedIdVoucher?.discount
+              : 0
           }
         />
       </ScrollView>

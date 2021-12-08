@@ -172,11 +172,10 @@ const Cart = ({colorimg}) => {
       let data = [];
       for (let index = 0; index < value.length; index++) {
         const element = value[index];
-        data.push(element?.productArray);
-        setQuantity(data[0]?.length);
       }
     });
   }, []);
+
   const navigation = useNavigation();
   return (
     <Pressable

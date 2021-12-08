@@ -3,6 +3,7 @@ import {Block, Button, Text} from '@components';
 import {useNavigation} from '@react-navigation/core';
 import actions, {_onSuccess} from '@redux/actions';
 import {theme} from '@theme';
+import Storage from '@utils/storage';
 import React, {useState} from 'react';
 import {Alert, Image, Pressable, ScrollView} from 'react-native';
 import RNRestart from 'react-native-restart';
@@ -19,6 +20,7 @@ const ContentSetting = () => {
     setTimeout(() => {
       setisLoading(false);
       dispatch({type: _onSuccess(actions.LOGOUT_ACCOUNT)});
+      Storage.removeItem('CART');
     }, 1000);
     Alert.alert(
       'Thông Báo',

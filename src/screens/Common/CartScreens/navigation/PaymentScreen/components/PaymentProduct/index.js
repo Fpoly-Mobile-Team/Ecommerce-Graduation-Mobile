@@ -10,7 +10,7 @@ const PaymentProduct = ({data}) => {
       isCheck={index === indexend}
       nameProduct={item?.product?.name}
       quantity={item?.quantity}
-      price={item?.price}
+      price={item.price * (1 - item?.product?.sellOff)}
       image={item?.product?.images[0]}
     />
   );

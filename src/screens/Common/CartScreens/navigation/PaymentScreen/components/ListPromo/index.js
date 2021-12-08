@@ -16,7 +16,6 @@ const ListItem = ({isClosed, selectedIdVouchers, idShop}) => {
   const isLoading = useSelector(state => state.getmyVoucher?.isLoading);
   const [selectedIdVoucher, setSelectedIdVoucher] = selectedIdVouchers;
   const voucherPromo = myvoucher?.filter(v => v.shopId === idShop);
-  console.log('voucher', voucherPromo);
   useEffect(() => {
     dispatch({
       type: actions.GET_MY_VOUCHER,
