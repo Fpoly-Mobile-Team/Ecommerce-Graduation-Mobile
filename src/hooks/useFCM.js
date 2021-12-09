@@ -1,5 +1,7 @@
 // import {navigate} from '@navigation/RootNavigation';
 // import {routes} from '@navigation/routes';
+import {navigate} from '@navigation/RootNavigation';
+import {routes} from '@navigation/routes';
 import messaging from '@react-native-firebase/messaging';
 import {useEffect} from 'react';
 import PushNotification from 'react-native-push-notification';
@@ -10,21 +12,19 @@ PushNotification.createChannel({
   soundName: 'default',
 });
 
-// PushNotification.configure({
-//   onNotification(notification) {
-//     if (!notification.foreground) {
-//       if (notification.data.url.includes('notification')) {
-//         navigate(routes.NOTIFICATION_DETAILS_SCREEN, {
-//           item_id: notification.data.item_id,
-//         });
-//       } else if (notification.data.url.includes('news')) {
-//         navigate(routes.NEWS_DETAILS, {
-//           item_id: notification.data.item_id,
-//         });
-//       }
-//     }
-//   },
-// });
+PushNotification.configure({
+  onNotification(notification) {
+    if (!notification.foreground) {
+      console.log('notification', notification);
+      if (notification.data.url.includes('notification')) {
+        navigate(routes.DETAILED_NOTICE, {
+          // item_id: notification.data.item_id,
+        });
+        console.log('notification', notification);
+      }
+    }
+  },
+});
 
 const useFCM = () => {
   const requestUserPermission = async () => {
@@ -46,6 +46,8 @@ const useFCM = () => {
         title: remoteMessage.notification.title,
         bigText: remoteMessage.notification.body, //content for Android
         message: remoteMessage.notification.body, //content for Ios
+        largeIconUrl:
+          'https://cdn.chanhtuoi.com/uploads/2020/05/icon-facebook-08-2.jpg.webp',
         ignoreInForeground: false,
       });
     });

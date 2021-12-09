@@ -87,7 +87,6 @@ const SearchScreen = () => {
         type: actions.SEARCH_KEYWORD_PRODUCT,
         params: {
           name: keyword,
-
           p: 1,
           numshow: 12,
         },

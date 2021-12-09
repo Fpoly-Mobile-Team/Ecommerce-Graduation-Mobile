@@ -22,7 +22,7 @@ const ItemSaleProducts = React.memo(
     review,
   }) => {
     const navigation = useNavigation();
-    const promotionalPrice = price * sellOff;
+    const promotionalPrice = price * (1 - sellOff);
     let sum = 0;
 
     for (let index = 0; index < review?.length; index++) {

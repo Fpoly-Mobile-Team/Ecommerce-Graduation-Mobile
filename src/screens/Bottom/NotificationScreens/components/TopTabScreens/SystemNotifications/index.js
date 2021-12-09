@@ -16,7 +16,7 @@ const SystemNotifications = () => {
   const user = useSelector(state => state.tokenUser?.data);
   const notifications = useSelector(state => state.notifications?.data);
   const focus = useIsFocused();
- 
+
   useEffect(() => {
     const interval = setInterval(() => {
       dispatch({type: actions.GET_NOTIFICATIONS});

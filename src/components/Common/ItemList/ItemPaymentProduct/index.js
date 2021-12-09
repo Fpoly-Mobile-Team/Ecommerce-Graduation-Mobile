@@ -5,11 +5,20 @@ import React from 'react';
 import {Image, Pressable} from 'react-native';
 import {useNavigation} from '@react-navigation/core';
 import {routes} from '@navigation/routes';
+import {Currency} from '@utils/helper';
 
-const ItemPaymentProduct = ({isCheck}) => {
+const ItemPaymentProduct = ({
+  isCheck,
+  image,
+  nameProduct,
+  price,
+  quantity,
+  _id,
+}) => {
   const navigation = useNavigation();
   return (
-    <Pressable onPress={() => navigation.navigate(routes.PRODUCT_DETAILS)}>
+    <Pressable
+      onPress={() => navigation.navigate(routes.PRODUCT_DETAILS, {_id: _id})}>
       <Block
         row
         flex
@@ -23,20 +32,19 @@ const ItemPaymentProduct = ({isCheck}) => {
         backgroundColor={theme.colors.white}>
         <Image
           source={{
-            uri: 'https://cf.shopee.vn/file/311918633451d5d5e9da52ecb7aef296',
+            uri: image,
           }}
           style={{width: getSize.s(70), height: getSize.s(70)}}
           resizeMode="contain"
         />
         <Block flex marginLeft={10}>
           <Text numberOfLines={2} size={16} color={theme.colors.placeholder}>
-            Card đồ họa Gigabyte GTX 1050 2gb bảo hành 3 tháng - Card đồ họa
-            Giga GTX 1050
+            {nameProduct}
           </Text>
           <Block row alignCenter marginTop={5} space="between">
-            <Text fontType="semibold">SL: x1</Text>
+            <Text fontType="semibold">SL: x{quantity}</Text>
             <Text size={15} fontType="semibold">
-              3.000.000{'₫'}
+              {Currency(price)}
             </Text>
           </Block>
         </Block>

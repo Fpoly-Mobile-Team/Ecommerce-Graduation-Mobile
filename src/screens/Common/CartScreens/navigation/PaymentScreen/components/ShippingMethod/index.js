@@ -1,9 +1,13 @@
 import {Block, Text} from '@components';
 import {theme} from '@theme';
+import {Currency} from '@utils/helper';
 import React from 'react';
 import {Pressable} from 'react-native';
+import ModalBoxShip from '../ModalBoxShip';
 
-const ShippingMethod = () => {
+const ShippingMethod = ({visible, data, shipMethod}) => {
+  const [isVisible, setIsVisible] = visible;
+  const [selectedMethodShip, setselectedMethodShip] = shipMethod;
   return (
     <Block marginTop={27} paddingHorizontal={16}>
       <Text size={16} fontType="semibold">
@@ -21,17 +25,30 @@ const ShippingMethod = () => {
           backgroundColor={theme.colors.white}>
           <Block flex>
             <Block row alignCenter marginBottom={5} space="between">
-              <Text>Nhanh</Text>
-              <Text marginRight={10}>32.000 VNĐ</Text>
+              <Text>{selectedMethodShip?.method}</Text>
+              <Text marginRight={10}>
+                {Currency(selectedMethodShip?.priceShip)}
+              </Text>
             </Block>
-            <Text>Nhận hàng vào 5 Th08 - 31 Th08</Text>
+            <Text>
+              Nhận hàng vào {selectedMethodShip?.dateStart} -{' '}
+              {selectedMethodShip?.dateEnd}
+            </Text>
           </Block>
-
-          <Text fontType="bold" color={theme.colors.pink}>
-            Thay đổi
-          </Text>
+          <Pressable onPress={() => setIsVisible(true)}>
+            <Text fontType="bold" color={theme.colors.pink}>
+              Thay đổi
+            </Text>
+          </Pressable>
         </Block>
       </Pressable>
+      <ModalBoxShip
+        isVisible={isVisible}
+        setIsVisible={setIsVisible}
+        data={data}
+        shipMethod={[selectedMethodShip, setselectedMethodShip]}
+        onBackdropPress={() => setIsVisible(false)}
+      />
     </Block>
   );
 };

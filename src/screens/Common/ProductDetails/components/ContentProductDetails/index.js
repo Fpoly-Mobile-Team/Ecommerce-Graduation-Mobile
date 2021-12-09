@@ -59,7 +59,7 @@ const ContentProductDetails = ({
       navigate(routes.AUTHFORSCREEN);
     }
   };
-  const salePrice = price * sellOff;
+  const salePrice = price * (1-sellOff);
 
   return (
     <Block paddingVertical={10}>
