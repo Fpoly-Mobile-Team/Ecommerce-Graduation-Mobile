@@ -6,8 +6,8 @@ import {theme} from '@theme';
 import {Currency} from '@utils/helper';
 import {width} from '@utils/responsive';
 import Storage from '@utils/storage';
-import React, {useState, useEffect} from 'react';
-import {Image, Pressable, Alert} from 'react-native';
+import React, {useEffect} from 'react';
+import {Alert, Image, Pressable} from 'react-native';
 import styles from './styles';
 
 const ItemProductCart = ({
@@ -104,6 +104,15 @@ const ItemProductCart = ({
                     let elements = value;
                     elements[index] = element;
                     Storage.setItem('CART', elements);
+                    setTimeout(() => {
+                      if (element.productArray.length === 0) {
+                        Storage.setItem(
+                          'CART',
+                          value.filter(v => v.nameShop !== nameShop),
+                        );
+                        setDataCart(value.filter(v => v.nameShop !== nameShop));
+                      }
+                    }, 100);
                     setDataCart(elements);
                   }
                 }
@@ -130,15 +139,36 @@ const ItemProductCart = ({
               };
               let elements = value;
               elements[index] = element;
-              console.log('product', elements);
-              // Storage.setItem('CART', elements);
-              // setDataCart(elements);
+              Storage.setItem('CART', elements);
+              setDataCart(elements);
             }
           }
         });
       }
     } else {
-      console.log('jaha88', quantity);
+      Storage.getItem('CART').then(value => {
+        for (let index = 0; index < value.length; index++) {
+          let element = value[index];
+          if (element.nameShop === nameShop) {
+            element = {
+              ...element,
+              productArray: element.productArray.map((p, index) => {
+                if (p.product._id === idProduct || p.color === color) {
+                  return {
+                    ...p,
+                    quantity: p.quantity + 1,
+                  };
+                }
+                return p;
+              }),
+            };
+            let elements = value;
+            elements[index] = element;
+            Storage.setItem('CART', elements);
+            setDataCart(elements);
+          }
+        }
+      });
     }
   };
   const _renderItem = (item, index) => {

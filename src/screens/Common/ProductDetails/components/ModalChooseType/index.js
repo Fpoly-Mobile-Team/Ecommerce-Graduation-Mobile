@@ -21,7 +21,7 @@ const ModalChooseType = ({
   item,
   nameShop,
 }) => {
-  const [option, setOption] = useState({});
+  const [option, setOption] = useState({color: ''});
   const [quantity, setQuantity] = useState(1);
 
   const navigation = useNavigation();
@@ -58,7 +58,7 @@ const ModalChooseType = ({
           price: item.price,
         },
       ];
-      navigation.navigate(routes.PAYMENTSCREEN, {data});
+      navigation.navigate(routes.PAYMENTSCREEN, {data, type: 'BUY'});
       setIsVisible(false);
     } else {
       const data = {

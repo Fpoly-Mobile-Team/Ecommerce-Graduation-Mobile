@@ -166,15 +166,22 @@ const HeaderCommon = ({canGoBack, title, checkBackground}) => {
 const Cart = ({colorimg}) => {
   const user = useSelector(state => state.tokenUser?.data);
   const [quantity, setQuantity] = useState();
+  const focus = useIsFocused();
 
   useEffect(() => {
-    Storage.getItem('CART').then(value => {
-      let data = [];
-      for (let index = 0; index < value.length; index++) {
-        const element = value[index];
-      }
-    });
-  }, []);
+    if (focus) {
+      Storage.getItem('CART').then(value => {
+        let data = [];
+        for (let index = 0; index < value.length; index++) {
+          const element = value[index];
+          for (let i = 0; i < element.productArray?.length; i++) {
+            data.push(element.productArray[i]);
+          }
+        }
+        setQuantity(data?.length);
+      });
+    }
+  }, [focus]);
 
   const navigation = useNavigation();
   return (

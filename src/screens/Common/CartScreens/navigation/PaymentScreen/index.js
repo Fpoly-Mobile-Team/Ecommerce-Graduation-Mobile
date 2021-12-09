@@ -41,6 +41,8 @@ const PaymentScreen = ({route}) => {
   const isLoading = useSelector(state => state.createOrder?.isLoading);
   const [isVisible, setIsVisible] = useState(false);
   const {data} = route.params || {};
+  const {type} = route.params || '';
+
   const [selectedIdVoucher, setSelectedIdVoucher] = useState(null);
   const [selectedMethodShip, setselectedMethodShip] = useState(dataShip[0]);
   console.log('voucher', selectedIdVoucher);
@@ -80,7 +82,9 @@ const PaymentScreen = ({route}) => {
         shopId: data[0]?.product?.shopId,
         userId: user,
         totalPrice: total,
-        orderDiscount: selectedIdVoucher ? selectedIdVoucher?.discount || 0 : 0,
+        orderDiscount: selectedIdVoucher
+          ? selectedIdVoucher?.discount / 100 || 0
+          : 0,
         orderDiscountType: selectedIdVoucher
           ? selectedIdVoucher?.discountType || ''
           : '',
@@ -100,7 +104,12 @@ const PaymentScreen = ({route}) => {
       };
       dispatch({
         type: actions.CREATE_ORDER,
-        body: {orderInfo: JSON.stringify(dataOrder)},
+        body: {
+          orderInfo: JSON.stringify(dataOrder),
+          product: dataOrder?.product,
+          shopId: data[0]?.product?.shopId,
+          type: type,
+        },
         price: total,
       });
       dispatch({
@@ -141,7 +150,12 @@ const PaymentScreen = ({route}) => {
       };
       dispatch({
         type: actions.CREATE_ORDER,
-        body: {orderInfo: JSON.stringify(dataOrder)},
+        body: {
+          orderInfo: JSON.stringify(dataOrder),
+          product: dataOrder?.product,
+          shopId: data[0]?.product?.shopId,
+          type: type,
+        },
         price: total,
       });
     }

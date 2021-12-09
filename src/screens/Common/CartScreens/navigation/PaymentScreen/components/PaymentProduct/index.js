@@ -12,6 +12,7 @@ const PaymentProduct = ({data}) => {
       quantity={item?.quantity}
       price={item.price * (1 - item?.product?.sellOff)}
       image={item?.product?.images[0]}
+      _id={item.product?._id}
     />
   );
 

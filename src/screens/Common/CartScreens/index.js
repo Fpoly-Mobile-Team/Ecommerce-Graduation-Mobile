@@ -74,6 +74,7 @@ const CartScreen = () => {
         navigation.navigate(routes.PAYMENTSCREEN, {
           refRBSheet,
           data: dataselected,
+          type: 'CART',
         });
       } else {
         Toast('Bạn chỉ có thể thanh toán cùng một cửa hàng');

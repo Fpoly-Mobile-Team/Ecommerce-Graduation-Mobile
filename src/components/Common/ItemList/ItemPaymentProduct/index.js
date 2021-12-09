@@ -7,10 +7,18 @@ import {useNavigation} from '@react-navigation/core';
 import {routes} from '@navigation/routes';
 import {Currency} from '@utils/helper';
 
-const ItemPaymentProduct = ({isCheck, image, nameProduct, price, quantity}) => {
+const ItemPaymentProduct = ({
+  isCheck,
+  image,
+  nameProduct,
+  price,
+  quantity,
+  _id,
+}) => {
   const navigation = useNavigation();
   return (
-    <Pressable onPress={() => navigation.navigate(routes.PRODUCT_DETAILS)}>
+    <Pressable
+      onPress={() => navigation.navigate(routes.PRODUCT_DETAILS, {_id: _id})}>
       <Block
         row
         flex
