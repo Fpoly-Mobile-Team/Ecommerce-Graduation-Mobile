@@ -20,13 +20,11 @@ const PurchaseNotice = () => {
     dispatch({type: actions.GET_NOTIF_ORDER, user});
   }, [dispatch]);
 
-  const onPress = () => {
-    navigation.navigate(routes.AUTHFORSCREEN);
-  };
-
   const renderItem = ({item, index}) => (
     <ItemNotification
-      title={'#' + item._id?.substring(0, 6)?.toUpperCase() + ' - ' + item.title}
+      title={
+        '#' + item._id?.substring(0, 6)?.toUpperCase() + ' - ' + item.title
+      }
       content={item.content}
       time={moment(item.sendDate).format('hh: mm, DD/MM/YYYY')}
       images={item.images}
@@ -37,7 +35,7 @@ const PurchaseNotice = () => {
 
   return (
     <Block flex backgroundColor={theme.colors.white}>
-      {user ? (
+      {notice?.length ? (
         <FlatList
           data={notice}
           renderItem={renderItem}
@@ -45,12 +43,7 @@ const PurchaseNotice = () => {
           showsVerticalScrollIndicator={false}
         />
       ) : (
-        <Empty
-          lottie={lottie.emptyNotification}
-          content="Vui lòng đăng nhập để nhận thông báo!"
-          contentMore="Đăng nhập ngay"
-          onPress={onPress}
-        />
+        <Empty lottie={lottie.emptyReview} content="Không có thông báo" />
       )}
     </Block>
   );
