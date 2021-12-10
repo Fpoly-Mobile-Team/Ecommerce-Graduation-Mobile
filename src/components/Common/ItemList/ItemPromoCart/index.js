@@ -1,11 +1,12 @@
 import {images} from '@assets';
 import {Block, Button, Text} from '@components';
 import {theme} from '@theme';
+import moment from 'moment';
 import React from 'react';
 import {Image, Pressable} from 'react-native';
 import styles from './styles';
 
-const ItemPromoCart = ({title, cod, time, onPress}) => {
+const ItemPromoCart = ({title, cod, time, onPress, image}) => {
   return (
     <Pressable onPress={onPress}>
       <Block
@@ -16,8 +17,8 @@ const ItemPromoCart = ({title, cod, time, onPress}) => {
         space="between"
         paddingRight={10}
         marginVertical={7}>
-        <Image style={styles.img} source={images.sale} />
-        <Block>
+        <Image style={styles.img} source={{uri: image}} />
+        <Block flex paddingLeft={5}>
           <Text size={16} fontType="bold" paddingVertical={3}>
             {title}
           </Text>
@@ -25,7 +26,7 @@ const ItemPromoCart = ({title, cod, time, onPress}) => {
         </Block>
         <Block paddingTop={20} alignEnd>
           <Text color={theme.colors.lightGray} size={12}>
-            {time}
+            {moment(time).format('DD/MM/YYYY')}
           </Text>
           <Button
             style={styles.btn}

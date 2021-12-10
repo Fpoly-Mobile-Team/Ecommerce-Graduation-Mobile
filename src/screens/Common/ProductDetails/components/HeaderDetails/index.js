@@ -4,10 +4,12 @@ import {routes} from '@navigation/routes';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import {getSize, width} from '@utils/responsive';
+import Storage from '@utils/storage';
 import React, {useState, useEffect} from 'react';
 import {Animated, Pressable} from 'react-native';
 import {Badge} from 'react-native-elements';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useSelector} from 'react-redux';
 import styles from './styles';
 
 const HeaderDetails = ({scroll, nameProduct, scrollViewRef}) => {
@@ -20,7 +22,22 @@ const HeaderDetails = ({scroll, nameProduct, scrollViewRef}) => {
   const [title, setTitle] = useState();
 
   const focus = useIsFocused();
+  const [quantity, setQuantity] = useState();
 
+  useEffect(() => {
+    if (focus) {
+      Storage.getItem('CART').then(value => {
+        let data = [];
+        for (let index = 0; index < value.length; index++) {
+          const element = value[index];
+          for (let i = 0; i < element.productArray?.length; i++) {
+            data.push(element.productArray[i]);
+          }
+        }
+        setQuantity(data?.length);
+      });
+    }
+  }, [focus]);
   useEffect(() => {
     if (focus) {
       scrollViewRef.current?.scrollTo({x: 0, y: 0});
@@ -57,6 +74,7 @@ const HeaderDetails = ({scroll, nameProduct, scrollViewRef}) => {
     outputRange: [theme.colors.transparent, theme.colors.smoke],
     extrapolate: 'clamp',
   });
+  const user = useSelector(state => state.tokenUser?.data);
 
   return (
     <Animated.View
@@ -95,10 +113,14 @@ const HeaderDetails = ({scroll, nameProduct, scrollViewRef}) => {
               <_renderIcon
                 ColorIcon={ColorIcon}
                 backgroundIcon={backgroundIcon}
-                cart
+                cart={quantity}
                 style={styles.iconcart}
                 icon={icons.cart}
-                onPress={() => navigation.navigate(routes.CARTSCREENS)}
+                onPress={() =>
+                  navigation.navigate(
+                    user ? routes.CARTSCREENS : routes.AUTHFORSCREEN,
+                  )
+                }
               />
               <_renderIcon
                 ColorIcon={ColorIcon}
@@ -128,7 +150,7 @@ const _renderIcon = ({
         {cart && (
           <Badge
             status="warning"
-            value="1"
+            value={cart}
             containerStyle={styles.containerStyle}
             textProps={{allowFontScaling: false}}
           />

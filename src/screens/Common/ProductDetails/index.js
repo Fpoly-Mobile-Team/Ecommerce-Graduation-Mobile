@@ -22,7 +22,6 @@ const ProductDetails = ({route, navigation}) => {
   const {_id} = route.params;
   const data = useSelector(state => state.productDetails?.data);
   const user = useSelector(state => state.tokenUser?.data);
-  console.log('kakakaka----', data);
   const isLoadingDetails = useSelector(
     state => state.productDetails?.isLoading,
   );
@@ -162,7 +161,18 @@ const ProductDetails = ({route, navigation}) => {
             />
             <ProductRelated productCategory={productCategory} />
           </Animated.ScrollView>
-          <ChooseTypeProduct />
+          <ChooseTypeProduct
+            nameShop={shop?.shopName}
+            option={data?.options}
+            image={data?.images[0]}
+            productStock={data?.productStock}
+            price={
+              data?.sellOff === 0
+                ? data?.price
+                : data?.price * (1 - data?.sellOff)
+            }
+            item={data}
+          />
         </>
       )}
     </Block>

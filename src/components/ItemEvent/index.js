@@ -39,14 +39,16 @@ const ItemEvent = ({
         />
         {iconForward ? (
           <IconForward width={12} height={12} />
-        ) : characterCount && (
-          <Text
-            color={theme.colors.holder}
-            size={12}
-            fontType="medium"
-            marginTop={-17.5}>
-            {characterCount}
-          </Text>
+        ) : (
+          characterCount && (
+            <Text
+              color={theme.colors.holder}
+              size={12}
+              fontType="medium"
+              marginTop={-17.5}>
+              {characterCount}
+            </Text>
+          )
         )}
       </Block>
     </Pressable>

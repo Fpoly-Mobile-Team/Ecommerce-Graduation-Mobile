@@ -53,7 +53,7 @@ const ProductStore = ({route}) => {
         });
       }
     }
-  }, [id, dispatch, focus]);
+  }, [id, dispatch, focus, user]);
 
   const _renderBanner = () => {
     return (
@@ -96,8 +96,8 @@ const ProductStore = ({route}) => {
             </Text>
             <Block alignCenter justifyCenter paddingLeft={4} paddingTop={4}>
               <IconForward
-                width={12}
-                height={12}
+                width={15}
+                height={15}
                 color={config?.backgroundcolor}
               />
             </Block>

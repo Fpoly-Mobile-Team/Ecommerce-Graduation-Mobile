@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {icons} from '@assets';
 import {Block, LazyImage, Text} from '@components';
 import React, {useState, useEffect} from 'react';
