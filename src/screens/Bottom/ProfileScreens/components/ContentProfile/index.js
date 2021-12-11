@@ -4,11 +4,14 @@ import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import {width} from '@utils/responsive';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Image, Pressable} from 'react-native';
 import {DATA, DATABILL} from '../data';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import styles from './styles';
+import {Badge} from 'react-native-elements';
+import actions from '@redux/actions';
+import {useIsFocused} from '@react-navigation/native';
 
 const ContentProfile = () => {
   return (
@@ -84,6 +87,45 @@ const ActionsButton = (item, index) => {
 const _renderItem = item => {
   const navigation = useNavigation();
   const config = useSelector(state => state.config?.data);
+  const user = useSelector(state => state.tokenUser?.data);
+  const data = useSelector(state => state.historyOrder?.data);
+  const dataCancel = useSelector(state => state.historyOrderCancel?.data);
+  const dataDelivering = useSelector(
+    state => state.historyOrderDelivering?.data,
+  );
+  const dataWaiting = useSelector(state => state.historyOrderWaiting.data);
+  const dispatch = useDispatch();
+  const isFocused = useIsFocused();
+
+  useEffect(() => {
+    if (isFocused) {
+      dispatch({
+        type: actions.GET_HISTORY_ORDER_WAITING,
+        params: {userId: user, status: 'Chờ nhận đơn'},
+      });
+      dispatch({
+        type: actions.GET_HISTORY_ORDER_CANCEL,
+        params: {userId: user, status: 'Bị hủy'},
+      });
+      dispatch({
+        type: actions.GET_HISTORY_ORDER_DELIVERING,
+        params: {userId: user, status: 'Đang vận chuyển'},
+      });
+      dispatch({
+        type: actions.GET_HISTORY_ORDER,
+        params: {userId: user, status: 'Đã giao'},
+      });
+    }
+  }, [dispatch, isFocused, user]);
+
+  let DATA =
+    item.title === 'Đang xử lý'
+      ? dataWaiting
+      : item.title === 'Đang giao'
+      ? dataDelivering
+      : item.title === 'Giao thành công'
+      ? data
+      : dataCancel;
   return (
     <Pressable
       key={item.id}
@@ -91,6 +133,16 @@ const _renderItem = item => {
         navigation.navigate(routes.ORDERHISTORY, {title: item.title})
       }>
       <Block flex alignCenter width={width / 4}>
+        {DATA && DATA?.length ? (
+          <Badge
+            status="error"
+            containerStyle={{position: 'absolute', top: -5, right: 20}}
+            badgeStyle={{}}
+            textProps={{allowFontScaling: false}}
+            value={DATA?.length}
+          />
+        ) : null}
+
         <Block
           alignCenter
           justifyCenter

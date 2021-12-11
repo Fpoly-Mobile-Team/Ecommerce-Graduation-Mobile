@@ -41,13 +41,15 @@ const useFCM = () => {
 
   useEffect(() => {
     const unsubscribe = messaging().onMessage(async remoteMessage => {
+      console.log('fcm', remoteMessage);
       PushNotification.localNotification({
         channelId: 'notification-channel-id',
         title: remoteMessage.notification.title,
         bigText: remoteMessage.notification.body, //content for Android
+        bigPictureUrl: remoteMessage.notification.imageUrl,
         message: remoteMessage.notification.body, //content for Ios
         largeIconUrl:
-          'https://cdn.chanhtuoi.com/uploads/2020/05/icon-facebook-08-2.jpg.webp',
+          'https://firebasestorage.googleapis.com/v0/b/ecommerce-datn.appspot.com/o/LogoApp%2Flogoapp.png?alt=media&token=78fcb797-7444-41fd-9360-d6ca34ae140d',
         ignoreInForeground: false,
       });
     });

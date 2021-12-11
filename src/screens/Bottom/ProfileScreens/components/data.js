@@ -51,19 +51,20 @@ export const DATABILL = [
     title: 'Đang xử lý',
     image: icons.wallet,
   },
+
   {
     id: '2',
-    image: icons.confirmation,
-    title: 'Đã xác nhận',
-  },
-  {
-    id: '3',
     image: icons.delivery,
     title: 'Đang giao',
   },
   {
-    id: '4',
+    id: '3',
     image: icons.delivery_box,
     title: 'Giao thành công',
+  },
+  {
+    id: '4',
+    image: icons.confirmation,
+    title: 'Đã huỷ',
   },
 ];

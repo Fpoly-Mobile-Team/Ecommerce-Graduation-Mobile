@@ -1,27 +1,41 @@
 import {Block, Text} from '@components';
 import {theme} from '@theme';
+import moment from 'moment';
 import React from 'react';
 
-const HeaderComponent = () => {
+const HeaderComponent = ({_id, purcharseDate, shop, status, quantity}) => {
   return (
     <Block>
       <Block row space="between" paddingTop={20}>
         <Text fontType={'bold'} size={17}>
-          Order №1947034
+          #{_id}
         </Text>
-        <Text color={theme.colors.lightGray}>05-12-2019</Text>
+        <Text color={theme.colors.lightGray}>
+          {moment(purcharseDate).format('DD/MM/YYYY')}
+        </Text>
       </Block>
       <Block row space="between" paddingVertical={12}>
         <Text fontType={'bold'} size={15}>
           <Text size={15} color={theme.colors.lightGray}>
             Tên cửa hàng:{'  '}
           </Text>
-          Cửa hàng thời trang 11
+          {shop}
         </Text>
-        <Text color={theme.colors.greenStatus}>Đã giao</Text>
+        <Text
+          color={
+            status === 'Bị hủy'
+              ? theme.colors.red
+              : status === 'Chờ nhận đơn'
+              ? theme.colors.primaryColor
+              : status === 'Đang vận chuyển'
+              ? theme.colors.blue
+              : theme.colors.greenStatus
+          }>
+          {status}
+        </Text>
       </Block>
       <Text fontType="bold" size={15}>
-        3 Sản Phẩm
+        {quantity} Sản Phẩm
       </Text>
     </Block>
   );

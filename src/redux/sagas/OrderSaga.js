@@ -71,7 +71,51 @@ function* deleteVoucher(actions) {
   }
 }
 
+function* historyOrder(actions) {
+  try {
+    const res = yield API.get('order/getUserOrders', actions.params);
+    yield put({
+      type: _onSuccess(actions.type),
+      data: res.orders,
+    });
+  } catch (error) {
+    yield put({type: _onFail(actions.type)});
+  }
+}
+
+function* cancelOrder(actions) {
+  const body = queryString.stringify(actions.body);
+  try {
+    const res = yield API.post('order/cancelOrder', body);
+    yield put({
+      type: _onSuccess(Actions.CANCEL_ORDER),
+    });
+    yield put({
+      type: Actions.GET_HISTORY_ORDER_CANCEL,
+      params: {
+        userId: actions.user,
+        status: actions.status,
+      },
+    });
+    yield put({
+      type: Actions.GET_HISTORY_ORDER_WAITING,
+      params: {
+        userId: actions.user,
+        status: 'Chờ nhận đơn',
+      },
+    });
+    Toast(res.message);
+  } catch (error) {
+    yield put({type: _onFail(Actions.CANCEL_ORDER)});
+  }
+}
+
 export function* watchOrderSagas() {
   yield takeLatest(Actions.CREATE_ORDER, createOrder);
   yield takeLatest(Actions.DELETE_MY_VOUCHER, deleteVoucher);
+  yield takeLatest(Actions.GET_HISTORY_ORDER, historyOrder);
+  yield takeLatest(Actions.GET_HISTORY_ORDER_WAITING, historyOrder);
+  yield takeLatest(Actions.GET_HISTORY_ORDER_CANCEL, historyOrder);
+  yield takeLatest(Actions.GET_HISTORY_ORDER_DELIVERING, historyOrder);
+  yield takeLatest(Actions.CANCEL_ORDER, cancelOrder);
 }

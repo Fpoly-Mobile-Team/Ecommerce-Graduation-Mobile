@@ -19,7 +19,7 @@ const OrderHistory = ({route}) => {
         {DATA.map((item, index) => {
           return (
             <Tab.Screen key={index} name={item.title}>
-              {() => <TabScreen />}
+              {() => <TabScreen status={item.title} />}
             </Tab.Screen>
           );
         })}

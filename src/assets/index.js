@@ -50,6 +50,7 @@ export const icons = {
   favoritefill: require('./icons/favoritefill.png'),
   mening: require('./icons/mening.png'),
   start_selling: require('./icons/start_selling.png'),
+  logoapp: require('./icons/logoapp.png'),
 };
 
 export const images = {
@@ -78,4 +79,5 @@ export const lottie = {
   relax: require('./lottie/relax.json'),
   emptyData: require('./lottie/emptyData.json'),
   success: require('./lottie/success.json'),
+  emptyCart: require('./lottie/cartempyty.json'),
 };

@@ -84,7 +84,7 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
             onPress={onPress}
             onLongPress={onLongPress}
             style={styles.btn}>
-            {index === 3 && (
+            {index === 3 && notifications?.length && (
               <Badge
                 status="error"
                 containerStyle={styles.containerStyle}
