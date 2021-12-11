@@ -147,14 +147,14 @@ const _renderIcon = ({
   return (
     <Pressable onPress={onPress}>
       <Animated.View style={{...styles.styleBoxicon(backgroundIcon), ...style}}>
-        {cart && (
+        {cart ? (
           <Badge
             status="warning"
             value={cart}
             containerStyle={styles.containerStyle}
             textProps={{allowFontScaling: false}}
           />
-        )}
+        ) : null}
 
         <Animated.Image
           source={icon}
