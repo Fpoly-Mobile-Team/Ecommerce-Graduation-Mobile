@@ -42,7 +42,7 @@ const FooterComponent = ({data}) => {
               {' '}
               {data.orderDiscountType === 'VNĐ'
                 ? Currency(data.orderDiscount)
-                : data.orderDiscount * 100 + '% '}
+                : data.orderDiscount * 100 + '% '}{' '}
               voucher
             </Text>
           </Block>

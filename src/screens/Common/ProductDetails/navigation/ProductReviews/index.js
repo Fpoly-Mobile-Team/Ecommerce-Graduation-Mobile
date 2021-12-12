@@ -10,13 +10,18 @@ import RBSheet from 'react-native-raw-bottom-sheet';
 import {useDispatch, useSelector} from 'react-redux';
 import CardReviews from './components/CardReviews';
 import WritingReviews from './components/WritingReviews';
+import {useIsFocused} from '@react-navigation/native';
 import styles from './styles';
+import {Toast} from '@utils/helper';
 
 const ProductReviews = ({route}) => {
   const dispatch = useDispatch();
   const refRBSheet = useRef();
   const {_id} = route.params;
   const productReview = useSelector(state => state.productReview?.data);
+  const data = useSelector(state => state.historyOrder?.data);
+  const isFocused = useIsFocused();
+
   const user = useSelector(state => state.tokenUser?.data);
   const [check, setCheck] = useState({});
 
@@ -36,6 +41,15 @@ const ProductReviews = ({route}) => {
       productId: _id,
     });
   }, [dispatch, _id]);
+
+  useEffect(() => {
+    if (isFocused) {
+      dispatch({
+        type: actions.GET_HISTORY_ORDER,
+        params: {userId: user, status: 'Đã giao'},
+      });
+    }
+  }, [dispatch, isFocused, user]);
 
   const editReview = item => {
     setCheck(item);
@@ -91,7 +105,28 @@ const ProductReviews = ({route}) => {
       />
     );
   };
+  console.log(
+    'errr',
+    data?.some(v => v.userId === user),
+  );
+  const checckFeedback = () => {
+    let array = [];
+    for (let index = 0; index < data.length; index++) {
+      const element = data[index];
+      for (let i = 0; i < data[index].product.length; i++) {
+        const elements = data[index].product[i];
+        if (elements.productId === _id && element.userId === user) {
+          array.push(elements);
+        }
+      }
+    }
 
+    if (array.length > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   const _renderEmpty = () => {
     return (
       <Empty
@@ -99,8 +134,14 @@ const ProductReviews = ({route}) => {
         content="Sản phẩm này chưa có đánh giá"
         contentMore={user && 'Đánh giá ngay'}
         onPress={() => {
-          setCheck(0);
-          refRBSheet.current.open();
+          if (user) {
+            if (checckFeedback()) {
+              setCheck(0);
+              refRBSheet.current.open();
+            } else {
+              Toast('Bạn chưa mua sản phẩm này ');
+            }
+          }
         }}
       />
     );

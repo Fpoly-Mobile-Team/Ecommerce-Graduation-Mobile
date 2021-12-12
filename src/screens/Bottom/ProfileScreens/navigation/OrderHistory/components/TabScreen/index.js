@@ -29,7 +29,7 @@ const TabScreen = ({status}) => {
   const renderItem = ({item, index}) => {
     return (
       <ItemOderHistory
-        name={item._id}
+        name={item._id.slice(0, 10)}
         date={item.purcharseDate}
         shop={item.shopInfo?.shopName}
         quantity={item.product.length}

@@ -54,7 +54,7 @@ const OrderDetails = ({route}) => {
       <Header checkBackground canGoBack title="Hóa đơn chi tiết" />
       <Block paddingHorizontal={20}>
         <HeaderComponent
-          _id={item._id}
+          _id={item._id.slice(0, 10)}
           purcharseDate={item.purcharseDate}
           shop={item.shopInfo.shopName}
           status={item.status}
