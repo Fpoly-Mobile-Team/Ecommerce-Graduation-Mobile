@@ -20,7 +20,7 @@ const ItemVoucherFromShop = ({typeVoucher, timeVoucher, check}) => {
         borderWidth={1}
         padding={8}
         marginBottom={12}>
-        <Block style={styles.IconVoucher}>
+        <Block backgroundColor={'#fef4f4'} padding={8} radius={8}>
           <IconVoucher />
         </Block>
         <Block paddingHorizontal={12} flex>

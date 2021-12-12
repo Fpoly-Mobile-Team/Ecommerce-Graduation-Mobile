@@ -82,13 +82,14 @@ const ProductStore = ({route}) => {
           color={theme.colors.black}>
           Mã giảm giá
         </Text>
-        {shopVoucher?.length != 0 ? (
+        {shopVoucher?.length != 0 && (
           <Pressable
             style={styles.wrapperTextVoucher}
             onPress={() =>
               navigation.navigate(routes.PROMO_SCREEN, {
                 id: shop?._id,
                 shopName: shop?.shopName,
+                profilePicture: shop?.profilePicture,
               })
             }>
             <Text color={config?.backgroundcolor} lineHeight={18}>
@@ -102,7 +103,7 @@ const ProductStore = ({route}) => {
               />
             </Block>
           </Pressable>
-        ) : null}
+        )}
       </Block>
     );
   };
