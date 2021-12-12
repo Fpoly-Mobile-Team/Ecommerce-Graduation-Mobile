@@ -2,6 +2,8 @@ import {Block, Button, Text} from '@components';
 import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
+import {Currency} from '@utils/helper';
+import moment from 'moment';
 import React from 'react';
 import styles from './styles';
 
@@ -14,6 +16,7 @@ const ItemOrderHistory = ({
   status,
   checkColor,
   isCheck,
+  item,
 }) => {
   const navigation = useNavigation();
   return (
@@ -30,10 +33,10 @@ const ItemOrderHistory = ({
       backgroundColor={theme.colors.white}>
       <Block row space="between" paddingVertical={10}>
         <Text fontType="bold" size={17}>
-          {name}
+          #{name}
         </Text>
         <Text fontType="light" color={theme.colors.lightGray}>
-          {date}
+          {moment(date).format('DD/MM/YYYY')}
         </Text>
       </Block>
       <Text style={styles.containText}>
@@ -47,20 +50,29 @@ const ItemOrderHistory = ({
         </Text>
         <Text style={styles.containText}>
           <Text style={styles.label}>Thành tiền:{'  '}</Text>
-          {price} VND
+          {Currency(price)}
         </Text>
       </Block>
 
       <Block row space="between" alignCenter>
         <Button
-          onPress={() => navigation.navigate(routes.ORDERDETAILS)}
+          onPress={() => navigation.navigate(routes.ORDERDETAILS, {item})}
           height={35}
           title="Details"
           titleStyle={{color: theme.colors.black}}
           style={styles.btnOutline}
         />
 
-        <Text color={checkColor ? theme.colors.red : theme.colors.greenStatus}>
+        <Text
+          color={
+            status === 'Bị hủy'
+              ? theme.colors.red
+              : status === 'Chờ nhận đơn'
+              ? theme.colors.primaryColor
+              : status === 'Đang vận chuyển'
+              ? theme.colors.blue
+              : theme.colors.greenStatus
+          }>
           {status}
         </Text>
       </Block>

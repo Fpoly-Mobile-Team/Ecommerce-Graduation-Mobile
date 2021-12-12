@@ -60,7 +60,7 @@ const PaymentScreen = ({route}) => {
   };
   let priceVoucher = selectedIdVoucher
     ? selectedIdVoucher?.discountType === 'Phần trăm'
-      ? (selectedIdVoucher?.discount * priceAll()) / 100
+      ? selectedIdVoucher?.discount * priceAll()
       : selectedIdVoucher?.discount
     : 0;
   const total = priceVoucher
@@ -82,9 +82,7 @@ const PaymentScreen = ({route}) => {
         shopId: data[0]?.product?.shopId,
         userId: user,
         totalPrice: total,
-        orderDiscount: selectedIdVoucher
-          ? selectedIdVoucher?.discount / 100 || 0
-          : 0,
+        orderDiscount: selectedIdVoucher ? selectedIdVoucher?.discount || 0 : 0,
         orderDiscountType: selectedIdVoucher
           ? selectedIdVoucher?.discountType || ''
           : '',
@@ -181,7 +179,7 @@ const PaymentScreen = ({route}) => {
           priceVoucher={
             selectedIdVoucher
               ? selectedIdVoucher?.discountType === 'Phần trăm'
-                ? (selectedIdVoucher?.discount * priceAll()) / 100
+                ? selectedIdVoucher?.discount * priceAll()
                 : selectedIdVoucher?.discount
               : 0
           }

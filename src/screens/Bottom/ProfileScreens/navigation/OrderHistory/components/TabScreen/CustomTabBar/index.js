@@ -1,15 +1,31 @@
 import {Block, Text} from '@components';
-import React from 'react';
-import {Pressable, ScrollView} from 'react-native';
+import {width, height} from '@utils/responsive';
+import React, {useRef, useState} from 'react';
+import {Animated, Pressable, ScrollView} from 'react-native';
 import {useSelector} from 'react-redux';
 import styles from './styles';
 
 function CustomTabBar({state, descriptors, navigation}) {
   const config = useSelector(state => state.config?.data);
-
+  const ref = useRef();
+  const [position, setposition] = useState(0);
   return (
     <Block row justifyCenter alignCenter paddingVertical={15}>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+      <ScrollView
+        ref={ref}
+        horizontal
+        onMomentumScrollEnd={({nativeEvent}) => {
+          // the current offset, {x: number, y: number}
+          const position = nativeEvent.contentOffset;
+          // page index
+          const index = Math.round(nativeEvent.contentOffset.x / width);
+
+          if (index !== position) {
+            // onPageDidChanged
+          }
+        }}
+        showsHorizontalScrollIndicator={false}
+        scrollEventThrottle={16}>
         {state.routes.map((route, index) => {
           const {options} = descriptors[route.key];
           const label =
@@ -29,6 +45,8 @@ function CustomTabBar({state, descriptors, navigation}) {
 
             if (!isFocused && !event.defaultPrevented) {
               navigation.navigate(route.name);
+              setposition(index);
+              ref.current.scrollTo({x: index, y: index, animated: true});
             }
           };
 
