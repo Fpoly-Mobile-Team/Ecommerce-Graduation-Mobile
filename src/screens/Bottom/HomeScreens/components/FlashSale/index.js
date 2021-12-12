@@ -18,7 +18,6 @@ import styles from './styles';
 
 const FlashSale = ({data}) => {
   const navigation = useNavigation();
-
   const _renderItem = ({item}) => {
     if (item?.saleStart !== null && item?.saleEnd) {
       if (

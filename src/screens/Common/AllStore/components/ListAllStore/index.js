@@ -23,9 +23,12 @@ const ListAllStore = ({data}) => {
           alignCenter
           backgroundColor={theme.colors.white}
           key={index}>
-          <Image source={{uri: item.profilePicture}} style={styles.image} />
+          <Image
+            source={{uri: item.shopInfo.profilePicture}}
+            style={styles.image}
+          />
           <Text size={13} fontType={'bold'} paddingVertical={10}>
-            {item.shopName}
+            {item.shopInfo.shopName}
           </Text>
         </Block>
       </Pressable>

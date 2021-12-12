@@ -17,7 +17,6 @@ const renderItem = ({item}) => {
 };
 
 const ListItem = ({data}) => {
-  console.log(data, 'jaja');
   return (
     <Block flex paddingTop={10}>
       <FlatList
