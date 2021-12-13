@@ -21,13 +21,16 @@ const CartScreen = () => {
   const [dataCart, setDataCart] = useState([]);
   const [dataselected, setDataSelected] = useState([]);
   const focus = useIsFocused();
-  const priceAll = () => {
+  const [sum, setSum] = useState(0);
+
+  useEffect(() => {
     let sum = 0;
     dataselected.forEach(p => {
       sum += p.price * p.quantity * (1 - p.product.sellOff);
     });
-    return sum;
-  };
+    setSum(sum);
+  }, [dataCart, dataselected]);
+
   useEffect(() => {
     if (focus) {
       setTimeout(() => {
@@ -135,7 +138,7 @@ const CartScreen = () => {
                   </Text>
                   <Block row alignCenter space="between">
                     <Text color={theme.colors.pink} size={18} fontType="bold">
-                      {Currency(priceAll())}
+                      {Currency(sum)}
                     </Text>
                     <Button
                       height={35}

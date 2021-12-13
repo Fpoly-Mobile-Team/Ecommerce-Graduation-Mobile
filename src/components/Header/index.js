@@ -165,7 +165,7 @@ const HeaderCommon = ({canGoBack, title, checkBackground}) => {
 
 const Cart = ({colorimg}) => {
   const user = useSelector(state => state.tokenUser?.data);
-  const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState(0);
   const focus = useIsFocused();
 
   useEffect(() => {

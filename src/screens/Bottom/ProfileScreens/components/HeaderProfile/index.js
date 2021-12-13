@@ -47,7 +47,7 @@ const HeaderProfile = () => {
 
 const Cart = () => {
   const navigation = useNavigation();
-  const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState(0);
   const focus = useIsFocused();
 
   useEffect(() => {
