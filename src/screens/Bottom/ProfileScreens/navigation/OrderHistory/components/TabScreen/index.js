@@ -84,12 +84,28 @@ const TabScreen = ({status}) => {
   return (
     <Block flex backgroundColor="background">
       {!isLoading ? (
-        <FlatList
-          data={DATA}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => item._id.toString()}
-          showsVerticalScrollIndicator={false}
-        />
+        <>
+          {DATA.length > 0 ? (
+            <FlatList
+              data={DATA}
+              renderItem={renderItem}
+              keyExtractor={(item, index) => item._id.toString()}
+              showsVerticalScrollIndicator={false}
+            />
+          ) : (
+            <>
+              {status === 'Đang xử lý' ? (
+                <Empty lottie={lottie.emptyCart} />
+              ) : status === 'Đang giao' ? (
+                <Empty lottie={lottie.emptyMessager} />
+              ) : status === 'Giao thành công' ? (
+                <Empty lottie={lottie.empty_Favorite} />
+              ) : (
+                <Empty lottie={lottie.emptyNotification} />
+              )}
+            </>
+          )}
+        </>
       ) : (
         <Empty lottie={lottie.emptyProductDetails} />
       )}
