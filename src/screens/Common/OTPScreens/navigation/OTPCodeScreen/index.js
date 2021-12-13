@@ -16,6 +16,8 @@ const OTPCodeScreen = ({route}) => {
   const [confirm, setConfirm] = useState(null);
   const config = useSelector(state => state.config?.data);
 
+  const code = otpArray.join('');
+
   const firstTextInputRef = useRef(null);
   const secondTextInputRef = useRef(null);
   const thirdTextInputRef = useRef(null);
@@ -51,7 +53,6 @@ const OTPCodeScreen = ({route}) => {
 
   const confirmCode = async () => {
     try {
-      const code = otpArray.join('');
       const response = await confirm.confirm(code);
       if (response) {
         Alert.alert('Xác thực thành công');
