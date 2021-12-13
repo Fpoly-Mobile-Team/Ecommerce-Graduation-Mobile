@@ -50,6 +50,7 @@ export default {
   GET_MY_VOUCHER: 'GET_MY_VOUCHER',
   GET_NOTIF_ORDER: 'GET_NOTIF_ORDER',
   SEARCH_PRODUCT_SHOP: 'SEARCH_PRODUCT_SHOP',
+  FILTER_PRODUCT: 'FILTER_PRODUCT',
 };
 
 export function _onSuccess(action) {

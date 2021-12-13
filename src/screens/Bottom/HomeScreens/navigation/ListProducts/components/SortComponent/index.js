@@ -21,10 +21,17 @@ if (Platform.OS === 'android') {
     UIManager.setLayoutAnimationEnabledExperimental(true);
   }
 }
-const SortComponent = ({refRBSheet, idProvince, idCate, price}) => {
+const SortComponent = ({
+  refRBSheet,
+  idProvince,
+  idCate,
+  price,
+  check,
+  setCheck,
+  titleCategorySub,
+}) => {
   const [show, setShow] = useState(false);
   const config = useSelector(state => state.config?.data);
-  const [value, setValue] = useState(' ');
 
   return (
     <Block>
@@ -58,9 +65,11 @@ const SortComponent = ({refRBSheet, idProvince, idCate, price}) => {
           </Pressable>
         </Block>
         <Block>
-          <Pressable onPress={() => refRBSheet.current.open()}>
-            <Fillter />
-          </Pressable>
+          {!titleCategorySub && (
+            <Pressable onPress={() => refRBSheet.current.open()}>
+              <Fillter color={theme.colors.black} />
+            </Pressable>
+          )}
           {idProvince || idCate || price ? (
             <Block
               backgroundColor={config?.backgroundcolor}
@@ -76,7 +85,7 @@ const SortComponent = ({refRBSheet, idProvince, idCate, price}) => {
       </Block>
       {show && (
         <Block marginTop={1} backgroundColor={theme.colors.white} row>
-          <CheckBoxCustom PROP={val} value={value} setValue={setValue} />
+          <CheckBoxCustom PROP={val} value={check} setValue={setCheck} />
         </Block>
       )}
     </Block>

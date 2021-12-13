@@ -8,25 +8,14 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  inputStyle: {
-    borderBottomWidth: 1,
-    textAlign: 'center',
-    borderColor: theme.colors.black,
-    width: 53,
-    marginHorizontal: 10,
-    fontSize: 24,
-    fontWeight: 'bold',
-    paddingBottom: 0,
-  },
-  inputStyleFocus: {
-    borderBottomWidth: 2,
-    borderColor: theme.colors.paleGreen,
-    textAlign: 'center',
-    width: 53,
-    marginHorizontal: 10,
-    fontSize: 24,
-    fontWeight: 'bold',
-    paddingBottom: 0,
-  },
   btnContinue: {paddingHorizontal: 40, marginTop: 30},
+
+  container: {
+    padding: 16,
+    flex: 1,
+    alignItems: 'center',
+  },
+  submitButtonText: {
+    backgroundColor: theme.colors.white,
+  },
 });

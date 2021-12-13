@@ -6,6 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
 import React from 'react';
 import {Image, Pressable} from 'react-native';
+import {width} from '@utils/responsive';
 import styles from './styles';
 
 const SellingProduct = ({titleSelling, data}) => {

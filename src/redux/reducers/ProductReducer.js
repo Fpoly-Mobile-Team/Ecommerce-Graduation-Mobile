@@ -60,6 +60,9 @@ export const searchProduct = (...props) => {
 export const searchProductShop = (...props) => {
   return reducerAdvance(...props, Actions.SEARCH_PRODUCT_SHOP);
 };
+export const filterProduct = (...props) => {
+  return reducerAdvance(...props, Actions.FILTER_PRODUCT);
+};
 
 export const ProductReducer = {
   product,
@@ -78,4 +81,5 @@ export const ProductReducer = {
   productReview,
   searchProduct,
   searchProductShop,
+  filterProduct,
 };

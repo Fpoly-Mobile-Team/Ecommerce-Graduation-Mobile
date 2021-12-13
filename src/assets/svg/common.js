@@ -3414,8 +3414,8 @@ export const DownArrowFill = ({width = 15, height = 15, color = '#8B9399'}) => (
 
 export const Fillter = ({width = 20, height = 18, color = '#1C1C1C'}) => (
   <Svg
-    width={width}
-    height={height}
+    width="20"
+    height="18"
     viewBox="0 0 20 18"
     fill="none"
     xmlns="http://www.w3.org/2000/svg">
@@ -3423,6 +3423,9 @@ export const Fillter = ({width = 20, height = 18, color = '#1C1C1C'}) => (
       fill-rule="evenodd"
       clip-rule="evenodd"
       d="M19.3333 1H1L8.33333 9.67167V15.6667L12 17.5V9.67167L19.3333 1Z"
+      stroke={color}
+      stroke-linecap="round"
+      stroke-linejoin="round"
     />
   </Svg>
 );

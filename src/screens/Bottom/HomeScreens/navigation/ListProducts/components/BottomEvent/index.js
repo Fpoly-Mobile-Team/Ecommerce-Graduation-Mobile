@@ -5,8 +5,6 @@ import {ScrollView} from 'react-native';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import BottomSheet from '../BottomSheet';
 import {width} from '@utils/responsive';
-import {routes} from '@navigation/routes';
-import {useNavigation} from '@react-navigation/core';
 
 const BottomEvent = ({
   refRBSheet,
@@ -17,8 +15,9 @@ const BottomEvent = ({
   value,
   setValue,
   onPress,
+  onPressSort,
+  checkCategory,
 }) => {
-  const navigation = useNavigation();
   return (
     <Block>
       <RBSheet
@@ -34,7 +33,7 @@ const BottomEvent = ({
             height: 2,
           },
           container: {
-            height: '40%',
+            height: checkCategory ? '33%' : '40%',
             backgroundColor: theme.colors.white,
             borderTopLeftRadius: 30,
             borderTopRightRadius: 30,
@@ -49,6 +48,7 @@ const BottomEvent = ({
             refRBSheet={refRBSheet}
             value={value}
             setValue={setValue}
+            checkCategory={checkCategory}
           />
           <Block row paddingTop={15} alignCenter justifyCenter>
             <Block paddingRight={15}>
@@ -73,7 +73,7 @@ const BottomEvent = ({
             <Block paddingLeft={15}>
               {idProvince || idCate || value ? (
                 <Button
-                  onPress={() => refRBSheet.current.close()}
+                  onPress={onPressSort}
                   alignCenter
                   height={40}
                   width={width / 2 - 30}

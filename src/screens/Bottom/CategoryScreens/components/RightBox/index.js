@@ -8,13 +8,16 @@ import {Image, Pressable, ScrollView} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {UIActivityIndicator} from 'react-native-indicators';
 import styles from './styles';
-import ItemProductCateSub from '@components/Common/ItemList/ItemProduct copy';
+import {useNavigation} from '@react-navigation/core';
+import ItemProductCateSub from '@components/Common/ItemList/ItemProductSub';
+import {routes} from '@navigation/routes';
 
 const RightBox = ({title}) => {
   const dispatch = useDispatch();
   const config = useSelector(state => state.config?.data);
   const data = useSelector(state => state.categorySub?.data);
   const isLoading = useSelector(state => state.categorySub?.isLoading);
+  const navigation = useNavigation();
 
   useEffect(() => {
     dispatch({
@@ -29,6 +32,7 @@ const RightBox = ({title}) => {
     <ItemProductCateSub
       _id={item._id}
       key={index}
+      review={item.reviews}
       style={{...styles.box(index)}}
       images={item.images[0]}
       nameProduct={item.name}
@@ -37,7 +41,6 @@ const RightBox = ({title}) => {
       sellOff={item.sellOff}
     />
   );
-
   const _renderItem = (item, index) => {
     return (
       <>
@@ -54,9 +57,18 @@ const RightBox = ({title}) => {
                 <Text size={13} numberOfLines={2} fontType="semibold">
                   {item.name}
                 </Text>
-                <Text size={11} color={theme.colors.pink}>
-                  Xem tất cả
-                </Text>
+                <Pressable
+                  onPress={() =>
+                    navigation.navigate(routes.LIST_PRODUCTS, {
+                      productSub: item.productInfos,
+                      titleCategorySub: item.name,
+                      tag: '1',
+                    })
+                  }>
+                  <Text size={11} color={theme.colors.pink}>
+                    Xem tất cả
+                  </Text>
+                </Pressable>
               </Block>
             </Pressable>
 
@@ -76,21 +88,29 @@ const RightBox = ({title}) => {
         paddingTop={10}
         paddingHorizontal={6}
         backgroundColor={theme.colors.background}>
-        <Block
-          row
-          alignCenter
-          height={45}
-          radius={5}
-          paddingHorizontal={12}
-          space="between"
-          backgroundColor={theme.colors.white}>
-          <Text fontType="semibold">{title?.title}</Text>
-          <Image
-            source={icons.next}
-            style={styles.icon_Next}
-            resizeMode="contain"
-          />
-        </Block>
+        <Pressable
+          onPress={() =>
+            navigation.navigate(routes.LIST_PRODUCTS, {
+              titleCategory: title?.title,
+              tag: '1',
+            })
+          }>
+          <Block
+            row
+            alignCenter
+            height={45}
+            radius={5}
+            paddingHorizontal={12}
+            space="between"
+            backgroundColor={theme.colors.white}>
+            <Text fontType="semibold">{title?.title}</Text>
+            <Image
+              source={icons.next}
+              style={styles.icon_Next}
+              resizeMode="contain"
+            />
+          </Block>
+        </Pressable>
         <Block flex>
           {!isLoading && data?.length ? (
             <>{data[0]?.subCategories?.map(_renderItem)}</>

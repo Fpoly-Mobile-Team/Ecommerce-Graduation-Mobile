@@ -16,6 +16,8 @@ const BottomSheet = ({
   refRBSheet,
   value,
   setValue,
+  checkCategory,
+  checkCategorySub,
 }) => {
   const navigation = useNavigation();
   const config = useSelector(state => state.config?.data);
@@ -112,43 +114,45 @@ const BottomSheet = ({
           </Pressable>
         )}
       </Block>
-      <Block row space={'between'} paddingTop={30} alignCenter>
-        <Text fontType={'bold'} size={15}>
-          Danh mục
-        </Text>
-        {idCate ? (
-          <Pressable
-            onPress={() => {
-              refRBSheet.current.close();
-              setTimeout(() => {
-                navigation.navigate(routes.CHOOSE_CATEGORY);
-              }, 500);
-            }}>
-            <Block row alignCenter paddingHorizontal={10}>
-              <Text size={14} color={theme.colors.black} fontType="medium">
-                {nameCate}
-              </Text>
-            </Block>
-          </Pressable>
-        ) : (
-          <Pressable
-            onPress={() => {
-              refRBSheet.current.close();
-              setTimeout(() => {
-                navigation.navigate(routes.CHOOSE_CATEGORY);
-              }, 500);
-            }}>
-            <Block row alignCenter paddingHorizontal={10}>
-              <Text size={12} color={theme.colors.lightGray}>
-                Chọn ngay
-              </Text>
-              <Block paddingTop={4}>
-                <ChevronRight width={15} height={15} />
+      {checkCategory ? null : (
+        <Block row space={'between'} paddingTop={30} alignCenter>
+          <Text fontType={'bold'} size={15}>
+            Danh mục
+          </Text>
+          {idCate ? (
+            <Pressable
+              onPress={() => {
+                refRBSheet.current.close();
+                setTimeout(() => {
+                  navigation.navigate(routes.CHOOSE_CATEGORY);
+                }, 500);
+              }}>
+              <Block row alignCenter paddingHorizontal={10}>
+                <Text size={14} color={theme.colors.black} fontType="medium">
+                  {nameCate}
+                </Text>
               </Block>
-            </Block>
-          </Pressable>
-        )}
-      </Block>
+            </Pressable>
+          ) : (
+            <Pressable
+              onPress={() => {
+                refRBSheet.current.close();
+                setTimeout(() => {
+                  navigation.navigate(routes.CHOOSE_CATEGORY);
+                }, 500);
+              }}>
+              <Block row alignCenter paddingHorizontal={10}>
+                <Text size={12} color={theme.colors.lightGray}>
+                  Chọn ngay
+                </Text>
+                <Block paddingTop={4}>
+                  <ChevronRight width={15} height={15} />
+                </Block>
+              </Block>
+            </Pressable>
+          )}
+        </Block>
+      )}
     </Block>
   );
 };

@@ -105,9 +105,7 @@ const HomeScreens = ({route}) => {
         />
         <FeaturedShop data={shoplist} />
         <Block height={8} backgroundColor={theme.colors.smoke} />
-        <Block paddingHorizontal={12}>
-          {banner && <Carousel data={banner} />}
-        </Block>
+        <Block>{banner && <Carousel data={banner} />}</Block>
         {product && <SellingProduct data={product} />}
       </Animated.ScrollView>
     </Block>

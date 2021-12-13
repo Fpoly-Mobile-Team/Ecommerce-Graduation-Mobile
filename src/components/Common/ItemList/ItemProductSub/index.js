@@ -10,9 +10,28 @@ import {Rating} from 'react-native-elements';
 import styles from './styles';
 
 const ItemProductCateSub = React.memo(
-  ({style, images, nameProduct, left, price, productSold, sellOff, _id}) => {
+  ({
+    style,
+    images,
+    nameProduct,
+    left,
+    price,
+    productSold,
+    sellOff,
+    _id,
+    review,
+  }) => {
     const navigation = useNavigation();
     const promotionalPrice = price * sellOff;
+    let sum = 0;
+
+    for (let index = 0; index < review?.length; index++) {
+      const getRating = review[index]?.rating;
+      sum += getRating;
+    }
+
+    const totalRating = sum / review?.length;
+    const parseRating = Number(totalRating).toFixed(1) || 0;
 
     return (
       <Pressable
@@ -103,9 +122,13 @@ const ItemProductCateSub = React.memo(
             </Block>
 
             <Block row alignCenter>
-              <Rating imageSize={getSize.s(10)} readonly startingValue={4} />
+              <Rating
+                imageSize={getSize.s(10)}
+                readonly
+                startingValue={parseRating === 'NaN' ? 0 : parseRating}
+              />
               <Text size={10} marginLeft={getSize.m(5)}>
-                (25)
+                ({review?.length})
               </Text>
             </Block>
             <Block paddingTop={5}>
