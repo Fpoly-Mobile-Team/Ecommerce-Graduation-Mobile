@@ -14,6 +14,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import actions, {_onUnmount} from '@redux/actions';
 import {lottie} from '@assets';
 import {routes} from '@navigation/routes';
+import {getSize} from '@utils/responsive';
 
 const ProductDetails = ({route, navigation}) => {
   const scrollY = useRef(new Animated.Value(0)).current;
@@ -37,13 +38,24 @@ const ProductDetails = ({route, navigation}) => {
   const productCategory = useSelector(
     state => state.productDetailsByCategory?.data,
   );
+
+  const productReview = useSelector(state => state.productReview?.data);
+  const checkData = productReview?.length;
+  let sum = 0;
+
+  for (let index = 0; index < checkData; index++) {
+    const getRating = productReview[index]?.rating;
+    sum += getRating;
+  }
+
+  const totalRating = sum / checkData;
+  const parseRating = totalRating.toFixed(1);
+
   const isLoading =
     isLoadingDetails ||
     isLoadingShop ||
     isLoadingproductShop ||
     isLoadingproductCategory;
-
-  const parseRating = Number(data?.avgProductRating).toFixed(1) || 0;
 
   useEffect(() => {
     dispatch({
@@ -98,10 +110,7 @@ const ProductDetails = ({route, navigation}) => {
     <Block flex backgroundColor={theme.colors.white}>
       <StatusBar translucent barStyle="dark-content" />
       {isLoading ? (
-        <Empty
-          lottie={lottie.emptyProductDetails}
-          content="Vui lòng đợi trong giây lát..."
-        />
+        <Empty lottie={lottie.loading} content="Đợi trong giây lát..." />
       ) : (
         <>
           <HeaderDetails
@@ -126,7 +135,7 @@ const ProductDetails = ({route, navigation}) => {
               nameProduct={data?.name}
               price={data?.price}
               sellOff={data?.sellOff}
-              numberOfReviews={data?.reviews?.length}
+              parseRating={totalRating}
               productSold={data?.productSold}
               idProduct={_id}
               onPressViewProductReview={() =>
@@ -148,8 +157,8 @@ const ProductDetails = ({route, navigation}) => {
             />
 
             <ProductReviews
-              parseRating={parseRating}
               _id={_id}
+              parseRating={parseRating}
               onPress={() =>
                 navigation.navigate(routes.PRODUCT_REVIEWS, {_id: _id})
               }

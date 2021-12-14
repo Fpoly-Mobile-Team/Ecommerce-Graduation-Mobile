@@ -154,9 +154,9 @@ const CartScreen = () => {
         </>
       ) : (
         <Empty
-          lottie={lottie.emptyCart}
-          imageStyles={{width: getSize.s(200), height: getSize.s(200)}}
-          content={'Nhanh tay mua hàng...'}
+          lottie={lottie.cart}
+          imageStyles={{width: getSize.s(240), height: getSize.s(240)}}
+          content={'Nhanh tay mua hàng ngay...'}
         />
       )}
 

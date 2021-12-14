@@ -8,7 +8,7 @@ import React from 'react';
 import styles from './styles';
 
 const ItemOrderHistory = ({
-  name,
+  _id,
   date,
   shop,
   quantity,
@@ -23,19 +23,17 @@ const ItemOrderHistory = ({
     <Block
       shadow
       flex
-      flexGrow
-      marginHorizontal={15}
-      radius={7}
-      marginTop={15}
-      marginBottom={isCheck ? 15 : 0}
+      radius={8}
+      marginTop={12}
+      marginBottom={isCheck ? 12 : 0}
       paddingVertical={10}
       paddingHorizontal={15}
       backgroundColor={theme.colors.white}>
-      <Block row space="between" paddingVertical={10}>
-        <Text fontType="bold" size={17}>
-          #{name}
+      <Block alignCenter row space="between" paddingVertical={10}>
+        <Text fontType="bold" size={16}>
+          Order № {_id}
         </Text>
-        <Text fontType="light" color={theme.colors.lightGray}>
+        <Text size={13} color={theme.colors.lightGray}>
           {moment(date).format('DD/MM/YYYY')}
         </Text>
       </Block>
@@ -57,13 +55,14 @@ const ItemOrderHistory = ({
       <Block row space="between" alignCenter>
         <Button
           onPress={() => navigation.navigate(routes.ORDERDETAILS, {item})}
-          height={35}
+          height={36}
           title="Details"
           titleStyle={{color: theme.colors.black}}
           style={styles.btnOutline}
         />
 
         <Text
+          fontType="semibold"
           color={
             status === 'Bị hủy'
               ? theme.colors.red

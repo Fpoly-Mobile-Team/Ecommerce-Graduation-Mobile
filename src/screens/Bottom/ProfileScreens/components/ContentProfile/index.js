@@ -15,7 +15,7 @@ import styles from './styles';
 const ContentProfile = () => {
   return (
     <Block wrap marginTop={0}>
-      {DATA.map(ActionsButton)}
+      {DATA?.map(ActionsButton)}
     </Block>
   );
 };
@@ -71,7 +71,7 @@ const ActionsButton = (item, index) => {
       </Block>
       {item.id === '1' && (
         <Block row alignCenter wrap>
-          {DATABILL.map(_renderItem)}
+          {DATABILL?.map(_renderItem)}
         </Block>
       )}
       <Block
@@ -92,9 +92,13 @@ const _renderItem = item => {
   const dataDelivering = useSelector(
     state => state.historyOrderDelivering?.data,
   );
-  const dataWaiting = useSelector(state => state.historyOrderWaiting.data);
+  const dataWaiting = useSelector(state => state.historyOrderWaiting?.data);
   const dispatch = useDispatch();
   const isFocused = useIsFocused();
+  const orderStatusQuantity =
+    dataWaiting && item.title === 'Đang xử lý'
+      ? dataWaiting?.length
+      : dataDelivering && item.title === 'Đang giao' && dataDelivering?.length;
 
   useEffect(() => {
     if (isFocused) {
@@ -117,28 +121,20 @@ const _renderItem = item => {
     }
   }, [dispatch, isFocused, user]);
 
-  let DATA =
-    item.title === 'Đang xử lý'
-      ? dataWaiting
-      : item.title === 'Đang giao'
-      ? dataDelivering
-      : item.title === 'Giao thành công'
-      ? data
-      : dataCancel;
   return (
     <Pressable
       key={item.id}
       onPress={() =>
         navigation.navigate(routes.ORDERHISTORY, {title: item.title})
       }>
-      <Block flex alignCenter width={width / 4}>
-        {DATA && DATA?.length ? (
+      <Block flex alignCenter width={width / 4} marginTop={6}>
+        {orderStatusQuantity ? (
           <Badge
             status="error"
             containerStyle={{position: 'absolute', top: -5, right: 20}}
             badgeStyle={{}}
             textProps={{allowFontScaling: false}}
-            value={DATA?.length}
+            value={orderStatusQuantity}
           />
         ) : null}
 

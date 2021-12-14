@@ -3,9 +3,16 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    borderTopEndRadius: 10,
-    borderTopStartRadius: 10,
+    borderTopEndRadius: getSize.s(10),
+    borderTopStartRadius: getSize.s(10),
   },
-  box: {borderTopStartRadius: getSize.s(20)},
-  image: {alignSelf: 'center'},
+  box: {
+    borderTopStartRadius: getSize.s(20),
+  },
+  image: {
+    alignSelf: 'center',
+    width: getSize.s(110),
+    height: getSize.v(110),
+    resizeMode: 'contain',
+  },
 });

@@ -1,10 +1,11 @@
 import {lottie} from '@assets';
-import {Block, Empty, Header} from '@components';
+import {Block, Empty} from '@components';
 import ItemNotification from '@components/Common/ItemList/ItemNotification';
 import {routes} from '@navigation/routes';
 import {useIsFocused, useNavigation} from '@react-navigation/core';
 import actions from '@redux/actions';
 import {theme} from '@theme';
+import {getSize} from '@utils/responsive';
 import moment from 'moment';
 import React, {useEffect} from 'react';
 import {FlatList} from 'react-native';
@@ -13,7 +14,6 @@ import {useDispatch, useSelector} from 'react-redux';
 const SystemNotifications = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
-  const user = useSelector(state => state.tokenUser?.data);
   const notifications = useSelector(state => state.notifications?.data);
   const focus = useIsFocused();
 
@@ -23,10 +23,6 @@ const SystemNotifications = () => {
     }, 120000);
     return () => clearInterval(interval);
   }, [dispatch]);
-
-  const onPress = () => {
-    navigation.navigate(routes.AUTHFORSCREEN);
-  };
 
   const renderItem = ({item, index}) => (
     <ItemNotification
@@ -40,7 +36,7 @@ const SystemNotifications = () => {
 
   return (
     <Block flex backgroundColor={theme.colors.white}>
-      {user ? (
+      {notifications?.length ? (
         <FlatList
           data={notifications}
           renderItem={renderItem}
@@ -49,10 +45,9 @@ const SystemNotifications = () => {
         />
       ) : (
         <Empty
-          lottie={lottie.emptyNotification}
-          content="Vui lòng đăng nhập để nhận thông báo!"
-          contentMore="Đăng nhập ngay"
-          onPress={onPress}
+          lottie={lottie.emptyReview}
+          content="Không có thông báo"
+          imageStyles={{width: getSize.s(220), height: getSize.s(220)}}
         />
       )}
     </Block>

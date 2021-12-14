@@ -1,17 +1,19 @@
 import {StyleSheet} from 'react-native';
+import {getSize} from '@utils/responsive';
 
 export default StyleSheet.create({
   img: {
-    width: 130,
-    height: 130,
-    borderBottomLeftRadius: 10,
-    borderTopLeftRadius: 10,
+    width: getSize.s(125),
+    height: getSize.v(125),
+    borderBottomLeftRadius: getSize.s(8),
+    borderTopLeftRadius: getSize.s(8),
+    margin: 8
   },
 
   touch: {
-    borderRadius: 20,
-    elevation: 8,
-    height: 30,
-    width: 30,
+    borderRadius: getSize.m(20),
+    elevation: getSize.m(8),
+    height: getSize.v(30),
+    width: getSize.s(30),
   },
 });

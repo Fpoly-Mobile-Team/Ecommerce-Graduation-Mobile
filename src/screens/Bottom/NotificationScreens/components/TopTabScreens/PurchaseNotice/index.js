@@ -5,6 +5,7 @@ import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/core';
 import actions from '@redux/actions';
 import {theme} from '@theme';
+import {getSize} from '@utils/responsive';
 import moment from 'moment';
 import React, {useEffect} from 'react';
 import {FlatList} from 'react-native';
@@ -20,13 +21,9 @@ const PurchaseNotice = () => {
     dispatch({type: actions.GET_NOTIF_ORDER, user});
   }, [dispatch]);
 
-  const onPress = () => {
-    navigation.navigate(routes.AUTHFORSCREEN);
-  };
-
   const renderItem = ({item, index}) => (
     <ItemNotification
-      title={'#' + item._id?.substring(0, 6)?.toUpperCase() + ' - ' + item.title}
+      title={item.title}
       content={item.content}
       time={moment(item.sendDate).format('hh: mm, DD/MM/YYYY')}
       images={item.images}
@@ -37,7 +34,7 @@ const PurchaseNotice = () => {
 
   return (
     <Block flex backgroundColor={theme.colors.white}>
-      {user ? (
+      {notice?.length ? (
         <FlatList
           data={notice}
           renderItem={renderItem}
@@ -46,10 +43,9 @@ const PurchaseNotice = () => {
         />
       ) : (
         <Empty
-          lottie={lottie.emptyNotification}
-          content="Vui lòng đăng nhập để nhận thông báo!"
-          contentMore="Đăng nhập ngay"
-          onPress={onPress}
+          lottie={lottie.emptyReview}
+          content="Không có thông báo"
+          imageStyles={{width: getSize.s(220), height: getSize.s(220)}}
         />
       )}
     </Block>

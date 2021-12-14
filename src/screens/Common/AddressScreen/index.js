@@ -40,9 +40,9 @@ const AddressScreen = () => {
         />
       ) : (
         <Empty
-          lottie={lottie.emptyCategory}
-          imageStyles={{width: getSize.s(200), height: getSize.s(200)}}
-          content="Danh sách rỗng !"
+          lottie={lottie.delivery_address}
+          imageStyles={{width: getSize.s(220), height: getSize.s(220)}}
+          content="Bạn chưa có địa chỉ giao hàng"
         />
       )}
 

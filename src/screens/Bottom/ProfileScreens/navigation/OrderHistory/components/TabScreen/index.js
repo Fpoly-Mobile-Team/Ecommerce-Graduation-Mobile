@@ -1,10 +1,12 @@
 import {lottie} from '@assets';
-import {Block, Empty} from '@components';
+import {Block, Empty, Text} from '@components';
 import ItemOderHistory from '@components/Common/ItemList/ItemOrderHistory';
 import actions from '@redux/actions';
 import React, {useEffect} from 'react';
 import {FlatList} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
+import {getSize} from '@utils/responsive';
+import {reverseString} from '@utils/needed';
 
 const TabScreen = ({status}) => {
   const dispatch = useDispatch();
@@ -26,13 +28,14 @@ const TabScreen = ({status}) => {
   );
   const user = useSelector(state => state.tokenUser?.data);
   const indexend = DATA?.length - 1;
+
   const renderItem = ({item, index}) => {
     return (
       <ItemOderHistory
         name={item._id.slice(0, 10)}
         date={item.purchaseDate}
         shop={item.shopInfo?.shopName}
-        quantity={item.product.length}
+        quantity={item.product?.length}
         price={item.totalPrice}
         status={item.status}
         isCheck={index === indexend}
@@ -89,25 +92,29 @@ const TabScreen = ({status}) => {
             <FlatList
               data={DATA}
               renderItem={renderItem}
+              contentContainerStyle={{
+                paddingHorizontal: getSize.m(16),
+                paddingBottom: getSize.m(8),
+              }}
               keyExtractor={(item, index) => item._id.toString()}
               showsVerticalScrollIndicator={false}
             />
           ) : (
-            <>
+            <Block flex justifyCenter alignCenter>
               {status === 'Đang xử lý' ? (
-                <Empty lottie={lottie.emptyCart} />
+                <Text size={16}>Đơn hàng đang xử lý không có</Text>
               ) : status === 'Đang giao' ? (
-                <Empty lottie={lottie.emptyMessager} />
+                <Text size={16}>Đơn hàng đang giao không có</Text>
               ) : status === 'Giao thành công' ? (
-                <Empty lottie={lottie.empty_Favorite} />
+                <Text size={16}>Chưa có đơn hàng đã giao</Text>
               ) : (
-                <Empty lottie={lottie.emptyNotification} />
+                <Text size={16}>Bạn chưa hủy đơn hàng nào</Text>
               )}
-            </>
+            </Block>
           )}
         </>
       ) : (
-        <Empty lottie={lottie.emptyProductDetails} />
+        <Empty lottie={lottie.load_more} />
       )}
     </Block>
   );

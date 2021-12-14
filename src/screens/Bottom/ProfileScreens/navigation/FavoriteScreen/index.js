@@ -3,6 +3,7 @@ import {Block, Empty, Header} from '@components';
 import ItemProduct from '@components/Common/ItemList/ItemProduct';
 import {useIsFocused} from '@react-navigation/native';
 import actions from '@redux/actions';
+import {getSize} from '@utils/responsive';
 import React, {useEffect} from 'react';
 import {FlatList} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
@@ -36,7 +37,13 @@ const FavoriteScreen = () => {
     );
   };
   const renderEmptyContainer = () => {
-    return <Empty lottie={lottie.empty_Favorite} content="Danh sách rỗng!" />;
+    return (
+      <Empty
+        lottie={lottie.empty_Favorite}
+        content="Bạn chưa yêu thích sản phẩm nào"
+        imageStyles={{width: getSize.s(200), height: getSize.s(200)}}
+      />
+    );
   };
   return (
     <Block flex>

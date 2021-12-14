@@ -1,4 +1,3 @@
-import {images} from '@assets';
 import {Block, Text} from '@components';
 import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
@@ -17,43 +16,48 @@ const ItemDetailHistory = ({title, color, price, amount, image, _id}) => {
       <Block
         shadow
         row
-        marginBottom={20}
-        marginHorizontal={12}
+        marginBottom={12}
         backgroundColor={theme.colors.white}
-        radius={10}>
+        radius={6}>
         <Image source={{uri: image}} style={styles.img} />
-        <Block flex padding={10}>
-          <Block row space="between" paddingTop={5}>
+        <Block flex padding={16}>
+          <Block row space="between">
             <Text
-              size={20}
+              size={14.4}
               fontType="semibold"
               numberOfLines={2}
               color={theme.colors.black}>
               {title}
             </Text>
           </Block>
-          <Block marginTop={5} marginBottom={20} flexDirection="row">
-            {color ? (
-              <Block paddingRight={15}>
-                <Text size={12} color="gray">
-                  Color:{' '}
-                  <Text size={12} fontType="bold">
-                    {color}
-                  </Text>
+          <Block marginTop={12} flexDirection="row">
+            <Block>
+              <Text fontType="medium" size={12} color={theme.colors.lightGray}>
+                Màu sắc:{' '}
+                <Text size={12} fontType="bold">
+                  {color ? color : 'Không có'}
                 </Text>
-              </Block>
-            ) : null}
+              </Text>
+            </Block>
           </Block>
-          <Block row space="between">
+
+          <Block flex alignEnd row space="between">
             <Block row>
               <Text size={12} fontType={'bold'}>
-                <Text size={12} color={theme.colors.lightGray}>
-                  Số lượng:{'  '}
+                <Text
+                  fontType="medium"
+                  size={12}
+                  color={theme.colors.lightGray}>
+                  Số lượng:{' '}
                 </Text>
                 {amount}
               </Text>
             </Block>
-            <Text size={15} color={theme.colors.black} fontType="semibold">
+            <Text
+              right
+              width={'57.5%'}
+              color={theme.colors.black}
+              fontType="bold">
               {Currency(price)}
             </Text>
           </Block>

@@ -22,6 +22,9 @@ export default StyleSheet.create({
     width: getSize.s(50),
     height: getSize.s(50),
     borderRadius: getSize.s(50),
+    borderWidth: 1.5,
+    alignContent: 'center',
+    justifyContent: 'center',
   },
   ItemIconRight: {
     position: 'absolute',

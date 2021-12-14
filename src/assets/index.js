@@ -68,16 +68,34 @@ export const images = {
   otpcode: require('./images/otpcode.png'),
   handm: require('./images/handm.png'),
   no_avatar: require('./images/not_avt.png'),
+  ants: require('./images/ants.png'),
 };
 export const lottie = {
   emptyCategory: require('./lottie/emptyCategory.json'),
   emptyNotification: require('./lottie/emptyNotification.json'),
   emptyMessager: require('./lottie/emptyMessager.json'),
-  emptyProductDetails: require('./lottie/emptyProductDetails.json'),
+  load_more: require('./lottie/load_more.json'),
   empty_Favorite: require('./lottie/empty_Favorite.json'),
   emptyReview: require('./lottie/emptyReview.json'),
   relax: require('./lottie/relax.json'),
   emptyData: require('./lottie/emptyData.json'),
   success: require('./lottie/success.json'),
   emptyCart: require('./lottie/cartempyty.json'),
-};
+
+  cancel: require('./lottie/cancel.json'),
+  cart: require('./lottie/cart.json'),
+  delivery: require('./lottie/delivery.json'),
+  successful_transaction: require('./lottie/successful_transaction.json'),
+  delivery_address: require('./lottie/delivery_address.json'),
+  favorite: require('./lottie/favorite.json'),
+  loading: require('./lottie/loading.json'),
+  rating: require('./lottie/rating.json'),
+  wishlist: require('./lottie/wishlist.json'),
+  write_review: require('./lottie/write_review.json'),
+  message: require('./lottie/message.json'),
+  notifications: require('./lottie/notifications.json'),
+  feature: require('./lottie/feature.json'),
+  loading_percent: require('./lottie/loading_percent.json'),
+  working: require('./lottie/working.json'),
+
+};  

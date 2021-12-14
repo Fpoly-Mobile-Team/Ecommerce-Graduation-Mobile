@@ -1,4 +1,3 @@
-import {images} from '@assets';
 import {Block} from '@components';
 import ItemPromoCart from '@components/Common/ItemList/ItemPromoCart';
 import React, {useEffect} from 'react';
@@ -7,8 +6,8 @@ import {useDispatch, useSelector} from 'react-redux';
 import actions from '@redux/actions';
 import {SkypeIndicator} from 'react-native-indicators';
 import {theme} from '@theme';
-
 import {Toast} from '@utils/helper';
+
 const ListItem = ({isClosed, selectedIdVouchers, idShop}) => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.tokenUser?.data);
@@ -16,6 +15,7 @@ const ListItem = ({isClosed, selectedIdVouchers, idShop}) => {
   const isLoading = useSelector(state => state.getmyVoucher?.isLoading);
   const [selectedIdVoucher, setSelectedIdVoucher] = selectedIdVouchers;
   const voucherPromo = myvoucher?.filter(v => v.shopId === idShop);
+
   useEffect(() => {
     dispatch({
       type: actions.GET_MY_VOUCHER,
@@ -31,6 +31,7 @@ const ListItem = ({isClosed, selectedIdVouchers, idShop}) => {
       Toast('Vui lòng chọn vocher đúng với shop');
     }
   };
+
   const renderItem = ({item, index}) => {
     return (
       <ItemPromoCart
@@ -42,7 +43,7 @@ const ListItem = ({isClosed, selectedIdVouchers, idShop}) => {
       />
     );
   };
-  console.log('voucherPromo', voucherPromo);
+
   return (
     <Block flex paddingHorizontal={12} paddingTop={15}>
       {!isLoading && voucherPromo ? (

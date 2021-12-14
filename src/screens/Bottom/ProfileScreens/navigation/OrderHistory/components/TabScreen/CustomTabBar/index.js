@@ -8,7 +8,7 @@ import styles from './styles';
 function CustomTabBar({state, descriptors, navigation}) {
   const config = useSelector(state => state.config?.data);
   const ref = useRef();
-  const [position, setposition] = useState(0);
+  const [position, setPosition] = useState(0);
   return (
     <Block row justifyCenter alignCenter paddingVertical={15}>
       <ScrollView
@@ -45,8 +45,8 @@ function CustomTabBar({state, descriptors, navigation}) {
 
             if (!isFocused && !event.defaultPrevented) {
               navigation.navigate(route.name);
-              setposition(index);
-              ref.current.scrollTo({x: index, y: index, animated: true});
+              setPosition(index);
+              // ref.current.scrollTo({x: index, y: index, animated: true});
             }
           };
 

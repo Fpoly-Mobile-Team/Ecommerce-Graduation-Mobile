@@ -2,15 +2,17 @@ import {Block, Text} from '@components';
 import {theme} from '@theme';
 import {Currency} from '@utils/helper';
 import React from 'react';
+
 const FooterComponent = ({data}) => {
   let address =
     data?.deliveryAddress.street +
-    ',' +
+    ', ' +
     data?.deliveryAddress.ward +
-    ',' +
+    ', ' +
     data?.deliveryAddress.district +
-    ',' +
+    ', ' +
     data?.deliveryAddress.province;
+    
   return (
     <Block paddingHorizontal={15}>
       <Text paddingVertical={15} size={16} fontType={'bold'}>
@@ -39,11 +41,10 @@ const FooterComponent = ({data}) => {
           <Text color={theme.colors.lightGray}>Giảm giá:{'  '}</Text>
           <Block width="60%">
             <Text fontType={'bold'}>
-              {' '}
               {data.orderDiscountType === 'VNĐ'
                 ? Currency(data.orderDiscount)
                 : data.orderDiscount * 100 + '% '}{' '}
-              voucher
+              Mã khuyến mãi
             </Text>
           </Block>
         </Block>

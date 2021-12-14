@@ -1,5 +1,5 @@
 import {BackgroundColorShop, IconForward} from '@assets/svg/common';
-import {Block, Carousel, Text} from '@components';
+import {Block, Carousel, Empty, Text} from '@components';
 import ItemVoucherFromShop from '@components/Common/ItemList/ItemVoucherFromShop';
 import {routes} from '@navigation/routes';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
@@ -15,6 +15,7 @@ import moment from 'moment';
 import InforShop from './components/InforShop';
 import SearchShop from './components/SearchShop';
 import styles from './styles';
+import {lottie} from '@assets';
 
 const ProductStore = ({route}) => {
   const navigation = useNavigation();
@@ -24,6 +25,16 @@ const ProductStore = ({route}) => {
   const user = useSelector(state => state.tokenUser?.data);
   const config = useSelector(state => state.config?.data);
   const shopVoucher = useSelector(state => state.shopVoucher?.data);
+  const modeLoadingShop = useSelector(state => state.infoShop?.isLoading);
+  const modeLoadingProductShop = useSelector(
+    state => state.productDetailsShop?.isLoading,
+  );
+  const modeLoadingShopVoucher = useSelector(
+    state => state.shopVoucher?.isLoading,
+  );
+
+  const modeLoading =
+    modeLoadingShop || modeLoadingProductShop || modeLoadingShopVoucher;
 
   const {id} = route.params || {};
 
@@ -82,13 +93,14 @@ const ProductStore = ({route}) => {
           color={theme.colors.black}>
           Mã giảm giá
         </Text>
-        {shopVoucher?.length != 0 ? (
+        {shopVoucher?.length != 0 && (
           <Pressable
             style={styles.wrapperTextVoucher}
             onPress={() =>
               navigation.navigate(routes.PROMO_SCREEN, {
                 id: shop?._id,
                 shopName: shop?.shopName,
+                profilePicture: shop?.profilePicture,
               })
             }>
             <Text color={config?.backgroundcolor} lineHeight={18}>
@@ -102,7 +114,7 @@ const ProductStore = ({route}) => {
               />
             </Block>
           </Pressable>
-        ) : null}
+        )}
       </Block>
     );
   };
@@ -137,33 +149,40 @@ const ProductStore = ({route}) => {
 
   return (
     <Block flex>
-      <ScrollView showsVerticalScrollIndicator={false} bounces={false}>
-        <BackgroundColorShop width={width} height={getSize.s(375)} />
-        <Block
-          absolute
-          width={width}
-          style={{zIndex: getSize.s(99)}}
-          paddingHorizontal={12}>
-          <SearchShop idShop={id} />
-          <InforShop data={shop} />
-          <_renderBanner />
-        </Block>
-        <_renderVoucherShop />
+      {modeLoading ? (
+        <Empty lottie={lottie.loading} content="Đợi trong giây lát..." />
+      ) : (
+        <ScrollView showsVerticalScrollIndicator={false} bounces={false}>
+          <BackgroundColorShop width={width} height={getSize.s(375)} />
+          <Block
+            absolute
+            width={width}
+            style={{zIndex: getSize.s(99)}}
+            paddingHorizontal={12}>
+            <SearchShop idShop={id} />
+            <InforShop data={shop} />
+            <_renderBanner />
+          </Block>
+          <_renderVoucherShop />
 
-        <Block backgroundColor={theme.colors.white}>
-          {productShop && (
-            <ProductRelated
-              productCategory={productShop}
-              nameTitle="Sản phẩm bán chạy"
-            />
-          )}
-        </Block>
-        <Block marginVertical={10} backgroundColor={theme.colors.white}>
-          {productShop && (
-            <SellingProduct data={productShop} titleSelling="Tất cả sản phẩm" />
-          )}
-        </Block>
-      </ScrollView>
+          <Block backgroundColor={theme.colors.white}>
+            {productShop && (
+              <ProductRelated
+                productCategory={productShop}
+                nameTitle="Sản phẩm bán chạy"
+              />
+            )}
+          </Block>
+          <Block marginVertical={10} backgroundColor={theme.colors.white}>
+            {productShop && (
+              <SellingProduct
+                data={productShop}
+                titleSelling="Tất cả sản phẩm"
+              />
+            )}
+          </Block>
+        </ScrollView>
+      )}
     </Block>
   );
 };
