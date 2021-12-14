@@ -3,7 +3,6 @@ import {Block, Empty, Header, Text} from '@components';
 import ItemPromoScreen from '@components/Common/ItemList/ItemPromoScreen';
 import {lottie} from '@assets';
 import {theme} from '@theme';
-import {useNavigation} from '@react-navigation/core';
 import {Toast} from '@utils/helper';
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
@@ -13,9 +12,9 @@ import {FlatList} from 'react-native-gesture-handler';
 import OptionsMenu from 'react-native-option-menu';
 import styles from './styles';
 import {SelectCircle} from '@assets/svg/common';
+import {getSize} from '@utils/responsive';
 
 const MyVouchers = () => {
-  const navigation = useNavigation();
   const expiry = () => {
     Toast('Hạn sử dụng mã giảm giá');
   };
@@ -54,9 +53,8 @@ const MyVouchers = () => {
     return (
       <Empty
         lottie={lottie.cancel}
-        content="Bạn chưa có voucher..."
-        contentMore="Quay lại"
-        onPress={() => navigation.goBack()}
+        content="Bạn chưa có Voucher nào"
+        imageStyles={{width: getSize.s(220), height: getSize.s(220)}}
       />
     );
   };

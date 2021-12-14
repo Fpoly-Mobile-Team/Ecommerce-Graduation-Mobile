@@ -21,6 +21,7 @@ const ItemPaymentProduct = ({
       onPress={() => navigation.navigate(routes.PRODUCT_DETAILS, {_id: _id})}>
       <Block
         row
+        shadow
         flex
         radius={8}
         borderColor={theme.colors.lightGray}
@@ -38,7 +39,7 @@ const ItemPaymentProduct = ({
           resizeMode="contain"
         />
         <Block flex marginLeft={10}>
-          <Text numberOfLines={2} size={16} color={theme.colors.placeholder}>
+          <Text numberOfLines={2} size={14} color={theme.colors.placeholder}>
             {nameProduct}
           </Text>
           <Block row alignCenter marginTop={5} space="between">

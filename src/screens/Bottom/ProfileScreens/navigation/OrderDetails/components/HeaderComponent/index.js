@@ -6,22 +6,23 @@ import React from 'react';
 const HeaderComponent = ({_id, purcharseDate, shop, status, quantity}) => {
   return (
     <Block>
-      <Block row space="between" paddingTop={20}>
-        <Text fontType={'bold'} size={17}>
-          #{_id}
+      <Block alignCenter row space="between" paddingTop={20}>
+        <Text fontType={'bold'} size={16}>
+          Order № {_id}
         </Text>
-        <Text color={theme.colors.lightGray}>
+        <Text size={13} color={theme.colors.lightGray}>
           {moment(purcharseDate).format('DD/MM/YYYY')}
         </Text>
       </Block>
-      <Block row space="between" paddingVertical={12}>
-        <Text fontType={'bold'} size={15}>
-          <Text size={15} color={theme.colors.lightGray}>
+      <Block alignCenter row space="between" marginTop={12} marginBottom={16}>
+        <Text fontType={'semibold'} size={14}>
+          <Text size={14} color={theme.colors.lightGray}>
             Tên cửa hàng:{'  '}
           </Text>
           {shop}
         </Text>
         <Text
+          fontType="semibold"
           color={
             status === 'Bị hủy'
               ? theme.colors.red
@@ -34,8 +35,8 @@ const HeaderComponent = ({_id, purcharseDate, shop, status, quantity}) => {
           {status}
         </Text>
       </Block>
-      <Text fontType="bold" size={15}>
-        {quantity} Sản Phẩm
+      <Text fontType="bold" size={14}>
+        {quantity < 10 ? '0' + quantity : quantity} Sản Phẩm
       </Text>
     </Block>
   );

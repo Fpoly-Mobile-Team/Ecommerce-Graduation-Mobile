@@ -5,6 +5,7 @@ import {useNavigation} from '@react-navigation/core';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {bottom} from '@screens/Bottom';
 import {theme} from '@theme';
+import {getSize} from '@utils/responsive';
 import React from 'react';
 import {useSelector} from 'react-redux';
 import Customing from './components/Customing';
@@ -24,8 +25,9 @@ const NotificationScreens = () => {
       {!user ? (
         <Empty
           lottie={lottie.notifications}
-          content="Đăng nhập để sử dụng được tính năng..."
+          content="Đăng nhập để sử dụng tính năng..."
           contentMore="Đăng nhập ngay"
+          imageStyles={{width: getSize.s(190), height: getSize.s(190)}}
           onPress={onPress}
         />
       ) : (

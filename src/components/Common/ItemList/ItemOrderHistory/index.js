@@ -29,11 +29,11 @@ const ItemOrderHistory = ({
       paddingVertical={10}
       paddingHorizontal={15}
       backgroundColor={theme.colors.white}>
-      <Block row space="between" paddingVertical={10}>
+      <Block alignCenter row space="between" paddingVertical={10}>
         <Text fontType="bold" size={16}>
-          #{_id}
+          Order № {_id}
         </Text>
-        <Text size={13} fontType="light" color={theme.colors.placeholder}>
+        <Text size={13} color={theme.colors.lightGray}>
           {moment(date).format('DD/MM/YYYY')}
         </Text>
       </Block>
@@ -55,13 +55,14 @@ const ItemOrderHistory = ({
       <Block row space="between" alignCenter>
         <Button
           onPress={() => navigation.navigate(routes.ORDERDETAILS, {item})}
-          height={35}
+          height={36}
           title="Details"
           titleStyle={{color: theme.colors.black}}
           style={styles.btnOutline}
         />
 
         <Text
+          fontType="semibold"
           color={
             status === 'Bị hủy'
               ? theme.colors.red

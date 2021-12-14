@@ -20,7 +20,7 @@ const VoucherShop = ({onPress, title}) => {
           paddingHorizontal={28}
           backgroundColor={theme.colors.white}
           space="between">
-          <Text>{title ? title : 'Áp dụng voucher'}</Text>
+          <Text width={'75%'}>{title ? title : 'Áp dụng voucher'}</Text>
           <Text fontType="bold" color={theme.colors.pink}>
             Thay đổi
           </Text>

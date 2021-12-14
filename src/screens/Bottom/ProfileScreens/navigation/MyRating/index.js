@@ -2,7 +2,7 @@ import {lottie} from '@assets';
 import {Block, Empty, Header, Text} from '@components';
 import actions from '@redux/actions';
 import {theme} from '@theme';
-import {width} from '@utils/responsive';
+import {getSize, width} from '@utils/responsive';
 import moment from 'moment';
 import React, {useEffect} from 'react';
 import {FlatList, Image, Pressable} from 'react-native';
@@ -75,9 +75,8 @@ const MyRating = () => {
     return (
       <Empty
         lottie={lottie.relax}
-        content="Bạn chưa có đánh giá nào"
-        contentMore="Quay lại"
-        onPress={() => navigation.goBack()}
+        content="Bạn chưa có đánh giá"
+        imageStyles={{width: getSize.s(220), height: getSize.s(220)}}
       />
     );
   };

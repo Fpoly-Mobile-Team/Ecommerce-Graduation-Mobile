@@ -68,6 +68,7 @@ export const images = {
   otpcode: require('./images/otpcode.png'),
   handm: require('./images/handm.png'),
   no_avatar: require('./images/not_avt.png'),
+  ants: require('./images/ants.png'),
 };
 export const lottie = {
   emptyCategory: require('./lottie/emptyCategory.json'),
@@ -95,6 +96,6 @@ export const lottie = {
   notifications: require('./lottie/notifications.json'),
   feature: require('./lottie/feature.json'),
   loading_percent: require('./lottie/loading_percent.json'),
-  waiting: require('./lottie/waiting.json'),
+  working: require('./lottie/working.json'),
 
 };  

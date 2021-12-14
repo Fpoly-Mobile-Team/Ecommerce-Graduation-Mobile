@@ -300,7 +300,7 @@ const ItemProductCart = ({
             width={20}
             onPress={_onSelectingAllProducts}
           />
-          <Text>{nameShop}</Text>
+          <Text marginLeft={5}>{nameShop}</Text>
         </Block>
         <Block
           style={styles.box_end}

@@ -5,6 +5,7 @@ import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/core';
 import actions from '@redux/actions';
 import {theme} from '@theme';
+import {getSize} from '@utils/responsive';
 import moment from 'moment';
 import React, {useEffect} from 'react';
 import {FlatList} from 'react-native';
@@ -41,7 +42,11 @@ const PurchaseNotice = () => {
           showsVerticalScrollIndicator={false}
         />
       ) : (
-        <Empty lottie={lottie.emptyReview} content="Không có thông báo" />
+        <Empty
+          lottie={lottie.emptyReview}
+          content="Không có thông báo"
+          imageStyles={{width: getSize.s(220), height: getSize.s(220)}}
+        />
       )}
     </Block>
   );

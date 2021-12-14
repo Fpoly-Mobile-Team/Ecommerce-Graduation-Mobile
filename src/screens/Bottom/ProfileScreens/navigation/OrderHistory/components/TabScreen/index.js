@@ -1,5 +1,5 @@
 import {lottie} from '@assets';
-import {Block, Empty} from '@components';
+import {Block, Empty, Text} from '@components';
 import ItemOderHistory from '@components/Common/ItemList/ItemOrderHistory';
 import actions from '@redux/actions';
 import React, {useEffect} from 'react';
@@ -87,41 +87,32 @@ const TabScreen = ({status}) => {
   return (
     <Block flex backgroundColor="background">
       {!isLoading ? (
-<<<<<<< HEAD
-        <FlatList
-          data={DATA}
-          renderItem={renderItem}
-          contentContainerStyle={{
-            paddingHorizontal: getSize.m(16),
-            paddingBottom: getSize.m(8),
-          }}
-          keyExtractor={(item, index) => item._id.toString()}
-          showsVerticalScrollIndicator={false}
-        />
-=======
         <>
-          {DATA.length > 0 ? (
+          {DATA?.length > 0 ? (
             <FlatList
               data={DATA}
               renderItem={renderItem}
+              contentContainerStyle={{
+                paddingHorizontal: getSize.m(16),
+                paddingBottom: getSize.m(8),
+              }}
               keyExtractor={(item, index) => item._id.toString()}
               showsVerticalScrollIndicator={false}
             />
           ) : (
-            <>
+            <Block flex justifyCenter alignCenter>
               {status === 'Đang xử lý' ? (
-                <Empty lottie={lottie.emptyCart} />
+                <Text size={16}>Đơn hàng đang xử lý không có</Text>
               ) : status === 'Đang giao' ? (
-                <Empty lottie={lottie.emptyMessager} />
+                <Text size={16}>Đơn hàng đang giao không có</Text>
               ) : status === 'Giao thành công' ? (
-                <Empty lottie={lottie.empty_Favorite} />
+                <Text size={16}>Chưa có đơn hàng đã giao</Text>
               ) : (
-                <Empty lottie={lottie.emptyNotification} />
+                <Text size={16}>Bạn chưa hủy đơn hàng nào</Text>
               )}
-            </>
+            </Block>
           )}
         </>
->>>>>>> 8c4acd94a89127236498b41d88812056586f3188
       ) : (
         <Empty lottie={lottie.load_more} />
       )}

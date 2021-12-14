@@ -16,7 +16,7 @@ import {useIsFocused} from '@react-navigation/native';
 const ContentProfile = () => {
   return (
     <Block wrap marginTop={0}>
-      {DATA.map(ActionsButton)}
+      {DATA?.map(ActionsButton)}
     </Block>
   );
 };
@@ -72,7 +72,7 @@ const ActionsButton = (item, index) => {
       </Block>
       {item.id === '1' && (
         <Block row alignCenter wrap>
-          {DATABILL.map(_renderItem)}
+          {DATABILL?.map(_renderItem)}
         </Block>
       )}
       <Block

@@ -46,7 +46,7 @@ function CustomTabBar({state, descriptors, navigation}) {
             if (!isFocused && !event.defaultPrevented) {
               navigation.navigate(route.name);
               setPosition(index);
-              ref.current.scrollTo({x: index, y: index, animated: true});
+              // ref.current.scrollTo({x: index, y: index, animated: true});
             }
           };
 

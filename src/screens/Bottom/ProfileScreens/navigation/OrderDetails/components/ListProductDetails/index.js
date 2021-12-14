@@ -1,11 +1,13 @@
-import {Block} from '@components';
 import ItemDetailHistory from '@components/Common/ItemList/ItemDetailHistory';
+import {reverseString} from '@utils/needed';
+import {getSize} from '@utils/responsive';
 import React from 'react';
-import {FlatList} from 'react-native';
+import {ScrollView} from 'react-native';
 
-const renderItem = ({item}) => {
+const renderItem = item => {
   return (
     <ItemDetailHistory
+      key={reverseString(item.productInfo._id)}
       title={item.productInfo.name}
       color={item.color}
       price={item.productInfo.price * (1 - item.productInfo.sellOff)}
@@ -18,14 +20,14 @@ const renderItem = ({item}) => {
 
 const ListItem = ({data}) => {
   return (
-    <Block flex paddingTop={10}>
-      <FlatList
-        data={data}
-        renderItem={renderItem}
-        keyExtractor={(item, index) => item._id.toString()}
-        showsVerticalScrollIndicator={false}
-      />
-    </Block>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{
+        paddingHorizontal: getSize.m(16),
+        paddingTop: getSize.m(16),
+      }}>
+      {data?.map(renderItem)}
+    </ScrollView>
   );
 };
 export default ListItem;

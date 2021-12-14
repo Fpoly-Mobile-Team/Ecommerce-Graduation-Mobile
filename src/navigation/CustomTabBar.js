@@ -12,7 +12,9 @@ import actions from '@redux/actions';
 const CustomTabBar = ({state, descriptors, navigation}) => {
   const {bottom} = useSafeAreaInsets();
   const config = useSelector(state => state.config?.data);
+  const user = useSelector(state => state.tokenUser?.data);
   const notifications = useSelector(state => state.notifications?.data);
+  const notice = useSelector(state => state.notificationsOrder?.data);
 
   const dispatch = useDispatch();
 
@@ -74,6 +76,7 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
             target: route.key,
           });
         };
+        
         return (
           <Pressable
             key={index}
@@ -84,13 +87,13 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
             onPress={onPress}
             onLongPress={onLongPress}
             style={styles.btn}>
-            {index === 3 && notifications?.length && (
+            {index === 3 && notifications?.length && notice?.length && user && (
               <Badge
                 status="error"
                 containerStyle={styles.containerStyle}
                 badgeStyle={styles.badgeStyle}
                 textProps={{allowFontScaling: false}}
-                value={notifications?.length}
+                value={notifications?.length + notice?.length}
               />
             )}
             <Image

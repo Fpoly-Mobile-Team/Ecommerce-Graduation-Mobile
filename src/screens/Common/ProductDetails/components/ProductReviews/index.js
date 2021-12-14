@@ -9,7 +9,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import actions from '@redux/actions';
 import moment from 'moment';
 
-const ProductReviews = ({onPress, _id, parseRating}) => {
+const ProductReviews = ({onPress, parseRating, _id}) => {
   const dispatch = useDispatch();
   const productReview = useSelector(state => state.productReview?.data);
   const user = useSelector(state => state.tokenUser?.data);
