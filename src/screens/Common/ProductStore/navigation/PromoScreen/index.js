@@ -20,7 +20,7 @@ const PromoScreen = ({route}) => {
     Toast('Tất cả mã giảm giá');
   };
 
-  const {id, shopName, profilePicture} = route.params || {};
+  const {id, shopName} = route.params || {};
   const [modalVisible, setModalVisible] = useState(false);
   const dispatch = useDispatch();
   const shopVoucher = useSelector(state => state.shopVoucher?.data);
@@ -45,7 +45,7 @@ const PromoScreen = ({route}) => {
         name={shopName}
         title={item.content}
         date={moment(item.expireDate).format('DD/MM/YYYY')}
-        image={profilePicture}
+        image={item.image}
         index={index}
         isCheck={isCheck}
         check={shopVoucher}

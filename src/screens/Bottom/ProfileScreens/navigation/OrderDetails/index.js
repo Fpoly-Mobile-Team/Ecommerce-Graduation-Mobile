@@ -11,7 +11,7 @@ import {goBack, navigate} from '@navigation/RootNavigation';
 import {routes} from '@navigation/routes';
 import actions from '@redux/actions';
 import {theme} from '@theme';
-import {Toast} from '@utils/helper';
+import {reverseString, Toast} from '@utils/needed';
 import {getSize} from '@utils/responsive';
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
@@ -54,7 +54,7 @@ const OrderDetails = ({route}) => {
       <Header checkBackground canGoBack title="Hóa đơn chi tiết" />
       <Block paddingHorizontal={20}>
         <HeaderComponent
-          _id={item._id.slice(0, 10)}
+          _id={reverseString(item._id)}
           purcharseDate={item.purcharseDate}
           shop={item.shopInfo.shopName}
           status={item.status}
@@ -85,6 +85,7 @@ const OrderDetails = ({route}) => {
           onPress={() => setIsVisible(true)}
         />
       )}
+
       <ModalBox
         isVisible={isVisible}
         setIsVisible={setIsVisible}

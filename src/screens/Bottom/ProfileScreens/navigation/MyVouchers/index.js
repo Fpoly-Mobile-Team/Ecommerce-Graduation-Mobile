@@ -14,7 +14,7 @@ import OptionsMenu from 'react-native-option-menu';
 import styles from './styles';
 import {SelectCircle} from '@assets/svg/common';
 
-const MyVouchers = ({route}) => {
+const MyVouchers = () => {
   const navigation = useNavigation();
   const expiry = () => {
     Toast('Hạn sử dụng mã giảm giá');
@@ -53,8 +53,8 @@ const MyVouchers = ({route}) => {
   const _renderEmpty = () => {
     return (
       <Empty
-        lottie={lottie.relax}
-        content="Bạn chưa thêm voucher nào..."
+        lottie={lottie.cancel}
+        content="Bạn chưa có voucher..."
         contentMore="Quay lại"
         onPress={() => navigation.goBack()}
       />
@@ -64,7 +64,7 @@ const MyVouchers = ({route}) => {
   return (
     <Block flex>
       <Header checkBackground canGoBack title="Voucher của tôi" />
-      {myvoucher?.length !== 0 ? (
+      {myvoucher && myvoucher?.length ? (
         <Block>
           <Block
             paddingHorizontal={12}
@@ -93,7 +93,6 @@ const MyVouchers = ({route}) => {
               />
             </Block>
           </Block>
-
           <FlatList
             data={myvoucher}
             renderItem={renderItem}

@@ -21,7 +21,7 @@ const ItemNotification = ({image, title, content, ingredients, time}) => {
         <Text fontType="bold">{title}</Text>
         <Text>{content}</Text>
         <Block row alignCenter wrap marginTop={10} marginBottom={5}>
-          {ingredients.map(renderImage)}
+          {ingredients?.map(renderImage)}
         </Block>
         <Text size={10} color={theme.colors.placeholder}>
           {time}

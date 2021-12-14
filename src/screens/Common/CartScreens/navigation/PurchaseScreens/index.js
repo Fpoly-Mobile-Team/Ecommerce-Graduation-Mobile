@@ -20,8 +20,8 @@ const Purchase = ({route}) => {
           <PurchaseSuccess />
         </Block>
         <Block paddingBottom={7}>
-          <Text size={34} fontType="semibold">
-            Đã thanh toán!
+          <Text size={28} fontType="semibold">
+            Mua hàng thành công
           </Text>
         </Block>
         <Block paddingBottom={14}>

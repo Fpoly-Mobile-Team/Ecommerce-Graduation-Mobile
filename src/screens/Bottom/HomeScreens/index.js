@@ -95,7 +95,7 @@ const HomeScreens = ({route}) => {
             refreshing={refresh}
           />
         }>
-        {Platform.OS === 'ios' ? (
+        {Platform.OS === 'ios' && (
           <Block
             height={60 + height}
             marginTop={-height - 60}
@@ -103,7 +103,7 @@ const HomeScreens = ({route}) => {
               config?.backgroundcolor || theme.colors.primaryColor
             }
           />
-        ) : null}
+        )}
 
         <Block
           paddingHorizontal={12}

@@ -110,7 +110,7 @@ const AvatarProfile = () => {
         </Block>
         <Block flex alignCenter justifyCenter>
           <Text marginBottom={5} fontType="bold">
-            {myReview?.length}
+            {myReview?.length || 0}
           </Text>
           <Text>Đánh giá của tôi</Text>
         </Block>

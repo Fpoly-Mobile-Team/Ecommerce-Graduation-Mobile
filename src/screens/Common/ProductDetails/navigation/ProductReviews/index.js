@@ -12,7 +12,6 @@ import CardReviews from './components/CardReviews';
 import WritingReviews from './components/WritingReviews';
 import {useIsFocused} from '@react-navigation/native';
 import styles from './styles';
-import {Toast} from '@utils/helper';
 
 const ProductReviews = ({route}) => {
   const dispatch = useDispatch();
@@ -74,7 +73,8 @@ const ProductReviews = ({route}) => {
         </Text>
         {user === userId
           ? null
-          : user && (
+          : user &&
+            checkFeedback() && (
               <Pressable
                 onPress={() => {
                   setCheck(0);
@@ -109,11 +109,11 @@ const ProductReviews = ({route}) => {
     'errr',
     data?.some(v => v.userId === user),
   );
-  const checckFeedback = () => {
+  const checkFeedback = () => {
     let array = [];
-    for (let index = 0; index < data.length; index++) {
+    for (let index = 0; index < data?.length; index++) {
       const element = data[index];
-      for (let i = 0; i < data[index].product.length; i++) {
+      for (let i = 0; i < data[index].product?.length; i++) {
         const elements = data[index].product[i];
         if (elements.productId === _id && element.userId === user) {
           array.push(elements);
@@ -121,27 +121,22 @@ const ProductReviews = ({route}) => {
       }
     }
 
-    if (array.length > 0) {
+    if (array?.length > 0) {
       return true;
     } else {
       return false;
     }
   };
+
   const _renderEmpty = () => {
     return (
       <Empty
         lottie={lottie.relax}
         content="Sản phẩm này chưa có đánh giá"
-        contentMore={user && 'Đánh giá ngay'}
+        contentMore={user && checkFeedback() && 'Đánh giá ngay'}
         onPress={() => {
-          if (user) {
-            if (checckFeedback()) {
-              setCheck(0);
-              refRBSheet.current.open();
-            } else {
-              Toast('Bạn chưa mua sản phẩm này ');
-            }
-          }
+          setCheck(0);
+          refRBSheet.current.open();
         }}
       />
     );
@@ -158,7 +153,6 @@ const ProductReviews = ({route}) => {
       ) : (
         _renderEmpty()
       )}
-
       <RBSheet
         ref={refRBSheet}
         closeOnDragDown={true}

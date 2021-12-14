@@ -36,7 +36,7 @@ const FavoriteScreen = () => {
     );
   };
   const renderEmptyContainer = () => {
-    return <Empty lottie={lottie.empty_Favorite} content="Danh sách rỗng!" />;
+    return <Empty lottie={lottie.empty_Favorite} content="Bạn chưa yêu thích sản phẩm nào" />;
   };
   return (
     <Block flex>

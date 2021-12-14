@@ -99,7 +99,7 @@ const ProductDetails = ({route, navigation}) => {
       <StatusBar translucent barStyle="dark-content" />
       {isLoading ? (
         <Empty
-          lottie={lottie.emptyProductDetails}
+          lottie={lottie.loading}
           content="Vui lòng đợi trong giây lát..."
         />
       ) : (

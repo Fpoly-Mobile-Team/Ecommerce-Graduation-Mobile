@@ -35,7 +35,7 @@ const CategoryScreens = () => {
             <Empty
               lottie={lottie.emptyCategory}
               imageStyles={{width: getSize.s(200), height: getSize.s(200)}}
-              content="Danh sách rỗng !"
+              content="Danh mục rỗng..."
             />
           )}
         </>

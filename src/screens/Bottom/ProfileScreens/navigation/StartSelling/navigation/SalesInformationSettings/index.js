@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import styles from './styles';
 import {Toast} from '@utils/helper';
 import SalesForm from './../components/SalesForm';
-import {validEmail, validPhone} from '@utils/validation';
+import {validEmail, validPhone} from '@utils/needed';
 
 const SalesInformationSettings = ({route}) => {
   const {addressData} = route.params || {};

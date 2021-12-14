@@ -38,7 +38,7 @@ const ViewedProductScreen = ({route}) => {
   };
 
   const renderEmptyContainer = () => {
-    return <Empty lottie={lottie.emptyCategory} content="Danh sách rỗng!" />;
+    return <Empty lottie={lottie.feature} content="Bạn chưa xem sản phẩm nào..." />;
   };
 
   return (

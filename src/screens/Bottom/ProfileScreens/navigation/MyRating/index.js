@@ -45,7 +45,7 @@ const MyRating = () => {
               justifyCenter
               alignCenter>
               <Image
-                source={{uri: item.shopUsers.profilePicture}}
+                source={{uri: item.shopUsers?.profilePicture}}
                 style={styles.imageShop}
               />
             </Block>

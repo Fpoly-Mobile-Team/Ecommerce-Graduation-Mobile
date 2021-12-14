@@ -23,8 +23,8 @@ const NotificationScreens = () => {
       <Header title="Thông báo" />
       {!user ? (
         <Empty
-          lottie={lottie.emptyNotification}
-          content="Vui lòng đăng nhập để nhận thông báo!"
+          lottie={lottie.notifications}
+          content="Đăng nhập để sử dụng được tính năng..."
           contentMore="Đăng nhập ngay"
           onPress={onPress}
         />
