@@ -114,6 +114,7 @@ const ItemProductCart = ({
                       }
                     }, 100);
                     setDataCart(elements);
+                    // setSelectedProducts(data);
                   }
                 }
               });
@@ -128,7 +129,7 @@ const ItemProductCart = ({
               element = {
                 ...element,
                 productArray: element.productArray.map((p, index) => {
-                  if (p.product._id === idProduct || p.color === color) {
+                  if (p.product._id === idProduct && p.color === color) {
                     return {
                       ...p,
                       quantity: p.quantity - 1,
@@ -141,6 +142,7 @@ const ItemProductCart = ({
               elements[index] = element;
               Storage.setItem('CART', elements);
               setDataCart(elements);
+              // setSelectedProducts(data);
             }
           }
         });
@@ -153,7 +155,7 @@ const ItemProductCart = ({
             element = {
               ...element,
               productArray: element.productArray.map((p, index) => {
-                if (p.product._id === idProduct || p.color === color) {
+                if (p.product._id === idProduct && p.color === color) {
                   return {
                     ...p,
                     quantity: p.quantity + 1,
@@ -166,6 +168,7 @@ const ItemProductCart = ({
             elements[index] = element;
             Storage.setItem('CART', elements);
             setDataCart(elements);
+            // setSelectedProducts(data);
           }
         }
       });
@@ -267,6 +270,16 @@ const ItemProductCart = ({
       </Pressable>
     );
   };
+  const onCheck = () => {
+    for (const element of selectedProducts) {
+      for (const elements of data) {
+        if (element.product.shopId === elements.product.shopId) {
+          return true;
+        }
+      }
+    }
+    return false;
+  };
 
   const _renderItemCard = () => {
     return (
@@ -279,7 +292,11 @@ const ItemProductCart = ({
           marginBottom={2}
           backgroundColor={theme.colors.white}>
           <CheckBox
-            isCheck={selectedProducts?.length === data?.length ? true : false}
+            isCheck={
+              onCheck() && selectedProducts?.length === data?.length
+                ? true
+                : false
+            }
             width={20}
             onPress={_onSelectingAllProducts}
           />
