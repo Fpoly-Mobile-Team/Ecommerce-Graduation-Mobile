@@ -30,7 +30,7 @@ const TabScreen = ({status}) => {
     return (
       <ItemOderHistory
         name={item._id.slice(0, 10)}
-        date={item.purcharseDate}
+        date={item.purchaseDate}
         shop={item.shopInfo?.shopName}
         quantity={item.product.length}
         price={item.totalPrice}
@@ -77,7 +77,7 @@ const TabScreen = ({status}) => {
   useEffect(() => {
     dispatch({
       type: action,
-      params: {userId: user, status: statuss},
+      params: {userId: user, status: statuss, sortByDate: -1},
     });
   }, [action, dispatch, statuss, user]);
 
@@ -85,7 +85,7 @@ const TabScreen = ({status}) => {
     <Block flex backgroundColor="background">
       {!isLoading ? (
         <>
-          {DATA.length > 0 ? (
+          {DATA?.length > 0 ? (
             <FlatList
               data={DATA}
               renderItem={renderItem}

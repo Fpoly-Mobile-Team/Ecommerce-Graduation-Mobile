@@ -1,17 +1,16 @@
 import {icons} from '@assets';
 import {Block, Text} from '@components';
 import {routes} from '@navigation/routes';
-import {useNavigation} from '@react-navigation/native';
+import {useIsFocused, useNavigation} from '@react-navigation/native';
+import actions from '@redux/actions';
 import {theme} from '@theme';
 import {width} from '@utils/responsive';
 import React, {useEffect} from 'react';
 import {Image, Pressable} from 'react-native';
-import {DATA, DATABILL} from '../data';
-import {useSelector, useDispatch} from 'react-redux';
-import styles from './styles';
 import {Badge} from 'react-native-elements';
-import actions from '@redux/actions';
-import {useIsFocused} from '@react-navigation/native';
+import {useDispatch, useSelector} from 'react-redux';
+import {DATA, DATABILL} from '../data';
+import styles from './styles';
 
 const ContentProfile = () => {
   return (
@@ -101,19 +100,19 @@ const _renderItem = item => {
     if (isFocused) {
       dispatch({
         type: actions.GET_HISTORY_ORDER_WAITING,
-        params: {userId: user, status: 'Chờ nhận đơn'},
+        params: {userId: user, status: 'Chờ nhận đơn', sortByDate: -1},
       });
       dispatch({
         type: actions.GET_HISTORY_ORDER_CANCEL,
-        params: {userId: user, status: 'Bị hủy'},
+        params: {userId: user, status: 'Bị hủy', sortByDate: -1},
       });
       dispatch({
         type: actions.GET_HISTORY_ORDER_DELIVERING,
-        params: {userId: user, status: 'Đang vận chuyển'},
+        params: {userId: user, status: 'Đang vận chuyển', sortByDate: -1},
       });
       dispatch({
         type: actions.GET_HISTORY_ORDER,
-        params: {userId: user, status: 'Đã giao'},
+        params: {userId: user, status: 'Đã giao', sortByDate: -1},
       });
     }
   }, [dispatch, isFocused, user]);
