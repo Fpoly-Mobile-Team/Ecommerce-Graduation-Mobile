@@ -32,8 +32,8 @@ const TabScreen = ({status}) => {
   const renderItem = ({item, index}) => {
     return (
       <ItemOderHistory
-        _id={reverseString(item._id)}
-        date={item.purcharseDate}
+        name={item._id.slice(0, 10)}
+        date={item.purchaseDate}
         shop={item.shopInfo?.shopName}
         quantity={item.product?.length}
         price={item.totalPrice}
@@ -80,7 +80,7 @@ const TabScreen = ({status}) => {
   useEffect(() => {
     dispatch({
       type: action,
-      params: {userId: user, status: statuss},
+      params: {userId: user, status: statuss, sortByDate: -1},
     });
   }, [action, dispatch, statuss, user]);
 
