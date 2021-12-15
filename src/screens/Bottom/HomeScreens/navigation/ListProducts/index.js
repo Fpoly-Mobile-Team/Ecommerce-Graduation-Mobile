@@ -1,17 +1,18 @@
-import {Block, Header, Text, Dialoading} from '@components';
+/* eslint-disable react-hooks/exhaustive-deps */
+import {Block, Dialoading, Header, Text} from '@components';
 import ItemProduct from '@components/Common/ItemList/ItemProduct';
 import ItemSaleProducts from '@components/Common/ItemList/ItemSaleProducts';
-import actions, {_onUnmount} from '@redux/actions';
+import {routes} from '@navigation/routes';
+import {useNavigation} from '@react-navigation/core';
+import actions from '@redux/actions';
 import moment from 'moment';
-import React, {useEffect, useState, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {FlatList} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useDispatch, useSelector} from 'react-redux';
-import styles from './styles';
 import RBSheetEvent from './components/BottomEvent';
 import SortComponent from './components/SortComponent';
-import {routes} from '@navigation/routes';
-import {useNavigation} from '@react-navigation/core';
+import styles from './styles';
 
 const keyExtractor = (item, index) => item._id.toString();
 
