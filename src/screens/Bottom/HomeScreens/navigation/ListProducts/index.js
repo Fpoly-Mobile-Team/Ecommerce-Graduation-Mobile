@@ -82,16 +82,14 @@ const ListProducts = ({route}) => {
     sortByPrice: check.key === '1' ? 1 : -1,
   };
 
-  if (check.key === '1') {
-    if (idProvince || idCate || value) {
-      useEffect(() => {
+  useEffect(() => {
+    if (check.key === '1') {
+      if (idProvince || idCate || value) {
         dispatch({
           type: actions.FILTER_PRODUCT,
           body: {searchInfo: JSON.stringify(dataQuery)},
         });
-      }, [check.key]);
-    } else {
-      useEffect(() => {
+      } else {
         if (titleCategory) {
           dispatch({
             type: actions.FILTER_PRODUCT,
@@ -117,18 +115,14 @@ const ListProducts = ({route}) => {
             },
           });
         }
-      }, [check.key]);
-    }
-  } else {
-    if (idProvince || idCate || value) {
-      useEffect(() => {
+      }
+    } else {
+      if (idProvince || idCate || value) {
         dispatch({
           type: actions.FILTER_PRODUCT,
           body: {searchInfo: JSON.stringify(dataQuery)},
         });
-      }, [check.key]);
-    } else {
-      useEffect(() => {
+      } else {
         if (titleCategory) {
           dispatch({
             type: actions.FILTER_PRODUCT,
@@ -154,9 +148,9 @@ const ListProducts = ({route}) => {
             },
           });
         }
-      }, [check.key]);
+      }
     }
-  }
+  }, [check.key]);
 
   const onSortEvent = () => {
     dispatch({
