@@ -2,6 +2,7 @@ import {icons} from '@assets';
 import {Block, Text} from '@components';
 import {theme} from '@theme';
 import {getSize} from '@utils/responsive';
+import {useIsFocused} from '@react-navigation/native';
 import React, {useEffect} from 'react';
 import {Image, Platform, Pressable, StyleSheet} from 'react-native';
 import {Badge} from 'react-native-elements';
@@ -17,10 +18,13 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
   const notice = useSelector(state => state.notificationsOrder?.data);
 
   const dispatch = useDispatch();
-
+  const isFocused = useIsFocused();
   useEffect(() => {
-    dispatch({type: actions.GET_NOTIFICATIONS});
-  }, [dispatch]);
+    if (isFocused) {
+      dispatch({type: actions.GET_NOTIFICATIONS});
+      dispatch({type: actions.GET_NOTIF_ORDER, user});
+    }
+  }, [dispatch, isFocused, user]);
 
   return (
     <Block
@@ -76,7 +80,7 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
             target: route.key,
           });
         };
-        
+
         return (
           <Pressable
             key={index}
