@@ -6,11 +6,12 @@ import React from 'react';
 import {StatusBar} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {routes} from '@navigation/routes';
+import {Currency} from '@utils/helper';
 
-const Purchase = () => {
+const Purchase = ({route}) => {
   const navigation = useNavigation();
   const {top, bottom} = useSafeAreaInsets();
-
+  const {price} = route.params || {};
   return (
     <Block flex backgroundColor={theme.colors.white} paddingTop={top + 40}>
       <StatusBar barStyle="dark-content" translucent animated />
@@ -19,8 +20,8 @@ const Purchase = () => {
           <PurchaseSuccess />
         </Block>
         <Block paddingBottom={7}>
-          <Text size={34} fontType="semibold">
-            Đã thanh toán!
+          <Text size={28} fontType="semibold">
+            Mua hàng thành công
           </Text>
         </Block>
         <Block paddingBottom={14}>
@@ -37,7 +38,7 @@ const Purchase = () => {
             fontType="light"
             center
             size={36}>
-            95.000 VNĐ
+            {Currency(price)}
           </Text>
         </Block>
       </Block>

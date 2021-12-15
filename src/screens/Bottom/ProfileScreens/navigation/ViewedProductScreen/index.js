@@ -3,6 +3,7 @@ import {Block, Empty, Header} from '@components';
 import ItemProduct from '@components/Common/ItemList/ItemProduct';
 import {useIsFocused} from '@react-navigation/native';
 import actions from '@redux/actions';
+import {getSize} from '@utils/responsive';
 import React, {useEffect} from 'react';
 import {FlatList} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
@@ -38,7 +39,13 @@ const ViewedProductScreen = ({route}) => {
   };
 
   const renderEmptyContainer = () => {
-    return <Empty lottie={lottie.emptyCategory} content="Danh sách rỗng!" />;
+    return (
+      <Empty
+        imageStyles={{width: getSize.s(220), height: getSize.s(220)}}
+        lottie={lottie.feature}
+        content="Bạn chưa xem sản phẩm nào"
+      />
+    );
   };
 
   return (

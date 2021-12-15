@@ -4,10 +4,6 @@ export const DATA = [
     title: 'Đang xử lý',
   },
   {
-    id: '2',
-    title: 'Đã xác nhận',
-  },
-  {
     id: '3',
     title: 'Đang giao',
   },

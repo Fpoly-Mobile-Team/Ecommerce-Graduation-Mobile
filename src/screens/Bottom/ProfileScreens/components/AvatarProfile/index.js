@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {icons} from '@assets';
 import {Block, LazyImage, Text} from '@components';
 import React, {useState, useEffect} from 'react';
@@ -109,7 +110,7 @@ const AvatarProfile = () => {
         </Block>
         <Block flex alignCenter justifyCenter>
           <Text marginBottom={5} fontType="bold">
-            {myReview?.length}
+            {myReview?.length || 0}
           </Text>
           <Text>Đánh giá của tôi</Text>
         </Block>

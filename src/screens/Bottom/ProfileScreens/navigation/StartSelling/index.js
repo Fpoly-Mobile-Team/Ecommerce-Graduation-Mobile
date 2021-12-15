@@ -1,3 +1,4 @@
+import {images} from '@assets';
 import {Block, Button, Header, Text} from '@components';
 import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/core';
@@ -11,7 +12,7 @@ import styles from './styles';
 const StartSelling = () => {
   const navigation = useNavigation();
   const config = useSelector(state => state.config?.data);
-  const coloring = `${config?.backgroundcolor}75`;
+  const coloring = `${config?.backgroundcolor}30`;
   const photos = 'https://i.imgur.com/H8UN4zR.png';
 
   const _renderCenter = () => {
@@ -23,13 +24,8 @@ const StartSelling = () => {
           height={height / (4.4 / 2)}
           alignCenter
           justifyCenter>
-          <Block
-            width={220}
-            height={220}
-            radius={220}
-            alignCenter
-            justifyCenter>
-            <Image source={{uri: photos}} style={styles.photos} />
+          <Block>
+            <Image source={images.ants} style={styles.photos} />
           </Block>
         </Block>
         <Text

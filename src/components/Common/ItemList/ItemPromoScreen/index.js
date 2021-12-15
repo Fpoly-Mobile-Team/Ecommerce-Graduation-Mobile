@@ -46,8 +46,8 @@ const ItemPromoScreen = ({
             <View style={styles.boxLeft}>
               <View style={{paddingTop: getSize.s(16)}}>
                 <Text style={styles.textDate}>{name}</Text>
-
                 <Text
+                  width={'80%'}
                   fontType={'medium'}
                   numberOfLines={1}
                   style={styles.txtTitle}>

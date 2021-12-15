@@ -57,7 +57,7 @@ const PromoScreen = ({route}) => {
 
   return (
     <Block flex backgroundColor="#E9EAEB">
-      <Header checkBackground canGoBack title="Mã khuyến mãi" />
+      <Header checkBackground canGoBack title="Mã giảm giá" />
       <Block>
         {isLoading && (
           <Dialoading

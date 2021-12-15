@@ -6,7 +6,7 @@ export default StyleSheet.create({
   photos: {
     width: getSize.s(200),
     height: getSize.v(200),
-    borderRadius: getSize.s(200),
+    resizeMode: 'contain'
   },
   button: {
     marginBottom: getSize.m(20),

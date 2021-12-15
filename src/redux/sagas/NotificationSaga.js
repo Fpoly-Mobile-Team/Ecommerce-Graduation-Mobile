@@ -13,7 +13,7 @@ function* getNotifications(actions) {
 
     yield put({
       type: _onSuccess(Actions.GET_NOTIFICATIONS),
-      data: res.notifications,
+      data: res.data,
     });
   } catch (error) {
     yield put({type: _onFail(Actions.GET_NOTIFICATIONS)});

@@ -11,8 +11,6 @@ const DetailedNotice = ({route}) => {
   const coloring = `${config?.backgroundcolor}60`;
   const photos = 'https://i.imgur.com/SfUNX8R.png';
   const {item: receive} = route.params;
-  const title =
-    '#' + receive._id?.substring(0, 6)?.toUpperCase() + ' - ' + receive.title;
 
   const _renderMainPhoto = () => {
     return (
@@ -40,7 +38,7 @@ const DetailedNotice = ({route}) => {
     return (
       <Block paddingHorizontal={12} marginVertical={18}>
         <Text fontType="bold" size={16}>
-          {title}
+          {receive?.title}
         </Text>
         <Text fontType="medium" justify size={13}>
           {receive?.content}

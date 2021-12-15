@@ -10,3 +10,12 @@ export const validPhone = str => {
   );
   return patt.test(str);
 };
+
+export const reverseString = str => {
+  var arrayOfChars = str.split('');
+  var strToArray = arrayOfChars.reverse();
+  var newString = strToArray.join('');
+  var sliceString = newString.slice(0, 6);
+  var toUpString = sliceString.toUpperCase();
+  return toUpString;
+};

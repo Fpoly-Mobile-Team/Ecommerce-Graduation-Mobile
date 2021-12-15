@@ -12,7 +12,6 @@ const Tab = createBottomTabNavigator();
 
 const BottomTabNavigation = () => {
   const navigation = useNavigation();
-
   const user = useSelector(state => state.tokenUser?.data);
   const config = useSelector(state => state.config.data);
 
@@ -23,6 +22,7 @@ const BottomTabNavigation = () => {
       }, 1000);
     }
   }, [config]);
+  
   return (
     <Tab.Navigator
       tabBarOptions={{keyboardHidesTabBar: true}}

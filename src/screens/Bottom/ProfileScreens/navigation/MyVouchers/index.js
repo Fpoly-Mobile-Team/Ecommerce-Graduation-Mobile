@@ -3,7 +3,6 @@ import {Block, Empty, Header, Text} from '@components';
 import ItemPromoScreen from '@components/Common/ItemList/ItemPromoScreen';
 import {lottie} from '@assets';
 import {theme} from '@theme';
-import {useNavigation} from '@react-navigation/core';
 import {Toast} from '@utils/helper';
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
@@ -13,9 +12,9 @@ import {FlatList} from 'react-native-gesture-handler';
 import OptionsMenu from 'react-native-option-menu';
 import styles from './styles';
 import {SelectCircle} from '@assets/svg/common';
+import {getSize} from '@utils/responsive';
 
-const MyVouchers = ({route}) => {
-  const navigation = useNavigation();
+const MyVouchers = () => {
   const expiry = () => {
     Toast('Hạn sử dụng mã giảm giá');
   };
@@ -53,10 +52,9 @@ const MyVouchers = ({route}) => {
   const _renderEmpty = () => {
     return (
       <Empty
-        lottie={lottie.relax}
-        content="Bạn chưa thêm voucher nào..."
-        contentMore="Quay lại"
-        onPress={() => navigation.goBack()}
+        lottie={lottie.cancel}
+        content="Bạn chưa có Voucher nào"
+        imageStyles={{width: getSize.s(220), height: getSize.s(220)}}
       />
     );
   };
@@ -64,7 +62,7 @@ const MyVouchers = ({route}) => {
   return (
     <Block flex>
       <Header checkBackground canGoBack title="Voucher của tôi" />
-      {myvoucher?.length !== 0 ? (
+      {myvoucher && myvoucher?.length ? (
         <Block>
           <Block
             paddingHorizontal={12}
@@ -93,7 +91,6 @@ const MyVouchers = ({route}) => {
               />
             </Block>
           </Block>
-
           <FlatList
             data={myvoucher}
             renderItem={renderItem}

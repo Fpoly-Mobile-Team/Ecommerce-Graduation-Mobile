@@ -17,7 +17,7 @@ const ContentProductDetails = ({
   nameProduct,
   price,
   sellOff,
-  numberOfReviews,
+  parseRating,
   productSold,
   onPressViewProductReview,
 }) => {
@@ -27,14 +27,6 @@ const ContentProductDetails = ({
   const user = useSelector(state => state.tokenUser?.data);
   const productReview = useSelector(state => state.productReview?.data);
   const checkData = productReview?.length;
-  let sum = 0;
-
-  for (let index = 0; index < checkData; index++) {
-    const getRating = productReview[index]?.rating;
-    sum += getRating;
-  }
-
-  const totalRating = sum / checkData;
 
   useEffect(() => {
     if (user) {
@@ -44,7 +36,7 @@ const ContentProductDetails = ({
         idProduct: idProduct,
       });
     }
-  }, [dispatch, idProduct, user]);
+  }, [dispatch, idProduct, user, checkData]);
 
   const _onPress = () => {
     if (user) {
@@ -59,7 +51,7 @@ const ContentProductDetails = ({
       navigate(routes.AUTHFORSCREEN);
     }
   };
-  const salePrice = price * sellOff;
+  const salePrice = price * (1-sellOff);
 
   return (
     <Block paddingVertical={10}>
@@ -119,11 +111,11 @@ const ContentProductDetails = ({
             <Rating
               imageSize={getSize.s(15)}
               readonly
-              startingValue={totalRating >= 1 && totalRating}
+              startingValue={parseRating >= 1 && parseRating}
             />
             <Pressable onPress={onPressViewProductReview}>
               <Text marginLeft={getSize.m(5)} color={theme.colors.placeholder}>
-                (Xem {numberOfReviews} đánh giá)
+                (Xem {checkData} đánh giá)
               </Text>
             </Pressable>
           </Block>

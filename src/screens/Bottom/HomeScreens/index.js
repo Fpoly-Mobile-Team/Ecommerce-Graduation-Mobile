@@ -1,8 +1,9 @@
 import {Block, Carousel, Header} from '@components';
 import actions from '@redux/actions';
 import {theme} from '@theme';
+import {height} from '@utils/responsive';
 import React, {useEffect, useRef, useState} from 'react';
-import {Animated, RefreshControl} from 'react-native';
+import {Animated, Platform, RefreshControl} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import CategoryHighlights from './components/CategoryHighlights';
 import FeaturedCategory from './components/FeaturedCategory';
@@ -24,8 +25,26 @@ const HomeScreens = ({route}) => {
 
   const _onRefresh = () => {
     setTimeout(() => {
-      setRefresh(true);
+      setRefresh(false);
     }, 1000);
+    dispatch({
+      type: actions.GET_PRODUCT,
+      params: {
+        p: 1,
+        numshow: 14,
+      },
+    });
+    dispatch({
+      type: actions.GET_CATEGORY_HOME,
+      params: {
+        p: 1,
+        numshow: 5,
+      },
+    });
+    dispatch({type: actions.GET_BANNER});
+    dispatch({
+      type: actions.GET_SHOP_USERS,
+    });
   };
 
   useEffect(() => {
@@ -47,7 +66,7 @@ const HomeScreens = ({route}) => {
       type: actions.GET_PRODUCT,
       params: {
         p: 1,
-        numshow: 12,
+        numshow: 14,
       },
     });
   }, [dispatch]);
@@ -72,15 +91,20 @@ const HomeScreens = ({route}) => {
         refreshControl={
           <RefreshControl
             style={styles.refreshing}
-            onRefresh={() => _onRefresh}
+            onRefresh={_onRefresh}
             refreshing={refresh}
           />
         }>
-        {/* <Block
-          height={60 + height}
-          marginTop={-height - 60}
-          backgroundColor={config?.backgroundcolor || theme.colors.primaryColor}
-        /> */}
+        {Platform.OS === 'ios' && (
+          <Block
+            height={60 + height}
+            marginTop={-height - 60}
+            backgroundColor={
+              config?.backgroundcolor || theme.colors.primaryColor
+            }
+          />
+        )}
+
         <Block
           paddingHorizontal={12}
           backgroundColor={
@@ -105,7 +129,9 @@ const HomeScreens = ({route}) => {
         />
         <FeaturedShop data={shoplist} />
         <Block height={8} backgroundColor={theme.colors.smoke} />
-        <Block>{banner && <Carousel data={banner} />}</Block>
+        <Block paddingHorizontal={12}>
+          {banner && <Carousel data={banner} />}
+        </Block>
         {product && <SellingProduct data={product} />}
       </Animated.ScrollView>
     </Block>

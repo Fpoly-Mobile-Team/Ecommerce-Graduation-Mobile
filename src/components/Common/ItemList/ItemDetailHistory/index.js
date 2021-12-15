@@ -1,62 +1,64 @@
-import {images} from '@assets';
 import {Block, Text} from '@components';
 import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
 import {theme} from '@theme';
+import {Currency} from '@utils/helper';
 import React from 'react';
 import {Image, Pressable} from 'react-native';
 import styles from './styles';
 
-const ItemDetailHistory = ({title, color, size, price, amount}) => {
+const ItemDetailHistory = ({title, color, price, amount, image, _id}) => {
   const navigation = useNavigation();
 
   return (
-    <Pressable onPress={() => navigation.navigate(routes.PRODUCT_DETAILS)}>
+    <Pressable
+      onPress={() => navigation.navigate(routes.PRODUCT_DETAILS, {_id: _id})}>
       <Block
         shadow
         row
-        marginBottom={20}
-        marginHorizontal={12}
+        marginBottom={12}
         backgroundColor={theme.colors.white}
-        radius={10}>
-        <Image source={images.thumnail} style={styles.img} />
-        <Block flex padding={10}>
-          <Block row space="between" paddingTop={5}>
+        radius={6}>
+        <Image source={{uri: image}} style={styles.img} />
+        <Block flex padding={16}>
+          <Block row space="between">
             <Text
-              size={20}
+              size={14.4}
               fontType="semibold"
               numberOfLines={2}
               color={theme.colors.black}>
               {title}
             </Text>
           </Block>
-          <Block marginTop={5} marginBottom={20} flexDirection="row">
-            <Block paddingRight={15}>
-              <Text size={12} color="gray">
-                Color:{' '}
+          <Block marginTop={12} flexDirection="row">
+            <Block>
+              <Text fontType="medium" size={12} color={theme.colors.lightGray}>
+                Màu sắc:{' '}
                 <Text size={12} fontType="bold">
-                  {color}
+                  {color ? color : 'Không có'}
                 </Text>
               </Text>
             </Block>
-            <Text size={12} color="gray">
-              Size:{' '}
-              <Text size={12} fontType="bold">
-                {size}
-              </Text>
-            </Text>
           </Block>
-          <Block row space="between">
+
+          <Block flex alignEnd row space="between">
             <Block row>
               <Text size={12} fontType={'bold'}>
-                <Text size={12} color={theme.colors.lightGray}>
-                  Số lượng:{'  '}
+                <Text
+                  fontType="medium"
+                  size={12}
+                  color={theme.colors.lightGray}>
+                  Số lượng:{' '}
                 </Text>
                 {amount}
               </Text>
             </Block>
-            <Text size={15} color={theme.colors.black} fontType="semibold">
-              {price} VND
+            <Text
+              right
+              width={'57.5%'}
+              color={theme.colors.black}
+              fontType="bold">
+              {Currency(price)}
             </Text>
           </Block>
         </Block>

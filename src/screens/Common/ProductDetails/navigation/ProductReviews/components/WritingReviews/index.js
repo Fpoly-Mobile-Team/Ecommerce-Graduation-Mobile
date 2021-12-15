@@ -15,6 +15,8 @@ import {width} from '@utils/responsive';
 
 const WritingReviews = ({_id, check, isClosed}) => {
   const dispatch = useDispatch();
+  const [closeModal, setCloseModal] = useState(false);
+
   const user = useSelector(state => state.tokenUser?.data);
   const isLoading = useSelector(state => state.addProductReview?.isLoading);
   const isLoadingUpdate = useSelector(
@@ -27,7 +29,7 @@ const WritingReviews = ({_id, check, isClosed}) => {
   useEffect(() => {
     viewingIndex !== -1 && showImageViwer(true);
   }, [viewingIndex]);
-  
+
   useEffect(() => {
     !ImageViwerIsVisible && setViewingIndex(-1);
   }, [ImageViwerIsVisible]);

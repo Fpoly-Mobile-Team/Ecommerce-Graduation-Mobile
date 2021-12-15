@@ -1,83 +1,33 @@
-import {Block} from '@components';
 import ItemDetailHistory from '@components/Common/ItemList/ItemDetailHistory';
-import React, {useState} from 'react';
-import {FlatList} from 'react-native';
+import {reverseString} from '@utils/needed';
+import {getSize} from '@utils/responsive';
+import React from 'react';
+import {ScrollView} from 'react-native';
 
-const DATA = [
-  {
-    title: 'Pullover',
-    img: 'https://sweatshirtstation.com/images/charles-river-apparel-9905-classic-solid-pullover-forest1.jpg',
-    color: 'Black',
-    size: 'L',
-    price: '30.000',
-    amount: '1',
-  },
-  {
-    title: 'T_shirt',
-    img: 'https://sweatshirtstation.com/images/charles-river-apparel-9905-classic-solid-pullover-forest1.jpg',
-    color: 'Orangre',
-    size: 'M',
-    price: '30.000',
-    amount: '1',
-  },
-  {
-    title: 'Sport Dress',
-    img: 'https://sweatshirtstation.com/images/charles-river-apparel-9905-classic-solid-pullover-forest1.jpg',
-    color: 'Blue',
-    size: 'S',
-    price: '30.000',
-    amount: '1',
-  },
-  {
-    title: 'Pullover',
-    img: 'https://sweatshirtstation.com/images/charles-river-apparel-9905-classic-solid-pullover-forest1.jpg',
-    color: 'Black',
-    size: 'L',
-    price: '30.000',
-    amount: '1',
-  },
-  {
-    title: 'T_shirt',
-    img: 'https://sweatshirtstation.com/images/charles-river-apparel-9905-classic-solid-pullover-forest1.jpg',
-    color: 'Orangre',
-    size: 'M',
-    price: '30.000',
-    amount: '1',
-  },
-  {
-    title: 'Sport Dress',
-    img: 'https://sweatshirtstation.com/images/charles-river-apparel-9905-classic-solid-pullover-forest1.jpg',
-    color: 'Blue',
-    size: 'S',
-    price: '30.000',
-    amount: '1',
-  },
-];
-const renderItem = ({item}) => {
+const renderItem = item => {
   return (
     <ItemDetailHistory
-      title={item.title}
+      key={reverseString(item.productInfo._id)}
+      title={item.productInfo.name}
       color={item.color}
-      size={item.size}
-      price={item.price}
-      amount={item.amount}
+      price={item.productInfo.price * (1 - item.productInfo.sellOff)}
+      amount={item.quantity}
+      image={item.productInfo.images[0]}
+      _id={item.productInfo._id}
     />
   );
 };
 
-const ListItem = () => {
-  const [selectedId, setSelectedId] = useState(null);
-
+const ListItem = ({data}) => {
   return (
-    <Block flex paddingTop={10}>
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={(item, index) => String(index)}
-        extraData={selectedId}
-        showsVerticalScrollIndicator={false}
-      />
-    </Block>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{
+        paddingHorizontal: getSize.m(16),
+        paddingTop: getSize.m(16),
+      }}>
+      {data?.map(renderItem)}
+    </ScrollView>
   );
 };
 export default ListItem;

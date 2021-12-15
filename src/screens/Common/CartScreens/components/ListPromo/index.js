@@ -1,53 +1,37 @@
 import {images} from '@assets';
 import {Block} from '@components';
 import ItemPromoCart from '@components/Common/ItemList/ItemPromoCart';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {FlatList} from 'react-native';
-
-const DATA = [
-  {
-    title: 'Personal offer',
-    img: images.sale,
-    cod: 'mypromocode2020',
-    time: '6 ngày',
-  },
-  {
-    title: 'Personal offer',
-    img: images.sale,
-    cod: 'mypromocode2020',
-    time: '6 ngày',
-  },
-  {
-    title: 'Personal offer',
-    img: images.sale,
-    cod: 'mypromocode2020',
-    time: '6 ngày',
-  },
-  {
-    title: 'Personal offer',
-    img: images.sale,
-    cod: 'mypromocode2020',
-    time: '6 ngày',
-  },
-  {
-    title: 'Personal offer',
-    img: images.sale,
-    cod: 'mypromocode2020',
-    time: '6 ngày',
-  },
-];
+import {useDispatch, useSelector} from 'react-redux';
+import actions from '@redux/actions';
+import {SkypeIndicator} from 'react-native-indicators';
+import {theme} from '@theme';
 
 const ListItem = ({isClosed}) => {
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.tokenUser?.data);
+  const myvoucher = useSelector(state => state.getmyVoucher?.data);
+  const isLoading = useSelector(state => state.getmyVoucher?.isLoading);
+
   const [selectedId, setSelectedId] = useState(null);
+  useEffect(() => {
+    dispatch({
+      type: actions.GET_MY_VOUCHER,
+      user,
+    });
+  }, [user, dispatch]);
+
   const _onPress = () => {
     isClosed.current.close();
   };
   const renderItem = ({item, index}) => {
     return (
       <ItemPromoCart
-        title={item.title}
-        cod={item.cod}
-        time={item.time}
+        title={item.content}
+        cod={item._id}
+        time={item.expireDate}
+        image={item.image}
         onPress={_onPress}
       />
     );
@@ -55,13 +39,17 @@ const ListItem = ({isClosed}) => {
 
   return (
     <Block flex paddingHorizontal={12} paddingTop={15}>
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={(_, index) => String(index)}
-        extraData={selectedId}
-        showsVerticalScrollIndicator={false}
-      />
+      {!isLoading ? (
+        <FlatList
+          data={myvoucher}
+          renderItem={renderItem}
+          keyExtractor={(_, index) => String(index)}
+          extraData={selectedId}
+          showsVerticalScrollIndicator={false}
+        />
+      ) : (
+        <SkypeIndicator size={50} color={theme.colors.pink} />
+      )}
     </Block>
   );
 };

@@ -4,9 +4,10 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   btnOutline: {
-    width: getSize.s(100),
     borderColor: theme.colors.black,
-    borderWidth: 1,
+    paddingVertical: getSize.m(8),
+    paddingHorizontal: getSize.m(26),
+    borderWidth: 0.75,
     backgroundColor: theme.colors.white,
   },
   label: {

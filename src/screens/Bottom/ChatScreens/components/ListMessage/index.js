@@ -69,11 +69,11 @@ const ListMess = () => {
         />
       ) : (
         <Empty
-          lottie={lottie.emptyMessager}
-          content="Vui lòng đăng nhập để sử dụng tin nhắn!"
+          lottie={lottie.message}
+          content="Đăng nhập để sử dụng tính năng..."
           contentMore="Đăng nhập ngay"
           onPress={onPress}
-          imageStyles={{width: getSize.s(200), height: getSize.s(200)}}
+          imageStyles={{width: getSize.s(240), height: getSize.s(240)}}
         />
       )}
     </Block>

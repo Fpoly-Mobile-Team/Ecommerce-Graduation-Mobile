@@ -1,9 +1,18 @@
-import {images} from '@assets';
 import {Block, Text} from '@components';
 import {theme} from '@theme';
+import {Currency} from '@utils/helper';
 import React from 'react';
-import {Image} from 'react-native';
-const FooterComponent = () => {
+
+const FooterComponent = ({data}) => {
+  let address =
+    data?.deliveryAddress.street +
+    ', ' +
+    data?.deliveryAddress.ward +
+    ', ' +
+    data?.deliveryAddress.district +
+    ', ' +
+    data?.deliveryAddress.province;
+    
   return (
     <Block paddingHorizontal={15}>
       <Text paddingVertical={15} size={16} fontType={'bold'}>
@@ -12,41 +21,39 @@ const FooterComponent = () => {
       <Block row space="between" marginBottom={10}>
         <Text color={theme.colors.lightGray}>Địa chỉ giao hàng:{'  '}</Text>
         <Block width="60%">
-          <Text fontType={'bold'}>
-            284 Phan Huy Ich, Phường 12, Quận Gò Vấp, TP.HCM
-          </Text>
+          <Text fontType={'bold'}>{address}</Text>
         </Block>
       </Block>
       <Block alignCenter row space="between" marginBottom={10}>
         <Text color={theme.colors.lightGray}>Thanh toán:{'  '}</Text>
-        <Block alignCenter width="60%" row>
-          <Image
-            style={{width: '15%', height: 25}}
-            source={images.masterCard}
-          />
-          <Text fontType={'bold'} paddingHorizontal={10}>
-            **** **** **** 3947
-          </Text>
+        <Block width="60%" row>
+          <Text fontType={'bold'}>Tiền mặt</Text>
         </Block>
       </Block>
       <Block alignCenter row space="between" marginBottom={10}>
         <Text color={theme.colors.lightGray}>Vận chuyển:{'  '}</Text>
         <Block width="60%">
-          <Text fontType={'bold'}>Giao hàng tiết kiệm</Text>
+          <Text fontType={'bold'}>Giao hàng {data.deliveryMethod}</Text>
         </Block>
       </Block>
-      <Block alignCenter row space="between" marginBottom={10}>
-        <Text color={theme.colors.lightGray}>Giảm giá:{'  '}</Text>
-        <Block width="60%">
-          <Text fontType={'bold'}>10%,mã khuyến mãi cá nhân</Text>
+      {data.orderDiscount ? (
+        <Block alignCenter row space="between" marginBottom={10}>
+          <Text color={theme.colors.lightGray}>Giảm giá:{'  '}</Text>
+          <Block width="60%">
+            <Text fontType={'bold'}>
+              {data.orderDiscountType === 'VNĐ'
+                ? Currency(data.orderDiscount)
+                : data.orderDiscount * 100 + '% '}{' '}
+              Mã khuyến mãi
+            </Text>
+          </Block>
         </Block>
-      </Block>
+      ) : null}
+
       <Block alignCenter row space="between" marginBottom={10}>
         <Text color={theme.colors.lightGray}>Tổng cộng:{'  '}</Text>
         <Block width="60%">
-          <Text fontType={'bold'}>
-            536.799 <Text fontType={'bold'}>VND</Text>
-          </Text>
+          <Text fontType={'bold'}>{Currency(data.totalPrice)}</Text>
         </Block>
       </Block>
     </Block>

@@ -3,9 +3,7 @@ import {getSize} from '@utils/responsive';
 
 export default StyleSheet.create({
   btnStyle: {
-    marginHorizontal: 20,
-    borderWidth: 1,
-    backgroundColor: 'transparent',
+    marginHorizontal: getSize.m(16),
     marginBottom: getSize.s(20),
   },
 });

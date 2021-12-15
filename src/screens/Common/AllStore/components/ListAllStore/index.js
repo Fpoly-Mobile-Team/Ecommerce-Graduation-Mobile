@@ -24,11 +24,11 @@ const ListAllStore = ({data}) => {
           backgroundColor={theme.colors.white}
           key={index}>
           <Image
-            source={{uri: item.shopInfo?.profilePicture}}
+            source={{uri: item.shopInfo.profilePicture}}
             style={styles.image}
           />
           <Text size={13} fontType={'bold'} paddingVertical={10}>
-            {item.shopInfo?.shopName}
+            {item.shopInfo.shopName}
           </Text>
         </Block>
       </Pressable>
