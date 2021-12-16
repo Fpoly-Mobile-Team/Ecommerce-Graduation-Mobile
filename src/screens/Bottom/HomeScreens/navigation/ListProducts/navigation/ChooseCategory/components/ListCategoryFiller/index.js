@@ -7,15 +7,18 @@ import {height, width} from '@utils/responsive';
 import React from 'react';
 import {Image, FlatList, Pressable, Platform} from 'react-native';
 import styles from './styles';
-
-const ListAllStore = ({data}) => {
+const ListCategoryFiller = ({data}) => {
   const navigation = useNavigation();
+
   const renderItem = ({item, index}) => {
     return (
       <Pressable
         key={index}
         onPress={() =>
-          navigation.navigate(routes.PRODUCT_STORE, {id: item._id})
+          navigation.navigate(routes.LIST_PRODUCTS, {
+            idCate: item._id,
+            nameCate: item.name,
+          })
         }>
         <Block
           width={width / 3}
@@ -24,11 +27,12 @@ const ListAllStore = ({data}) => {
           backgroundColor={theme.colors.white}
           key={index}>
           <Image
-            source={{uri: item.shopInfo.profilePicture}}
+            resizeMode={'contain'}
+            source={{uri: item.icon}}
             style={styles.image}
           />
           <Text size={13} fontType={'bold'} paddingVertical={10}>
-            {item.shopInfo.shopName}
+            {item.name}
           </Text>
         </Block>
       </Pressable>
@@ -52,4 +56,4 @@ const ListAllStore = ({data}) => {
   );
 };
 
-export default ListAllStore;
+export default ListCategoryFiller;

@@ -96,26 +96,33 @@ const ListItemInformation = () => {
           </Text>
         </ListItem>
 
-        <ListItem style={styles.item}>
-          <ListItem.Content>
-            <ListItem.Title style={styles.title}>Số điện thoại</ListItem.Title>
-          </ListItem.Content>
+        <Pressable
+          onPress={() =>
+            navigation.navigate(routes.OTPSCREENS, {phone: userInfo?.phone})
+          }>
+          <ListItem style={styles.item}>
+            <ListItem.Content>
+              <ListItem.Title style={styles.title}>
+                Số điện thoại
+              </ListItem.Title>
+            </ListItem.Content>
 
-          <Text size={12} fontType={'medium'} color={theme.colors.gray}>
-            {userInfo?.phone !== 'null' ? (
-              '***** ' + userInfo?.phone.slice(8)
-            ) : (
-              <Text
-                onPress={() => navigation.navigate(routes.SECURITY_SCREEN)}
-                size={12}
-                fontType={'medium'}
-                color={theme.colors.lightGray}>
-                Thiết lập ngay
-              </Text>
-            )}
-          </Text>
-          <ChevronRight width={17} height={17} />
-        </ListItem>
+            <Text size={12} fontType={'medium'} color={theme.colors.gray}>
+              {userInfo?.phone !== 'null' ? (
+                '***** ' + userInfo?.phone.slice(8)
+              ) : (
+                <Text
+                  onPress={() => navigation.navigate(routes.SECURITY_SCREEN)}
+                  size={12}
+                  fontType={'medium'}
+                  color={theme.colors.lightGray}>
+                  Thiết lập ngay
+                </Text>
+              )}
+            </Text>
+            <ChevronRight width={17} height={17} />
+          </ListItem>
+        </Pressable>
 
         <ListItem style={styles.item}>
           <ListItem.Content>

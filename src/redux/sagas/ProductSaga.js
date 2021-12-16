@@ -238,7 +238,10 @@ function* getProductReview(actions) {
 
 function* searchProduct(actions) {
   try {
-    const res = yield API.get('product/searchAllProducts', actions.params);
+    const res = yield API.post(
+      'product/searchProductsByKeyword',
+      actions.keyword,
+    );
 
     yield put({
       type: _onSuccess(Actions.SEARCH_KEYWORD_PRODUCT),
@@ -281,6 +284,18 @@ function* getProductsByDiscountValue(actions) {
     });
   } catch (error) {
     yield put({type: _onFail(Actions.GET_PRODUCTS_BY_DISCOUNT_VALUE)});
+function* filterProduct(actions) {
+  try {
+    const body = queryString.stringify(actions.body);
+    const res = yield API.post('product/searchProducts2', body);
+
+    yield put({
+      type: _onSuccess(Actions.FILTER_PRODUCT),
+      data: res.data,
+      isLoadMore: actions.isLoadMore,
+    });
+  } catch (error) {
+    yield put({type: _onFail(Actions.FILTER_PRODUCT)});
   }
 }
 
@@ -308,4 +323,5 @@ export function* watchProductSagas() {
     Actions.GET_PRODUCTS_BY_DISCOUNT_VALUE,
     getProductsByDiscountValue,
   );
+  yield takeLatest(Actions.FILTER_PRODUCT, filterProduct);
 }

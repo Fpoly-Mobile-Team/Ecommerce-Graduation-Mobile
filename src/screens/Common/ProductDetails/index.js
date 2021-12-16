@@ -168,7 +168,11 @@ const ProductDetails = ({route, navigation}) => {
               marginTop={10}
               backgroundColor={theme.colors.smoke}
             />
-            <ProductRelated productCategory={productCategory} />
+            {productCategory?.filter(v => v._id !== _id)?.length > 0 && (
+              <ProductRelated
+                productCategory={productCategory?.filter(v => v._id !== _id)}
+              />
+            )}
           </Animated.ScrollView>
           <ChooseTypeProduct
             nameShop={shop?.shopName}

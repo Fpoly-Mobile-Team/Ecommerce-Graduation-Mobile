@@ -6,4 +6,9 @@ export default StyleSheet.create({
     margin: getSize.s(6),
     width: (width - 24) / 2,
   }),
+  box: index => ({
+    width: width / 3 - 15,
+    marginLeft: index % 2 !== 0 ? 15 : 0,
+    paddingHorizontal: 5,
+  }),
 });

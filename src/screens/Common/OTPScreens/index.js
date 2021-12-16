@@ -5,12 +5,27 @@ import {useNavigation} from '@react-navigation/core';
 import {theme} from '@theme';
 import styles from './styles';
 import React, {useState} from 'react';
+import {useSelector} from 'react-redux';
 import {Image, TextInput, KeyboardAvoidingView} from 'react-native';
 
-const OTPScreen = () => {
+const OTPScreen = ({route}) => {
+  const config = useSelector(state => state.config?.data);
   const navigation = useNavigation();
   const [focus, setFocus] = useState(false);
-  const customStyle = focus ? styles.inputStyleFocus : styles.inputStyle;
+  const [phoneInput, setPhoneInput] = useState(' ');
+  const customStyle = focus
+    ? styles.inputStyleFocus(config)
+    : styles.inputStyle(config);
+  const {phone} = route.params || {};
+
+  const GetOTP = () => {
+    if ((phone && phone.length > 9) || (phoneInput && phoneInput.length > 9)) {
+      navigation.navigate(routes.OTPCODESCREENS, {
+        phoneNumber: phone,
+        phoneInput: phoneInput,
+      });
+    } else alert('Hãy nhập đúng số điện');
+  };
 
   return (
     <Block flex backgroundColor={theme.colors.white}>
@@ -37,11 +52,14 @@ const OTPScreen = () => {
               autoFocus={true}
               keyboardType="number-pad"
               style={customStyle}
+              value={phone ? phone : phoneInput}
+              editable={phone ? false : true}
               onFocus={() => setFocus(true)}
+              onChangeText={text => phoneInput && setPhoneInput(text)}
             />
           </Block>
           <Button
-            onPress={() => navigation.navigate(routes.OTPCODESCREENS)}
+            onPress={GetOTP}
             title="Tiếp tục"
             height={45}
             style={styles.btnContinue}

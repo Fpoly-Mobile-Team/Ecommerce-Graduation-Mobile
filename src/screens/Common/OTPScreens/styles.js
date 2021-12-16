@@ -13,21 +13,21 @@ export default StyleSheet.create({
     fontSize: 13,
     color: theme.colors.lightGray,
   },
-  inputStyle: {
+  inputStyle: config => ({
     borderBottomWidth: 0.8,
     borderColor: theme.colors.black,
-    color: theme.colors.paleGreen,
+    color: config?.backgroundcolor,
     paddingBottom: -20,
     fontSize: 16,
     width: width - 50,
-  },
-  inputStyleFocus: {
-    borderBottomWidth: 0.8,
-    borderColor: theme.colors.paleGreen,
-    color: theme.colors.paleGreen,
+  }),
+  inputStyleFocus: config => ({
+    borderBottomWidth: 1,
+    borderColor: config?.backgroundcolor,
+    color: config?.backgroundcolor,
     paddingBottom: -20,
     fontSize: 16,
     width: width - 50,
-  },
+  }),
   btnContinue: {paddingHorizontal: 40, marginTop: 50},
 });

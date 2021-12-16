@@ -47,7 +47,7 @@ const ProductReviews = ({route}) => {
     if (isFocused) {
       dispatch({
         type: actions.GET_HISTORY_ORDER,
-        params: {userId: user, status: 'Đã giao'},
+        params: {userId: user, status: 'Đã giao', sortByDate: -1},
       });
     }
   }, [dispatch, isFocused, user]);
@@ -153,7 +153,14 @@ const ProductReviews = ({route}) => {
           <_renderTop />
           <>
             {modeLoading ? (
+<<<<<<< HEAD
               <Empty lottie={lottie.load_more} />
+=======
+              <Empty
+                lottie={lottie.loading_percent}
+                content="Đợi trong giây lát..."
+              />
+>>>>>>> 36d1f7baac286e828e47983c921a0bfd8dd0b140
             ) : (
               productReview?.map(_renderCardReviews)
             )}

@@ -125,7 +125,7 @@ const ModalChooseType = ({
           console.log('data2:', data);
         }
       });
-      navigation.navigate(routes.CARTSCREENS);
+
       setIsVisible(false);
     }
   };

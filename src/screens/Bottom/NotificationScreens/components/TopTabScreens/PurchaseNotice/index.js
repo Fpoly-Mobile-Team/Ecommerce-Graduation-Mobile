@@ -19,7 +19,7 @@ const PurchaseNotice = () => {
 
   useEffect(() => {
     dispatch({type: actions.GET_NOTIF_ORDER, user});
-  }, [dispatch]);
+  }, [dispatch, user]);
 
   const renderItem = ({item, index}) => (
     <ItemNotification
