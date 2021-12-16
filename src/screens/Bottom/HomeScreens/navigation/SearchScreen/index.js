@@ -51,48 +51,11 @@ const SearchScreen = () => {
     if (keyword) {
       dispatch({
         type: actions.SEARCH_KEYWORD_PRODUCT,
-        params: {
-          name: keyword,
-          p: 1,
-          numshow: 12,
-        },
+        keyword,
       });
     }
   }, [dispatch, keyword]);
-  const _loadMore = () => {
-    if (keyword) {
-      if (page < totalPage) {
-        setPage(page + 1);
-        dispatch({
-          type: actions.SEARCH_KEYWORD_PRODUCT,
-          isLoadMore: true,
-          params: {
-            name: keyword,
-            p: page + 1,
-            numshow: 12,
-          },
-        });
-      }
-    }
-  };
 
-  const _onRefresh = () => {
-    setRefreshing(true);
-    setTimeout(() => {
-      setRefreshing(false);
-    }, 1000);
-    setPage(1);
-    if (keyword) {
-      dispatch({
-        type: actions.SEARCH_KEYWORD_PRODUCT,
-        params: {
-          name: keyword,
-          p: 1,
-          numshow: 12,
-        },
-      });
-    }
-  };
   return (
     <Block flex backgroundColor="white">
       <StatusBar barStyle="dark-content" />
@@ -138,8 +101,6 @@ const SearchScreen = () => {
             showsVerticalScrollIndicator={false}
             refreshing={refreshing}
             onEndReachedThreshold={0.5}
-            onRefresh={_onRefresh}
-            onEndReached={_loadMore}
             removeClippedSubviews={true}
           />
         ) : (

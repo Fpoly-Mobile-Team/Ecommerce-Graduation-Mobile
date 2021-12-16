@@ -238,7 +238,10 @@ function* getProductReview(actions) {
 
 function* searchProduct(actions) {
   try {
-    const res = yield API.get('product/searchAllProducts', actions.params);
+    const res = yield API.post(
+      'product/searchProductsByKeyword',
+      actions.keyword,
+    );
 
     yield put({
       type: _onSuccess(Actions.SEARCH_KEYWORD_PRODUCT),
