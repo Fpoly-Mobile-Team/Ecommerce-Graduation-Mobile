@@ -47,7 +47,7 @@ const ProductReviews = ({route}) => {
     if (isFocused) {
       dispatch({
         type: actions.GET_HISTORY_ORDER,
-        params: {userId: user, status: 'Đã giao'},
+        params: {userId: user, status: 'Đã giao', sortByDate: -1},
       });
     }
   }, [dispatch, isFocused, user]);
@@ -153,7 +153,10 @@ const ProductReviews = ({route}) => {
           <_renderTop />
           <>
             {modeLoading ? (
-              <Empty lottie={lottie.loading_percent} content="Đợi trong giây lát..." />
+              <Empty
+                lottie={lottie.loading_percent}
+                content="Đợi trong giây lát..."
+              />
             ) : (
               productReview?.map(_renderCardReviews)
             )}
