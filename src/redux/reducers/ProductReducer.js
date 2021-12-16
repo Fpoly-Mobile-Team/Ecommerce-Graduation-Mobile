@@ -61,6 +61,10 @@ export const searchProductShop = (...props) => {
   return reducerAdvance(...props, Actions.SEARCH_PRODUCT_SHOP);
 };
 
+export const productByDiscountValue = (...props) => {
+  return reducerAdvance(...props, Actions.GET_PRODUCTS_BY_DISCOUNT_VALUE);
+};
+
 export const ProductReducer = {
   product,
   productSale,
@@ -78,4 +82,5 @@ export const ProductReducer = {
   productReview,
   searchProduct,
   searchProductShop,
+  productByDiscountValue,
 };

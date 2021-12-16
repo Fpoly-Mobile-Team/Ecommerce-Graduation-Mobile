@@ -1,43 +1,72 @@
-import {images} from '@assets';
 import {Block, Button, Text} from '@components';
 import {theme} from '@theme';
 import moment from 'moment';
 import React from 'react';
-import {Image, Pressable} from 'react-native';
+import {Pressable} from 'react-native';
 import styles from './styles';
 
-const ItemPromoCart = ({title, cod, time, onPress, image}) => {
-  return (
-    <Pressable onPress={onPress}>
-      <Block
-        row
-        alignCenter
-        backgroundColor={theme.colors.white}
-        radius={10}
-        space="between"
-        paddingRight={10}
-        marginVertical={7}>
-        <Image style={styles.img} source={{uri: image}} />
-        <Block flex paddingLeft={5}>
-          <Text size={16} fontType="bold" paddingVertical={3}>
-            {title}
-          </Text>
-          <Text>{cod}</Text>
+const ItemPromoCart = ({title, cod, time, onPress, discount, discountType}) => {
+  const _renderItem = () => {
+    return (
+      <Pressable onPress={onPress}>
+        <Block
+          row
+          alignCenter
+          backgroundColor={theme.colors.white}
+          radius={10}
+          space="between"
+          paddingRight={10}
+          marginVertical={7}>
+          <Block
+            style={styles.wrapperType}
+            backgroundColor={'#BF190E'}
+            width={80}
+            height={80}
+            alignCenter
+            justifyCenter>
+            <Block row>
+              <Text
+                marginTop={10}
+                marginRight={10}
+                size={26}
+                fontType="bold"
+                color={theme.colors.white}>
+                {discount}
+              </Text>
+              {discountType === 'Phần trăm' && (
+                <Block alignEnd marginTop={-17}>
+                  <Text size={18} fontType="bold" color={theme.colors.white}>
+                    %
+                  </Text>
+                  <Text size={18} fontType="bold" color={theme.colors.white}>
+                    off
+                  </Text>
+                </Block>
+              )}
+            </Block>
+          </Block>
+
+          <Block flex paddingHorizontal={5}>
+            <Text
+              numberOfLines={1}
+              size={14}
+              fontType="semibold"
+              paddingVertical={3}>
+              {title}
+            </Text>
+            <Text size={13}>ID: {cod}</Text>
+          </Block>
+          <Block paddingTop={0} alignEnd>
+            <Text color={theme.colors.lightGray} size={12}>
+              {moment(time).format('DD/MM/YYYY')}
+            </Text>
+            <Button style={styles.btn} title="Chọn" onPress={onPress} />
+          </Block>
         </Block>
-        <Block paddingTop={20} alignEnd>
-          <Text color={theme.colors.lightGray} size={12}>
-            {moment(time).format('DD/MM/YYYY')}
-          </Text>
-          <Button
-            style={styles.btn}
-            height={30}
-            title="Chọn"
-            onPress={onPress}
-          />
-        </Block>
-      </Block>
-    </Pressable>
-  );
+      </Pressable>
+    );
+  };
+  return <_renderItem />;
 };
 
 export default ItemPromoCart;

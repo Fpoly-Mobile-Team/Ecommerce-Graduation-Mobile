@@ -268,6 +268,22 @@ function* searchProductShop(actions) {
   }
 }
 
+function* getProductsByDiscountValue(actions) {
+  try {
+    const res = yield API.get(
+      `product/getProductsByDiscountValue`,
+      actions.params,
+    );
+
+    yield put({
+      type: _onSuccess(Actions.GET_PRODUCTS_BY_DISCOUNT_VALUE),
+      data: res.data,
+    });
+  } catch (error) {
+    yield put({type: _onFail(Actions.GET_PRODUCTS_BY_DISCOUNT_VALUE)});
+  }
+}
+
 export function* watchProductSagas() {
   yield takeLatest(Actions.GET_PRODUCT, getProduct);
   yield takeLatest(Actions.GET_PRODUCT_SALE, getProductSale);
@@ -288,4 +304,8 @@ export function* watchProductSagas() {
   yield takeLatest(Actions.GET_PRODUCT_REVIEW, getProductReview);
   yield takeLatest(Actions.SEARCH_KEYWORD_PRODUCT, searchProduct);
   yield takeLatest(Actions.SEARCH_PRODUCT_SHOP, searchProductShop);
+  yield takeLatest(
+    Actions.GET_PRODUCTS_BY_DISCOUNT_VALUE,
+    getProductsByDiscountValue,
+  );
 }

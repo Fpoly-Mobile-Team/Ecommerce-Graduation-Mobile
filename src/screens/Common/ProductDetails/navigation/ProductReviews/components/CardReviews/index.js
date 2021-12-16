@@ -80,6 +80,7 @@ const CardReviews = ({
           </Pressable>
           <Block marginHorizontal={12} width={width / 3}>
             <Text
+              width={width / 2.6}
               size={14}
               fontType="semibold"
               color={theme.colors.black}

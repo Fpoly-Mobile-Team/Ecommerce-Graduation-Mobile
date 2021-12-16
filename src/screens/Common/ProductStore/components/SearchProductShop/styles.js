@@ -9,10 +9,11 @@ export default StyleSheet.create({
     tintColor: theme.colors.placeholder,
   },
   inputStyle: {
-    fontSize: getSize.s(14),
+    flex: 1,
     marginHorizontal: 5,
     alignItems: 'center',
-    height: getSize.s(35),
+    justifyContent: 'center',
+    height: getSize.s(40),
     color: theme.colors.black,
     fontFamily: theme.fonts.fontFamily.regular,
   },

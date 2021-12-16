@@ -195,7 +195,6 @@ const ItemProductCart = ({
               width={20}
               onPress={() => _onSelectProduct(item)}
             />
-
             <Image
               source={{uri: item?.product?.images[0]}}
               style={styles.img}

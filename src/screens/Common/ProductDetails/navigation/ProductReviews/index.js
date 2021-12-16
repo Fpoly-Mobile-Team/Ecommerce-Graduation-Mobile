@@ -153,7 +153,7 @@ const ProductReviews = ({route}) => {
           <_renderTop />
           <>
             {modeLoading ? (
-              <Empty lottie={lottie.loading_percent} content="Đợi trong giây lát..." />
+              <Empty lottie={lottie.load_more} />
             ) : (
               productReview?.map(_renderCardReviews)
             )}

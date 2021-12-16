@@ -51,7 +51,9 @@ const InforShop = ({data}) => {
       </Pressable>
       <Block
         backgroundColor={
-          data?.currentStatus === 'Online' && 'Idle'
+          data?.currentStatus === 'Idle'
+            ? theme.colors.blue
+            : data?.currentStatus === 'Online'
             ? theme.colors.green
             : theme.colors.pink
         }

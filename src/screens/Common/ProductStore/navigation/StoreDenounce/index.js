@@ -100,7 +100,9 @@ const StoreDenounce = ({route}) => {
                 width={5}
                 marginRight={4}
                 backgroundColor={
-                  shop?.currentStatus === 'Online' && 'Idle'
+                  shop?.currentStatus === 'Idle'
+                    ? theme.colors.blue
+                    : shop?.currentStatus === 'Online'
                     ? theme.colors.green
                     : theme.colors.pink
                 }

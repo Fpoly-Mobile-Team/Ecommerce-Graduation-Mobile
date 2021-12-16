@@ -7,7 +7,8 @@ export default StyleSheet.create({
     height: getSize.v(125),
     borderBottomLeftRadius: getSize.s(8),
     borderTopLeftRadius: getSize.s(8),
-    margin: 8
+    margin: getSize.m(8),
+    resizeMode: 'contain',
   },
 
   touch: {
