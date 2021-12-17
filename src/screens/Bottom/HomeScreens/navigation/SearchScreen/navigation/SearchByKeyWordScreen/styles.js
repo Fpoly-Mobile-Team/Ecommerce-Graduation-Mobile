@@ -1,5 +1,5 @@
 import {theme} from '@theme';
-import {getSize} from '@utils/responsive';
+import {getSize, width} from '@utils/responsive';
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
@@ -16,10 +16,8 @@ export default StyleSheet.create({
     color: theme.colors.placeholder,
     fontFamily: theme.fonts.fontFamily.regular,
   },
-  boxItem: {
-    height: 48,
-    justifyContent: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: theme.colors.smoke,
-  },
+  style_item: index => ({
+    margin: getSize.s(6),
+    width: (width - 24) / 2,
+  }),
 });

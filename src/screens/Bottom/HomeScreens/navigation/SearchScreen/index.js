@@ -2,13 +2,20 @@ import {icons} from '@assets';
 import {ChevronLeft} from '@assets/svg/common';
 import {Block, Text} from '@components';
 import ItemSearchCategory from '@components/Common/ItemList/ItemSearchCategory';
-import ItemSearchProduct from '@components/Common/ItemList/ItemSearchProduct';
 import ItemSuggestions from '@components/Common/ItemList/ItemSuggestions';
+import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/core';
 import actions from '@redux/actions';
 import {theme} from '@theme';
 import React, {useEffect, useState} from 'react';
-import {FlatList, Image, Pressable, StatusBar, TextInput} from 'react-native';
+import {
+  FlatList,
+  Image,
+  Pressable,
+  StatusBar,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useDispatch, useSelector} from 'react-redux';
 import {Data} from './components/dataSuggestions';
@@ -19,10 +26,7 @@ const SearchScreen = () => {
   const navigation = useNavigation();
   const data = useSelector(state => state.category?.data);
   const datasearch = useSelector(state => state.searchProduct?.data);
-  const totalPage = useSelector(state => state.searchProduct?.totalPage);
 
-  const [refreshing, setRefreshing] = useState(false);
-  const [page, setPage] = useState(1);
   const [keyword, setKeyword] = useState('');
   const {top} = useSafeAreaInsets();
 
@@ -34,14 +38,19 @@ const SearchScreen = () => {
     <ItemSuggestions key={index} title={item.title} />
   );
 
-  const renderItemSearchProduct = ({item, index}) => (
-    <ItemSearchProduct
-      key={index}
-      title={item.name}
-      image={item.images[0]}
-      _id={item._id}
-    />
-  );
+  const renderItemSearchProduct = ({item, index}) => {
+    return (
+      <TouchableOpacity
+        style={styles.boxItem}
+        onPress={() =>
+          navigation.navigate(routes.SEARCH_BY_KEYWORD_SCREEN, {
+            keyword: item._id,
+          })
+        }>
+        <Text>{item._id}</Text>
+      </TouchableOpacity>
+    );
+  };
 
   useEffect(() => {
     dispatch({type: actions.GET_CATEGORY_ALL});
@@ -51,7 +60,9 @@ const SearchScreen = () => {
     if (keyword) {
       dispatch({
         type: actions.SEARCH_KEYWORD_PRODUCT,
-        keyword,
+        params: {
+          keyword: keyword,
+        },
       });
     }
   }, [dispatch, keyword]);
@@ -94,15 +105,18 @@ const SearchScreen = () => {
 
       <Block paddingHorizontal={12}>
         {keyword ? (
-          <FlatList
-            data={datasearch}
-            renderItem={renderItemSearchProduct}
-            keyExtractor={(_, index) => _._id.toString()}
-            showsVerticalScrollIndicator={false}
-            refreshing={refreshing}
-            onEndReachedThreshold={0.5}
-            removeClippedSubviews={true}
-          />
+          <>
+            {datasearch?.length > 0 ? (
+              <FlatList
+                data={datasearch}
+                renderItem={renderItemSearchProduct}
+                keyExtractor={(_, index) => _._id.toString()}
+                showsVerticalScrollIndicator={false}
+                onEndReachedThreshold={0.5}
+                removeClippedSubviews={true}
+              />
+            ) : null}
+          </>
         ) : (
           <Block>
             <Text size={15} color={theme.colors.placeholder}>
