@@ -27,6 +27,7 @@ import Addressing from './ProfileScreens/navigation/StartSelling/navigation/Addr
 import SystemNotifications from './NotificationScreens/components/TopTabScreens/SystemNotifications';
 import PurchaseNotice from './NotificationScreens/components/TopTabScreens/PurchaseNotice';
 import DiscountProducts from './HomeScreens/navigation/DiscountProducts';
+import SearchByKeyWordScreen from './HomeScreens/navigation/SearchScreen/navigation/SearchByKeyWordScreen';
 
 export const bottom = {
   HOMESCREENS: HomeScreens,
@@ -58,4 +59,5 @@ export const bottom = {
   SYSTEM_NOTIFICATIONS: SystemNotifications,
   PURCHASE_NOTICE: PurchaseNotice,
   DISCOUNT_PRODUCTS: DiscountProducts
+  SEARCH_BY_KEYWORD_SCREEN: SearchByKeyWordScreen,
 };

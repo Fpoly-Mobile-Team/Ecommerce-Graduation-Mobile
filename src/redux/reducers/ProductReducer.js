@@ -57,6 +57,9 @@ export const productReview = (...props) => {
 export const searchProduct = (...props) => {
   return reducerAdvance(...props, Actions.SEARCH_KEYWORD_PRODUCT);
 };
+export const searchProductByKeyword = (...props) => {
+  return reducerDefault(...props, Actions.GET_PRODUCT_BY_KEYWORD);
+};
 export const searchProductShop = (...props) => {
   return reducerAdvance(...props, Actions.SEARCH_PRODUCT_SHOP);
 };
@@ -87,4 +90,5 @@ export const ProductReducer = {
   searchProductShop,
   productByDiscountValue,
   filterProduct,
+  searchProductByKeyword,
 };

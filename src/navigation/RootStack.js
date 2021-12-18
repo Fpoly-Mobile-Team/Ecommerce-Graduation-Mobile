@@ -209,6 +209,10 @@ const RootStack = () => {
             name={routes.ADDRESSING}
             component={bottom.ADDRESSING}
           />
+          <Stack.Screen
+            name={routes.SEARCH_BY_KEYWORD_SCREEN}
+            component={bottom.SEARCH_BY_KEYWORD_SCREEN}
+          />
         </Stack.Navigator>
       )}
     </NavigationContainer>
