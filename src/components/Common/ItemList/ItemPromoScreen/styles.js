@@ -24,6 +24,7 @@ export default StyleSheet.create({
     borderWidth: 1.5,
     alignContent: 'center',
     justifyContent: 'center',
+    resizeMode: 'contain'
   },
   ItemIconRight: {
     position: 'absolute',

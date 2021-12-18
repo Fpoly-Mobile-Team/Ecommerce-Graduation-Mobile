@@ -280,10 +280,13 @@ function* getProductsByDiscountValue(actions) {
 
     yield put({
       type: _onSuccess(Actions.GET_PRODUCTS_BY_DISCOUNT_VALUE),
-      data: res.data,
+      data: res.products,
     });
   } catch (error) {
     yield put({type: _onFail(Actions.GET_PRODUCTS_BY_DISCOUNT_VALUE)});
+  }
+}
+
 function* filterProduct(actions) {
   try {
     const body = queryString.stringify(actions.body);

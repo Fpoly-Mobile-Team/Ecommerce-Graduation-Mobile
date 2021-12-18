@@ -3,13 +3,11 @@ import {Block, Text} from '@components';
 import ItemProduct from '@components/Common/ItemList/ItemProduct';
 import {routes} from '@navigation/routes';
 import {useNavigation} from '@react-navigation/native';
-import {theme} from '@theme';
 import React from 'react';
 import {Image, Pressable} from 'react-native';
-import {width} from '@utils/responsive';
 import styles from './styles';
 
-const SellingProduct = ({titleSelling, data}) => {
+const SellingProduct = ({titleSelling, data, slicing}) => {
   const navigation = useNavigation();
   const _renderItem = (item, index) => (
     <ItemProduct
@@ -57,7 +55,9 @@ const SellingProduct = ({titleSelling, data}) => {
         )}
       </Block>
       <Block row wrap alignCenter>
-        {data?.map(_renderItem)}
+        {slicing
+          ? data?.slice(0, 14)?.map(_renderItem)
+          : data?.map(_renderItem)}
       </Block>
     </Block>
   );

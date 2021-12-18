@@ -6,7 +6,7 @@ import {Correct} from '@assets/svg/common';
 const CheckBoxCustom = ({PROP, value, setValue}) => {
   return (
     <Block paddingHorizontal={20} row>
-      {PROP.map(res => {
+      {PROP?.map(res => {
         return (
           <Block
             key={res.key}

@@ -8,6 +8,7 @@ export default StyleSheet.create({
     height: getSize.s(12),
     marginLeft: getSize.m(2),
     tintColor: theme.colors.pink,
+    marginTop: getSize.m(3),
   },
   styleitem: {
     margin: getSize.m(6),

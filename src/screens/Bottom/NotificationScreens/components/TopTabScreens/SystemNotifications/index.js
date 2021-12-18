@@ -20,7 +20,7 @@ const SystemNotifications = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       dispatch({type: actions.GET_NOTIFICATIONS});
-    }, 120000);
+    }, 7000);
     return () => clearInterval(interval);
   }, [dispatch]);
 

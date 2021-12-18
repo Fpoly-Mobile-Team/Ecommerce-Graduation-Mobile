@@ -60,10 +60,10 @@ const MyVouchers = () => {
   };
 
   return (
-    <Block flex>
+    <Block flex backgroundColor={'#E9EAEB'}>
       <Header checkBackground canGoBack title="Voucher của tôi" />
       {myvoucher && myvoucher?.length ? (
-        <Block>
+        <>
           <Block
             paddingHorizontal={12}
             paddingVertical={12}
@@ -97,7 +97,7 @@ const MyVouchers = () => {
             keyExtractor={item => item._id.toString()}
             showsVerticalScrollIndicator={false}
           />
-        </Block>
+        </>
       ) : (
         <_renderEmpty />
       )}

@@ -3,6 +3,11 @@ import {getSize, width} from '@utils/responsive';
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
+  fullscreen: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   image: {
     height: width,
     width: width * 0.7,

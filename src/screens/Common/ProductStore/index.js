@@ -16,6 +16,7 @@ import InforShop from './components/InforShop';
 import SearchShop from './components/SearchShop';
 import styles from './styles';
 import {lottie} from '@assets';
+import {getRandomItem} from '@utils/needed';
 
 const ProductStore = ({route}) => {
   const navigation = useNavigation();
@@ -39,6 +40,10 @@ const ProductStore = ({route}) => {
   const {id} = route.params || {};
 
   const focus = useIsFocused();
+  const result = getRandomItem(productShop);
+
+
+  console.log(result, '\n---------------------------------------');
 
   useEffect(() => {
     if (id) {
@@ -106,7 +111,7 @@ const ProductStore = ({route}) => {
             <Text color={config?.backgroundcolor} lineHeight={18}>
               Xem thêm
             </Text>
-            <Block alignCenter justifyCenter paddingLeft={4} paddingTop={4}>
+            <Block alignCenter justifyCenter paddingLeft={4} paddingTop={3}>
               <IconForward
                 width={15}
                 height={15}
@@ -168,7 +173,8 @@ const ProductStore = ({route}) => {
           <Block backgroundColor={theme.colors.white}>
             {productShop && (
               <ProductRelated
-                productCategory={productShop}
+                random={(productShop)}
+                // productCategory={productShop}
                 nameTitle="Sản phẩm bán chạy"
               />
             )}

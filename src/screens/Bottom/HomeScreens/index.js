@@ -132,7 +132,7 @@ const HomeScreens = ({route}) => {
         <Block paddingHorizontal={12}>
           {banner && <Carousel data={banner} />}
         </Block>
-        {product && <SellingProduct data={product} />}
+        {product && <SellingProduct data={product} slicing/>}
       </Animated.ScrollView>
     </Block>
   );

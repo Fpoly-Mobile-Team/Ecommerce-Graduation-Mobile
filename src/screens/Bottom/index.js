@@ -57,6 +57,5 @@ export const bottom = {
   ADDRESSING: Addressing,
   SYSTEM_NOTIFICATIONS: SystemNotifications,
   PURCHASE_NOTICE: PurchaseNotice,
-  // DISCOUNT_PRODUCTS: DiscountProducts,
   DISCOUNT_PRODUCTS: DiscountProducts
 };

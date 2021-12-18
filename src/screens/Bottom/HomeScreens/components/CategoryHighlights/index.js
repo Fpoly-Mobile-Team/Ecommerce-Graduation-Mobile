@@ -8,30 +8,34 @@ import {data} from './data';
 
 const CategoryHighlights = () => {
   const navigation = useNavigation();
-  const _renderItem = memo(({image, title, discount, params, index}) => {
-    return (
-      <Block alignCenter width={width / 5}>
-        <Pressable onPress={() => navigation.navigate(discount, params)}>
-          <Image
+  const _renderItem = memo(
+    ({image, title, discount, params, index, background}) => {
+      return (
+        <Block alignCenter width={width / 5}>
+          <Pressable
+            style={{...styles.wrapperType, backgroundColor: background}}
+            onPress={() => navigation.navigate(discount, params)}>
+            <Image
             source={{
               uri: image,
             }}
             style={styles.imgicon}
             resizeMode="contain"
           />
-        </Pressable>
-        <Text
-          center
-          numberOfLines={2}
-          size={12}
-          marginHorizontal={12}
-          marginBottom={16}
-          fontType="bold">
-          {title}
-        </Text>
-      </Block>
-    );
-  });
+          </Pressable>
+          <Text
+            center
+            numberOfLines={2}
+            size={12}
+            marginHorizontal={12}
+            marginBottom={16}
+            fontType="bold">
+            {title}
+          </Text>
+        </Block>
+      );
+    },
+  );
 
   return (
     <Block row wrap alignCenter justifyCenter marginTop={16}>

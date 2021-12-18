@@ -18,7 +18,7 @@ const ListItemStoreInformation = ({
             <ListItem.Title style={styles.title}>Đánh giá</ListItem.Title>
           </ListItem.Content>
           <Text size={12}>
-            {averageRating} / 5 ({countFeedback} đánh giá)
+            {averageRating}/5 ({countFeedback} đánh giá)
           </Text>
         </ListItem>
 

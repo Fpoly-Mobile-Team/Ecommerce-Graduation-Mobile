@@ -111,6 +111,7 @@ const ProductReviews = ({route}) => {
     'errr',
     data?.some(v => v.userId === user),
   );
+  
   const checkPurchases = () => {
     let array = [];
     for (let index = 0; index < data?.length; index++) {
@@ -153,14 +154,7 @@ const ProductReviews = ({route}) => {
           <_renderTop />
           <>
             {modeLoading ? (
-<<<<<<< HEAD
               <Empty lottie={lottie.load_more} />
-=======
-              <Empty
-                lottie={lottie.loading_percent}
-                content="Đợi trong giây lát..."
-              />
->>>>>>> 36d1f7baac286e828e47983c921a0bfd8dd0b140
             ) : (
               productReview?.map(_renderCardReviews)
             )}
