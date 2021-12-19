@@ -287,7 +287,7 @@ function* searchProductByKeyword(actions) {
   try {
     const res = yield API.post(
       'product/searchProductsByKeyword',
-      actions.keyword,
+      actions.body,
     );
 
     yield put({

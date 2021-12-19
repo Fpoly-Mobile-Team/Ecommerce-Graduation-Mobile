@@ -1,6 +1,6 @@
-import {icons} from '@assets';
+import {icons, lottie} from '@assets';
 import {ChevronLeft} from '@assets/svg/common';
-import {Block} from '@components';
+import {Block, Empty} from '@components';
 import ItemProduct from '@components/Common/ItemList/ItemProduct';
 import {useNavigation} from '@react-navigation/native';
 import actions from '@redux/actions';
@@ -15,12 +15,18 @@ const SearchByKeyWordScreen = ({route}) => {
   const {keyword} = route.params || {};
   const dispatch = useDispatch();
   const data = useSelector(state => state.searchProductByKeyword?.data);
+  const modeLoading = useSelector(
+    state => state.searchProductByKeyword?.isLoading,
+  );
   const navigation = useNavigation();
   const {top} = useSafeAreaInsets();
   const [keywords, setKeyword] = useState(keyword);
   useEffect(() => {
     if (keywords) {
-      dispatch({type: actions.GET_PRODUCT_BY_KEYWORD, keyword: keywords});
+      dispatch({
+        type: actions.GET_PRODUCT_BY_KEYWORD,
+        body: {keyword: keywords},
+      });
     }
   }, [dispatch, keywords]);
 
@@ -74,13 +80,17 @@ const SearchByKeyWordScreen = ({route}) => {
           />
         </Block>
       </Block>
-      <FlatList
-        data={data}
-        numColumns={2}
-        showsVerticalScrollIndicator={false}
-        renderItem={_renderItem}
-        keyExtractor={(item, index) => item._id.toString()}
-      />
+      {modeLoading ? (
+        <Empty content="Đợi trong giây lát..." lottie={lottie.loading_percent} />
+      ) : (
+        <FlatList
+          data={data}
+          numColumns={2}
+          showsVerticalScrollIndicator={false}
+          renderItem={_renderItem}
+          keyExtractor={(item, index) => item._id.toString()}
+        />
+      )}
     </Block>
   );
 };
