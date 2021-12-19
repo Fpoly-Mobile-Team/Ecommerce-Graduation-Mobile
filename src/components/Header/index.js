@@ -178,6 +178,7 @@ const Cart = ({colorimg}) => {
             data.push(element.productArray[i]);
           }
         }
+        console.log('length', data.length);
         setQuantity(data?.length);
       });
     }
