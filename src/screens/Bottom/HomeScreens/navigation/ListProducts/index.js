@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import {Block, Dialoading, Header, Text} from '@components';
+import {lottie} from '@assets';
+import {Block, Dialoading, Empty, Header, Text} from '@components';
 import ItemProduct from '@components/Common/ItemList/ItemProduct';
 import ItemSaleProducts from '@components/Common/ItemList/ItemSaleProducts';
 import {routes} from '@navigation/routes';
@@ -230,26 +231,32 @@ const ListProducts = ({route}) => {
           />
         )}
       </>
-      <FlatList
-        ListHeaderComponent={
-          titleCategory || titleCategorySub ? (
-            <Block paddingHorizontal={10} paddingVertical={20}>
-              <Text fontType={'bold'} size={18}>
-                {titleCategory ? titleCategory : titleCategorySub}
-              </Text>
-            </Block>
-          ) : null
-        }
-        numColumns={2}
-        data={titleCategorySub ? productSub : data}
-        renderItem={_renderItem}
-        keyExtractor={keyExtractor}
-        showsVerticalScrollIndicator={false}
-        onEndReachedThreshold={0.5}
-        removeClippedSubviews={true}
-        contentContainerStyle={{paddingBottom: bottom}}
-        refreshing={refreshing}
-      />
+      {titleCategorySub ? (
+        productSub?.length > 0
+      ) : data?.length > 0 ? (
+        <FlatList
+          ListHeaderComponent={
+            titleCategory || titleCategorySub ? (
+              <Block paddingHorizontal={10} paddingVertical={20}>
+                <Text fontType={'bold'} size={18}>
+                  {titleCategory ? titleCategory : titleCategorySub}
+                </Text>
+              </Block>
+            ) : null
+          }
+          numColumns={2}
+          data={titleCategorySub ? productSub : data}
+          renderItem={_renderItem}
+          keyExtractor={keyExtractor}
+          showsVerticalScrollIndicator={false}
+          onEndReachedThreshold={0.5}
+          removeClippedSubviews={true}
+          contentContainerStyle={{paddingBottom: bottom}}
+          refreshing={refreshing}
+        />
+      ) : (
+        <Empty lottie={lottie.cancel} content="Danh mục không có sản phẩm" />
+      )}
 
       <RBSheetEvent
         idProvince={idProvince}

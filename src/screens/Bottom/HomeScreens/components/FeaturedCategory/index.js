@@ -10,7 +10,15 @@ const FeaturedCategory = ({data}) => {
   const navigation = useNavigation();
   const _renderItem = (item, index) => {
     return (
-      <Pressable style={styles.btn} key={index}>
+      <Pressable
+        style={styles.btn}
+        key={index}
+        onPress={() =>
+          navigation.navigate(routes.LIST_PRODUCTS, {
+            titleCategory: item.name,
+            tag: '1',
+          })
+        }>
         <Image
           source={{uri: item.icon}}
           style={styles.imgcategory}

@@ -9,7 +9,7 @@ export default StyleSheet.create({
     tintColor: theme.colors.placeholder,
   },
   inputStyle: {
-    fontSize: getSize.s(14),
+    flex: 1,
     marginHorizontal: 5,
     alignItems: 'center',
     height: getSize.s(40),
