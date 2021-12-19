@@ -20,7 +20,7 @@ const _renderItem = ({item}) => (
   />
 );
 
-const ProductRelated = ({nameTitle, productCategory}) => {
+const ProductRelated = ({nameTitle, productCategory, random}) => {
   return (
     <Block paddingHorizontal={12} paddingTop={10}>
       <Block row alignCenter space="between">
@@ -44,7 +44,7 @@ const ProductRelated = ({nameTitle, productCategory}) => {
         <FlatList
           horizontal
           showsHorizontalScrollIndicator={false}
-          data={productCategory?.slice(0, 10)}
+          data={random ? random : productCategory?.slice(0, 10)}
           maxToRenderPerBatch={5}
           updateCellsBatchingPeriod={30}
           initialNumToRender={6}

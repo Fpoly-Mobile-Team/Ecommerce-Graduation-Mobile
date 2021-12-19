@@ -22,7 +22,7 @@ const BottomTabNavigation = () => {
       }, 1000);
     }
   }, [config]);
-  
+
   return (
     <Tab.Navigator
       tabBarOptions={{keyboardHidesTabBar: true}}
@@ -58,16 +58,16 @@ const BottomTabNavigation = () => {
       />
       {user ? (
         <Tab.Screen
-          name={routes.PROFILESCREENS}
-          component={bottom.PROFILESCREENS}
+          name={routes.AUTHFORSCREEN}
+          component={auth.AUTHFORSCREEN}
           options={{
             tabBarLabel: 'Tài khoản',
           }}
         />
       ) : (
         <Tab.Screen
-          name={routes.AUTHFORSCREEN}
-          component={auth.AUTHFORSCREEN}
+          name={routes.PROFILESCREENS}
+          component={bottom.PROFILESCREENS}
           options={{
             tabBarLabel: 'Tài khoản',
           }}

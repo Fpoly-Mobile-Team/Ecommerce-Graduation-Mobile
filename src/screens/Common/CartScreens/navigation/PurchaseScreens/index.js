@@ -21,7 +21,7 @@ const Purchase = ({route}) => {
         </Block>
         <Block paddingBottom={7}>
           <Text size={28} fontType="semibold">
-            Mua hàng thành công
+            Đặt hàng thành công
           </Text>
         </Block>
         <Block paddingBottom={14}>

@@ -177,6 +177,10 @@ const RootStack = () => {
             component={bottom.VIEW_PRODUCTS}
           />
           <Stack.Screen
+            name={routes.DISCOUNT_PRODUCTS}
+            component={bottom.DISCOUNT_PRODUCTS}
+          />
+          <Stack.Screen
             name={routes.CHOOSE_PROVICE}
             component={bottom.CHOOSE_PROVICE}
           />

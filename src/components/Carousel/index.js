@@ -13,7 +13,6 @@ const Carousel = ({data, shop}) => {
         key={index}
         source={{uri: shop ? item : item.banner}}
         style={styles.image}
-        resizeMode="contain"
         thumbnailSource={{uri: shop ? item : item.banner}}
       />
     );

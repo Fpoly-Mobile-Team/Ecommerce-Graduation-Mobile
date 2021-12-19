@@ -18,7 +18,10 @@ const PurchaseNotice = () => {
   const notice = useSelector(state => state.notificationsOrder?.data);
 
   useEffect(() => {
-    dispatch({type: actions.GET_NOTIF_ORDER, user});
+    const interval = setInterval(() => {
+      dispatch({type: actions.GET_NOTIF_ORDER, user});
+    }, 7000);
+    return () => clearInterval(interval);
   }, [dispatch, user]);
 
   const renderItem = ({item, index}) => (

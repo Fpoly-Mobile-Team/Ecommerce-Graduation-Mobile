@@ -32,7 +32,7 @@ const TabScreen = ({status}) => {
   const renderItem = ({item, index}) => {
     return (
       <ItemOderHistory
-        name={item._id.slice(0, 10)}
+        _id={reverseString(item._id)}
         date={item.purchaseDate}
         shop={item.shopInfo?.shopName}
         quantity={item.product?.length}

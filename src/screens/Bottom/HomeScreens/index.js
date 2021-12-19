@@ -31,7 +31,7 @@ const HomeScreens = ({route}) => {
       type: actions.GET_PRODUCT,
       params: {
         p: 1,
-        numshow: 14,
+        numshow: 30,
       },
     });
     dispatch({
@@ -66,7 +66,7 @@ const HomeScreens = ({route}) => {
       type: actions.GET_PRODUCT,
       params: {
         p: 1,
-        numshow: 14,
+        numshow: 30,
       },
     });
   }, [dispatch]);
@@ -132,7 +132,7 @@ const HomeScreens = ({route}) => {
         <Block paddingHorizontal={12}>
           {banner && <Carousel data={banner} />}
         </Block>
-        {product && <SellingProduct data={product} />}
+        {product && <SellingProduct data={product} slicing />}
       </Animated.ScrollView>
     </Block>
   );

@@ -26,6 +26,7 @@ import StartSelling from './ProfileScreens/navigation/StartSelling';
 import Addressing from './ProfileScreens/navigation/StartSelling/navigation/Addressing';
 import SystemNotifications from './NotificationScreens/components/TopTabScreens/SystemNotifications';
 import PurchaseNotice from './NotificationScreens/components/TopTabScreens/PurchaseNotice';
+import DiscountProducts from './HomeScreens/navigation/DiscountProducts';
 import SearchByKeyWordScreen from './HomeScreens/navigation/SearchScreen/navigation/SearchByKeyWordScreen';
 
 export const bottom = {
@@ -57,5 +58,6 @@ export const bottom = {
   ADDRESSING: Addressing,
   SYSTEM_NOTIFICATIONS: SystemNotifications,
   PURCHASE_NOTICE: PurchaseNotice,
+  DISCOUNT_PRODUCTS: DiscountProducts,
   SEARCH_BY_KEYWORD_SCREEN: SearchByKeyWordScreen,
 };

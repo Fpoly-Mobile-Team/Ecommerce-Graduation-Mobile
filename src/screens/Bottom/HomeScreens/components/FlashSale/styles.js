@@ -19,6 +19,7 @@ export default StyleSheet.create({
     height: getSize.s(10),
     marginLeft: getSize.m(2),
     tintColor: theme.colors.white,
+    marginTop: getSize.m(3),
   },
   stylebtn: {
     flexDirection: 'row',

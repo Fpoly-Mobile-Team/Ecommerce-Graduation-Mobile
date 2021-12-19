@@ -12,6 +12,7 @@ export default StyleSheet.create({
     flex: 1,
     marginHorizontal: 5,
     alignItems: 'center',
+    justifyContent: 'center',
     height: getSize.s(40),
     color: theme.colors.black,
     fontFamily: theme.fonts.fontFamily.regular,

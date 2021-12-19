@@ -1,4 +1,4 @@
-import {width} from '@utils/responsive';
+import {width, getSize} from '@utils/responsive';
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
@@ -9,7 +9,8 @@ export default StyleSheet.create({
     bottom: 2,
   },
   image: {
-    width: width - 24,
+    width: width - getSize.m(24.3),
     height: width / 3,
+    resizeMode: 'contain',
   },
 });

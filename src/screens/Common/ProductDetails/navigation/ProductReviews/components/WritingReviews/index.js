@@ -47,6 +47,7 @@ const WritingReviews = ({_id, check, isClosed}) => {
         setCloseModal(false);
       })
       .catch(e => {});
+
   const [rating, setRating] = useState(check ? check?.rating : 0);
   const [review, setReview] = useState(check ? check?.review : '');
 

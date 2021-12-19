@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import actions from '@redux/actions';
 import {SkypeIndicator} from 'react-native-indicators';
 import {theme} from '@theme';
+import {reverseString} from '@utils/needed';
 
 const ListItem = ({isClosed}) => {
   const dispatch = useDispatch();
@@ -25,13 +26,19 @@ const ListItem = ({isClosed}) => {
   const _onPress = () => {
     isClosed.current.close();
   };
+
   const renderItem = ({item, index}) => {
     return (
       <ItemPromoCart
         title={item.content}
-        cod={item._id}
+        cod={reverseString(item._id)}
         time={item.expireDate}
-        image={item.image}
+        discount={
+          item?.discountType === 'VNĐ'
+            ? item?.discount / 1000 + 'K'
+            : item?.discount * 100
+        }
+        discountType={item.discountType}
         onPress={_onPress}
       />
     );

@@ -7,7 +7,9 @@ export default StyleSheet.create({
     width: getSize.s(80),
     height: getSize.s(80),
     borderRadius: getSize.s(5),
-    marginLeft: getSize.m(5)
+    marginLeft: getSize.m(5),
+    resizeMode: 'contain',
+    borderRadius: getSize.s(25),
   },
   box_frist: {
     borderTopLeftRadius: getSize.s(5),

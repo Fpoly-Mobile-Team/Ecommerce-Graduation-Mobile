@@ -1,7 +1,6 @@
 import {getSize} from '@utils/responsive';
 import {StyleSheet} from 'react-native';
 import {theme} from '@theme';
-import {get} from 'lodash';
 
 export default StyleSheet.create({
   ItemContainer: {
@@ -20,11 +19,12 @@ export default StyleSheet.create({
   },
   imglogo: {
     width: getSize.s(50),
-    height: getSize.s(50),
+    height: getSize.v(50),
     borderRadius: getSize.s(50),
     borderWidth: 1.5,
     alignContent: 'center',
     justifyContent: 'center',
+    resizeMode: 'contain'
   },
   ItemIconRight: {
     position: 'absolute',

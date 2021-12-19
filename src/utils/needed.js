@@ -19,3 +19,9 @@ export const reverseString = str => {
   var toUpString = sliceString.toUpperCase();
   return toUpString;
 };
+
+export const getRandomItem = (arr) => {
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  const item = arr[randomIndex];
+  return item;
+}

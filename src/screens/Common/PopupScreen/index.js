@@ -11,8 +11,9 @@ const PopupScreen = () => {
   const onPress = () => {
     navigation.goBack();
   };
+  
   return (
-    <Block flex justifyCenter alignCenter>
+    <Pressable onPress={onPress} style={styles.fullscreen}>
       <Block height={width} width={width * 0.7}>
         <Image
           source={{
@@ -29,7 +30,7 @@ const PopupScreen = () => {
           />
         </Pressable>
       </Block>
-    </Block>
+    </Pressable>
   );
 };
 
