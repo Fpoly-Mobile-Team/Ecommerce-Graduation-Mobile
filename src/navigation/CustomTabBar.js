@@ -91,7 +91,7 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
             onPress={onPress}
             onLongPress={onLongPress}
             style={styles.btn}>
-            {index === 3 && notifications?.length && notice?.length && user && (
+            {index === 3 && notifications?.length && notice?.length && user ? (
               <Badge
                 status="error"
                 containerStyle={styles.containerStyle}
@@ -99,7 +99,7 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
                 textProps={{allowFontScaling: false}}
                 value={notifications?.length + notice?.length}
               />
-            )}
+            ) : null}
             <Image
               source={isFocused ? iconselect : icon}
               style={styles.iconstyle(isFocused, config?.backgroundcolor)}

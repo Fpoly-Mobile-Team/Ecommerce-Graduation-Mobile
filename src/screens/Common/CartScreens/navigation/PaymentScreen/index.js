@@ -13,6 +13,7 @@ import PaymentMethod from './components/PaymentMethod';
 import PaymentProduct from './components/PaymentProduct';
 import ShippingMethod from './components/ShippingMethod';
 import VoucherShop from './components/VoucherShop';
+import {Toast} from '@utils/helper';
 
 moment.locale('vi');
 var date = new Date();
@@ -100,20 +101,24 @@ const PaymentScreen = ({route}) => {
         },
         deliveryMethod: selectedMethodShip?.method,
       };
-      dispatch({
-        type: actions.CREATE_ORDER,
-        body: {
-          orderInfo: JSON.stringify(dataOrder),
-          product: dataOrder?.product,
-          shopId: data[0]?.product?.shopId,
-          type: type,
-        },
-        price: total,
-      });
-      dispatch({
-        type: actions.DELETE_MY_VOUCHER,
-        body: {voucherId: selectedIdVoucher?._id, user},
-      });
+      if (userInfo?.address.length > 0) {
+        dispatch({
+          type: actions.CREATE_ORDER,
+          body: {
+            orderInfo: JSON.stringify(dataOrder),
+            product: dataOrder?.product,
+            shopId: data[0]?.product?.shopId,
+            type: type,
+          },
+          price: total,
+        });
+        dispatch({
+          type: actions.DELETE_MY_VOUCHER,
+          body: {voucherId: selectedIdVoucher?._id, user},
+        });
+      } else {
+        Toast('Vui lòng thêm địa chỉ');
+      }
     } else {
       const dataOrder = {
         product: data.map(v => {
@@ -146,16 +151,20 @@ const PaymentScreen = ({route}) => {
         },
         deliveryMethod: selectedMethodShip?.method,
       };
-      dispatch({
-        type: actions.CREATE_ORDER,
-        body: {
-          orderInfo: JSON.stringify(dataOrder),
-          product: dataOrder?.product,
-          shopId: data[0]?.product?.shopId,
-          type: type,
-        },
-        price: total,
-      });
+      if (userInfo?.address?.length > 0) {
+        dispatch({
+          type: actions.CREATE_ORDER,
+          body: {
+            orderInfo: JSON.stringify(dataOrder),
+            product: dataOrder?.product,
+            shopId: data[0]?.product?.shopId,
+            type: type,
+          },
+          price: total,
+        });
+      } else {
+        Toast('Vui lòng thêm địa chỉ');
+      }
     }
   };
   return (
