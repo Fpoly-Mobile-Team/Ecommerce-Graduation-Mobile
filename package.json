@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "build-android-appcenter": "cd android && fastlane appcenter && cd ..",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "pins": "npx pod-install -ios",

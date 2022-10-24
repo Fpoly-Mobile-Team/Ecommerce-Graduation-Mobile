@@ -1,0 +1,24 @@
+TEST_APPCENTER_API_TOKEN="6439d4cb904167e90372a9372a14ad73da90a7d3"
+TEST_APPCENTER_OWNER_NAME="kingonwork-gmail.com"
+APPCENTER_APP_NAME="AntsAndroid"
+APPCENTER_DISTRIBUTE_APK="./app/build/outputs/apk/release/app-release.apk"
+
+default_platform(:android)
+
+platform :android do
+  lane :build do
+    gradle(task: 'clean', project_dir: './')
+    gradle(task: 'assemble', build_type: 'release', project_dir: './')
+  end
+
+  lane :appcenter do
+  build
+  appcenter_upload(
+      api_token: TEST_APPCENTER_API_TOKEN,
+      owner_name: TEST_APPCENTER_OWNER_NAME,
+      app_name: APPCENTER_APP_NAME,
+      apk: APPCENTER_DISTRIBUTE_APK,
+      destinations: 'public'
+      )
+  end
+end
