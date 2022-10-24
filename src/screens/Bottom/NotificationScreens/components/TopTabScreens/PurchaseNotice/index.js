@@ -31,7 +31,18 @@ const PurchaseNotice = () => {
       time={moment(item.sendDate).format('hh: mm, DD/MM/YYYY')}
       images={item.images}
       index={index}
-      onPress={() => navigation.navigate(routes.DETAILED_NOTICE, {item})}
+      onPress={() => {
+        dispatch({
+          type: actions.POST_READ_NOTIFICATION,
+          body: {
+            user: user,
+            idNotification: item._id,
+          },
+        });
+        dispatch({type: actions.GET_NOTIF_ORDER, user});
+        navigation.navigate(routes.DETAILED_NOTICE, {item});
+      }}
+      hasChecked={item.hasChecked}
     />
   );
 

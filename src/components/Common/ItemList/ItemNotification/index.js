@@ -6,12 +6,25 @@ import {Image, Pressable} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import styles from './styles';
 
-const ItemNotification = ({index, title, content, images, time, onPress}) => {
+const ItemNotification = ({
+  index,
+  title,
+  content,
+  images,
+  time,
+  onPress,
+  hasChecked,
+}) => {
   const promotion = 'https://i.imgur.com/SfUNX8R.png';
 
   return (
     <Pressable onPress={onPress}>
-      <Block row paddingVertical={12} paddingHorizontal={12} alignCenter>
+      <Block
+        backgroundColor={hasChecked ? 'smoke' : 'white'}
+        row
+        paddingVertical={12}
+        paddingHorizontal={12}
+        alignCenter>
         <Block
           key={index}
           width={32}
@@ -19,8 +32,7 @@ const ItemNotification = ({index, title, content, images, time, onPress}) => {
           alignCenter
           justifyCenter
           backgroundColor={theme.colors.orange}
-          radius={40}
-          marginTop={-60}>
+          radius={40}>
           <Image
             source={{
               uri: promotion,
@@ -33,7 +45,9 @@ const ItemNotification = ({index, title, content, images, time, onPress}) => {
           <Text fontType="bold" marginBottom={1}>
             {title}
           </Text>
-          <Text size={13} justify>{content}</Text>
+          <Text size={13} justify>
+            {content}
+          </Text>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <Block row alignCenter wrap marginVertical={6}>
               {images?.map(renderImage)}

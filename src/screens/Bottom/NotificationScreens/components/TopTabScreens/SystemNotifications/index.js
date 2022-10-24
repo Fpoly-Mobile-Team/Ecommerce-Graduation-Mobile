@@ -16,6 +16,7 @@ const SystemNotifications = () => {
   const navigation = useNavigation();
   const notifications = useSelector(state => state.notifications?.data);
   const focus = useIsFocused();
+  const user = useSelector(state => state.tokenUser?.data);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -30,7 +31,18 @@ const SystemNotifications = () => {
       content={item.content}
       time={moment(item.sendDate).format('hh: mm, DD/MM/YYYY')}
       images={item.images}
-      onPress={() => navigation.navigate(routes.DETAILED_NOTICE, {item})}
+      onPress={() => {
+        dispatch({
+          type: actions.POST_READ_NOTIFICATION,
+          body: {
+            user: user,
+            idNotification: item._id,
+          },
+        });
+        dispatch({type: actions.GET_NOTIFICATIONS});
+        navigation.navigate(routes.DETAILED_NOTICE, {item});
+      }}
+      hasChecked={item.hasChecked}
     />
   );
 

@@ -8,7 +8,9 @@ export const product = (...props) => {
 export const productSale = (...props) => {
   return reducerAdvance(...props, Actions.GET_PRODUCT_SALE);
 };
-
+export const productFlashSale = (...props) => {
+  return reducerAdvance(...props, Actions.GET_PRODUCT_FLASH_SALE);
+};
 export const productDetails = (...props) => {
   return reducerDefault(...props, Actions.GET_PRODUCT_BY_ID);
 };
@@ -91,4 +93,5 @@ export const ProductReducer = {
   productByDiscountValue,
   filterProduct,
   searchProductByKeyword,
+  productFlashSale,
 };

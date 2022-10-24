@@ -17,6 +17,8 @@ const HomeScreens = ({route}) => {
   const banner = useSelector(state => state.banner?.data);
   const categoryHome = useSelector(state => state.categoryHome?.data);
   const product = useSelector(state => state.product?.data);
+  const productFlashSale = useSelector(state => state.productFlashSale?.data);
+
   const config = useSelector(state => state.config?.data);
   const shoplist = useSelector(state => state.shop?.data);
   const scrollY = useRef(new Animated.Value(0)).current;
@@ -70,12 +72,21 @@ const HomeScreens = ({route}) => {
       },
     });
   }, [dispatch]);
-
+  useEffect(() => {
+    dispatch({
+      type: actions.GET_PRODUCT_FLASH_SALE,
+      params: {
+        p: 1,
+        numshow: 30,
+      },
+    });
+  }, [dispatch]);
   useEffect(() => {
     dispatch({
       type: actions.GET_SHOP_USERS,
     });
   }, [dispatch]);
+  console.log({productFlashSale});
   return (
     <Block flex backgroundColor="white">
       <Header type="Home" scroll={scrollY} />
@@ -113,7 +124,9 @@ const HomeScreens = ({route}) => {
           {banner && <Carousel data={banner} />}
         </Block>
         <CategoryHighlights />
-        {product && <FlashSale data={product} />}
+        {productFlashSale && productFlashSale?.length > 0 && (
+          <FlashSale data={productFlashSale} />
+        )}
         <Block
           height={8}
           marginTop={10}
