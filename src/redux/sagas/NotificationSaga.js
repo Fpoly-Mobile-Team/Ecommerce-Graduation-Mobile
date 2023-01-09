@@ -7,8 +7,7 @@ import {Toast} from '@utils/helper';
 function* getNotifications(actions) {
   try {
     const res = yield API.get(
-      'notification/getSystemNotifications',
-      actions.params,
+      `notification/getSystemNotificationsByUser?user=${actions.user}`,
     );
 
     yield put({
@@ -35,7 +34,7 @@ function* getNotifOrder(actions) {
 }
 function* changeReadStatusNotification(actions) {
   try {
-    const res = yield API.post(
+    const res = yield API.postFormData(
       'getUser/changeReadStatusNotification',
       actions.body,
     );

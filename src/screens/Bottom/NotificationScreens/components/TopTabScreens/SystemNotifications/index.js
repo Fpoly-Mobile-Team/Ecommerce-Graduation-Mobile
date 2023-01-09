@@ -19,11 +19,8 @@ const SystemNotifications = () => {
   const user = useSelector(state => state.tokenUser?.data);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      dispatch({type: actions.GET_NOTIFICATIONS});
-    }, 7000);
-    return () => clearInterval(interval);
-  }, [dispatch]);
+    dispatch({type: actions.GET_NOTIFICATIONS, user: user});
+  }, [dispatch, user]);
 
   const renderItem = ({item, index}) => (
     <ItemNotification
@@ -39,7 +36,6 @@ const SystemNotifications = () => {
             idNotification: item._id,
           },
         });
-        dispatch({type: actions.GET_NOTIFICATIONS});
         navigation.navigate(routes.DETAILED_NOTICE, {item});
       }}
       hasChecked={item.hasChecked}
