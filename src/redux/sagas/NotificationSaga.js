@@ -7,8 +7,7 @@ import {Toast} from '@utils/helper';
 function* getNotifications(actions) {
   try {
     const res = yield API.get(
-      'notification/getSystemNotifications',
-      actions.params,
+      `notification/getSystemNotificationsByUser?user=${actions.user}`,
     );
 
     yield put({
@@ -33,8 +32,26 @@ function* getNotifOrder(actions) {
     yield put({type: _onFail(Actions.GET_NOTIF_ORDER)});
   }
 }
+function* changeReadStatusNotification(actions) {
+  try {
+    const res = yield API.postFormData(
+      'getUser/changeReadStatusNotification',
+      actions.body,
+    );
 
+    yield put({
+      type: _onSuccess(Actions.POST_READ_NOTIFICATION),
+      data: res.data,
+    });
+  } catch (error) {
+    yield put({type: _onFail(Actions.POST_READ_NOTIFICATION)});
+  }
+}
 export function* watchNotificationSagas() {
   yield takeLatest(Actions.GET_NOTIFICATIONS, getNotifications);
   yield takeLatest(Actions.GET_NOTIF_ORDER, getNotifOrder);
+  yield takeLatest(
+    Actions.POST_READ_NOTIFICATION,
+    changeReadStatusNotification,
+  );
 }

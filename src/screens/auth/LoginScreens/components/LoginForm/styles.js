@@ -18,6 +18,7 @@ export default StyleSheet.create({
     zIndex: 8,
   },
   containerInputStyle: {
+    flex: 1,
     borderRadius: 5,
     backgroundColor: 'white',
     borderWidth: 1,

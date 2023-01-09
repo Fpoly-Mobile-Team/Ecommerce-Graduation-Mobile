@@ -21,7 +21,7 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
   const isFocused = useIsFocused();
   useEffect(() => {
     if (isFocused) {
-      dispatch({type: actions.GET_NOTIFICATIONS});
+      dispatch({type: actions.GET_NOTIFICATIONS, user});
       dispatch({type: actions.GET_NOTIF_ORDER, user});
     }
   }, [dispatch, isFocused, user]);

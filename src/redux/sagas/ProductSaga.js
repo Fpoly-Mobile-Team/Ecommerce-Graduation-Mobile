@@ -33,6 +33,23 @@ function* getProductSale(actions) {
     yield put({type: _onFail(Actions.GET_PRODUCT_SALE)});
   }
 }
+function* getProductFlashSale(actions) {
+  try {
+    const res = yield API.get(
+      'product/getAllProductsFlashSale',
+      actions.params,
+    );
+
+    yield put({
+      type: _onSuccess(Actions.GET_PRODUCT_FLASH_SALE),
+      data: res.data,
+      totalPage: res.total_Page,
+      isLoadMore: actions.isLoadMore,
+    });
+  } catch (error) {
+    yield put({type: _onFail(Actions.GET_PRODUCT_FLASH_SALE)});
+  }
+}
 
 function* getProductDetails(actions) {
   try {
@@ -301,10 +318,7 @@ function* filterProduct(actions) {
 
 function* searchProductByKeyword(actions) {
   try {
-    const res = yield API.post(
-      'product/searchProductsByKeyword',
-      actions.body,
-    );
+    const res = yield API.post('product/searchProductsByKeyword', actions.body);
 
     yield put({
       type: _onSuccess(Actions.GET_PRODUCT_BY_KEYWORD),
@@ -341,4 +355,5 @@ export function* watchProductSagas() {
   );
   yield takeLatest(Actions.FILTER_PRODUCT, filterProduct);
   yield takeLatest(Actions.GET_PRODUCT_BY_KEYWORD, searchProductByKeyword);
+  yield takeLatest(Actions.GET_PRODUCT_FLASH_SALE, getProductFlashSale);
 }
