@@ -4,10 +4,10 @@ import Config from 'react-native-config';
 import store from '@redux/store';
 
 // axios.defaults.baseURL = Config.API_SERVER_URL;
-axios.defaults.baseURL = 'http://localhost:5000/';
-// Platform.OS === 'ios'
-//   ? Config.API_STAGING_SERVER_URL
-//   : 'https://antsecm.herokuapp.com/';
+axios.defaults.baseURL =
+  Platform.OS === 'ios'
+    ? Config.API_STAGING_SERVER_URL
+    : 'https://ecommerceserver-production.up.railway.app/';
 
 const getDataBody = config => {
   let data = '';

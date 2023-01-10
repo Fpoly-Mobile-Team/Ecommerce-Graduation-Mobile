@@ -20,8 +20,8 @@ export const reverseString = str => {
   return toUpString;
 };
 
-export const getRandomItem = (arr) => {
+export const getRandomItem = (arr = []) => {
   const randomIndex = Math.floor(Math.random() * arr.length);
   const item = arr[randomIndex];
   return item;
-}
+};

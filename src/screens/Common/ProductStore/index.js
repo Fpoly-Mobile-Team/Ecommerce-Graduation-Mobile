@@ -40,8 +40,7 @@ const ProductStore = ({route}) => {
   const {id} = route.params || {};
 
   const focus = useIsFocused();
-  const result = getRandomItem(productShop);
-
+  const result = getRandomItem(productShop || []);
 
   console.log(result, '\n---------------------------------------');
 
@@ -173,7 +172,7 @@ const ProductStore = ({route}) => {
           <Block backgroundColor={theme.colors.white}>
             {productShop && (
               <ProductRelated
-                random={(productShop)}
+                random={productShop}
                 // productCategory={productShop}
                 nameTitle="Sản phẩm bán chạy"
               />
